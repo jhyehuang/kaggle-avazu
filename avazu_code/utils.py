@@ -5,7 +5,9 @@ import time
 import sys
 from joblib import dump, load
 
-
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
 
 sample_pct = .05
 tvh = 'N'
@@ -36,8 +38,8 @@ except:
 
 
 def print_help():
-    print ("usage: python utils -set_params [tvh=Y|N], [sample_pct]")
-    print ("for example: python utils -set_params N 0.05")
+    print "usage: python utils -set_params [tvh=Y|N], [sample_pct]"
+    print "for example: python utils -set_params N 0.05"
 
 def main():
     if sys.argv[1] == '-set_params' and len(sys.argv) == 4:
@@ -140,7 +142,7 @@ def my_lift(order_by, p, y, w, n_rank, dual_axis=False, random_state=0, dither=1
     avg_p = grp1['pw'].aggregate(np.sum) / sum_w 
     avg_y = grp1['yw'].aggregate(np.sum) / sum_w
     
-    xs = range(1, n_rank+1)
+    xs = xrange(1, n_rank+1)
     
     fig, ax1 = plt.subplots()
     if fig_size is None:
@@ -210,7 +212,7 @@ def calcTVTransform(df, vn, vn_y, cred_k, filter_train, mean0=None):
     #先验
     if mean0 is None:
         mean0 = df.ix[filter_train, vn_y].mean()
-        print ("mean0:", mean0)
+        print "mean0:", mean0
     else:
         mean0 = mean0[~filter_train]
 
@@ -241,25 +243,25 @@ def calcTVTransform(df, vn, vn_y, cred_k, filter_train, mean0=None):
 
 def cntDualKey(df, vn, vn2, key_src, key_tgt, fill_na=False):
     
-    print ("build src key")
+    print "build src key"
     _key_src = np.add(df[key_src].astype('string').values, df[vn].astype('string').values)
-    print ("build tgt key")
+    print "build tgt key"
     _key_tgt = np.add(df[key_tgt].astype('string').values, df[vn].astype('string').values)
     
     if vn2 is not None:
         _key_src = np.add(_key_src, df[vn2].astype('string').values)
         _key_tgt = np.add(_key_tgt, df[vn2].astype('string').values)
 
-    print ("aggreate by src key")
+    print "aggreate by src key"
     grp1 = df.groupby(_key_src)
     cnt1 = grp1[vn].aggregate(np.size)
     
-    print ("map to tgt key")
+    print "map to tgt key"
     vn_sum = 'sum_' + vn + '_' + key_src + '_' + key_tgt
     _cnt = cnt1[_key_tgt].values
 
     if fill_na is not None:
-        print ("fill in na")
+        print "fill in na"
         _cnt[np.isnan(_cnt)] = fill_na    
 
     vn_cnt_tgt = 'cnt_' + vn + '_' + key_tgt
@@ -270,16 +272,16 @@ def cntDualKey(df, vn, vn2, key_src, key_tgt, fill_na=False):
 def my_grp_cnt(group_by, count_by):
     _ts = time.time()
     _ord = np.lexsort((count_by, group_by))
-    print (time.time() - _ts)
+    print time.time() - _ts
     _ts = time.time()    
     _ones = pd.Series(np.ones(group_by.size))
-    print (time.time() - _ts)
+    print time.time() - _ts
     _ts = time.time()    
     #_cs1 = _ones.groupby(group_by[_ord]).cumsum().values
     _cs1 = np.zeros(group_by.size)
     _prev_grp = '___'
     runnting_cnt = 0
-    for i in range(1, group_by.size):
+    for i in xrange(1, group_by.size):
         i0 = _ord[i]
         if _prev_grp == group_by[i0]:
             if count_by[_ord[i-1]] != count_by[i0]: 
@@ -296,17 +298,17 @@ def my_grp_cnt(group_by, count_by):
                     break
                 j -= 1
             
-    print (time.time() - _ts)
+    print time.time() - _ts
     if True:
         return _cs1
     else:
         _ts = time.time()    
 
         org_idx = np.zeros(group_by.size, dtype=np.int)
-        print (time.time() - _ts)
+        print time.time() - _ts
         _ts = time.time()    
-        org_idx[_ord] = np.asarray(range(group_by.size))
-        print (time.time() - _ts)
+        org_idx[_ord] = np.asarray(xrange(group_by.size))
+        print time.time() - _ts
         _ts = time.time()    
 
         return _cs1[org_idx]
@@ -314,13 +316,13 @@ def my_grp_cnt(group_by, count_by):
 def my_cnt(group_by):
     _ts = time.time()
     _ord = np.argsort(group_by)
-    print (time.time() - _ts)
+    print time.time() - _ts
     _ts = time.time()    
     #_cs1 = _ones.groupby(group_by[_ord]).cumsum().values
     _cs1 = np.zeros(group_by.size)
     _prev_grp = '___'
     runnting_cnt = 0
-    for i in range(1, group_by.size):
+    for i in xrange(1, group_by.size):
         i0 = _ord[i]
         if _prev_grp == group_by[i0]:
             running_cnt += 1
@@ -336,57 +338,57 @@ def my_cnt(group_by):
                     break
                 j -= 1
             
-    print (time.time() - _ts)
+    print time.time() - _ts
     return _cs1
 
 def my_grp_value_diff(group_by, order_by, value):
     _ts = time.time()
     _ord = np.lexsort((order_by, group_by))
-    print (time.time() - _ts)
+    print time.time() - _ts
     _ts = time.time()    
     _ones = pd.Series(np.ones(group_by.size))
-    print (time.time() - _ts)
+    print time.time() - _ts
     _ts = time.time()    
     #_cs1 = _ones.groupby(group_by[_ord]).cumsum().values
     _cs1 = np.zeros(group_by.size)
     _prev_grp = '___'
-    for i in range(1, group_by.size):
+    for i in xrange(1, group_by.size):
         i0 = _ord[i]
         if _prev_grp == group_by[i0]:
             _cs1[i0] = value[_ord[i]] - value[_ord[i-1]]
         else:
             _cs1[i0] = 1e7
             _prev_grp = group_by[i0]
-    print (time.time() - _ts)
+    print time.time() - _ts
     
     return np.minimum(_cs1, 1e7)
 
 def my_grp_idx(group_by, order_by):
     _ts = time.time()
     _ord = np.lexsort((order_by, group_by))
-    print (time.time() - _ts)
+    print time.time() - _ts
     _ts = time.time()    
     _ones = pd.Series(np.ones(group_by.size))
-    print (time.time() - _ts)
+    print time.time() - _ts
     _ts = time.time()    
     #_cs1 = _ones.groupby(group_by[_ord]).cumsum().values
     _cs1 = np.zeros(group_by.size)
     _prev_grp = '___'
-    for i in range(1, group_by.size):
+    for i in xrange(1, group_by.size):
         i0 = _ord[i]
         if _prev_grp == group_by[i0]:
             _cs1[i] = _cs1[i - 1] + 1
         else:
             _cs1[i] = 1
             _prev_grp = group_by[i0]
-    print (time.time() - _ts)
+    print time.time() - _ts
     _ts = time.time()    
     
     org_idx = np.zeros(group_by.size, dtype=np.int)
-    print (time.time() - _ts)
+    print time.time() - _ts
     _ts = time.time()    
-    org_idx[_ord] = np.asarray(range(group_by.size))
-    print (time.time() - _ts)
+    org_idx[_ord] = np.asarray(xrange(group_by.size))
+    print time.time() - _ts
     _ts = time.time()    
 
     return _cs1[org_idx]
@@ -395,31 +397,31 @@ def calcDualKey(df, vn, vn2, key_src, key_tgt, vn_y, cred_k, mean0=None, add_cou
     if mean0 is None:
         mean0 = df[vn_y].mean()
     
-    print ("build src key")
+    print "build src key"
     _key_src = np.add(df[key_src].astype('string').values, df[vn].astype('string').values)
-    print ("build tgt key")
+    print "build tgt key"
     _key_tgt = np.add(df[key_tgt].astype('string').values, df[vn].astype('string').values)
     
     if vn2 is not None:
         _key_src = np.add(_key_src, df[vn2].astype('string').values)
         _key_tgt = np.add(_key_tgt, df[vn2].astype('string').values)
 
-    print ("aggreate by src key")
+    print "aggreate by src key"
     grp1 = df.groupby(_key_src)
     sum1 = grp1[vn_y].aggregate(np.sum)
     cnt1 = grp1[vn_y].aggregate(np.size)
     
-    print ("map to tgt key")
+    print "map to tgt key"
     vn_sum = 'sum_' + vn + '_' + key_src + '_' + key_tgt
     _sum = sum1[_key_tgt].values
     _cnt = cnt1[_key_tgt].values
 
     if fill_na:
-        print ("fill in na")
+        print "fill in na"
         _cnt[np.isnan(_sum)] = 0    
         _sum[np.isnan(_sum)] = 0
 
-    print ("calc exp")
+    print "calc exp"
     if vn2 is not None:
         vn_yexp = 'exp_' + vn + '_' + vn2 + '_' + key_src + '_' + key_tgt
     else:
@@ -427,7 +429,7 @@ def calcDualKey(df, vn, vn2, key_src, key_tgt, vn_y, cred_k, mean0=None, add_cou
     df[vn_yexp] = (_sum + cred_k * mean0)/(_cnt + cred_k)
 
     if add_count:
-        print ("add counts")
+        print "add counts"
         vn_cnt_src = 'cnt_' + vn + '_' + key_src
         df[vn_cnt_src] = _cnt
         grp2 = df.groupby(_key_tgt)
@@ -441,7 +443,7 @@ def get_set_diff(df, vn, f1, f2):
     set1 = set(np.unique(df[vn].values[f1]))
     set2 = set(np.unique(df[vn].values[f2]))
     set2_1 = set2 - set1
-    print (vn, '\t', len(set1), '\t', len(set2), '\t', len(set2_1))
+    print vn, '\t', len(set1), '\t', len(set2), '\t', len(set2_1)
     return len(set2_1) * 1.0 / len(set2)
 
 
@@ -485,7 +487,7 @@ def calc_exptv(t0, vn_list, last_day_only=False, add_count=False):
         else:
             t0a[vn] = t0[vn]
 
-        for day_v in range(22, 32):  #【22，23，。。。，31】
+        for day_v in xrange(22, 32):  #【22，23，。。。，31】
             cred_k = 10   # cred_k：先验强度
             if day_v not in day_exps:
                 day_exps[day_v] = {}
@@ -515,7 +517,7 @@ def calc_exptv(t0, vn_list, last_day_only=False, add_count=False):
                 else:
                     day_exps[day_v][vn_key] = calcTVTransform(t1, vn, 'click', cred_k, filter_t2, mean0=t0.exptv_app_or_web.values)
             
-            print (vn, vn_key, " ", day_v, " done in ", time.time() - _tstart)
+            print vn, vn_key, " ", day_v, " done in ", time.time() - _tstart
         t0a.drop(vn, inplace=True, axis=1)
         
     for vn in vn_list:
@@ -528,8 +530,8 @@ def calc_exptv(t0, vn_list, last_day_only=False, add_count=False):
         t0[vn_exp] = np.zeros(t0.shape[0])
         if add_count:
             t0['cnttv_'+vn_key] = np.zeros(t0.shape[0])
-        for day_v in range(22, 32):
-            print (vn, vn_key, day_v, t0.ix[t0.day.values == day_v, vn_exp].values.size, day_exps[day_v][vn_key]['exp'].size)
+        for day_v in xrange(22, 32):
+            print vn, vn_key, day_v, t0.ix[t0.day.values == day_v, vn_exp].values.size, day_exps[day_v][vn_key]['exp'].size
             t0.loc[t0.day.values == day_v, vn_exp]=day_exps[day_v][vn_key]['exp']
             if add_count:
                 t0.loc[t0.day.values == day_v, 'cnttv_'+vn_key]=day_exps[day_v][vn_key]['cnt']
