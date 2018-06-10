@@ -7,6 +7,7 @@ import pylab
 import sys
 import time
 sys.path.append('/home/zhijie.huang/github/jhye_tool/ml')
+sys.path.append('/home/zhijie.huang/github/jhye_tool')
 import xgboost as xgb
 from joblib import dump, load, Parallel, delayed
 import utils
@@ -21,11 +22,11 @@ logging.basicConfig(
 
 
 train_set_path = FLAGS.train_set_path
-output = FLAGS.output
+output = FLAGS.output_dir
 
-
-train = pd.read_csv(open(train_set_path + "train_01.csv", "ra"))
-test_x = pd.read_csv(open(train_set_path + "test", "ra"))
+logging.debug(train_set_path)
+train = pd.read_csv(open(train_set_path + "train_01.csv", "r"))
+test_x = pd.read_csv(open(train_set_path + "test", "r"))
 
 #下采样：sample_pct=1/0.05
 #原始样本约40M, 40M*0.05 = 2M
@@ -33,7 +34,7 @@ if utils.sample_pct < 1.0:
     np.random.seed(999)
     r1 = np.random.uniform(0, 1, train.shape[0])  #产生0～40M的随机数
     train = train.ix[r1 < utils.sample_pct, :]
-    logging.debug("testing with small sample of training data, ", train.shape
+    logging.debug("testing with small sample of training data, ", train.shape)
 
 #2a
 test_x['click'] = 0  #测试样本加一列click，初始化为0
@@ -53,8 +54,6 @@ train['day_hour_next'] = train['day_hour'] + 1
 train['app_or_web'] = 0
 #如果app_id='ecad2386',app_or_web=1
 train.ix[train.app_id.values=='ecad2386', 'app_or_web'] = 1
-
-train = train
 
 #串联app_id和site_id
 train['app_site_id'] = np.add(train.app_id.values, train.site_id.values)
@@ -229,7 +228,7 @@ traintv_mx_save['traintv_mx'] = traintv_mx
 traintv_mx_save['click'] = train.click.values
 traintv_mx_save['day'] = train.day.values
 traintv_mx_save['site_id'] = train.site_id.values
-dump(traintv_mx_save, tmp_data_path + 'traintv_mx.joblib_dat')
+dump(traintv_mx_save, FLAGS.tmp_data_path  +FLAGS.train_job_name+ '.joblib_dat')
 
 
 
