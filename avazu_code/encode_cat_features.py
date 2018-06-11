@@ -56,7 +56,7 @@ logging.debug("to add some basic features ...")
 logging.debug("to encode categorical features using mean responses from earlier days -- univariate")
 sys.stdout.flush()
 
-exptv_vn_list=['device_id','device_ip','app_or_web','C14','C17','C21',
+exptv_vn_list=['device_id','device_ip','C14','C17','C21',
     'app_domain','site_domain','site_id','app_id','device_model','hour']
 
 new_expvn=calc_exptv(train, exptv_vn_list,add_count=True)
