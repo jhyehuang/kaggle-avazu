@@ -11,7 +11,7 @@ sys.path.append('/home/zhijie.huang/github/jhye_tool')
 import xgboost as xgb
 from joblib import dump, load, Parallel, delayed
 import utils
-from utils import *
+from ml_utils import *
 
 import logging
 from flags import parse_args
@@ -26,14 +26,14 @@ output = FLAGS.output_dir
 
 logging.debug(train_set_path)
 train = pd.read_csv(open(train_set_path + "train_01.csv", "r"))
-test_x = pd.read_csv(open(train_set_path + "test", "r"))
+test_x = pd.read_csv(open(train_set_path + "test_01", "r"))
 
 #下采样：sample_pct=1/0.05
 #原始样本约40M, 40M*0.05 = 2M
-if utils.sample_pct < 1.0:
+if FLAGS.sample_pct < 1.0:
     np.random.seed(999)
     r1 = np.random.uniform(0, 1, train.shape[0])  #产生0～40M的随机数
-    train = train.ix[r1 < utils.sample_pct, :]
+    train = train.ix[r1 < FLAGS.sample_pct, :]
     logging.debug("testing with small sample of training data, ", train.shape)
 
 #2a
@@ -63,63 +63,42 @@ train['app_site_id'] = np.add(train.app_id.values, train.site_id.values)
 logging.debug("to encode categorical features using mean responses from earlier days -- univariate")
 sys.stdout.flush()
 
-calc_exptv(train,  ['app_or_web'])
+exptv_vn_list=['device_id','device_ip','app_or_web','C14','C17','C21',
+    'app_domain','site_domain','site_id','app_id','device_model','hour']
 
-exptv_vn_list = ['app_site_id', 'as_domain', 'C14','C17', 'C21', 'device_model', 'device_ip', 'device_id', 'dev_ip_aw', 
-                'app_site_model', 'site_model','app_model', 'dev_id_ip', 'C14_aw', 'C17_aw', 'C21_aw']
+new_expvn=calc_exptv(train, exptv_vn_list,add_count=True)
 
-calc_exptv(train, exptv_vn_list)
-
-calc_exptv(train, ['app_site_id'], add_count=True)
-
-
-logging.debug("to encode categorical features using mean responses from earlier days -- multivariate")
-vns = ['app_or_web',  'device_ip', 'app_site_id', 'device_model', 'app_site_model', 'C1', 'C14', 'C17', 'C21',
-                        'device_type', 'device_conn_type','app_site_model_aw', 'dev_ip_app_site']
-
-# 训练&测试
-dftv = train.ix[np.logical_and(train.day.values >= 21, train.day.values < 32), ['click', 'day', 'id'] + vns].copy()
-
-#串联两个特征成新的特征
-dftv['app_site_model'] = np.add(dftv.device_model.values, dftv.app_site_id.values)
-dftv['app_site_model_aw'] = np.add(dftv.app_site_model.values, dftv.app_or_web.astype('string').values)
-dftv['dev_ip_app_site'] = np.add(dftv.device_ip.values, dftv.app_site_id.values)
-
-#初始化
-for vn in vns:
-    dftv[vn] = dftv[vn].astype('category')
-    logging.debug( vn)
 
 #后验均值编码中的先验强度
-n_ks = {'app_or_web': 100, 'app_site_id': 100, 'device_ip': 10, 'C14': 50, 'app_site_model': 50, 'device_model': 100, 'device_id': 50,
-        'C17': 100, 'C21': 100, 'C1': 100, 'device_type': 100, 'device_conn_type': 100, 'banner_pos': 100,
-        'app_site_model_aw': 100, 'dev_ip_app_site': 10 , 'device_model': 500}
+n_ks={}
+for x in new_expvn:
+    n_ks[x]=np.random.uniform(1, 500, 1)
 
 #初始化
 exp2_dict = {}
-for vn in vns:
-    exp2_dict[vn] = np.zeros(dftv.shape[0])
+for vn in new_expvn:
+    exp2_dict[vn] = np.zeros(train.shape[0])
 
-days_npa = dftv.day.values
+days_npa = train.day.values
     
-for day_v in xrange(22, 32):
+for day_v in range(22, 32):
     # day_v之前的天，所以从22开始，作为训练集
-    df1 = dftv.ix[np.logical_and(dftv.day.values < day_v, dftv.day.values < 31), :].copy()
+    df1 = train.ix[np.logical_and(train.day.values < day_v, train.day.values < 31), :].copy()
 
     #当前天的记录，作为校验集
-    df2 = dftv.ix[dftv.day.values == day_v, :]
+    df2 = train.ix[train.day.values == day_v, :]
     logging.debug("Validation day:", day_v, ", train data shape:", df1.shape, ", validation data shape:", df2.shape)
 
     #每个样本的y的先验都等于平均click率
     pred_prev = df1.click.values.mean() * np.ones(df1.shape[0])
 
 
-    for vn in vns:
+    for vn in exptv_vn_list:
         if 'exp2_'+vn in df1.columns:  #已经有了，丢弃重新计算
             df1.drop('exp2_'+vn, inplace=True, axis=1)
 
     for i in range(3):
-        for vn in vns:
+        for vn in exptv_vn_list:
             p1 = calcLeaveOneOut2(df1, vn, 'click', n_ks[vn], 0, 0.25, mean0=pred_prev)
             pred = pred_prev * p1
             logging.debug (day_v, i, vn, "change = ", ((pred - pred_prev)**2).mean())
@@ -127,7 +106,7 @@ for day_v in xrange(22, 32):
 
         #y的先验
         pred1 = df1.click.values.mean()
-        for vn in vns:
+        for vn in exptv_vn_list:
             logging.debug("="*20, "merge", day_v, vn)
             diff1 = mergeLeaveOneOut2(df1, df2, vn)
             pred1 *= diff1
@@ -138,14 +117,14 @@ for day_v in xrange(22, 32):
         #logging.debug my_lift(pred1, None, df2.click.values, None, 20, fig_size=(10, 5))
         #plt.show()
 
-for vn in vns:
+for vn in exptv_vn_list:
     train['exp2_'+vn] = exp2_dict[vn]
 
 #2c
 logging.debug("to count prev/current/next hour by ip ...")
-cntDualKey(train, 'device_ip', None, 'day_hour', 'day_hour_prev', fill_na=0)
-cntDualKey(train, 'device_ip', None, 'day_hour', 'day_hour', fill_na=0)
-cntDualKey(train, 'device_ip', None, 'day_hour', 'day_hour_next', fill_na=0)
+#cntDualKey(train, 'device_ip', None, 'day_hour', 'day_hour_prev', fill_na=0)
+#cntDualKey(train, 'device_ip', None, 'day_hour', 'day_hour', fill_na=0)
+#cntDualKey(train, 'device_ip', None, 'day_hour', 'day_hour_next', fill_na=0)
 
 logging.debug("to create day diffs")
 train['pday'] = train.day - 1
@@ -181,7 +160,7 @@ train['diff_cnt_dev_ip_hour_phour_aw2_next'] = (train.cnt_device_ip_day_hour.val
 
 logging.debug("to save train ...")
 
-dump(train, tmp_data_path + 'train.joblib_dat')
+dump(train, output + 'train.joblib_dat')
 
 
 logging.debug("to generate traintv_mx .. ")

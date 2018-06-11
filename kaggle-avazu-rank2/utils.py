@@ -66,7 +66,7 @@ def get_agg(group_by, value, func):
 #调用方式：p1 = calcLeaveOneOut2(df1, vn, 'click', n_ks[vn], 0, 0.25, mean0=pred_prev)
 def calcLeaveOneOut2(df, vn, vn_y, cred_k, r_k, power, mean0=None, add_count=False):
     if mean0 is None:
-        mean0 = df_yt[vn_y].mean() * np.ones(df.shape[0])
+        mean0 = df[vn_y].mean() * np.ones(df.shape[0])
 
     #每个特征取值对应的样本组成group
     _key_codes = df[vn].values.codes
@@ -232,7 +232,7 @@ def calcTVTransform(df, vn, vn_y, cred_k, filter_train, mean0=None):
     _sum = sum1[v_codes].values
     _cnt = cnt1[v_codes].values
 
-    _cnt[np.isnan(_sum)] = 0
+    _cnt[np.isnan(_cnt)] = 0
     _sum[np.isnan(_sum)] = 0
 
     # 后验均值
