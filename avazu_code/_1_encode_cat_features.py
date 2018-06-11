@@ -12,6 +12,7 @@ import xgboost as xgb
 from joblib import dump, load, Parallel, delayed
 import utils
 from ml_utils import *
+from data_preprocessing import one_line_data_preprocessing
 
 import logging
 from flags import parse_args
@@ -25,22 +26,26 @@ train_set_path = FLAGS.train_set_path
 output = FLAGS.output_dir
 
 logging.debug(train_set_path)
-train = pd.read_csv(open(train_set_path + "train_01.csv", "r"))
-test_x = pd.read_csv(open(train_set_path + "test_01", "r"))
+#train = pd.read_csv(open(train_set_path + "train_01.csv", "r"))
+#test_x = pd.read_csv(open(train_set_path + "test_01", "r"))
 
 #下采样：sample_pct=1/0.05
 #原始样本约40M, 40M*0.05 = 2M
-if FLAGS.sample_pct < 1.0:
-    np.random.seed(999)
-    r1 = np.random.uniform(0, 1, train.shape[0])  #产生0～40M的随机数
-    train = train.ix[r1 < FLAGS.sample_pct, :]
-    logging.debug("testing with small sample of training data, ", train.shape)
+#if FLAGS.sample_pct < 1.0:
+#    np.random.seed(999)
+#    r1 = np.random.uniform(0, 1, train.shape[0])  #产生0～40M的随机数
+#    train = train.ix[r1 < FLAGS.sample_pct, :]
+#    logging.debug("testing with small sample of training data, ", train.shape)
 
 #2a
-test_x['click'] = 0  #测试样本加一列click，初始化为0
+#test_x['click'] = 0  #测试样本加一列click，初始化为0
 #将训练样本和测试样本连接，一起进行特征工程
-train = pd.concat([train, test_x])
-logging.debug("finished loading raw data, ", train.shape)
+#train = pd.concat([train, test_x])
+#logging.debug("finished loading raw data, ", train.shape)
+
+
+#计算 特征中 1、不同用户出现的次数 2、不同设备id出现的次数 3、不同ip出现的次数 4、不同用户不同时间出现的次数
+id_cnt,ip_cnt,user_cnt,user_hour_cnt=one_line_data_preprocessing(train_set_path)  
 
 logging.debug("to add some basic features ...")
 #处理hour特征，格式为YYMMDDHH
