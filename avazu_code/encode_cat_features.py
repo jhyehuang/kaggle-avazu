@@ -44,6 +44,12 @@ train['date_time'] = (train['one_day'] - 21) * 24 + train['one_day_hour']
 train['day_hour_prev'] = train['date_time'] - 1
 train['day_hour_next'] = train['date_time'] + 1
 
+train['one_day']=train['one_day']
+train['one_day_hour']=train['one_day_hour']
+train['date_time']=train['date_time']
+train['day_hour_prev']=train['day_hour_prev']
+train['day_hour_next']=train['day_hour_next']
+
 # a2
 # 类别特征之间每俩个特征进行拼接 组成新特征
 train,new_expvn=two_features_data_preprocessing(train)

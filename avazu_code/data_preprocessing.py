@@ -137,7 +137,7 @@ def new_features_w(src_data, new_expvn, is_train=True):
     
     for day_v in range(22, 32):
         # 将训练数据 分为 3 部分 : day_v之前 ,day_v
-        day_v_before = src_data.ix[np.logical_and(src_data.one_day.values < day_v), :].copy()
+        day_v_before = src_data.ix[src_data.one_day.values < day_v, :].copy()
     
         #当前天的记录，作为校验集
         day_v_now = src_data.ix[src_data.one_day.values == day_v, :]
@@ -146,12 +146,12 @@ def new_features_w(src_data, new_expvn, is_train=True):
         #初始化每个样本的y的先验 都等于 平均click率
         pred_prev = day_v_before.click.values.mean() * np.ones(day_v_before.shape[0])
     
-        for vn in exptv_vn_list:
+        for vn in new_expvn:
             if 'exp2_'+vn in day_v_before.columns:  #已经有了，丢弃重新计算
                 day_v_before.drop('exp2_'+vn, inplace=True, axis=1)
     
         for i in range(3):
-            for vn in exptv_vn_list:
+            for vn in new_expvn:
                 #计算对应的特征列中 在给定 y 的情况下的 概率
                 p1 = calcLeaveOneOut2(day_v_before, vn, 'click', n_ks[vn], 0, 0.25, mean0=pred_prev)
                 pred = pred_prev * p1
@@ -160,7 +160,7 @@ def new_features_w(src_data, new_expvn, is_train=True):
     
             #y的先验
             pred1 = day_v_before.click.values.mean()
-            for vn in exptv_vn_list:
+            for vn in new_expvn:
                 logging.debug("="*20, "merge", day_v, vn)
                 diff1 = mergeLeaveOneOut2(day_v_before, day_v_now, vn)
                 pred1 *= diff1
@@ -169,7 +169,7 @@ def new_features_w(src_data, new_expvn, is_train=True):
             pred1 *= day_v_before.click.values.mean() / pred1.mean()
             logging.debug("logloss = ", logloss(pred1, day_v_now.click.values))
 
-    for vn in exptv_vn_list:
+    for vn in new_expvn:
         src_data['exp2_'+vn] = exp2_dict[vn]
 
 #
