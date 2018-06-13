@@ -10,14 +10,14 @@ import time
 import xgboost as xgb
 from joblib import dump, load, Parallel, delayed
 
-sys.path.append('D:/GitHub/jhye_tool')
+#sys.path.append('..')
 from flags import FLAGS, unparsed
 print(FLAGS.src_train_path)
 
 #FLAGS, unparsed = parse_args()
 #sys.path.append(FLAGS.tool_dir)
 sys.path.append(FLAGS.tool_ml_dir)
-from ml_utils import *
+from ml.ml_utils import *
 from data_preprocessing import one_line_data_preprocessing, \
     two_features_data_preprocessing,new_features_w,data_concat
 

@@ -12,10 +12,11 @@ import numpy as np
 import pandas as pd
 
 import logging
-sys.path.append('D:/GitHub/jhye_tool')
+#sys.path.append('..')
+#sys.path.append('D:/GitHub/jhye_tool')
 from flags import FLAGS, unparsed
 sys.path.append(FLAGS.tool_ml_dir)
-from ml_utils import *
+from ml.ml_utils import *
 
 logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
