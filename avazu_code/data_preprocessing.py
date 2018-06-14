@@ -114,7 +114,7 @@ def two_features_data_preprocessing(train, is_train=True):
 #        train['click'] = 0        
     logging.debug("finished loading raw data, "+ str(train.shape))
     
-    train.info()
+   # train.info()
     
     logging.debug("to add some basic features ...")
     
