@@ -51,7 +51,7 @@ train['date_time']=train['date_time']
 train['day_hour_prev']=train['day_hour_prev']
 train['day_hour_next']=train['day_hour_next']
 
-print(train.info(memory_usage='deep'))
+#print(train.info(memory_usage='deep'))
 
 data_to_col_csv(train,FLAGS.tmp_data_path)
 
