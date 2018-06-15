@@ -19,7 +19,8 @@ print(FLAGS.src_train_path)
 sys.path.append(FLAGS.tool_ml_dir)
 from ml.ml_utils import *
 from data_preprocessing import one_line_data_preprocessing, \
-    two_features_data_preprocessing,new_features_w,data_concat
+    two_features_data_preprocessing,new_features_w,data_concat, \
+    data_to_col_csv
 
 import logging
 
@@ -50,9 +51,15 @@ train['date_time']=train['date_time']
 train['day_hour_prev']=train['day_hour_prev']
 train['day_hour_next']=train['day_hour_next']
 
+print(train.info(memory_usage='deep'))
+
+data_to_col_csv(train,FLAGS.tmp_data_path)
+
+del train
+
 # a2
 # 类别特征之间每俩个特征进行拼接 组成新特征
-train,new_expvn=two_features_data_preprocessing(train)
+train,new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path)
 
 
 #a3

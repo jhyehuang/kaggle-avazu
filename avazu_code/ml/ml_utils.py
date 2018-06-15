@@ -475,9 +475,9 @@ def get_set_diff(df, vn, f1, f2):
     return len(set2_1) * 1.0 / len(set2)
 
 
-def calc_exptv(t0, vn_list, last_day_only=False, add_count=False):
+def calc_exptv(path, vn_list, last_day_only=False, add_count=False):
     # 取出day和click两列
-    t0a = t0.ix[:, ['one_day', 'click']].copy()
+#    t0a = t0.ix[:, ['one_day', 'click']].copy()
     day_exps = {}
     cred_k=10
     day_v=21
@@ -487,33 +487,38 @@ def calc_exptv(t0, vn_list, last_day_only=False, add_count=False):
     vn_list=['device_id','device_ip','C14','C17','C21',
     'app_domain','site_domain','site_id','app_id','device_model','hour']
     new_list=[]
+    t1=pd.read_csv(path+'device_id')
+    t3=t1
     for one in vn_list:
+        t1=pd.read_csv(path+one)
+        t3[one] = t1[one].values
         two_vn_list=copy.deepcopy(vn_list)
         two_vn_list.remove(one)
         if len(two_vn_list)<1:
             break
         for two in two_vn_list:
+            t2=pd.read_csv(path+two)
             vn=one+two
-            filter_t1 = (t0a.one_day.values ==day_v )
-            t0a[vn] = pd.Series(np.add(t0[one].astype('str').values , t0[two].astype('str').values)).astype('category').values.codes
-            day_exps[day_v][vn] = calcTVTransform(t0a, vn, 'click', cred_k, filter_t1)
-            
+            filter_t1 = (t1.one_day.values ==day_v )
+            t3[vn] = pd.Series(np.add(t1[one].astype('str').values , t2[two].astype('str').values)).astype('category').values.codes
+            day_exps[day_v][vn] = calcTVTransform(t3, vn, 'click', cred_k, filter_t1)
+            new_list.append(vn)
             
     for vn in new_list:
         vn_key = vn
         vn_exp = 'exptv_'+vn_key
         
-        m=(t0.one_day.values == day_v)
-        print(t0.one_day.values.shape)
+        m=(t3.one_day.values == day_v)
+        print(t3.one_day.values.shape)
         print(m)
-        t0[vn_exp] = np.zeros(t0.shape[0])
+        t3[vn_exp] = np.zeros(t3.shape[0])
         if add_count:
-            t0['cnttv_'+vn_key] = np.zeros(t0.shape[0])
+            t3['cnttv_'+vn_key] = np.zeros(t3.shape[0])
             new_list.append('cnttv_'+vn_key)
-        t0.loc[m, vn_exp]=day_exps[day_v][vn_key]['exp']
+        t3.loc[m, vn_exp]=day_exps[day_v][vn_key]['exp']
         if add_count:
-            t0.loc[m, 'cnttv_'+vn_key]=day_exps[day_v][vn_key]['cnt']
+            t3.loc[m, 'cnttv_'+vn_key]=day_exps[day_v][vn_key]['cnt']
             new_list.append('cnttv_'+vn_key)
         new_list.append(vn_exp)
     new_list=list(set(new_list))
-    return new_list
+    return t3,new_list

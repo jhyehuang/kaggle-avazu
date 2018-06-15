@@ -101,7 +101,7 @@ def one_line_data_preprocessing(src_path, dst_app_path, dst_site_path, is_train=
             writer_site.writerow(new_row)
     return NEW_FIELDS
 
-def two_features_data_preprocessing(train, is_train=True):
+def two_features_data_preprocessing(path, is_train=True):
 #    if is_train:
 #        train = pd.read_csv(open(src_path, "r"))
 #        if FLAGS.sample_pct < 1.0:
@@ -112,7 +112,7 @@ def two_features_data_preprocessing(train, is_train=True):
 #    else:
 #        train = pd.read_csv(open(src_path + "test_01", "r"))
 #        train['click'] = 0        
-    logging.debug("finished loading raw data, "+ str(train.shape))
+#    logging.debug("finished loading raw data, "+ str(train.shape))
     
    # train.info()
     
@@ -120,8 +120,8 @@ def two_features_data_preprocessing(train, is_train=True):
     
     #类别型特征俩俩 链接    
     
-    new_expvn=calc_exptv(train, exptv_vn_list,add_count=True)
-    return  train,new_expvn
+    train,new_expvn=calc_exptv(path, exptv_vn_list,add_count=True)
+    return train, new_expvn
 
 # 计算各特征的 权重
 def new_features_w(src_data, new_expvn, is_train=True):
@@ -184,3 +184,7 @@ def data_concat(src_data, dst_app_path, dst_site_path, is_train=True):
     start = time.time()
     logging.debug(time.time()-start)
     return NEW_FIELDS
+
+def data_to_col_csv(src_data, tmp_data_path):
+    for col in src_data.columns:
+        src_data[[col]+['one_day', 'click']].to_csv(tmp_data_path+col)
