@@ -5,7 +5,8 @@ import datetime
 
 import pytz
 
-pad='win'
+#pad='win'
+pad='linux'
 FLAGS, unparsed='',''
 
 tz = pytz.timezone('Asia/Shanghai')

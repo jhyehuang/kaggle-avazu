@@ -56,13 +56,11 @@ exptv_vn_list=['device_id','device_ip','C14','C17','C21',
     'app_domain','site_domain','site_id','app_id','device_model','hour']
     
 # 可以在单条记录情况下 加工的类别特征
-def one_line_data_preprocessing(src_path, dst_app_path, dst_site_path, is_train=True):
+def one_line_data_preprocessing(src_path, dst_app_path, is_train=True):
     id_cnt,ip_cnt,user_cnt,user_hour_cnt=cat_features_cnt(src_path) 
     reader = csv.DictReader(open(src_path))
     writer_app = csv.DictWriter(open(dst_app_path, 'w'), NEW_FIELDS)
-    writer_site = csv.DictWriter(open(dst_site_path, 'w'), NEW_FIELDS)
     writer_app.writeheader()
-    writer_site.writeheader()
     start = time.time()
     for i, row in enumerate(reader, start=1):
         if i % 1000000 == 0:
@@ -93,12 +91,12 @@ def one_line_data_preprocessing(src_path, dst_app_path, dst_site_path, is_train=
             new_row['pub_id'] = row['app_id']
             new_row['pub_domain'] = row['app_domain']
             new_row['pub_category'] = row['app_category']
-            writer_app.writerow(new_row)
+            
         else:
             new_row['pub_id'] = row['site_id']
             new_row['pub_domain'] = row['site_domain']
             new_row['pub_category'] = row['site_category']
-            writer_site.writerow(new_row)
+        writer_app.writerow(new_row)
     return NEW_FIELDS
 
 def two_features_data_preprocessing(path, is_train=True):
@@ -185,6 +183,24 @@ def data_concat(src_data, dst_app_path, dst_site_path, is_train=True):
     logging.debug(time.time()-start)
     return NEW_FIELDS
 
-def data_to_col_csv(src_data, tmp_data_path):
-    for col in src_data.columns:
-        src_data[[col]+['one_day', 'click']].to_csv(tmp_data_path+col)
+def data_to_col_csv(col_name_list,src_train_path, tmp_data_path):
+    writeheader_list=[]
+    for col in col_name_list:
+        obj_name=''
+        columns=[]
+        columns.append(col)
+        obj_name= csv.DictWriter(open(tmp_data_path+col, 'w'), columns)
+        obj_name.writeheader()
+        writeheader_list.append(obj_name)
+
+    reader = csv.DictReader(open(src_train_path))
+    for i, row in enumerate(reader, start=1):
+        if i % 1000000 == 0:
+            sys.stderr.write('{0:6.0f}    {1}m\n'.format(time.time()-start,int(i/1000000)))
+
+        for field,col_writeheader in zip(col_name_list,writeheader_list):
+            #print(field)
+            #print(col_writeheader)
+            new_row={}
+            new_row[field]=row[field]
+            col_writeheader.writerow(new_row)
