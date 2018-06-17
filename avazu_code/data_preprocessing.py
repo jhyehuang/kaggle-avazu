@@ -38,7 +38,7 @@ def cat_features_cnt(path):
     for i, row in enumerate(csv.DictReader(open(path)), start=1):
         start = time.time()
         if i % 1000000 == 0:
-            sys.stderr.write('{0:6.0f}    {1}m\n'.format(time.time()-start,int(i/1000000)))
+            sys.stderr.write('{0}s    {1}mil\n'.format((time.time()-start),int(i/1000000)))
 
         user = def_user(row)
         id_cnt[row['device_id']] += 1
@@ -64,7 +64,7 @@ def one_line_data_preprocessing(src_path, dst_app_path, is_train=True):
     start = time.time()
     for i, row in enumerate(reader, start=1):
         if i % 1000000 == 0:
-            sys.stderr.write('{0:6.0f}    {1}m\n'.format(time.time()-start,int(i/1000000)))
+            sys.stderr.write('{0}s    {1}mil\n'.format((time.time()-start),int(i/1000000)))
         
         new_row = {}
         for field in FIELDS:
@@ -118,8 +118,8 @@ def two_features_data_preprocessing(path, is_train=True):
     
     #类别型特征俩俩 链接    
     
-    train,new_expvn=calc_exptv(path, exptv_vn_list,add_count=True)
-    return train, new_expvn
+    new_expvn=calc_exptv(path, exptv_vn_list,add_count=True)
+    return  new_expvn
 
 # 计算各特征的 权重
 def new_features_w(src_data, new_expvn, is_train=True):
@@ -194,9 +194,10 @@ def data_to_col_csv(col_name_list,src_train_path, tmp_data_path):
         writeheader_list.append(obj_name)
 
     reader = csv.DictReader(open(src_train_path))
+    start=time.time()
     for i, row in enumerate(reader, start=1):
         if i % 1000000 == 0:
-            sys.stderr.write('{0:6.0f}    {1}m\n'.format(time.time()-start,int(i/1000000)))
+            sys.stderr.write('{0}s    {1}mil\n'.format((time.time()-start),int(i/1000000)))
 
         for field,col_writeheader in zip(col_name_list,writeheader_list):
             #print(field)

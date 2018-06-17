@@ -37,28 +37,14 @@ output = FLAGS.output_dir
 #计算 特征中 1、不同用户出现的次数 2、不同设备id出现的次数 3、不同ip出现的次数 4、不同用户不同时间出现的次数
 one_line_col=one_line_data_preprocessing(FLAGS.src_train_path,FLAGS.dst_app_path)  
 
-#train = pd.read_csv(open(FLAGS.src_train_path, "r"))
 
-#train['one_day']=train['hour'] % 10000 / 100
-#train['one_day_hour'] = train['hour'] % 100
-#train['date_time'] = (train['one_day'] - 21) * 24 + train['one_day_hour']
-#train['day_hour_prev'] = train['date_time'] - 1
-#train['day_hour_next'] = train['date_time'] + 1
-
-#train['one_day']=train['one_day']
-#train['one_day_hour']=train['one_day_hour']
-#train['date_time']=train['date_time']
-#train['day_hour_prev']=train['day_hour_prev']
-#train['day_hour_next']=train['day_hour_next']
-
-#print(train.info(memory_usage='deep'))
-
+#将训练集按列存放，资源实在有限
 data_to_col_csv(one_line_col,FLAGS.dst_app_path,FLAGS.tmp_data_path)
 
 
 # a2
 # 类别特征之间每俩个特征进行拼接 组成新特征
-#train,new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path)
+new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path)
 
 
 #a3

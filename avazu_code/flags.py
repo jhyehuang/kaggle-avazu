@@ -37,7 +37,7 @@ def parse_args(check=True):
     parser.add_argument('--train_job_name', type=str, default='trian_job',
                         help='number of time steps of one sample.')
 
-    parser.add_argument('--src_train_path', type=str, default='/home/zhijie.huang/github/kaggle-avazu/avazu_data/train_01.csv',
+    parser.add_argument('--src_train_path', type=str, default='/home/zhijie.huang/github/data/2-ctr预估/train.csv',
                         help='src_train_path.')
     
     parser.add_argument('--src_test_path', type=str, default='/home/zhijie.huang/github/kaggle-avazu/avazu_data/test_01.csv',

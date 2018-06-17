@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 from sklearn.utils import check_random_state 
+import  csv
+
 import time
 import sys
 from joblib import dump, load
@@ -13,33 +15,6 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
 
 
-
-tvh = 'N'
-
-
-#Please set following path accordingly
-
-#where we can find training, test, and sampleSubmission.csv
-raw_data_path = '/home/fast/2014_mobilectr/'
-#where we store results -- require about 130GB
-tmp_data_path = './tmp_data/'
-
-#path to external binaries. Please see dependencies in the .pdf document
-fm_path = ' ~/Downloads/guestwalk/kaggle-2014-criteo/fm'
-xgb_path = '/home/zzhang/Downloads/xgboost/wrapper'
-vw_path = '~/vowpal_wabbit/vowpalwabbit/vw '
-
-
-#从参数文件读取参数：tvh（Y/N），sample_pct（1/0.05）
-#如果参数文件不存， 通过调用main函数，设置参数并创建参数文件
-try:
-    params=load(tmp_data_path + '_params.joblib_dat')
-    sample_pct = params['pct']
-    tvh = params['tvh']
-except:
-    pass
-
-
 def print_help():
     logging.debug ("usage: python utils -set_params [tvh=Y|N], [sample_pct]")
     logging.debug ("for example: python utils -set_params N 0.05")
@@ -49,7 +24,7 @@ def main():
         try:
             tvh = sys.argv[2]  # Y/N
             sample_pct = float(sys.argv[3])  #1/0.05
-            dump({'pct': sample_pct, 'tvh':tvh}, tmp_data_path + '_params.joblib_dat')
+            dump({'pct': sample_pct, 'tvh':tvh}, FLAGS.tmp_data_path + '_params.joblib_dat')
         except:
             logging.debug_help()
     else:
@@ -219,9 +194,11 @@ def calcTVTransform(df, vn, vn_y, cred_k, filter_train, mean0=None):
         mean0 = mean0[~filter_train]
 
     #似然
+    logging.debug(filter_train)
     df['_key1'] = df[vn].astype('category').values.codes
     df_yt = df.ix[filter_train, ['_key1', vn_y]]
     #df_y.set_index([')key1'])
+    logging.debug(df_yt)
 
     #按照参数输入的key对内容进行分组
     grp1 = df_yt.groupby(['_key1'])
@@ -475,23 +452,32 @@ def get_set_diff(df, vn, f1, f2):
     return len(set2_1) * 1.0 / len(set2)
 
 
-def calc_exptv(path, vn_list, last_day_only=False, add_count=False):
+def calc_exptv(path, vn_list,last_day_only=False, add_count=False):
     # 取出day和click两列
 #    t0a = t0.ix[:, ['one_day', 'click']].copy()
     day_exps = {}
     cred_k=10
     day_v=21
-    day_exps[21]={}
+
 
     #对列表中的每一列
-    vn_list=['device_id','device_ip','C14','C17','C21',
-    'app_domain','site_domain','site_id','app_id','device_model','hour']
+#    vn_list=['device_id','device_ip','C14','C17','C21',
+#    'app_domain','site_domain','site_id','app_id','device_model','hour']
     new_list=[]
-    t1=pd.read_csv(path+'device_id')
-    t3=t1
+    one_day=pd.read_csv(path+'one_day')
+    one_day.one_day=one_day.one_day.map(int).map(str)
+    days_list=list(set(one_day.one_day.values))
+    click=pd.read_csv(path+'click')
+
+    for day_v in days_list:
+        day_exps[day_v]={}
+
     for one in vn_list:
+        t3= pd.DataFrame(columns=['one_day','click'])  
+        t3['one_day']=one_day['one_day'].values
+        t3['click']=click['click'].values
         t1=pd.read_csv(path+one)
-        t3[one] = t1[one].values
+        #t3[one] = t1[one].values
         two_vn_list=copy.deepcopy(vn_list)
         two_vn_list.remove(one)
         if len(two_vn_list)<1:
@@ -499,26 +485,49 @@ def calc_exptv(path, vn_list, last_day_only=False, add_count=False):
         for two in two_vn_list:
             t2=pd.read_csv(path+two)
             vn=one+two
-            filter_t1 = (t1.one_day.values ==day_v )
+            print(vn)
+            print(t1.shape)
+            print(t2.shape)
+            print(t3.shape)
             t3[vn] = pd.Series(np.add(t1[one].astype('str').values , t2[two].astype('str').values)).astype('category').values.codes
-            day_exps[day_v][vn] = calcTVTransform(t3, vn, 'click', cred_k, filter_t1)
+            for day_v in days_list:
+                print (day_v)
+                filter_t1 = (one_day.one_day.values ==day_v )
+                print(filter_t1.shape)
+                
+                day_exps[day_v][vn] = calcTVTransform(t3, vn, 'click', cred_k, filter_t1)
             new_list.append(vn)
-            
+            columns=[vn]
+            columns.append(vn)
+            obj_name= csv.DictWriter(open(FLAGS.tmp_data_path+vn, 'w'), columns)
+            obj_name.writeheader()
+            new_row={}
+            new_row[vn]=t3[vn]
+            obj_name.writerow(new_row) 
+            t3.drop(vn,axis=1, inplace=True)
     for vn in new_list:
         vn_key = vn
+        vn_key_data=pd.read_csv(path+vn_key)
         vn_exp = 'exptv_'+vn_key
-        
-        m=(t3.one_day.values == day_v)
-        print(t3.one_day.values.shape)
-        print(m)
-        t3[vn_exp] = np.zeros(t3.shape[0])
-        if add_count:
-            t3['cnttv_'+vn_key] = np.zeros(t3.shape[0])
-            new_list.append('cnttv_'+vn_key)
-        t3.loc[m, vn_exp]=day_exps[day_v][vn_key]['exp']
-        if add_count:
-            t3.loc[m, 'cnttv_'+vn_key]=day_exps[day_v][vn_key]['cnt']
-            new_list.append('cnttv_'+vn_key)
+        vn_cnt = 'cnttv_'+vn_key
+        print(vn_key)
+        t4= pd.DataFrame(columns=[vn_exp,vn_cnt])  
+        t4[vn_exp] = np.zeros(vn_key_data.shape[0])
+        t4[vn_cnt] = np.zeros(vn_key_data.shape[0])
         new_list.append(vn_exp)
+        new_list.append(vn_cnt)
+        for day_v in days_list:
+            m=(one_day.one_day.values == day_v)
+            print(one_day.one_day.values.shape)
+            print(m)
+            t4.loc[m, vn_exp]=day_exps[day_v][vn_key]['exp']
+            t4.loc[m, vn_cnt]=day_exps[day_v][vn_key]['cnt']
+        columns=[vn_exp,vn_cnt]
+        obj_name= csv.DictWriter(open(FLAGS.tmp_data_path+vn_exp+'+'+vn_cnt, 'w'), columns)
+        obj_name.writeheader()
+        new_row={}
+        new_row[vn_exp]=t4[vn_exp]
+        new_row[vn_cnt]=t4[vn_cnt]
+        obj_name.writerow(new_row) 
     new_list=list(set(new_list))
-    return t3,new_list
+    return new_list
