@@ -505,8 +505,8 @@ def calc_exptv(path, vn_list,last_day_only=False, add_count=False):
             new_row[vn]=t3[vn]
             obj_name.writerow(new_row) 
             t3.drop(vn,axis=1, inplace=True)
-    for vn in new_list:
-        vn_key = vn
+    two_new_list=[]
+    for vn_key in new_list:
         vn_key_data=pd.read_csv(path+vn_key)
         vn_exp = 'exptv_'+vn_key
         vn_cnt = 'cnttv_'+vn_key
@@ -514,8 +514,8 @@ def calc_exptv(path, vn_list,last_day_only=False, add_count=False):
         t4= pd.DataFrame(columns=[vn_exp,vn_cnt])  
         t4[vn_exp] = np.zeros(vn_key_data.shape[0])
         t4[vn_cnt] = np.zeros(vn_key_data.shape[0])
-        new_list.append(vn_exp)
-        new_list.append(vn_cnt)
+        two_new_list.append(vn_exp)
+        two_new_list.append(vn_cnt)
         for day_v in days_list:
             m=(one_day.one_day.values == day_v)
             print(one_day.one_day.values.shape)
@@ -529,5 +529,5 @@ def calc_exptv(path, vn_list,last_day_only=False, add_count=False):
         new_row[vn_exp]=t4[vn_exp]
         new_row[vn_cnt]=t4[vn_cnt]
         obj_name.writerow(new_row) 
-    new_list=list(set(new_list))
+    new_list=list(set(new_list+two_new_list))
     return new_list

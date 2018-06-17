@@ -5,8 +5,8 @@ import datetime
 
 import pytz
 
-#pad='win'
-pad='linux'
+pad='win'
+#pad='linux'
 FLAGS, unparsed='',''
 
 tz = pytz.timezone('Asia/Shanghai')
@@ -83,28 +83,28 @@ def win_parse_args(check=True):
     parser.add_argument('--tool_ml_dir', type=str, default='d:/GitHub/jhye_tool/ml',
                         help='path to my ml tool.')
     
-    parser.add_argument('--output_dir', type=str, default='d:/GitHub/data/avazu_data/output',
+    parser.add_argument('--output_dir', type=str, default='f:/GitHub/data/avazu_data/output',
                         help='path to save log and checkpoint.')
     
     parser.add_argument('--train_set_path', type=str, default='d:/GitHub/kaggle-avazu/avazu_data',
                         help='path to save train test and .')
 
-    parser.add_argument('--tmp_data_path', type=str, default='d:/GitHub/data/avazu_data/output/',
-                        help='path to QuanSongCi.txt')
+    parser.add_argument('--tmp_data_path', type=str, default='f:/GitHub/data/avazu_data/output/',
+                        help='tmp_data_path')
 
     parser.add_argument('--train_job_name', type=str, default='trian_job',
                         help='number of time steps of one sample.')
 
-    parser.add_argument('--src_train_path', type=str, default='d:/GitHub/kaggle-avazu/avazu_data/train_01.csv',
+    parser.add_argument('--src_train_path', type=str, default='d:/GitHub/data/avazu_data/train.csv',
                         help='src_train_path.')
     
-    parser.add_argument('--src_test_path', type=str, default='d:/GitHub/kaggle-avazu/avazu_data/test_01.csv',
+    parser.add_argument('--src_test_path', type=str, default='d:/GitHub/data/avazu_data/test',
                         help='src_test_path.')
 
-    parser.add_argument('--dst_app_path', type=str, default='d:/GitHub/data/avazu_data/output/writer_app.csv',
+    parser.add_argument('--dst_app_path', type=str, default='f:/GitHub/data/avazu_data/output/writer_app.csv',
                         help='dst_app_path.')
 
-    parser.add_argument('--dst_site_path', type=str, default='d:/GitHub/data/avazu_data/output/writer_site.csv',
+    parser.add_argument('--dst_site_path', type=str, default='f:/GitHub/data/avazu_data/output/writer_site.csv',
                         help='dst_site_path ')
 
     parser.add_argument('--sample_pct', type=float, default=1,
