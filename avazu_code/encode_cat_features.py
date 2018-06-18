@@ -35,11 +35,11 @@ output = FLAGS.output_dir
 
 # a1
 #计算 特征中 1、不同用户出现的次数 2、不同设备id出现的次数 3、不同ip出现的次数 4、不同用户不同时间出现的次数
-#one_line_col=one_line_data_preprocessing(FLAGS.src_train_path,FLAGS.dst_app_path)  
+one_line_col=one_line_data_preprocessing(FLAGS.src_train_path,FLAGS.dst_app_path)  
 
 
 #将训练集按列存放，资源实在有限
-#data_to_col_csv(one_line_col,FLAGS.dst_app_path,FLAGS.tmp_data_path)
+data_to_col_csv(one_line_col,FLAGS.dst_app_path,FLAGS.tmp_data_path)
 
 
 # a2

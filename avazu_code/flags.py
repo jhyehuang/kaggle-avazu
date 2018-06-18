@@ -144,5 +144,5 @@ if pad=='win':
 else:
     FLAGS, unparsed = parse_args()
 
-for x in dir(FLAGS):
-    print(getattr(FLAGS, x))
+#for x in dir(FLAGS):
+#    print(getattr(FLAGS, x))

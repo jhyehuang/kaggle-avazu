@@ -531,3 +531,83 @@ def calc_exptv(path, vn_list,last_day_only=False, add_count=False):
         obj_name.writerow(new_row) 
     new_list=list(set(new_list+two_new_list))
     return new_list
+
+def col_anly(data,col_name):
+    #读取数据
+    train = data
+    a=train[col_name].value_counts()
+    return a
+
+def check_col_count_less_11(data,col_name):
+    a=col_anly(data,col_name)
+    return a[a.values<10]
+
+def col_plt(data,col_name,plt):
+    #读取数据
+    plt.scatter(range(data.shape[0]), data.values,color='purple')
+    plt.title("count of "+col_name);
+    
+def col_countplot(col_name,plt,sns):
+    #读取数据
+    train_one = pd.read_csv(FLAGS.tmp_data_path+col_name)
+    sns.countplot(x=col_name, data=train_one)
+    plt.xlabel(col_name)
+    plt.ylabel('Number of '+col_name);
+    plt.show()
+    
+def two_col_plt(col_name,plt,sns):
+    train = pd.read_csv(FLAGS.tmp_data_path+col_name)
+    print (train.head())
+    flights = train.pivot('device_conn_type',)
+    
+    plt.subplots()
+    sns.heatmap(flights,annot=True)
+    
+    # Mask unimportant features
+    #sns.heatmap(correlationMatrix, mask=correlationMatrix < 1, cbar=False)
+    plt.show()
+    
+
+    
+def sns_factorplot(col_name,plt,sns,y=None,hue=None,row=None,col=None,kind="box"):
+    train_one = pd.read_csv(FLAGS.tmp_data_path+col_name)
+    sns.factorplot(x=col_name, y=y, 
+                   hue=y, data=train_one,
+                   row=row, col=col, 
+                   col_wrap=None, estimator=np.mean, ci=95, 
+                   n_boot=1000, units=None, order=None, 
+                   hue_order=None, row_order=None, 
+                   col_order=None, kind=kind, size=4, 
+                   aspect=1, orient=None, color=None, 
+                   palette=None, legend=True, 
+                   legend_out=True, sharex=True, 
+                   sharey=True, margin_titles=False, 
+                   facet_kws=None)
+    plt.show()
+    
+
+def procdess_col(col_name):
+    train_one = pd.read_csv(FLAGS.tmp_data_path+col_name)
+    _count = train_one.value_counts()
+    df= pd.DataFrame(columns=[col_name,])
+    df['top_10_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+        _count.values >= np.percentile(_count.values, 90)] else 0)
+    df['top_25_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+        _count.values >= np.percentile(_count.values, 75)] else 0)
+    df['top_5_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+        _count.values >= np.percentile(_count.values, 95)] else 0)
+    df['top_50_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+        _count.values >= np.percentile(_count.values, 50)] else 0)
+    df['top_1_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+        _count.values >= np.percentile(_count.values, 99)] else 0)
+    df['top_2_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+        _count.values >= np.percentile(_count.values, 98)] else 0)
+    df['top_15_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+        _count.values >= np.percentile(_count.values, 85)] else 0)
+    df['top_20_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+        _count.values >= np.percentile(_count.values, 80)] else 0)
+    df['top_30_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+        _count.values >= np.percentile(_count.values, 70)] else 0)
+    
+#    df.drop(['manager_id'], axis=1,inplace = True)
+    return df
