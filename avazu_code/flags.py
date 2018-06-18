@@ -101,7 +101,7 @@ def win_parse_args(check=True):
     parser.add_argument('--train_job_name', type=str, default='trian_job',
                         help='number of time steps of one sample.')
 
-    parser.add_argument('--src_train_path', type=str, default='d:/GitHub/data/avazu_data/train.csv',
+    parser.add_argument('--src_train_path', type=str, default='d:/GitHub/data/avazu_data/train_01.csv',
                         help='src_train_path.')
     
     parser.add_argument('--src_test_path', type=str, default='d:/GitHub/data/avazu_data/test',

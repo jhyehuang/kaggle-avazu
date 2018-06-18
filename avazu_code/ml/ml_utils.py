@@ -535,12 +535,14 @@ def calc_exptv(path, vn_list,last_day_only=False, add_count=False):
 def col_anly(data,col_name):
     #读取数据
     train = data
+    print(train.head())
+    print(col_name)
     a=train[col_name].value_counts()
     return a
 
 def check_col_count_less_11(data,col_name):
     a=col_anly(data,col_name)
-    return a[a.values<10]
+    return dict(a[a.values<10])
 
 def col_plt(data,col_name,plt):
     #读取数据

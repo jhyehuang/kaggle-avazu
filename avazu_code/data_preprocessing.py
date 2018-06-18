@@ -68,9 +68,7 @@ def one_line_data_preprocessing(src_path, dst_app_path, is_train=True):
         
         new_row = {}
         for field in FIELDS:
-            t1=check_col_count_less_11(row[field],field)
             new_row[field] = row[field]
-            new_row[new_row[field]==t1]=-1
 
         new_row['device_id_count'] = id_cnt[row['device_id']]
         new_row['device_ip_count'] = ip_cnt[row['device_ip']]
@@ -79,15 +77,15 @@ def one_line_data_preprocessing(src_path, dst_app_path, is_train=True):
         new_row['user_count'] = user_cnt[user]
         new_row['smooth_user_hour_count'] = str(user_hour_cnt[user+'-'+hour])
         
-        new_row['date']=pd.to_datetime((new_row['hour'] / 100).map(int)+20000000)
-        
-        new_row['one_day']=new_row['date'].dt.day
-        new_row['one_day_hour'] = new_row['date'].dt.hour
-        new_row['week_day'] = new_row['date'].dt.dayofweek
+
+        new_row['one_day']=int(new_row['hour']) % 10000 / 100
+        new_row['one_day_hour'] = int(new_row['hour'])%100
+#        new_row['week_day'] = new_row['date'].dt.dayofweek
+        new_row['date_time'] = (new_row['one_day'] - 21) * 24 + new_row['one_day_hour']
         new_row['day_hour_prev'] = new_row['one_day_hour'] - 1
         new_row['day_hour_next'] = new_row['one_day_hour'] + 1
-        new_row['is_work_day'] = new_row['week_day'].apply(lambda x: 1 if x in [0,1,2,3,4] else 0)
-        new_row.drop(['date'], axis=1,inplace = True)
+#        new_row['is_work_day'] = new_row['week_day'].apply(lambda x: 1 if x in [0,1,2,3,4] else 0)
+#        new_row.drop(['date'], axis=1,inplace = True)
         new_row['app_or_web']= 1 if new_row['app_id']=='ecad2386' else 0
         new_row['app_site_id'] = new_row['app_id']+new_row['site_id']
 
@@ -175,6 +173,13 @@ def data_concat(src_data, dst_app_path, dst_site_path, is_train=True):
     logging.debug(time.time()-start)
     return NEW_FIELDS
 
+def drop_outpoint(col_name_list,tmp_data_path):
+    for col_name in col_name_list:
+        train_one = pd.read_csv(tmp_data_path+col_name)
+        t1=check_col_count_less_11(train_one[col_name],col_name)
+        train_one[train_one[col_name]==t1.keys()]=-1
+        train_one.to_csv(tmp_data_path+col_name)
+
 def data_to_col_csv(col_name_list,src_train_path, tmp_data_path):
     writeheader_list=[]
     for col in col_name_list:
@@ -197,3 +202,5 @@ def data_to_col_csv(col_name_list,src_train_path, tmp_data_path):
             new_row={}
             new_row[field]=row[field]
             col_writeheader.writerow(new_row)
+    drop_outpoint(col_name_list, tmp_data_path)
+            
