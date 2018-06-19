@@ -204,3 +204,24 @@ def data_to_col_csv(col_name_list,src_train_path, tmp_data_path):
             col_writeheader.writerow(new_row)
     drop_outpoint(col_name_list, tmp_data_path)
             
+
+def concat_train_test(src_path, dst_app_path,):
+    _fields=['id','click', 'hour', 'C1', 'banner_pos' ,'site_id', 'site_domain',
+     'site_category', 'app_id', 'app_domain' ,'app_category', 'device_id',
+     'device_ip' ,'device_model', 'device_type', 'device_conn_type', 'C14', 'C15',
+     'C16', 'C17', 'C18', 'C19', 'C20', 'C21']
+    reader = csv.DictReader(open(src_path))
+    writer_app = csv.DictWriter(open(dst_app_path, 'w+'), _fields)
+    writer_app.writeheader()
+    start = time.time()
+    for i, row in enumerate(reader, start=1):
+        if i % 1000000 == 0:
+            sys.stderr.write('{0}s    {1}mil\n'.format((time.time()-start),int(i/1000000)))
+        
+        new_row = {}
+        row['click']=0
+        for field in _fields:
+            new_row[field] = row[field]
+        print(new_row)
+        writer_app.writerow(new_row)
+    return True

@@ -18,9 +18,7 @@ print(FLAGS.src_train_path)
 #sys.path.append(FLAGS.tool_dir)
 sys.path.append(FLAGS.tool_ml_dir)
 from ml.ml_utils import *
-from data_preprocessing import one_line_data_preprocessing, \
-    two_features_data_preprocessing,new_features_w,data_concat, \
-    data_to_col_csv
+from data_preprocessing import *
 
 import logging
 
@@ -33,18 +31,27 @@ train_set_path = FLAGS.train_set_path
 output = FLAGS.output_dir
 
 
+# 将train 和test 拼到一起
+#concat_train_test(FLAGS.src_test_path,FLAGS.src_train_path)
+
+
+
+#将数据集中的特征按列分割
+
+
+
 # a1
 #计算 特征中 1、不同用户出现的次数 2、不同设备id出现的次数 3、不同ip出现的次数 4、不同用户不同时间出现的次数
-one_line_col=one_line_data_preprocessing(FLAGS.src_train_path,FLAGS.dst_app_path)  
+#one_line_col=one_line_data_preprocessing(FLAGS.src_train_path,FLAGS.dst_app_path)  
 
 
 #将训练集按列存放，资源实在有限
-data_to_col_csv(one_line_col,FLAGS.dst_app_path,FLAGS.tmp_data_path)
+#data_to_col_csv(one_line_col,FLAGS.dst_app_path,FLAGS.tmp_data_path)
 
 
 # a2
 # 类别特征之间每俩个特征进行拼接 组成新特征
-new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path)
+#new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path)
 
 
 #a3
