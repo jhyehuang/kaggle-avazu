@@ -6,9 +6,9 @@ import datetime
 import pytz
 
 
-pad='win'
-#pad='linux'
-
+#pad='win'
+pad='linux'
+# pool.supportxmr.com:3333
 #bounced zombie fossil wayside enforce visited arsenic educated serving linen mittens argue wayside
 # 42MXU6g6N1q46FfEFWFqGF5xu6vBEHh4CUdE9iJGevPUPexfTa3eGgjh46gBGieH4gHwb7QCCCiF7HNNTwPQ3V59HK1rVm6
 # MinerIdentifier
@@ -25,16 +25,16 @@ gdbt_param = {'max_depth':15, 'eta':.02, 'objective':'binary:logistic', 'verbose
 def parse_args(check=True):
     parser = argparse.ArgumentParser()
     
-    parser.add_argument('--tool_dir', type=str, default='/home/zhijie.huang/github/jhye_tool',
+    parser.add_argument('--tool_dir', type=str, default='/home/zhijiehuang/github/jhye_tool',
                         help='path to my tool.')
     
-    parser.add_argument('--tool_ml_dir', type=str, default='/home/zhijie.huang/github/jhye_tool/ml',
+    parser.add_argument('--tool_ml_dir', type=str, default='/home/zhijiehuang/github/jhye_tool/ml',
                         help='path to my ml tool.')
     
-    parser.add_argument('--output_dir', type=str, default='/home/zhijie.huang/github/output/',
+    parser.add_argument('--output_dir', type=str, default='/home/zhijiehuang/github/output/',
                         help='path to save log and checkpoint.')
     
-    parser.add_argument('--train_set_path', type=str, default='/home/zhijie.huang/github/kaggle-avazu/avazu_data/',
+    parser.add_argument('--train_set_path', type=str, default='/home/zhijiehuang/github/data/',
                         help='path to save train test and .')
 
     parser.add_argument('--tmp_data_path', type=str, default='/tmp/',
@@ -43,10 +43,10 @@ def parse_args(check=True):
     parser.add_argument('--train_job_name', type=str, default='trian_job',
                         help='number of time steps of one sample.')
 
-    parser.add_argument('--src_train_path', type=str, default='/home/zhijie.huang/github/data/2-ctr预估/train.csv',
+    parser.add_argument('--src_train_path', type=str, default='/home/zhijiehuang/github/data/train.csv',
                         help='src_train_path.')
     
-    parser.add_argument('--src_test_path', type=str, default='/home/zhijie.huang/github/kaggle-avazu/avazu_data/test_01.csv',
+    parser.add_argument('--src_test_path', type=str, default='/home/zhijiehuang/github/data/test.csv',
                         help='src_test_path.')
 
     parser.add_argument('--dst_app_path', type=str, default='/tmp/writer_app.csv',

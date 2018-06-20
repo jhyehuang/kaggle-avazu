@@ -25,28 +25,45 @@ logging.basicConfig(
 train_set_path = FLAGS.train_set_path
 output = FLAGS.output_dir
 
-def def_user(row):
-    user = row['device_id'] + row['device_ip'] + '-' + row['device_model']
-    return user
+def def_user(src_data):
+    src_data['uid'] = src_data['device_id'].values + src_data['device_ip'].values + '-' + src_data['device_model'].values
+
+def def_user_one_day_hour(src_data):
+    src_data['uid_time'] = src_data['uid'].values + '-' + src_data['one_day_hour'].values
+
+
+#  hour  shi jian tezheng
+def anly_hour(src_data):
+    src_data['date']=pd.to_datetime((src_data['hour'] / 100).map(int)+20000000)
+            
+    src_data['one_day']=src_data['date'].dt.day
+    src_data['one_day_hour'] = src_data['date'].dt.hour
+    src_data['week_day'] = src_data['date'].dt.dayofweek
+    src_data['day_hour_prev'] = src_data['one_day_hour'] - 1
+    src_data['day_hour_next'] = src_data['one_day_hour'] + 1
+    src_data['is_work_day'] = src_data['week_day'].apply(lambda x: 1 if x in [0,1,2,3,4] else 0)
+#    src_data[src_data['is_work_day']==0]
+    src_data.drop(['date'], axis=1,inplace = True)
+            
+def drop_limit_10(train,col_name):
+    return dict((key,-1) if value <10 else (key,value)  for key,value in dict(train[col_name].value_counts()).items())
 
 #  可以直接数的类别特征
-def cat_features_cnt(path):
+def cat_features_cnt(src_data):
     id_cnt = collections.defaultdict(int)
     ip_cnt = collections.defaultdict(int)
     user_cnt = collections.defaultdict(int)
     user_hour_cnt = collections.defaultdict(int)
-    for i, row in enumerate(csv.DictReader(open(path)), start=1):
-        start = time.time()
-        if i % 1000000 == 0:
-            sys.stderr.write('{0}s    {1}mil\n'.format((time.time()-start),int(i/1000000)))
-
-        user = def_user(row)
-        id_cnt[row['device_id']] += 1
-        ip_cnt[row['device_ip']] += 1
-        user_cnt[user] += 1
-        user_hour_cnt[user+'-'+row['hour']] += 1
+    id_cnt=drop_limit_10(src_data,'device_id')
+    ip_cnt=drop_limit_10(src_data,'device_ip')
+    def_user(src_data)
+    user_cnt==drop_limit_10(src_data,'uid')
+    def_user_one_day_hour(src_data)
+    user_hour_cnt=drop_limit_10(src_data,'uid_time')
         
     return id_cnt,ip_cnt,user_cnt,user_hour_cnt
+
+
 
 FIELDS = ['id','click','hour','app_id','site_id','banner_pos','device_id','device_ip','device_model','device_conn_type','C14','C17','C20','C21']
 DATE_FIELDS=['one_day','date_time','day_hour_prev','one_day_hour','app_or_web','day_hour_next','app_site_id']
@@ -56,21 +73,12 @@ exptv_vn_list=['device_id','device_ip','C14','C17','C21',
     'app_domain','site_domain','site_id','app_id','device_model','hour']
     
 # 可以在单条记录情况下 加工的类别特征
-def one_line_data_preprocessing(src_path, dst_app_path, is_train=True):
-    id_cnt,ip_cnt,user_cnt,user_hour_cnt=cat_features_cnt(src_path) 
-    reader = csv.DictReader(open(src_path))
-    writer_app = csv.DictWriter(open(dst_app_path, 'w'), NEW_FIELDS)
-    writer_app.writeheader()
-    start = time.time()
-    for i, row in enumerate(reader, start=1):
-        if i % 1000000 == 0:
-            sys.stderr.write('{0}s    {1}mil\n'.format((time.time()-start),int(i/1000000)))
-        
-        new_row = {}
-        for field in FIELDS:
-            new_row[field] = row[field]
+def one_line_data_preprocessing(src_data, dst_app_path, is_train=True):
+    anly_hour(src_data)
+    id_cnt,ip_cnt,user_cnt,user_hour_cnt=cat_features_cnt(src_data) 
+    
 
-        new_row['device_id_count'] = id_cnt[row['device_id']]
+        src_data['device_id_count'] = src_data[row['device_id']]
         new_row['device_ip_count'] = ip_cnt[row['device_ip']]
 
         user, hour = def_user(row), row['hour']
@@ -78,14 +86,6 @@ def one_line_data_preprocessing(src_path, dst_app_path, is_train=True):
         new_row['smooth_user_hour_count'] = str(user_hour_cnt[user+'-'+hour])
         
 
-        new_row['one_day']=int(new_row['hour']) % 10000 / 100
-        new_row['one_day_hour'] = int(new_row['hour'])%100
-#        new_row['week_day'] = new_row['date'].dt.dayofweek
-        new_row['date_time'] = (new_row['one_day'] - 21) * 24 + new_row['one_day_hour']
-        new_row['day_hour_prev'] = new_row['one_day_hour'] - 1
-        new_row['day_hour_next'] = new_row['one_day_hour'] + 1
-#        new_row['is_work_day'] = new_row['week_day'].apply(lambda x: 1 if x in [0,1,2,3,4] else 0)
-#        new_row.drop(['date'], axis=1,inplace = True)
         new_row['app_or_web']= 1 if new_row['app_id']=='ecad2386' else 0
         new_row['app_site_id'] = new_row['app_id']+new_row['site_id']
 
@@ -206,22 +206,9 @@ def data_to_col_csv(col_name_list,src_train_path, tmp_data_path):
             
 
 def concat_train_test(src_path, dst_app_path,):
-    _fields=['id','click', 'hour', 'C1', 'banner_pos' ,'site_id', 'site_domain',
-     'site_category', 'app_id', 'app_domain' ,'app_category', 'device_id',
-     'device_ip' ,'device_model', 'device_type', 'device_conn_type', 'C14', 'C15',
-     'C16', 'C17', 'C18', 'C19', 'C20', 'C21']
-    reader = csv.DictReader(open(src_path))
-    writer_app = csv.DictWriter(open(dst_app_path, 'w+'), _fields)
-    writer_app.writeheader()
-    start = time.time()
-    for i, row in enumerate(reader, start=1):
-        if i % 1000000 == 0:
-            sys.stderr.write('{0}s    {1}mil\n'.format((time.time()-start),int(i/1000000)))
-        
-        new_row = {}
-        row['click']=0
-        for field in _fields:
-            new_row[field] = row[field]
-        print(new_row)
-        writer_app.writerow(new_row)
-    return True
+    train = pd.read_csv(open(src_path, "ra"))
+    test = pd.read_csv(open(dst_app_path, "ra"))
+    test['click'] = 0  #测试样本加一列click，初始化为0
+    #将训练样本和测试样本连接，一起进行特征工程
+    train = pd.concat([train, test])
+    return train

@@ -32,17 +32,13 @@ output = FLAGS.output_dir
 
 
 # 将train 和test 拼到一起
-#concat_train_test(FLAGS.src_test_path,FLAGS.src_train_path)
-
-
-
-#将数据集中的特征按列分割
+train=concat_train_test(FLAGS.src_test_path,FLAGS.src_train_path)
 
 
 
 # a1
 #计算 特征中 1、不同用户出现的次数 2、不同设备id出现的次数 3、不同ip出现的次数 4、不同用户不同时间出现的次数
-#one_line_col=one_line_data_preprocessing(FLAGS.src_train_path,FLAGS.dst_app_path)  
+one_line_col=one_line_data_preprocessing(train,FLAGS.dst_app_path)  
 
 
 #将训练集按列存放，资源实在有限

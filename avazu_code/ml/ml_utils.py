@@ -571,8 +571,8 @@ def two_col_plt(col_name,plt,sns):
     
 
     
-def sns_factorplot(col_name,plt,sns,y=None,hue=None,row=None,col=None,kind="box"):
-    train_one = pd.read_csv(FLAGS.tmp_data_path+col_name)
+def sns_factorplot(train_one,col_name,plt,sns,y=None,hue=None,row=None,col=None,kind="box"):
+#    train_one = pd.read_csv(FLAGS.tmp_data_path+col_name)
     sns.factorplot(x=col_name, y=y, 
                    hue=y, data=train_one,
                    row=row, col=col, 
