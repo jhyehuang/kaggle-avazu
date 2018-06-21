@@ -26,10 +26,10 @@ train_set_path = FLAGS.train_set_path
 output = FLAGS.output_dir
 
 def def_user(src_data):
-    src_data['uid'] = src_data['device_id'].values + src_data['device_ip'].values + '-' + src_data['device_model'].values
+    src_data['uid'] = src_data['device_id'].map(str).values + src_data['device_ip'].map(str).values + '-' + src_data['device_model'].map(str).values
 
 def def_user_one_day_hour(src_data):
-    src_data['uid_time'] = src_data['uid'].values + '-' + src_data['one_day_hour'].values
+    src_data['uid_time'] = src_data['uid'].values + '-' + src_data['one_day_hour'].map(str).values
 
 
 #  hour  shi jian tezheng
@@ -55,6 +55,7 @@ def cat_features_cnt(src_data):
     user_cnt = collections.defaultdict(int)
     user_hour_cnt = collections.defaultdict(int)
     id_cnt=drop_limit_10(src_data,'device_id')
+    print(id_cnt)
     ip_cnt=drop_limit_10(src_data,'device_ip')
     def_user(src_data)
     user_cnt==drop_limit_10(src_data,'uid')
@@ -64,51 +65,53 @@ def cat_features_cnt(src_data):
     return id_cnt,ip_cnt,user_cnt,user_hour_cnt
 
 
+def col_one_hot(train):
+    for _col in  train.columns.values.tolist():
+        if train[_col].dtypes=='object':
+            train[_col]=train[_col].astype('category').values.codes
+    return
 
-FIELDS = ['id','click','hour','app_id','site_id','banner_pos','device_id','device_ip','device_model','device_conn_type','C14','C17','C20','C21']
-DATE_FIELDS=['one_day','date_time','day_hour_prev','one_day_hour','app_or_web','day_hour_next','app_site_id']
-NEW_FIELDS = FIELDS+DATE_FIELDS+['pub_id','pub_domain','pub_category','device_id_count','device_ip_count','user_count','smooth_user_hour_count','user_click_histroy']
+
+FIELDS = ['C1','click','app_id','site_id','banner_pos','device_id','device_ip','device_model','device_conn_type','C14','C17','C20','C21']
+#DATE_FIELDS=['one_day','date_time','day_hour_prev','one_day_hour','app_or_web','day_hour_next','app_site_id']
+#NEW_FIELDS = FIELDS+DATE_FIELDS+['pub_id','pub_domain','pub_category','device_id_count','device_ip_count','user_count','smooth_user_hour_count','user_click_histroy']
 
 exptv_vn_list=['device_id','device_ip','C14','C17','C21',
     'app_domain','site_domain','site_id','app_id','device_model','hour']
     
+
+def add_col_cnt(src_data,col_name,cnt):
+    src_data[col_name+'_cnt']=np.zeros(src_data.shape[0])
+    for key,value in cnt.items():
+#            print(src_data[col_name])
+#            print(key)
+        src_data.loc[src_data[col_name].values==key,col_name+'_cnt']=value
+
 # 可以在单条记录情况下 加工的类别特征
 def one_line_data_preprocessing(src_data, dst_app_path, is_train=True):
+    
     anly_hour(src_data)
     id_cnt,ip_cnt,user_cnt,user_hour_cnt=cat_features_cnt(src_data) 
     
+    add_col_cnt(src_data,'device_id',id_cnt)
+    add_col_cnt(src_data,'device_ip',ip_cnt)
+    add_col_cnt(src_data,'uid',user_cnt)
+    add_col_cnt(src_data,'uid_time',user_hour_cnt)
+    col_one_hot(src_data)
+    procdess_col(src_data,'app_id')
+    procdess_col(src_data,'site_id')
+    procdess_col(src_data,'app_domain')
+    procdess_col(src_data,'app_category')
+    procdess_col(src_data,'site_id')
 
-        src_data['device_id_count'] = src_data[row['device_id']]
-        new_row['device_ip_count'] = ip_cnt[row['device_ip']]
+    return src_data.columns.values.tolist()
 
-        user, hour = def_user(row), row['hour']
-        new_row['user_count'] = user_cnt[user]
-        new_row['smooth_user_hour_count'] = str(user_hour_cnt[user+'-'+hour])
-        
-
-        new_row['app_or_web']= 1 if new_row['app_id']=='ecad2386' else 0
-        new_row['app_site_id'] = new_row['app_id']+new_row['site_id']
-
-
-        if True if row['site_id'] == '85f751fd' else False:
-            new_row['pub_id'] = row['app_id']
-            new_row['pub_domain'] = row['app_domain']
-            new_row['pub_category'] = row['app_category']
-            
-        else:
-            new_row['pub_id'] = row['site_id']
-            new_row['pub_domain'] = row['site_domain']
-            new_row['pub_category'] = row['site_category']
-        writer_app.writerow(new_row)
-    return NEW_FIELDS
-
-def two_features_data_preprocessing(path, is_train=True):
+def two_features_data_preprocessing(data1,data2,data3, is_train=True):
     
     logging.debug("to add some basic features ...")
     
     #类别型特征俩俩 链接    
-    
-    new_expvn=calc_exptv(path, exptv_vn_list,add_count=True)
+    new_expvn=calc_exptv(data1,data2,data3,exptv_vn_list,add_count=True)
     return  new_expvn
 
 # 计算各特征的 权重
@@ -136,7 +139,7 @@ def new_features_w(src_data, new_expvn, is_train=True):
         pred_prev = day_v_before.click.values.mean() * np.ones(day_v_before.shape[0])
     
         for vn in new_expvn:
-            if 'exp2_'+vn in day_v_before.columns:  #已经有了，丢弃重新计算
+            if 'exp2_'+vn in day_v_before.columns.values.tolist():  #已经有了，丢弃重新计算
                 day_v_before.drop('exp2_'+vn, inplace=True, axis=1)
     
         for i in range(3):
@@ -164,8 +167,8 @@ def new_features_w(src_data, new_expvn, is_train=True):
 #
 def data_concat(src_data, dst_app_path, dst_site_path, is_train=True):
 
-    Reader_app = pd.read_csv(open(dst_app_path, "r"))
-    Reader_site = pd.read_csv(open(dst_site_path, "r"))
+    Reader_app = pd.read_csv(dst_app_path)
+    Reader_site = pd.read_csv(dst_site_path)
     
     src_data= pd.merge(src_data, Reader_app, on=FIELDS)
     src_data= pd.merge(src_data, Reader_site, on=FIELDS)
@@ -173,42 +176,35 @@ def data_concat(src_data, dst_app_path, dst_site_path, is_train=True):
     logging.debug(time.time()-start)
     return NEW_FIELDS
 
-def drop_outpoint(col_name_list,tmp_data_path):
-    for col_name in col_name_list:
-        train_one = pd.read_csv(tmp_data_path+col_name)
-        t1=check_col_count_less_11(train_one[col_name],col_name)
-        train_one[train_one[col_name]==t1.keys()]=-1
-        train_one.to_csv(tmp_data_path+col_name)
 
-def data_to_col_csv(col_name_list,src_train_path, tmp_data_path):
-    writeheader_list=[]
+
+def data_to_col_csv(col_name_list,train, tmp_data_path):
+    num_writeheader_list=[]
+    cat_writeheader_list=[]
+    date_list=[]
     for col in col_name_list:
-        obj_name=''
-        columns=[]
-        columns.append(col)
-        obj_name= csv.DictWriter(open(tmp_data_path+col, 'w'), columns)
-        obj_name.writeheader()
-        writeheader_list.append(obj_name)
-
-    reader = csv.DictReader(open(src_train_path))
-    start=time.time()
-    for i, row in enumerate(reader, start=1):
-        if i % 1000000 == 0:
-            sys.stderr.write('{0}s    {1}mil\n'.format((time.time()-start),int(i/1000000)))
-
-        for field,col_writeheader in zip(col_name_list,writeheader_list):
-            #print(field)
-            #print(col_writeheader)
-            new_row={}
-            new_row[field]=row[field]
-            col_writeheader.writerow(new_row)
-    drop_outpoint(col_name_list, tmp_data_path)
+        if col in exptv_vn_list :
+            cat_writeheader_list.append(col)
+        elif 'day' in col:
+            date_list.append(col)
+        else:
+            num_writeheader_list.append(col)
+    train[cat_writeheader_list].to_csv(tmp_data_path+'cat_features.csv')
+    train[date_list].to_csv(tmp_data_path+'date_list.csv')
+    train[num_writeheader_list].to_csv(tmp_data_path+'num_features.csv')
+    del train
+    return 'cat_features.csv','date_list.csv','num_features.csv'
             
 
-def concat_train_test(src_path, dst_app_path,):
-    train = pd.read_csv(open(src_path, "ra"))
-    test = pd.read_csv(open(dst_app_path, "ra"))
+def concat_train_test(src_path, test_path,):
+    train = pd.read_csv(src_path, nrows =500,index_col=0)
+    test = pd.read_csv(test_path, nrows =500,index_col=0)
     test['click'] = 0  #测试样本加一列click，初始化为0
     #将训练样本和测试样本连接，一起进行特征工程
     train = pd.concat([train, test])
+    print(train.info())
+    try:
+        train.drop('id', axis=1,inplace = True)
+    except:
+        pass
     return train

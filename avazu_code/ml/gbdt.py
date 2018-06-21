@@ -3,30 +3,32 @@ import numpy as np
 import scipy as sc
 import scipy.sparse as sp
 from sklearn.utils import check_random_state 
+from sklearn.model_selection import train_test_split
 import pylab 
 import sys
+sys.path.append('..')
 import time
 from joblib import dump, load, Parallel, delayed
 import utils
-from utils import *
+from ml_utils import *
 
-sys.path.append(utils.xgb_path)
+#sys.path.append(utils.xgb_path)
 import xgboost as xgb
 
 
 import logging
 
 
-from joblib import dump, load
 from flags import parse_args
 FLAGS, unparsed = parse_args()
 
 logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
 
-train_save = load(FLAGS.tmp_data_path +FLAGS.train_job_name +'.joblib_dat')
-x = train_save[FLAGS.train_col]
-y = train_save[FLAGS.train_target]
+train_save = load(FLAGS.tmp_data_path +'cat_features.csv')
+
+y = train_save['click']
+x = train_save.drop('click',axis=1)
 
 X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=0.2,random_state=4)
 

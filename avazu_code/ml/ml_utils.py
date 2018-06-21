@@ -5,9 +5,9 @@ import  csv
 
 import time
 import sys
+sys.path.append('..')
 from joblib import dump, load
 import copy
-sys.path.append('..')
 import logging
 from flags import FLAGS, unparsed
 
@@ -82,7 +82,7 @@ def calcLeaveOneOut2(df, vn, vn_y, cred_k, r_k, power, mean0=None, add_count=Fal
     #(总和+随机算子*均值)/(总数+随机算子)/均值    然后开4次方
     diff = np.power((_sum + cred_k * _mean)/(_cnt + cred_k) / _mean, power)
 
-    if vn_yexp in df.columns:
+    if vn_yexp in df.columns.values.tolist():
         df[vn_yexp] *= diff
     else:
         df[vn_yexp] = diff 
@@ -452,43 +452,42 @@ def get_set_diff(df, vn, f1, f2):
     return len(set2_1) * 1.0 / len(set2)
 
 
-def calc_exptv(path, vn_list,last_day_only=False, add_count=False):
-    # 取出day和click两列
-#    t0a = t0.ix[:, ['one_day', 'click']].copy()
+def calc_exptv(data1,data2,data3,vn_list,add_count=False):
     day_exps = {}
     cred_k=10
-    day_v=21
+    day=pd.read_csv(data2)
+    train=pd.read_csv(data1)
+    num=pd.read_csv(data3)
+#    train=train.join(day, on='key')
+#    del day
 
-
-    #对列表中的每一列
-#    vn_list=['device_id','device_ip','C14','C17','C21',
-#    'app_domain','site_domain','site_id','app_id','device_model','hour']
     new_list=[]
-    one_day=pd.read_csv(path+'one_day')
+    one_day=day[['one_day']]
     one_day.one_day=one_day.one_day.map(int).map(str)
     days_list=list(set(one_day.one_day.values))
-    click=pd.read_csv(path+'click')
+
 
     for day_v in days_list:
         day_exps[day_v]={}
-
+#    vn_list=train.columns.values.tolist()
+    t3= pd.DataFrame(columns=['one_day','click'])  
+    t3['one_day']=day['one_day'].values
+    t3['click']=num['click'].values
     for one in vn_list:
-        t3= pd.DataFrame(columns=['one_day','click'])  
-        t3['one_day']=one_day['one_day'].values
-        t3['click']=click['click'].values
-        t1=pd.read_csv(path+one)
+        t1=train[[one]]
         #t3[one] = t1[one].values
         two_vn_list=copy.deepcopy(vn_list)
         two_vn_list.remove(one)
         if len(two_vn_list)<1:
             break
         for two in two_vn_list:
-            t2=pd.read_csv(path+two)
+            t2=train[[two]]
             vn=one+two
             print(vn)
             print(t1.shape)
             print(t2.shape)
             print(t3.shape)
+
             t3[vn] = pd.Series(np.add(t1[one].astype('str').values , t2[two].astype('str').values)).astype('category').values.codes
             for day_v in days_list:
                 print (day_v)
@@ -497,21 +496,18 @@ def calc_exptv(path, vn_list,last_day_only=False, add_count=False):
                 
                 day_exps[day_v][vn] = calcTVTransform(t3, vn, 'click', cred_k, filter_t1)
             new_list.append(vn)
-            columns=[vn]
-            columns.append(vn)
-            obj_name= csv.DictWriter(open(FLAGS.tmp_data_path+vn, 'w'), columns)
-            obj_name.writeheader()
-            new_row={}
-            new_row[vn]=t3[vn]
-            obj_name.writerow(new_row) 
-            t3.drop(vn,axis=1, inplace=True)
+    t3.drop(['one_day'], axis=1,inplace = True)
+    t3.drop(['click'], axis=1,inplace = True)
+    t3.to_csv(FLAGS.tmp_data_path+'two_col_join.csv')
+    
+    t4= pd.DataFrame(columns=['click',])  
+    t4['click']=num['click'].values 
     two_new_list=[]
     for vn_key in new_list:
-        vn_key_data=pd.read_csv(path+vn_key)
+        vn_key_data=t3[vn_key]
         vn_exp = 'exptv_'+vn_key
         vn_cnt = 'cnttv_'+vn_key
         print(vn_key)
-        t4= pd.DataFrame(columns=[vn_exp,vn_cnt])  
         t4[vn_exp] = np.zeros(vn_key_data.shape[0])
         t4[vn_cnt] = np.zeros(vn_key_data.shape[0])
         two_new_list.append(vn_exp)
@@ -522,15 +518,10 @@ def calc_exptv(path, vn_list,last_day_only=False, add_count=False):
             print(m)
             t4.loc[m, vn_exp]=day_exps[day_v][vn_key]['exp']
             t4.loc[m, vn_cnt]=day_exps[day_v][vn_key]['cnt']
-        columns=[vn_exp,vn_cnt]
-        obj_name= csv.DictWriter(open(FLAGS.tmp_data_path+vn_exp+'+'+vn_cnt, 'w'), columns)
-        obj_name.writeheader()
-        new_row={}
-        new_row[vn_exp]=t4[vn_exp]
-        new_row[vn_cnt]=t4[vn_cnt]
-        obj_name.writerow(new_row) 
-    new_list=list(set(new_list+two_new_list))
-    return new_list
+    t4.drop(['click'], axis=1,inplace = True)
+    t4.to_csv(FLAGS.tmp_data_path+'two_col_join_cnt.csv')
+    del t3,t4
+    return two_new_list
 
 def col_anly(data,col_name):
     #读取数据
@@ -588,28 +579,26 @@ def sns_factorplot(train_one,col_name,plt,sns,y=None,hue=None,row=None,col=None,
     plt.show()
     
 
-def procdess_col(col_name):
-    train_one = pd.read_csv(FLAGS.tmp_data_path+col_name)
-    _count = train_one.value_counts()
-    df= pd.DataFrame(columns=[col_name,])
-    df['top_10_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+def procdess_col(train_one,col_name):
+    _count = train_one[col_name].value_counts()
+    train_one['top_10_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
         _count.values >= np.percentile(_count.values, 90)] else 0)
-    df['top_25_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+    train_one['top_25_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
         _count.values >= np.percentile(_count.values, 75)] else 0)
-    df['top_5_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+    train_one['top_5_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
         _count.values >= np.percentile(_count.values, 95)] else 0)
-    df['top_50_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+    train_one['top_50_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
         _count.values >= np.percentile(_count.values, 50)] else 0)
-    df['top_1_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+    train_one['top_1_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
         _count.values >= np.percentile(_count.values, 99)] else 0)
-    df['top_2_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+    train_one['top_2_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
         _count.values >= np.percentile(_count.values, 98)] else 0)
-    df['top_15_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+    train_one['top_15_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
         _count.values >= np.percentile(_count.values, 85)] else 0)
-    df['top_20_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+    train_one['top_20_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
         _count.values >= np.percentile(_count.values, 80)] else 0)
-    df['top_30_manager'] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
+    train_one['top_30_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
         _count.values >= np.percentile(_count.values, 70)] else 0)
     
 #    df.drop(['manager_id'], axis=1,inplace = True)
-    return df
+    return train_one
