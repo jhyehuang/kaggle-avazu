@@ -483,16 +483,16 @@ def calc_exptv(data1,data2,data3,vn_list,add_count=False):
         for two in two_vn_list:
             t2=train[[two]]
             vn=one+two
-            print(vn)
-            print(t1.shape)
-            print(t2.shape)
-            print(t3.shape)
+            logging.debug(vn)
+            logging.debug(t1.shape)
+            logging.debug(t2.shape)
+            logging.debug(t3.shape)
 
             t3[vn] = pd.Series(np.add(t1[one].astype('str').values , t2[two].astype('str').values)).astype('category').values.codes
             for day_v in days_list:
                 print (day_v)
                 filter_t1 = (one_day.one_day.values ==day_v )
-                print(filter_t1.shape)
+                logging.debug(filter_t1.shape)
                 
                 day_exps[day_v][vn] = calcTVTransform(t3, vn, 'click', cred_k, filter_t1)
             new_list.append(vn)
@@ -507,15 +507,15 @@ def calc_exptv(data1,data2,data3,vn_list,add_count=False):
         vn_key_data=t3[vn_key]
         vn_exp = 'exptv_'+vn_key
         vn_cnt = 'cnttv_'+vn_key
-        print(vn_key)
+        logging.debug(vn_key)
         t4[vn_exp] = np.zeros(vn_key_data.shape[0])
         t4[vn_cnt] = np.zeros(vn_key_data.shape[0])
         two_new_list.append(vn_exp)
         two_new_list.append(vn_cnt)
         for day_v in days_list:
             m=(one_day.one_day.values == day_v)
-            print(one_day.one_day.values.shape)
-            print(m)
+            logging.debug(one_day.one_day.values.shape)
+            logging.debug(m)
             t4.loc[m, vn_exp]=day_exps[day_v][vn_key]['exp']
             t4.loc[m, vn_cnt]=day_exps[day_v][vn_key]['cnt']
     t4.drop(['click'], axis=1,inplace = True)
@@ -526,8 +526,8 @@ def calc_exptv(data1,data2,data3,vn_list,add_count=False):
 def col_anly(data,col_name):
     #读取数据
     train = data
-    print(train.head())
-    print(col_name)
+    logging.debug(train.head())
+    logging.debug(col_name)
     a=train[col_name].value_counts()
     return a
 
@@ -600,5 +600,5 @@ def procdess_col(train_one,col_name):
     train_one['top_30_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
         _count.values >= np.percentile(_count.values, 70)] else 0)
     
-#    df.drop(['manager_id'], axis=1,inplace = True)
+    logging.debug(_count)
     return train_one

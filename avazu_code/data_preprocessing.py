@@ -55,12 +55,15 @@ def cat_features_cnt(src_data):
     user_cnt = collections.defaultdict(int)
     user_hour_cnt = collections.defaultdict(int)
     id_cnt=drop_limit_10(src_data,'device_id')
-    print(id_cnt)
+    logging.debug(len(id_cnt))
     ip_cnt=drop_limit_10(src_data,'device_ip')
+    logging.debug(len(ip_cnt))
     def_user(src_data)
-    user_cnt==drop_limit_10(src_data,'uid')
+    user_cnt=drop_limit_10(src_data,'uid')
+    logging.debug(len(user_cnt))
     def_user_one_day_hour(src_data)
     user_hour_cnt=drop_limit_10(src_data,'uid_time')
+    logging.debug(len(user_hour_cnt))
         
     return id_cnt,ip_cnt,user_cnt,user_hour_cnt
 
@@ -81,11 +84,10 @@ exptv_vn_list=['device_id','device_ip','C14','C17','C21',
     
 
 def add_col_cnt(src_data,col_name,cnt):
-    src_data[col_name+'_cnt']=np.zeros(src_data.shape[0])
-    for key,value in cnt.items():
-#            print(src_data[col_name])
-#            print(key)
-        src_data.loc[src_data[col_name].values==key,col_name+'_cnt']=value
+    vn=col_name+'_cnt'
+    src_data[vn]=np.zeros(src_data.shape[0])
+    src_data[vn]=[ cnt[x] for x in src_data[col_name].values]
+    logging.debug(src_data[vn].head())
 
 # 可以在单条记录情况下 加工的类别特征
 def one_line_data_preprocessing(src_data, dst_app_path, is_train=True):
@@ -197,12 +199,12 @@ def data_to_col_csv(col_name_list,train, tmp_data_path):
             
 
 def concat_train_test(src_path, test_path,):
-    train = pd.read_csv(src_path, nrows =500,index_col=0)
-    test = pd.read_csv(test_path, nrows =500,index_col=0)
+    train = pd.read_csv(src_path, index_col=0)
+    test = pd.read_csv(test_path, index_col=0)
     test['click'] = 0  #测试样本加一列click，初始化为0
     #将训练样本和测试样本连接，一起进行特征工程
     train = pd.concat([train, test])
-    print(train.info())
+    logging.debug(train.info())
     try:
         train.drop('id', axis=1,inplace = True)
     except:
