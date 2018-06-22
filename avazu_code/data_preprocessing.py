@@ -86,7 +86,8 @@ exptv_vn_list=['device_id','device_ip','C14','C17','C21',
 def add_col_cnt(src_data,col_name,cnt):
     vn=col_name+'_cnt'
     src_data[vn]=np.zeros(src_data.shape[0])
-    src_data[vn]=[ cnt[x] for x in src_data[col_name].values]
+    func=lambda x: cnt[x]
+    src_data[vn]=src_data[col_name].apply(func)
     logging.debug(src_data[vn].head())
 
 # 可以在单条记录情况下 加工的类别特征
