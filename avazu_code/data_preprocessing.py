@@ -70,6 +70,7 @@ def cat_features_cnt(src_data):
 
 def col_one_hot(train):
     for _col in  train.columns.values.tolist():
+        logging.debug(_col)
         if train[_col].dtypes=='object':
             train[_col]=train[_col].astype('category').values.codes
     return
@@ -168,16 +169,19 @@ def new_features_w(src_data, new_expvn, is_train=True):
         src_data['exp2_'+vn] = exp2_dict[vn]
 
 #
-def data_concat(src_data, dst_app_path, dst_site_path, is_train=True):
-
-    Reader_app = pd.read_csv(dst_app_path)
-    Reader_site = pd.read_csv(dst_site_path)
-    
-    src_data= pd.merge(src_data, Reader_app, on=FIELDS)
-    src_data= pd.merge(src_data, Reader_site, on=FIELDS)
+def data_concat(src_data, dst_data_path,usecols=None, is_train=True):
+    if usecols!=None:
+        Reader_ = pd.read_csv(dst_data_path,usecols=[usecols,])
+    else:
+        Reader_ = pd.read_csv(dst_data_path)
+    logging.debug('data1.shape:'+str(src_data.shape))
+    logging.debug('data2.shape:'+str(Reader_.shape))
+    src_data=pd.concat([src_data,Reader_],axis = 1)
     start = time.time()
-    logging.debug(time.time()-start)
-    return NEW_FIELDS
+    logging.debug('结果.shape:'+str(src_data.shape))
+    logging.debug('耗时'+str(time.time()-start))
+#    return NEW_FIELDS
+    return src_data
 
 
 
@@ -200,8 +204,8 @@ def data_to_col_csv(col_name_list,train, tmp_data_path):
             
 
 def concat_train_test(src_path, test_path,):
-    train = pd.read_csv(src_path, index_col=0)
-    test = pd.read_csv(test_path, index_col=0)
+    train = pd.read_csv(src_path,nrows=50000, index_col=0)
+    test = pd.read_csv(test_path,nrows=50000, index_col=0)
     test['click'] = 0  #测试样本加一列click，初始化为0
     #将训练样本和测试样本连接，一起进行特征工程
     train = pd.concat([train, test])
@@ -211,3 +215,25 @@ def concat_train_test(src_path, test_path,):
     except:
         pass
     return train
+
+def gdbt_data_get(test_path):
+    train_save = pd.read_csv(FLAGS.tmp_data_path +'cat_features.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path +'date_list.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'num_features.csv',9)
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join_cnt.csv')
+    test = pd.read_csv(test_path, index_col=0)
+    test_save=train_save.iloc[test.shape[0]:-1,:]
+    train_save=train_save.iloc[:test.shape[0]-1,:]
+    return train_save,test_save
+
+def lr_data_get(test_path):
+    train_save = pd.read_csv(FLAGS.tmp_data_path +'cat_features.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'date_list.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'num_features.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join_cnt.csv')
+    test = pd.read_csv(test_path, index_col=0)
+    test_save=train_save.iloc[test.shape[0]:-1,:]
+    train_save=train_save.iloc[:test.shape[0]-1,:]
+    return train_save,test_save
