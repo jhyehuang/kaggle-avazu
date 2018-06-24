@@ -253,11 +253,11 @@ def gdbt_data_get(test_path):
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join_cnt.csv')
     test = pd.read_csv(test_path, index_col=0)
-    test_save=train_save.iloc[test.shape[0]:-1,:]
-    train_save=train_save.iloc[:0-test.shape[0],:]
-    logging.debug(test_save)
-    logging.debug(train_save)
-    logging.debug(train_save.columns)
+    logging.debug(test.shape)
+    test_save=train_save.iloc[0-test.shape[0]:]
+    logging.debug(test_save.shape)
+    train_save=train_save.iloc[0:0-test.shape[0]]
+    logging.debug(train_save.shape)
     logging.debug(test_save.shape)
     return train_save,test_save
 
