@@ -33,23 +33,24 @@ output = FLAGS.output_dir
 
 
 # 将train 和test 拼到一起
-train=concat_train_test(FLAGS.src_train_path,FLAGS.src_test_path)
+#train=concat_train_test(FLAGS.src_train_path,FLAGS.src_test_path)
 
 
 
 # a1
 #计算 特征中 1、不同用户出现的次数 2、不同设备id出现的次数 3、不同ip出现的次数 4、不同用户不同时间出现的次数
-one_line_col=one_line_data_preprocessing(train,FLAGS.dst_app_path)  
+#one_line_col=one_line_data_preprocessing(train,FLAGS.dst_app_path)  
+
 
 #将训练集按列存放，资源实在有限
-file1,file2,file3=data_to_col_csv(one_line_col,train,FLAGS.tmp_data_path)
+#file1,file2,file3=data_to_col_csv(one_line_col,train,FLAGS.tmp_data_path)
 
-
+#file1,file2,file3='cat_features.csv','date_list.csv','num_features.csv'
 # a2
 # 类别特征之间每俩个特征进行拼接 组成新特征
-new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path+file1,FLAGS.tmp_data_path+file2,FLAGS.tmp_data_path+file3)
+#new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path+file1,FLAGS.tmp_data_path+file2,FLAGS.tmp_data_path+file3)
 
-
+click_to_csv()
 #a3
 #新特征 参考点击率 更新一个权重出来
 #new_features_w(train,new_expvn)

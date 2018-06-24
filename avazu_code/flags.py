@@ -6,8 +6,8 @@ import datetime
 import pytz
 
 
-pad='win'
-#pad='linux'
+#pad='win'
+pad='linux'
 # pool.supportxmr.com:3333
 #bounced zombie fossil wayside enforce visited arsenic educated serving linen mittens argue wayside
 # 42MXU6g6N1q46FfEFWFqGF5xu6vBEHh4CUdE9iJGevPUPexfTa3eGgjh46gBGieH4gHwb7QCCCiF7HNNTwPQ3V59HK1rVm6
@@ -20,7 +20,7 @@ current_time = datetime.datetime.now(tz)
 
 gdbt_param = {'max_depth':15, 'eta':.02, 'objective':'binary:logistic', 'verbose':0,
          'subsample':1.0, 'min_child_weight':50, 'gamma':0,
-         'nthread': 16, 'colsample_bytree':.5, 'base_score':0.16, 'seed': 999,
+         'nthread': -1, 'colsample_bytree':.5, 'base_score':0.16, 'seed': 999,
          'early_stopping_rounds':10,'num_boost_round':1000}
 
 def parse_args(check=True):
@@ -38,7 +38,7 @@ def parse_args(check=True):
     parser.add_argument('--train_set_path', type=str, default='/home/zhijiehuang/github/data/',
                         help='path to save train test and .')
 
-    parser.add_argument('--tmp_data_path', type=str, default='/tmp/',
+    parser.add_argument('--tmp_data_path', type=str, default='/data/',
                         help='path to QuanSongCi.txt')
 
     parser.add_argument('--train_job_name', type=str, default='trian_job',
@@ -50,10 +50,10 @@ def parse_args(check=True):
     parser.add_argument('--src_test_path', type=str, default='/home/zhijiehuang/github/data/test.csv',
                         help='src_test_path.')
 
-    parser.add_argument('--dst_app_path', type=str, default='/tmp/writer_app.csv',
+    parser.add_argument('--dst_app_path', type=str, default='/data/writer_app.csv',
                         help='dst_app_path.')
 
-    parser.add_argument('--dst_site_path', type=str, default='/tmp/writer_site.csv',
+    parser.add_argument('--dst_site_path', type=str, default='/data/writer_site.csv',
                         help='dst_site_path ')
 
     parser.add_argument('--sample_pct', type=float, default=1,

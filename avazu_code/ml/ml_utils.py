@@ -140,7 +140,7 @@ def logloss(pred, y, weight=None):
         weight = np.ones(y.size)
     
     pred = np.maximum(1e-7, np.minimum(1 - 1e-7, pred))
-    return - np.sum(weight * (y * np.log(pred) + (1 - y) * np.log(1 - pred))) / np.sum(weight)
+    return '',- np.sum(weight * (y * np.log(pred) + (1 - y) * np.log(1 - pred))) / np.sum(weight)
 
 def gini_norm(pred, y, weight=None):
 
@@ -473,11 +473,12 @@ def calc_exptv(data1,data2,data3,vn_list,add_count=False):
     t3= pd.DataFrame(columns=['one_day','click'])  
     t3['one_day']=day['one_day'].values
     t3['click']=num['click'].values
+    one_drop_list=[]
     for one in vn_list:
         t1=train[[one]]
-        #t3[one] = t1[one].values
-        two_vn_list=copy.deepcopy(vn_list)
-        two_vn_list.remove(one)
+        one_drop_list.append(one)
+#        t3[one] = t1[one].values
+        two_vn_list=list(set(vn_list).difference(set(one_drop_list)))
         if len(two_vn_list)<1:
             break
         for two in two_vn_list:
@@ -499,9 +500,21 @@ def calc_exptv(data1,data2,data3,vn_list,add_count=False):
     t3.drop(['one_day'], axis=1,inplace = True)
     t3.drop(['click'], axis=1,inplace = True)
     t3.to_csv(FLAGS.tmp_data_path+'two_col_join.csv')
+    ret=dump(day_exps, FLAGS.tmp_data_path+'day_exps.joblib_dat') 
+    ret=dump(new_list, FLAGS.tmp_data_path+'new_list.joblib_dat') 
+    ret=dump(days_list, FLAGS.tmp_data_path+'days_list.joblib_dat') 
+    ret=dump(one_day, FLAGS.tmp_data_path+'one_day.joblib_dat')
+    logging.debug(ret)
+    del t3,day_exps
     
-    t4= pd.DataFrame(columns=['click',])  
-    t4['click']=num['click'].values 
+def calc_exptv_cnt():
+    t3=pd.read_csv(FLAGS.tmp_data_path+'two_col_join.csv')
+    drop_col_list=t3.columns
+    day_exps=load(FLAGS.tmp_data_path+'day_exps.joblib_dat')
+    new_list=load(FLAGS.tmp_data_path+'new_list.joblib_dat')
+    days_list=load(FLAGS.tmp_data_path+'days_list.joblib_dat')
+    one_day=load(FLAGS.tmp_data_path+'one_day.joblib_dat')
+    t4= t3   
     two_new_list=[]
     for vn_key in new_list:
         vn_key_data=t3[vn_key]
@@ -518,7 +531,7 @@ def calc_exptv(data1,data2,data3,vn_list,add_count=False):
             logging.debug(m)
             t4.loc[m, vn_exp]=day_exps[day_v][vn_key]['exp']
             t4.loc[m, vn_cnt]=day_exps[day_v][vn_key]['cnt']
-    t4.drop(['click'], axis=1,inplace = True)
+    t4.drop(drop_col_list, axis=1,inplace = True)
     t4.to_csv(FLAGS.tmp_data_path+'two_col_join_cnt.csv')
     del t3,t4
     return two_new_list
@@ -581,24 +594,65 @@ def sns_factorplot(train_one,col_name,plt,sns,y=None,hue=None,row=None,col=None,
 
 def procdess_col(train_one,col_name):
     _count = train_one[col_name].value_counts()
-    train_one['top_10_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
-        _count.values >= np.percentile(_count.values, 90)] else 0)
-    train_one['top_25_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
-        _count.values >= np.percentile(_count.values, 75)] else 0)
-    train_one['top_5_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
-        _count.values >= np.percentile(_count.values, 95)] else 0)
-    train_one['top_50_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
-        _count.values >= np.percentile(_count.values, 50)] else 0)
-    train_one['top_1_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
-        _count.values >= np.percentile(_count.values, 99)] else 0)
-    train_one['top_2_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
-        _count.values >= np.percentile(_count.values, 98)] else 0)
-    train_one['top_15_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
-        _count.values >= np.percentile(_count.values, 85)] else 0)
-    train_one['top_20_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
-        _count.values >= np.percentile(_count.values, 80)] else 0)
-    train_one['top_30_'+col_name] = train_one[col_name].apply(lambda x: 1 if x in _count.index.values[
-        _count.values >= np.percentile(_count.values, 70)] else 0)
+    logging.debug(_count)
+    
+    def cnt_xx(xx):
+       return  _count.index.values[_count.values >= np.percentile(_count.values, xx)] 
+
+    cnt_=cnt_xx(90)
+    logging.debug(cnt_)
+    def func_xx(x):
+        return  1 if x in cnt_ else 0
+    train_one['top_10_'+col_name] = train_one[col_name].apply(func_xx)
+    logging.debug('top_10_')
+    cnt_=cnt_xx(75)
+    logging.debug(cnt_)
+    def func_xx(x):
+        return  1 if x in cnt_ else 0
+    train_one['top_25_'+col_name] = train_one[col_name].apply(func_xx)
+    logging.debug('top_25_')
+    cnt_=cnt_xx(95)
+    logging.debug(cnt_)
+    def func_xx(x):
+        return  1 if x in cnt_ else 0
+    train_one['top_5_'+col_name] = train_one[col_name].apply(func_xx)
+    logging.debug('top_5_')
+    cnt_=cnt_xx(50)
+    logging.debug(cnt_)
+    def func_xx(x):
+        return  1 if x in cnt_ else 0
+    train_one['top_50_'+col_name] = train_one[col_name].apply(func_xx)
+    logging.debug('top_50_')
+    cnt_=cnt_xx(99)
+    logging.debug(cnt_)
+    def func_xx(x):
+        return  1 if x in cnt_ else 0
+    train_one['top_1_'+col_name] = train_one[col_name].apply(func_xx)
+    logging.debug('top_1_')
+    cnt_=cnt_xx(98)
+    logging.debug(cnt_)
+    def func_xx(x):
+        return  1 if x in cnt_ else 0
+    train_one['top_2_'+col_name] = train_one[col_name].apply(func_xx)
+    logging.debug('top_2_')
+    cnt_=cnt_xx(85)
+    logging.debug(cnt_)
+    def func_xx(x):
+        return  1 if x in cnt_ else 0
+    train_one['top_15_'+col_name] = train_one[col_name].apply(func_xx)
+    logging.debug('top_15_')
+    cnt_=cnt_xx(80)
+    logging.debug(cnt_)
+    def func_xx(x):
+        return  1 if x in cnt_ else 0
+    train_one['top_20_'+col_name] = train_one[col_name].apply(func_xx)
+    logging.debug('top_20_')
+    cnt_=cnt_xx(30)
+    logging.debug(cnt_)
+    def func_xx(x):
+        return  1 if x in cnt_ else 0
+    train_one['top_30_'+col_name] = train_one[col_name].apply(func_xx)
+    logging.debug('top_30_')
     
     logging.debug(_count)
     return train_one
