@@ -20,7 +20,7 @@ current_time = datetime.datetime.now(tz)
 
 gdbt_param = {'max_depth':15, 'eta':.02, 'objective':'binary:logistic', 'verbose':0,
          'subsample':1.0, 'min_child_weight':50, 'gamma':0,
-         'nthread': -1, 'colsample_bytree':.5, 'base_score':0.16, 'seed': 999,
+         'nthread': -1, 'colsample_bytree':.5,  'seed': 999,
          'early_stopping_rounds':10,'num_boost_round':1000}
 
 def parse_args(check=True):
