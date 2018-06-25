@@ -6,8 +6,8 @@ import datetime
 import pytz
 
 
-#pad='win'
-pad='linux'
+pad='win'
+#pad='linux'
 # pool.supportxmr.com:3333
 #bounced zombie fossil wayside enforce visited arsenic educated serving linen mittens argue wayside
 # 42MXU6g6N1q46FfEFWFqGF5xu6vBEHh4CUdE9iJGevPUPexfTa3eGgjh46gBGieH4gHwb7QCCCiF7HNNTwPQ3V59HK1rVm6
@@ -105,7 +105,7 @@ def win_parse_args(check=True):
     parser.add_argument('--src_train_path', type=str, default='d:/GitHub/data/avazu_data/train_01.csv',
                         help='src_train_path.')
     
-    parser.add_argument('--src_test_path', type=str, default='d:/GitHub/data/avazu_data/test',
+    parser.add_argument('--src_test_path', type=str, default='d:/GitHub/data/avazu_data/test_01.csv',
                         help='src_test_path.')
 
     parser.add_argument('--dst_app_path', type=str, default='f:/GitHub/data/avazu_data/output/writer_app.csv',

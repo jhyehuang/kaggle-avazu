@@ -199,7 +199,7 @@ def data_concat(src_data, dst_data_path,usecols=None, is_train=True):
     
     logging.debug('data1.shape:'+str(src_data.shape))
     logging.debug('data2.shape:'+str(Reader_.shape))
-    src_data=pd.concat([src_data,Reader_],axis = 1)
+    src_data=pd.concat([src_data,Reader_],axis = 1, ignore_index=True)
     start = time.time()
     logging.debug('结果.shape:'+str(src_data.shape))
     logging.debug('耗时'+str(time.time()-start))

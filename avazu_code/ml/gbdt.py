@@ -109,12 +109,12 @@ def done(istrain=True):
 #        xgb1=pd.read_csv(FLAGS.tmp_data_path+'1-gdbt.csv')
 #        dtest = xgb.DMatrix(X_test)
         xgb_pred = xgb1.predict(X_test)
-        y_pred = [round(value) for value in xgb_pred]
+        y_pred = [round(value,4) for value in xgb_pred]
         logging.debug('-'*30)
         logging.debug(y_pred)
-        ret_list=np.array(X_test['id'].values,np.array(y_pred).reshape(-1,1))
-        ret_pd=pd.DataFrame(ret_list,columns=['id','click'])
-        ret_pd.to_csv(FLAGS.tmp_data_path+'1-gdbt.test.csv')
+        ret_list=X_test['id']
+        ret_pd = pd.concat([ret_list, y_pred], axis = 1)
+        ret_pd.to_csv(FLAGS.tmp_data_path+'1-gdbt.test.csv',index=False)
         
         
 if __name__ == "__main__":
