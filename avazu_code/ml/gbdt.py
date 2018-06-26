@@ -41,28 +41,31 @@ param = FLAGS.gbdt_param
 #直接调用xgboost内嵌的交叉验证（cv），可对连续的n_estimators参数进行快速交叉验证
 #而GridSearchCV只能对有限个参数进行交叉验证
 def modelfit(alg, X_train,y_train, cv_folds=None, early_stopping_rounds=10):
-#    xgb_param = alg.get_xgb_params()
-#    params['num_class'] = 2
+    xgb_param = alg.get_xgb_params()
+    xgb_param['num_class'] = 2
 #    xgb_param=dict([(key,[params[key]]) for key in params])
     X_train_part, X_val, y_train_part, y_val = train_test_split(X_train, y_train, train_size = 0.33,random_state = 0)
 #    logging.debug(params)
     #直接调用xgboost，而非sklarn的wrapper类
     xgtrain = xgb.DMatrix(X_train_part, label = y_train_part)
+    xgvalid = xgb.DMatrix(X_val, label=y_val)
 #    boost = xgb.sklearn.XGBClassifier()
 #    cvresult = GridSearchCV(boost,params, scoring='neg_log_loss',n_jobs=-1,cv=cv_folds)
 #    cvresult.fit(X_train,y_train)
 #    alg=cvresult.best_estimator_
-#    cvresult = xgb.cv(xgb_param, xgtrain, num_boost_round=alg.get_params()['n_estimators'], folds =cv_folds,
-#             metrics='logloss', early_stopping_rounds=early_stopping_rounds,)
-#  
-#    cvresult.to_csv('1_nestimators.csv', index_label = 'n_estimators')
+    watchlist = [(xgvalid, 'eval'), (xgtrain, 'train')]
     
+    cvresult = xgb.cv(xgb_param, xgtrain, num_boost_round=alg.get_params()['n_estimators'], folds =cv_folds,
+                      obj=logloss, early_stopping_rounds=early_stopping_rounds,)
+#  
+    cvresult.to_csv('1_nestimators.csv', index_label = 'n_estimators')
     #最佳参数n_estimators
-#    n_estimators = cvresult.shape[0]
+    n_estimators = cvresult.shape[0]
     
     # 采用交叉验证得到的最佳参数n_estimators，训练模型
-#    alg.set_params(n_estimators = n_estimators)
-    alg.fit(xgtrain,eval_metric='logloss')
+    alg.set_params(n_estimators = n_estimators)
+    alg.fit(X_train_part,y_train_part,eval_metric=logloss)
+    
 #    print(n_estimators)
         
     #Predict training set:

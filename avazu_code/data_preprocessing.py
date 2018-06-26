@@ -35,15 +35,15 @@ def def_user_one_day_hour(src_data):
 #  hour  shi jian tezheng
 def anly_hour(src_data):
     src_data['date']=pd.to_datetime((src_data['hour'] / 100).map(int)+20000000)
-            
     src_data['one_day']=src_data['date'].dt.day
     src_data['one_day_hour'] = src_data['date'].dt.hour
     src_data['week_day'] = src_data['date'].dt.dayofweek
-    src_data['day_hour_prev'] = src_data['                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  '] - 1
+    src_data['day_hour_prev']=src_data['one_day_hour']-1
     src_data['day_hour_next'] = src_data['one_day_hour'] + 1
     src_data['is_work_day'] = src_data['week_day'].apply(lambda x: 1 if x in [0,1,2,3,4] else 0)
 #    src_data[src_data['is_work_day']==0]
     src_data.drop(['date'], axis=1,inplace = True)
+    src_data.drop(['week_day'], axis=1,inplace = True)
             
 def drop_limit_10(train,col_name):
     return dict((key,-1) if value <10 else (key,value)  for key,value in dict(train[col_name].value_counts()).items())
@@ -99,6 +99,7 @@ def add_col_cnt(src_data,col_name,cnt):
 def one_line_data_preprocessing(src_data, dst_app_path, is_train=True):
     
     anly_hour(src_data)
+    logging.debug(src_data.shape)
     id_cnt,ip_cnt,user_cnt,user_hour_cnt=cat_features_cnt(src_data) 
     
     add_col_cnt(src_data,'device_id',id_cnt)
@@ -119,7 +120,7 @@ def two_features_data_preprocessing(data1,data2,data3, is_train=True):
     logging.debug("to add some basic features ...")
     
     #类别型特征俩俩 链接    
-#    calc_exptv(data1,data2,data3,exptv_vn_list,add_count=True)
+    calc_exptv(data1,data2,data3,exptv_vn_list,add_count=True)
     new_expvn=calc_exptv_cnt()
     return  new_expvn
 
@@ -192,7 +193,7 @@ def data_concat(src_data, dst_data_path,usecols=None, is_train=True):
     
     logging.debug('data1.shape:'+str(src_data.shape))
     logging.debug('data2.shape:'+str(Reader_.shape))
-    src_data=pd.concat([src_data,Reader_],axis = 1, ignore_index=True)
+    src_data=pd.concat([src_data,Reader_],axis = 1)
     start = time.time()
     logging.debug('结果.shape:'+str(src_data.shape))
     logging.debug('耗时'+str(time.time()-start))
@@ -220,23 +221,31 @@ def data_to_col_csv(col_name_list,train, tmp_data_path):
             
 
 def concat_train_test(src_path, test_path,):
-    train = pd.read_csv(src_path, index_col=0)
-    test = pd.read_csv(test_path, index_col=0)
+    train = pd.read_csv(src_path)
+    test = pd.read_csv(test_path)
     test['click'] = 0  #测试样本加一列click，初始化为0
+    train['id'].to_csv(FLAGS.tmp_data_path+'train_id.csv')
+    test['id'].to_csv(FLAGS.tmp_data_path+'test_id.csv')
+    logging.debug(train.shape)
+    logging.debug(test.shape)
     #将训练样本和测试样本连接，一起进行特征工程
     train = pd.concat([train, test])
-    logging.debug(train.info())
-    try:
-        train.drop('id', axis=1,inplace = True)
-    except:
-        pass
+    logging.debug(train.shape)
+#    try:
+#        train.drop('id', axis=1,inplace = True)
+#    except:
+#        pass
     return train
 
 def click_to_csv():
     num_features=pd.read_csv(FLAGS.tmp_data_path+'num_features.csv')
     t4=pd.DataFrame(num_features['click'].values,columns=['click',])
     t4.to_csv(FLAGS.tmp_data_path+'click.csv')
-    del num_features,t4
+    del t4
+    
+    t5=pd.DataFrame(num_features['id'].values,columns=['id',])
+    t5.to_csv(FLAGS.tmp_data_path+'id.csv')
+    del num_features,t5
     return True
 
 def gdbt_data_get(test_path):
@@ -245,14 +254,16 @@ def gdbt_data_get(test_path):
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'click.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join_cnt.csv')
-    test = pd.read_csv(test_path, index_col=0)
-    logging.debug(test.shape)
-    test_save=train_save.iloc[0-test.shape[0]:]
-    logging.debug(test_save.shape)
-    train_save=train_save.iloc[0:0-test.shape[0]]
+    test_id = pd.read_csv(FLAGS.tmp_data_path +'test_id.csv', index_col=0)
+    train_id = pd.read_csv(FLAGS.tmp_data_path +'train_id.csv', index_col=0)
+    logging.debug(test_id.shape)
+    logging.debug(train_id.shape)
+    logging.debug(train_save.columns)
+    test_save=train_save[train_save['id'].values==test_id.values]
+#    logging.debug(test_save.shape)
+    train_save=train_save[train_save['id'].values==train_id.values]
     logging.debug(train_save.shape)
     logging.debug(test_save.shape)
-    test_save.iloc[:,'id'].to_csv(FLAGS.tmp_data_path+'test_id.csv',index=False)
     try:
         train_save.drop('id', axis=1,inplace = True)
     except:
