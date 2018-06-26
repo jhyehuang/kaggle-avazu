@@ -140,7 +140,7 @@ def logloss(pred, y, weight=None):
         weight = np.ones(y.size)
     
     pred = np.maximum(1e-7, np.minimum(1 - 1e-7, pred))
-    return '',- np.sum(weight * (y * np.log(pred) + (1 - y) * np.log(1 - pred))) / np.sum(weight)
+    return - np.sum(weight * (y * np.log(pred) + (1 - y) * np.log(1 - pred))) / np.sum(weight)
 
 def gini_norm(pred, y, weight=None):
 

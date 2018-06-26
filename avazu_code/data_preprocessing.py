@@ -179,14 +179,7 @@ def data_concat(src_data, dst_data_path,usecols=None, is_train=True):
         Reader_ = pd.read_csv(dst_data_path,usecols=[9,])
     else:
         Reader_ = pd.read_csv(dst_data_path)
-    try:
-        src_data.drop('id', axis=1,inplace = True)
-    except:
-        pass
-    try:
-        Reader_.drop('id', axis=1,inplace = True)
-    except:
-        pass
+
     try:
         Reader_.drop('Unnamed: 0',axis=1,inplace = True)
     except:
@@ -259,6 +252,15 @@ def gdbt_data_get(test_path):
     train_save=train_save.iloc[0:0-test.shape[0]]
     logging.debug(train_save.shape)
     logging.debug(test_save.shape)
+    test_save.iloc[:,'id'].to_csv(FLAGS.tmp_data_path+'test_id.csv',index=False)
+    try:
+        train_save.drop('id', axis=1,inplace = True)
+    except:
+        pass
+    try:
+        test_save.drop('id', axis=1,inplace = True)
+    except:
+        pass
     return train_save,test_save
 
 def lr_data_get(test_path):
