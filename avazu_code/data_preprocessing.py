@@ -227,8 +227,10 @@ def concat_train_test(src_path, test_path,):
     train = pd.read_csv(src_path)
     test = pd.read_csv(test_path)
     test['click'] = 0  #测试样本加一列click，初始化为0
-    train['id'].to_csv(FLAGS.tmp_data_path+'train_id.csv')
-    test['id'].to_csv(FLAGS.tmp_data_path+'test_id.csv')
+    t5=pd.DataFrame(train['id'].values,columns=['id',])
+    t5.to_csv(FLAGS.tmp_data_path+'train_id.csv')
+    t5=pd.DataFrame(test['id'].values,columns=['id',])
+    t5.to_csv(FLAGS.tmp_data_path+'test_id.csv')
     logging.debug(train.shape)
     logging.debug(test.shape)
     #将训练样本和测试样本连接，一起进行特征工程
@@ -257,16 +259,16 @@ def gdbt_data_get(test_path):
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'click.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join_cnt.csv')
-    test_id = pd.read_csv(FLAGS.tmp_data_path +'test_id.csv', index_col=0)
-    train_id = pd.read_csv(FLAGS.tmp_data_path +'train_id.csv', index_col=0)
+    test_id = pd.read_csv(FLAGS.tmp_data_path +'test_id.csv')
+    train_id = pd.read_csv(FLAGS.tmp_data_path +'train_id.csv')
     logging.debug(test_id.shape)
     logging.debug(train_id.shape)
     logging.debug(train_save.columns)
     logging.debug(train_save['id'])
     logging.debug(test_id)
-    test_save=train_save[train_save['id']==test_id]
+    test_save=train_save[train_save['id'].isin(test_id['id'].values)]
 #    logging.debug(test_save.shape)
-    train_save=train_save[train_save['id']==train_id]
+    train_save=train_save[train_save['id'].isin(train_id['id'].values)]
     logging.debug(train_save.shape)
     logging.debug(test_save.shape)
     try:
