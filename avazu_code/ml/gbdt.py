@@ -42,39 +42,44 @@ param = FLAGS.gbdt_param
 #而GridSearchCV只能对有限个参数进行交叉验证
 def modelfit(alg, X_train,y_train, cv_folds=None, early_stopping_rounds=10):
     xgb_param = alg.get_xgb_params()
-    xgb_param['num_class'] = 2
+#    xgb_param['num_class'] = 2
 #    xgb_param=dict([(key,[params[key]]) for key in params])
-    X_train_part, X_val, y_train_part, y_val = train_test_split(X_train, y_train, train_size = 0.33,random_state = 0)
+    X_train_part, X_val, y_train_part, y_val = train_test_split(X_train, y_train, train_size = 0.49,random_state = 0)
 #    logging.debug(params)
     #直接调用xgboost，而非sklarn的wrapper类
+    logging.debug(X_train_part.shape)
+    logging.debug(y_train_part.shape)
+    
     xgtrain = xgb.DMatrix(X_train_part, label = y_train_part)
     xgvalid = xgb.DMatrix(X_val, label=y_val)
+    logging.debug(X_val.shape)
 #    boost = xgb.sklearn.XGBClassifier()
 #    cvresult = GridSearchCV(boost,params, scoring='neg_log_loss',n_jobs=-1,cv=cv_folds)
 #    cvresult.fit(X_train,y_train)
 #    alg=cvresult.best_estimator_
-    watchlist = [(xgvalid, 'eval'), (xgtrain, 'train')]
+#    watchlist = [(xgvalid, 'eval'), (xgtrain, 'train')]
     
     cvresult = xgb.cv(xgb_param, xgtrain, num_boost_round=alg.get_params()['n_estimators'], folds =cv_folds,
-                      obj=logloss, early_stopping_rounds=early_stopping_rounds,)
+                      early_stopping_rounds=early_stopping_rounds,)
 #  
-    cvresult.to_csv('1_nestimators.csv', index_label = 'n_estimators')
+    cvresult.to_csv(FLAGS.tmp_data_path+'1_nestimators.csv', index_label = 'n_estimators')
     #最佳参数n_estimators
+    logging.debug(cvresult.shape[0])
     n_estimators = cvresult.shape[0]
     
     # 采用交叉验证得到的最佳参数n_estimators，训练模型
     alg.set_params(n_estimators = n_estimators)
-    alg.fit(X_train_part,y_train_part,eval_metric=logloss)
+    alg.fit(X_train_part,y_train_part,eval_metric='logloss')
     
 #    print(n_estimators)
         
     #Predict training set:
     train_predprob = alg.predict_proba(X_val)[:,1]
-    lloss = logloss(train_predprob,y_val)
+    _,lloss = logloss(train_predprob,y_val)
 
    #Print model report:
-    print ("logloss of train :" )
-    print(lloss)
+    logging.debug ("logloss of train :" )
+    logging.debug(lloss)
 
 kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)
 
@@ -112,12 +117,17 @@ def done(istrain=True):
 #        xgb1=pd.read_csv(FLAGS.tmp_data_path+'1-gdbt.csv')
 #        dtest = xgb.DMatrix(X_test)
         xgb_pred = xgb1.predict(X_test)
-        y_pred = [round(value,4) for value in xgb_pred]
+        dtrain_predprob = xgb1.predict_proba(X_test)[:,1]
+        logging.debug(xgb_pred)
+        logging.debug(dtrain_predprob)
+        y_pred = [round(value,4) for value in dtrain_predprob]
         logging.debug('-'*30)
-        logging.debug(y_pred)
+        y_pred=np.array(y_pred).reshape(-1,1)
+        logging.debug(y_pred.shape)
         test_id=pd.read_csv(FLAGS.tmp_data_path+'test_id.csv')
-        ret_pd = pd.concat([test_id, y_pred], axis = 1)
-        ret_pd.to_csv(FLAGS.tmp_data_path+'1-gdbt.test.csv',index=False)
+        logging.debug(test_id['id'].shape)
+        test_id['y']=y_pred
+        test_id.to_csv(FLAGS.tmp_data_path+'1-gdbt.test.csv',index=False)
         
         
 if __name__ == "__main__":

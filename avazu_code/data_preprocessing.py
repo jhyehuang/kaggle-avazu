@@ -17,6 +17,8 @@ import logging
 from flags import FLAGS, unparsed
 sys.path.append(FLAGS.tool_ml_dir)
 from ml.ml_utils import *
+from joblib import dump, load, Parallel, delayed
+
 
 logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
@@ -229,8 +231,14 @@ def concat_train_test(src_path, test_path,):
     test['click'] = 0  #测试样本加一列click，初始化为0
     t5=pd.DataFrame(train['id'].values,columns=['id',])
     t5.to_csv(FLAGS.tmp_data_path+'train_id.csv')
+    col_cnts={}
+    col_cnts['train']=(t5.shape[0])
     t5=pd.DataFrame(test['id'].values,columns=['id',])
     t5.to_csv(FLAGS.tmp_data_path+'test_id.csv')
+    col_cnts['test']=(t5.shape[0])
+    logging.debug(col_cnts)
+    ret=dump(col_cnts, FLAGS.tmp_data_path+'test_index.joblib_dat')
+    
     logging.debug(train.shape)
     logging.debug(test.shape)
     #将训练样本和测试样本连接，一起进行特征工程
@@ -259,16 +267,17 @@ def gdbt_data_get(test_path):
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'click.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join_cnt.csv')
-    test_id = pd.read_csv(FLAGS.tmp_data_path +'test_id.csv')
-    train_id = pd.read_csv(FLAGS.tmp_data_path +'train_id.csv')
-    logging.debug(test_id.shape)
-    logging.debug(train_id.shape)
+    test_index = load(FLAGS.tmp_data_path+'test_index.joblib_dat')
+    logging.debug(test_index)
+    test_id=test_index['test']
+    train_id=test_index['train']
+    logging.debug(type(test_id))
+    logging.debug(train_id)
     logging.debug(train_save.columns)
     logging.debug(train_save['id'])
-    logging.debug(test_id)
-    test_save=train_save[train_save['id'].isin(test_id['id'].values)]
+    test_save=train_save[(-test_id):]
 #    logging.debug(test_save.shape)
-    train_save=train_save[train_save['id'].isin(train_id['id'].values)]
+    train_save=train_save[:train_id]
     logging.debug(train_save.shape)
     logging.debug(test_save.shape)
     try:

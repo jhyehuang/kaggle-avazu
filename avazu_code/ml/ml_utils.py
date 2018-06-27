@@ -135,13 +135,14 @@ def my_lift(order_by, p, y, w, n_rank, dual_axis=False, random_state=0, dither=1
     
     return gini_norm(order_by, y, w)
 
-def logloss(pred, y, weight=None):
-    labels=y.get_label()
+def logloss(_y, y, weight=None):
+    labels=y
+#    _y=pred[:,1]
     if weight is None:
         weight = np.ones(labels.size)
     
-    pred = np.maximum(1e-7, np.minimum(1 - 1e-7, pred))
-    return 'logloss',- np.sum(weight * (labels * np.log(pred) + (1 - labels) * np.log(1 - pred))) / np.sum(weight)
+    _y = np.maximum(1e-7, np.minimum(1 - 1e-7, _y))
+    return 'logloss',- np.sum(weight * (labels * np.log(_y) + (1 - labels) * np.log(1 - _y))) / np.sum(weight)
 
 def gini_norm(pred, y, weight=None):
 
