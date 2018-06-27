@@ -180,7 +180,10 @@ def data_concat(src_data, dst_data_path,usecols=None, is_train=True):
         Reader_ = pd.read_csv(dst_data_path,usecols=[9,])
     else:
         Reader_ = pd.read_csv(dst_data_path)
-
+    try:
+        Reader_.drop('id', axis=1,inplace = True)
+    except:
+        pass
     try:
         Reader_.drop('Unnamed: 0',axis=1,inplace = True)
     except:
@@ -259,9 +262,11 @@ def gdbt_data_get(test_path):
     logging.debug(test_id.shape)
     logging.debug(train_id.shape)
     logging.debug(train_save.columns)
-    test_save=train_save[train_save['id'] == test_id['id']]
+    logging.debug(train_save['id'])
+    logging.debug(test_id)
+    test_save=train_save[train_save['id']==test_id]
 #    logging.debug(test_save.shape)
-    train_save=train_save[train_save['id'] == train_id['id']]
+    train_save=train_save[train_save['id']==train_id]
     logging.debug(train_save.shape)
     logging.debug(test_save.shape)
     try:
