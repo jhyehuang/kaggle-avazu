@@ -259,9 +259,9 @@ def gdbt_data_get(test_path):
     logging.debug(test_id.shape)
     logging.debug(train_id.shape)
     logging.debug(train_save.columns)
-    test_save=train_save[train_save['id'].values in test_id.values]
+    test_save=train_save[train_save['id'] == test_id['id']]
 #    logging.debug(test_save.shape)
-    train_save=train_save[train_save['id'].values in train_id.values]
+    train_save=train_save[train_save['id'] == train_id['id']]
     logging.debug(train_save.shape)
     logging.debug(test_save.shape)
     try:
