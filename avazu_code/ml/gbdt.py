@@ -36,11 +36,15 @@ n_trees = FLAGS.xgb_n_trees
 
 
 
-param = FLAGS.gbdt_param
 
+
+param = FLAGS.gbdt_param
+param['gpu_id'] = 0
+param['max_bin'] = 16
+param_dict={'tree_method':'gpu_hist'}
 #直接调用xgboost内嵌的交叉验证（cv），可对连续的n_estimators参数进行快速交叉验证
 #而GridSearchCV只能对有限个参数进行交叉验证
-def modelfit(alg, X_train,y_train, cv_folds=None, early_stopping_rounds=10):
+def modelfit(alg, X_train,y_train, cv_folds=None, early_stopping_rounds=10,is_cv=True):
     xgb_param = alg.get_xgb_params()
 #    xgb_param['num_class'] = 2
 #    xgb_param=dict([(key,[params[key]]) for key in params])
@@ -50,22 +54,25 @@ def modelfit(alg, X_train,y_train, cv_folds=None, early_stopping_rounds=10):
     logging.debug(X_train_part.shape)
     logging.debug(y_train_part.shape)
     
-    xgtrain = xgb.DMatrix(X_train_part, label = y_train_part)
-    xgvalid = xgb.DMatrix(X_val, label=y_val)
-    logging.debug(X_val.shape)
-#    boost = xgb.sklearn.XGBClassifier()
-#    cvresult = GridSearchCV(boost,params, scoring='neg_log_loss',n_jobs=-1,cv=cv_folds)
-#    cvresult.fit(X_train,y_train)
-#    alg=cvresult.best_estimator_
-#    watchlist = [(xgvalid, 'eval'), (xgtrain, 'train')]
-    
-    cvresult = xgb.cv(xgb_param, xgtrain, num_boost_round=alg.get_params()['n_estimators'], folds =cv_folds,
-                      early_stopping_rounds=early_stopping_rounds,)
-#  
-    cvresult.to_csv(FLAGS.tmp_data_path+'1_nestimators.csv', index_label = 'n_estimators')
-    #最佳参数n_estimators
-    logging.debug(cvresult.shape[0])
-    n_estimators = cvresult.shape[0]
+    if  is_cv:
+        xgtrain = xgb.DMatrix(X_train_part, label = y_train_part)
+        xgvalid = xgb.DMatrix(X_val, label=y_val)
+        logging.debug(X_val.shape)
+    #    boost = xgb.sklearn.XGBClassifier()
+    #    cvresult = GridSearchCV(boost,params, scoring='neg_log_loss',n_jobs=-1,cv=cv_folds)
+    #    cvresult.fit(X_train,y_train)
+    #    alg=cvresult.best_estimator_
+    #    watchlist = [(xgvalid, 'eval'), (xgtrain, 'train')]
+        
+        cvresult = xgb.cv(xgb_param, xgtrain, num_boost_round=alg.get_params()['n_estimators'], folds =cv_folds,
+                          early_stopping_rounds=early_stopping_rounds,)
+    #  
+        cvresult.to_csv(FLAGS.tmp_data_path+'1_nestimators.csv', index_label = 'n_estimators')
+        #最佳参数n_estimators
+        logging.debug(cvresult.shape[0])
+        n_estimators = cvresult.shape[0]
+    else:
+        n_estimators=FLAGS.xgb_n_trees
     
     # 采用交叉验证得到的最佳参数n_estimators，训练模型
     alg.set_params(n_estimators = n_estimators)
@@ -107,7 +114,7 @@ def done(istrain=True):
          scale_pos_weight=1,
          seed=27)
 
-        modelfit(xgb1, X_train,y_train, cv_folds = kfold)
+        modelfit(xgb1, X_train,y_train, cv_folds = kfold,is_cv=False)
         
         logging.debug("to save validation predictions ...")
         ret=dump(xgb1, FLAGS.tmp_data_path+'1-gdbt.model.joblib_dat') 
@@ -126,12 +133,13 @@ def done(istrain=True):
         logging.debug(y_pred.shape)
         test_id=pd.read_csv(FLAGS.tmp_data_path+'test_id.csv')
         logging.debug(test_id['id'].shape)
-        test_id['y']=y_pred
+        test_id['id']=test_id['id'].map(int)
+        test_id['click']=y_pred
         test_id.to_csv(FLAGS.tmp_data_path+'1-gdbt.test.csv',index=False)
         
         
 if __name__ == "__main__":
-    done()
+#    done()
     done(False)
         
 
