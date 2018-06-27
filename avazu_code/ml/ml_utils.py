@@ -502,7 +502,7 @@ def calc_exptv(data1,data2,data3,vn_list,add_count=False):
             new_list.append(vn)
     t3.drop(['one_day'], axis=1,inplace = True)
     t3.drop(['click'], axis=1,inplace = True)
-    t3.to_csv(FLAGS.tmp_data_path+'two_col_join.csv')
+    t3.to_csv(FLAGS.tmp_data_path+'two_col_join.csv',index=False)
     ret=dump(day_exps, FLAGS.tmp_data_path+'day_exps.joblib_dat') 
     ret=dump(new_list, FLAGS.tmp_data_path+'new_list.joblib_dat') 
     ret=dump(days_list, FLAGS.tmp_data_path+'days_list.joblib_dat') 
@@ -536,7 +536,7 @@ def calc_exptv_cnt():
             t4.loc[m, vn_exp]=day_exps[day_v][vn_key]['exp']
             t4.loc[m, vn_cnt]=day_exps[day_v][vn_key]['cnt']
     t4.drop(drop_col_list, axis=1,inplace = True)
-    t4.to_csv(FLAGS.tmp_data_path+'two_col_join_cnt.csv')
+    t4.to_csv(FLAGS.tmp_data_path+'two_col_join_cnt.csv',index=False)
     del t3,t4
     return two_new_list
 

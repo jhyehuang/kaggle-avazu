@@ -218,9 +218,9 @@ def data_to_col_csv(col_name_list,train, tmp_data_path):
             date_list.append(col)
         else:
             num_writeheader_list.append(col)
-    train[cat_writeheader_list].to_csv(tmp_data_path+'cat_features.csv')
-    train[date_list].to_csv(tmp_data_path+'date_list.csv')
-    train[num_writeheader_list].to_csv(tmp_data_path+'num_features.csv')
+    train[cat_writeheader_list].to_csv(tmp_data_path+'cat_features.csv',index=False)
+    train[date_list].to_csv(tmp_data_path+'date_list.csv',index=False)
+    train[num_writeheader_list].to_csv(tmp_data_path+'num_features.csv',index=False)
     del train
     return 'cat_features.csv','date_list.csv','num_features.csv'
             
@@ -230,11 +230,11 @@ def concat_train_test(src_path, test_path,):
     test = pd.read_csv(test_path)
     test['click'] = 0  #测试样本加一列click，初始化为0
     t5=pd.DataFrame(train['id'].values,columns=['id',])
-    t5.to_csv(FLAGS.tmp_data_path+'train_id.csv')
+    t5.to_csv(FLAGS.tmp_data_path+'train_id.csv',index=False)
     col_cnts={}
     col_cnts['train']=(t5.shape[0])
     t5=pd.DataFrame(test['id'].values,columns=['id',])
-    t5.to_csv(FLAGS.tmp_data_path+'test_id.csv')
+    t5.to_csv(FLAGS.tmp_data_path+'test_id.csv',index=False)
     col_cnts['test']=(t5.shape[0])
     logging.debug(col_cnts)
     ret=dump(col_cnts, FLAGS.tmp_data_path+'test_index.joblib_dat')
@@ -253,11 +253,11 @@ def concat_train_test(src_path, test_path,):
 def click_to_csv():
     num_features=pd.read_csv(FLAGS.tmp_data_path+'num_features.csv')
     t4=pd.DataFrame(num_features['click'].values,columns=['click',])
-    t4.to_csv(FLAGS.tmp_data_path+'click.csv')
+    t4.to_csv(FLAGS.tmp_data_path+'click.csv',index=False)
     del t4
     
     t5=pd.DataFrame(num_features['id'].values,columns=['id',])
-    t5.to_csv(FLAGS.tmp_data_path+'id.csv')
+    t5.to_csv(FLAGS.tmp_data_path+'id.csv',index=False)
     del num_features,t5
     return True
 
