@@ -226,7 +226,7 @@ def data_to_col_csv(col_name_list,train, tmp_data_path):
             
 
 def concat_train_test(src_path, test_path,):
-    train = pd.read_csv(src_path)
+    train = pd.read_csv(src_path, dtype ={'id': object,})
     t5=pd.DataFrame(train['id'].map(int),columns=['id',])
 #    logging.debug(t5.head(5))
     t5.to_csv(FLAGS.tmp_data_path+'train_id.csv',index=False)
@@ -234,7 +234,7 @@ def concat_train_test(src_path, test_path,):
     col_cnts['train']=(t5.shape[0])
     logging.debug(train.shape)
     del t5
-    test = pd.read_csv(test_path)
+    test = pd.read_csv(test_path,dtype ={'id': object,})
     test['click'] = 0  #测试样本加一列click，初始化为0
     t6=pd.DataFrame(test['id'].map(str),columns=['id',])
     logging.debug(test['id'].map(str).head(5))
