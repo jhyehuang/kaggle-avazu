@@ -18,6 +18,8 @@ from flags import FLAGS, unparsed
 sys.path.append(FLAGS.tool_ml_dir)
 from ml.ml_utils import *
 from joblib import dump, load, Parallel, delayed
+import lightgbm as lgb 
+from sklearn.model_selection import train_test_split
 
 
 logging.basicConfig(
@@ -310,3 +312,47 @@ def lr_data_get(test_path):
     test_save=train_save.iloc[test.shape[0]:-1,:]
     train_save=train_save.iloc[:test.shape[0]-1,:]
     return train_save,test_save
+
+
+def lightgbm_data_get(test_path):
+    train_save = pd.read_csv(FLAGS.tmp_data_path +'cat_features.csv',)
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'date_list.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'click.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join_cnt.csv')
+    test_index = load(FLAGS.tmp_data_path+'test_index.joblib_dat')
+    logging.debug(test_index)
+    test_id=test_index['test']
+    train_id=test_index['train']
+    logging.debug(type(test_id))
+    logging.debug(train_id)
+    logging.debug(train_save.columns)
+#    logging.debug(train_save['id'])
+    test_save=train_save[(-test_id):]
+#    logging.debug(test_save.shape)
+    train_save=train_save[:train_id]
+    logging.debug(train_save.shape)
+    logging.debug(test_save.shape)
+    try:
+        train_save.drop('id', axis=1,inplace = True)
+    except:
+        pass
+    try:
+        test_save.drop('id', axis=1,inplace = True)
+    except:
+        pass
+    
+    print(train_save.shape)
+    y_train = train_save['click']
+    train_save.drop('click',axis=1,inplace=True)
+    X_train = train_save
+    
+    test_save.drop('click',axis=1,inplace=True)
+    X_test=test_save
+    
+    X_train_part, X_val, y_train_part, y_val = train_test_split(X_train, y_train, train_size = 0.9,random_state = 0)
+    ### 数据转换
+    lgb_train = lgb.Dataset(X_train, y_train, free_raw_data=False)
+    lgb_eval = lgb.Dataset(X_val, y_val, reference=lgb_train,free_raw_data=False)
+
+    return lgb_train,lgb_eval,X_test,X_val,y_val
