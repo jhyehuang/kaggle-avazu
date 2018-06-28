@@ -186,14 +186,14 @@ def data_concat(src_data, dst_data_path,usecols=None, is_train=True):
         Reader_.drop('id', axis=1,inplace = True)
     except:
         pass
-    try:
-        Reader_.drop('Unnamed: 0',axis=1,inplace = True)
-    except:
-        pass
-    try:
-        src_data.drop('Unnamed: 0',axis=1,inplace = True)
-    except:
-        pass
+#    try:
+#        Reader_.drop('Unnamed: 0',axis=1,inplace = True)
+#    except:
+#        pass
+#    try:
+#        src_data.drop('Unnamed: 0',axis=1,inplace = True)
+#    except:
+#        pass
     
     
     logging.debug('data1.shape:'+str(src_data.shape))
@@ -246,6 +246,15 @@ def concat_train_test(src_path, test_path,):
     del t6
     
     logging.debug(test.shape)
+    
+    try:
+        train.drop('id', axis=1,inplace = True)
+    except:
+        pass
+    try:
+        test.drop('id', axis=1,inplace = True)
+    except:
+        pass
     #将训练样本和测试样本连接，一起进行特征工程
     train = pd.concat([train, test])
     logging.debug(train.shape)
@@ -260,10 +269,6 @@ def click_to_csv():
     t4=pd.DataFrame(num_features['click'].values,columns=['click',])
     t4.to_csv(FLAGS.tmp_data_path+'click.csv',index=False)
     del t4
-    
-    t5=pd.DataFrame(num_features['id'].values,columns=['id',])
-    t5.to_csv(FLAGS.tmp_data_path+'id.csv',index=False)
-    del num_features,t5
     return True
 
 def gdbt_data_get(test_path):
@@ -279,7 +284,7 @@ def gdbt_data_get(test_path):
     logging.debug(type(test_id))
     logging.debug(train_id)
     logging.debug(train_save.columns)
-    logging.debug(train_save['id'])
+#    logging.debug(train_save['id'])
     test_save=train_save[(-test_id):]
 #    logging.debug(test_save.shape)
     train_save=train_save[:train_id]
