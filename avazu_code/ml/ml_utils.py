@@ -475,7 +475,7 @@ def calc_exptv(data1,data2,data3,vn_list,add_count=False):
     t3= pd.DataFrame(columns=['one_day','click'])  
     t3['one_day']=day['one_day'].values
     t3['click']=num['click'].values
-    t3['id']=num['id'].values
+#    t3['id']=num['id'].values
     one_drop_list=[]
     for one in vn_list:
         t1=train[[one]]
@@ -513,7 +513,7 @@ def calc_exptv(data1,data2,data3,vn_list,add_count=False):
 def calc_exptv_cnt():
     t3=pd.read_csv(FLAGS.tmp_data_path+'two_col_join.csv')
     drop_col_list=t3.columns
-    drop_col_list.remove('id')
+#    drop_col_list.remove('id')
     day_exps=load(FLAGS.tmp_data_path+'day_exps.joblib_dat')
     new_list=load(FLAGS.tmp_data_path+'new_list.joblib_dat')
     days_list=load(FLAGS.tmp_data_path+'days_list.joblib_dat')
