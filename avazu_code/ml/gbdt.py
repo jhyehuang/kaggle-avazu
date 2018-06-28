@@ -121,8 +121,8 @@ def modelfit_other(alg, X_train,y_train, cv_folds=None, early_stopping_rounds=10
     
     # 采用交叉验证得到的最佳参数n_estimators，训练模型
     logging.debug(FLAGS.gbdt_param)
-    for key,value in FLAGS.gbdt_param.items():
-        alg.set_params(key=value)
+#    for key,value in FLAGS.gbdt_param.items():
+#        alg.set_params(key=value)
     
     alg.fit(X_train_part,y_train_part,eval_metric='logloss')
     
@@ -150,7 +150,7 @@ def done(istrain=True):
     if istrain:
 #        dtrain = xgb.DMatrix(X_train, label=y_train)
 #        n_estimators = [i for i in range(200,1000,1)]
-        xgb1 = XGBClassifier(learning_rate =0.1,
+        xgb1 = XGBClassifier(learning_rate =0.02,
          n_estimators=699,
          max_depth=7,
          min_child_weight=1,
@@ -163,8 +163,8 @@ def done(istrain=True):
          seed=27,
          silent=0)
 
-#        modelfit_other(xgb1, X_train,y_train, cv_folds = kfold,is_cv=False)
-        modelfit_other(xgb1, X_train,y_train, cv_folds = kfold)
+        modelfit_other(xgb1, X_train,y_train, cv_folds = kfold,is_cv=False)
+#        modelfit_other(xgb1, X_train,y_train, cv_folds = kfold)
         
         logging.debug("to save validation predictions ...")
         ret=dump(xgb1, FLAGS.tmp_data_path+'1-gdbt.model.joblib_dat') 
