@@ -227,19 +227,21 @@ def data_to_col_csv(col_name_list,train, tmp_data_path):
 
 def concat_train_test(src_path, test_path,):
     train = pd.read_csv(src_path)
-    test = pd.read_csv(test_path)
-    test['click'] = 0  #测试样本加一列click，初始化为0
-    t5=pd.DataFrame(train['id'].values,columns=['id',])
+    t5=pd.DataFrame(train['id'],columns=['id',])
     t5.to_csv(FLAGS.tmp_data_path+'train_id.csv',index=False)
     col_cnts={}
     col_cnts['train']=(t5.shape[0])
-    t5=pd.DataFrame(test['id'].values,columns=['id',])
-    t5.to_csv(FLAGS.tmp_data_path+'test_id.csv',index=False)
-    col_cnts['test']=(t5.shape[0])
+    logging.debug(train.shape)
+    del t5
+    test = pd.read_csv(test_path)
+    test['click'] = 0  #测试样本加一列click，初始化为0
+    t6=pd.DataFrame(test['id'],columns=['id',])
+    t6.to_csv(FLAGS.tmp_data_path+'test_id.csv',index=False)
+    col_cnts['test']=(t6.shape[0])
     logging.debug(col_cnts)
     ret=dump(col_cnts, FLAGS.tmp_data_path+'test_index.joblib_dat')
+    del t6
     
-    logging.debug(train.shape)
     logging.debug(test.shape)
     #将训练样本和测试样本连接，一起进行特征工程
     train = pd.concat([train, test])
