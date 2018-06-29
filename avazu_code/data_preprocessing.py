@@ -18,9 +18,9 @@ from flags import FLAGS, unparsed
 sys.path.append(FLAGS.tool_ml_dir)
 from ml.ml_utils import *
 from joblib import dump, load, Parallel, delayed
-import lightgbm as lgb 
 from sklearn.model_selection import train_test_split
 
+import lightgbm as lgb 
 
 logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)

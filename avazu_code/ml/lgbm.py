@@ -1,15 +1,19 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jun 28 19:55:38 2018
+
+@author: admin
+"""
+
 import pandas as pd
 import numpy as np
-import scipy as sc
-import scipy.sparse as sp
+
 from sklearn.utils import check_random_state 
 from sklearn.model_selection import GridSearchCV,StratifiedKFold,train_test_split
-from xgboost import XGBClassifier
-import xgboost as xgb
-import lightgbm as lgbm
-
 from sklearn.metrics import log_loss
- 
+
+from matplotlib import pyplot
+import pylab 
 import sys
 sys.path.append('..')
 import time
@@ -17,13 +21,7 @@ from joblib import dump, load, Parallel, delayed
 import utils
 from ml_utils import *
 from data_preprocessing import *
-from matplotlib import pyplot
-import seaborn as sns
-
-
-#sys.path.append(utils.xgb_path)
-import xgboost as xgb
-
+import lightgbm as lgb 
 
 import logging
 
@@ -34,107 +32,227 @@ from flags import FLAGS, unparsed
 logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
 
-n_trees = FLAGS.xgb_n_trees
+### 设置初始参数--不含交叉验证参数
+print('设置参数')
+cv_params = {
+          'boosting_type': 'gbdt',
+          'objective': 'binary',
+          'metric': 'binary_logloss',
+            'device': 'gpu',
+            'gpu_platform_id': 0,
+            'gpu_device_id': 0
+}
 
 
+gpu_params = {
+            'boosting_type': 'gbdt',
+            'boosting': 'dart',
+            'objective': 'binary',
+            'metric': 'binary_logloss',
+            
+            'learning_rate': 0.01,
+            'num_leaves':25,
+            'max_depth':7,
+            
+            'max_bin':10,
+            'min_data_in_leaf':8,
+            
+            'feature_fraction': 0.6,
+            'bagging_fraction': 1,
+            'bagging_freq':0,
 
-param = FLAGS.gbdt_param
+            'lambda_l1': 0,
+            'lambda_l2': 0,
+            'min_split_gain': 0,
+            'sparse_threshold': 1.0,
+            'device': 'gpu',
+            'gpu_platform_id': 0,
+            'gpu_device_id': 0}
 
-#直接调用LightGBM内嵌的交叉验证（cv），可对连续的n_estimators参数进行快速交叉验证
-#而GridSearchCV只能对有限个参数进行交叉验证
-import json
-def modelfit(params, alg, X_train, y_train, early_stopping_rounds=10):
-    lgbm_params = params.copy()
-    lgbm_params['num_class'] = 2
-    
-    #直接调用LightGBM，而非sklarn的wrapper类
-    lgbmtrain = lgbm.Dataset(X_train, y_train, silent=True)
-    
-    cv_result = lgbm.cv(
-        lgbm_params, lgbmtrain, num_boost_round=10000, nfold=5, stratified=False, shuffle=True, metrics='multi_logloss',
-        early_stopping_rounds=early_stopping_rounds,show_stdv=True,seed=0)
-    # note: cv_results will look like: {"multi_logloss-mean": <a list of historical mean>,
-    # "multi_logloss-stdv": <a list of historical standard deviation>}
-    print('best n_estimators:', len(cv_result['multi_logloss-mean']))
-    print('best cv score:', cv_result['multi_logloss-mean'][-1])
-    #cv_result.to_csv('lgbm1_nestimators.csv', index_label = 'n_estimators')
-    json.dump(cv_result, open('lgbm_1.json', 'w'))
-    
-    # 采用交叉验证得到的最佳参数n_estimators，训练模型
-    alg.set_params(n_estimators = len(cv_result['multi_logloss-mean']))
-    alg.fit(X_train, y_train)
+### 交叉验证(调参)
 
-kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)
+
+def modelfit_cv(lgb_train,cv_type='max_depth',):
+    min_merror = float('Inf')
+    logging.debug('交叉验证')
+    best_params = {}
+    if cv_type=='max_depth':
+        # 准确率
+        logging.debug("调参1：提高准确率")
+        for num_leaves in range(20,200,5):
+            for max_depth in range(3,8,1):
+                cv_params['num_leaves'] = num_leaves
+                cv_params['max_depth'] = max_depth
+        
+                cv_results = lgb.cv(
+                                    cv_params,
+                                    lgb_train,
+                                    seed=2018,
+                                    nfold=3,
+                                    metrics=['binary_error'],
+                                    early_stopping_rounds=10,
+                                    verbose_eval=True
+                                    )
+                    
+                mean_merror = pd.Series(cv_results['binary_error-mean']).min()
+                boost_rounds = pd.Series(cv_results['binary_error-mean']).argmin()
+                    
+                if mean_merror < min_merror:
+                    min_merror = mean_merror
+                    best_params['num_leaves'] = num_leaves
+                    best_params['max_depth'] = max_depth
+                    
+        cv_params['num_leaves'] = best_params['num_leaves']
+        cv_params['max_depth'] = best_params['max_depth']
+    elif cv_type=='max_bin':
+        # 过拟合
+        logging.debug("调参2：降低过拟合")
+        for max_bin in range(1,255,5):
+            for min_data_in_leaf in range(10,200,5):
+                    cv_params['max_bin'] = max_bin
+                    cv_params['min_data_in_leaf'] = min_data_in_leaf
+                    
+                    cv_results = lgb.cv(
+                                        cv_params,
+                                        lgb_train,
+                                        seed=42,
+                                        nfold=3,
+                                        metrics=['binary_error'],
+                                        early_stopping_rounds=3,
+                                        verbose_eval=True
+                                        )
+                            
+                    mean_merror = pd.Series(cv_results['binary_error-mean']).min()
+                    boost_rounds = pd.Series(cv_results['binary_error-mean']).argmin()
+        
+                    if mean_merror < min_merror:
+                        min_merror = mean_merror
+                        best_params['max_bin']= max_bin
+                        best_params['min_data_in_leaf'] = min_data_in_leaf
+        
+        cv_params['min_data_in_leaf'] = best_params['min_data_in_leaf']
+        cv_params['max_bin'] = best_params['max_bin']
+    elif cv_type=='bagging_fraction':
+        logging.debug("调参3：降低过拟合")
+        for feature_fraction in [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]:
+            for bagging_fraction in [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]:
+                for bagging_freq in range(0,50,5):
+                    cv_params['feature_fraction'] = feature_fraction
+                    cv_params['bagging_fraction'] = bagging_fraction
+                    cv_params['bagging_freq'] = bagging_freq
+                    
+                    cv_results = lgb.cv(
+                                        cv_params,
+                                        lgb_train,
+                                        seed=42,
+                                        nfold=3,
+                                        metrics=['binary_error'],
+                                        early_stopping_rounds=3,
+                                        verbose_eval=True
+                                        )
+                            
+                    mean_merror = pd.Series(cv_results['binary_error-mean']).min()
+                    boost_rounds = pd.Series(cv_results['binary_error-mean']).argmin()
+        
+                    if mean_merror < min_merror:
+                        min_merror = mean_merror
+                        best_params['feature_fraction'] = feature_fraction
+                        best_params['bagging_fraction'] = bagging_fraction
+                        best_params['bagging_freq'] = bagging_freq
+        
+        cv_params['feature_fraction'] = best_params['feature_fraction']
+        cv_params['bagging_fraction'] = best_params['bagging_fraction']
+        cv_params['bagging_freq'] = best_params['bagging_freq']
+    elif cv_type=='lambda':
+        logging.debug("调参4：降低过拟合")
+        for lambda_l1 in [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]:
+            for lambda_l2 in [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]:
+                for min_split_gain in [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]:
+                    cv_params['lambda_l1'] = lambda_l1
+                    cv_params['lambda_l2'] = lambda_l2
+                    cv_params['min_split_gain'] = min_split_gain
+                    
+                    cv_results = lgb.cv(
+                                        cv_params,
+                                        lgb_train,
+                                        seed=42,
+                                        nfold=3,
+                                        metrics=['binary_error'],
+                                        early_stopping_rounds=3,
+                                        verbose_eval=True
+                                        )
+                            
+                    mean_merror = pd.Series(cv_results['binary_error-mean']).min()
+                    boost_rounds = pd.Series(cv_results['binary_error-mean']).argmin()
+        
+                    if mean_merror < min_merror:
+                        min_merror = mean_merror
+                        best_params['lambda_l1'] = lambda_l1
+                        best_params['lambda_l2'] = lambda_l2
+                        best_params['min_split_gain'] = min_split_gain
+        
+        cv_params['lambda_l1'] = best_params['lambda_l1']
+        cv_params['lambda_l2'] = best_params['lambda_l2']
+        cv_params['min_split_gain'] = best_params['min_split_gain']
+        
+    logging.debug(cv_params)
 
 def done(istrain=True):
-    train_save,test_save = gdbt_data_get(FLAGS.src_test_path)
-    print(train_save.shape)
-    y_train = train_save['click']
-    train_save.drop('click',axis=1,inplace=True)
-    X_train = train_save
+    train_save,val_save,test_save,val_x,val_y = lightgbm_data_get(FLAGS.src_test_path)
     
-    test_save.drop('click',axis=1,inplace=True)
-    X_test=test_save
+    ### 开始训练
+    logging.debug('设置参数')
     if istrain:
-        params = {'boosting_type': 'gbdt', 
-                  'objective': 'multiclass', 
-                  'nthread': -1, 
-                  'silent': True,
-                  'learning_rate': 0.1, 
-                  'num_leaves': 50, 
-                  'max_depth': 6,
-                  'max_bin': 127, 
-                  'subsample_for_bin': 50000,
-                  'subsample': 0.8, 
-                  'subsample_freq': 1, 
-                  'colsample_bytree': 0.8, 
-                  'reg_alpha': 1, 
-                  'reg_lambda': 0,
-                  'min_split_gain': 0.0, 
-                  'min_child_weight': 1, 
-                  'min_child_samples': 20, 
-                  'scale_pos_weight': 1}
+        modelfit_cv(train_save,cv_type='max_depth')
+        modelfit_cv(train_save,cv_type='max_bin')
+        modelfit_cv(train_save,cv_type='bagging_fraction')
+        modelfit_cv(train_save,cv_type='lambda')
+        logging.debug("开始训练")
+        gbm = lgb.train(cv_params,                     # 参数字典
+                        train_save,                  # 训练集
+                        num_boost_round=2000,       # 迭代次数
+                        valid_sets=val_save,        # 验证集
+        early_stopping_rounds=30) # 早停系数
 
-        lgbm1 = lgbm.sklearn.LGBMClassifier(num_class= 9, n_estimators=1000, seed=0, **params)
-
-        modelfit(params,lgbm1, X_train, y_train)
         
         logging.debug("to save validation predictions ...")
-        ret=dump(lgbm1, FLAGS.tmp_data_path+'1-gdbt.model.joblib_dat') 
+        ret=dump(gbm, FLAGS.tmp_data_path+'1-lgbm.model.joblib_dat') 
         logging.debug(ret)
-    else:
-        xgb1 = load(FLAGS.tmp_data_path+'1-gdbt.model.joblib_dat')
-#        xgb1=pd.read_csv(FLAGS.tmp_data_path+'1-gdbt.csv')
-#        dtest = xgb.DMatrix(X_test)
-        xgb_pred = xgb1.predict(X_test)
-        y_pred = [round(value,4) for value in xgb_pred]
-        logging.debug('-'*30)
-        logging.debug(y_pred)
-        ret_list=X_test['id']
-        ret_pd = pd.concat([ret_list, y_pred], axis = 1)
-        ret_pd.to_csv(FLAGS.tmp_data_path+'1-gdbt.test.csv',index=False)
         
-    
-def plot_ret():
-    #cv_result = pd.DataFrame.from_csv('lgbm1_nestimators.csv')
-    cv_result = pd.read_json("lgbm_1.json")
-    
-    # plot
-    test_means = cv_result['multi_logloss-mean']
-    #test_stds = cv_result['multi_logloss-std'] 
-    
-    x_axis = range(0, cv_result.shape[0])
-    pyplot.plot(x_axis, test_means) 
-    
-    pyplot.title("LightGBM n_estimators vs Log Loss")
-    pyplot.xlabel( 'n_estimators' )
-    pyplot.ylabel( 'Log Loss' )
-    pyplot.savefig( 'lgbm1_n_estimators.png')
-    
-    pyplot.show()
-    
+        
+        ### 验证
+        logging.debug ("验证")
+        preds_offline = gbm.predict(val_x, num_iteration=gbm.best_iteration) # 输出概率
+
+        logging.debug('log_loss', log_loss(val_y, preds_offline))
+        
+    else:
+        gbm = load(FLAGS.tmp_data_path+'1-lgbm.model.joblib_dat')
+        
+        ### 线下预测
+        logging.debug ("预测")
+        dtrain_predprob = gbm.predict(test_save, num_iteration=gbm.best_iteration) # 输出概率
+        
+        logging.debug(dtrain_predprob)
+        y_pred = [round(value,4) for value in dtrain_predprob]
+        logging.debug('-'*30)
+        y_pred=np.array(y_pred).reshape(-1,1)
+        logging.debug(y_pred.shape)
+        test_id=pd.read_csv(FLAGS.tmp_data_path+'test_id.csv')
+        logging.debug(test_id['id'].shape)
+        test_id['id']=test_id['id'].map(int)
+        test_id['click']=y_pred
+        test_id.to_csv(FLAGS.tmp_data_path+'1-gdbt.test.csv',index=False)
+        
+        ### 特征选择
+        df = pd.DataFrame(val_x.columns.tolist(), columns=['feature'])
+        df['importance']=list(gbm.feature_importance())                           # 特征分数
+        df = df.sort_values(by='importance',ascending=False)                      # 特征排序
+        df.to_csv(FLAGS.tmp_data_path+'feature_score.csv',index=None,encoding='utf-8') # 保存分数
+        
+        
 if __name__ == "__main__":
-#    done()
+    done()
     done(False)
         
 
