@@ -179,7 +179,7 @@ def done(istrain=True):
             logging.debug(test_id['id'].shape)
             test_id['id']=test_id['id'].map(int)
             test_id['click']=y_pred
-            test_id.to_csv(FLAGS.tmp_data_path+'1-gdbt.test.csv',index=False)
+            test_id.to_csv(FLAGS.tmp_data_path+'1-xgboost.test.csv',index=False)
         
         
 if __name__ == "__main__":

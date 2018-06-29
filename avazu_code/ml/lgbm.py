@@ -199,20 +199,20 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
 
 def done(istrain=True):
     train_save,val_save,test_save,val_x,val_y = lightgbm_data_get(FLAGS.src_test_path)
-    
+    op=['max_depth','max_bin','bagging_fraction','lambda']
     ### 开始训练
     logging.debug('设置参数')
     if istrain:
-        modelfit_cv(train_save,cv_type='max_depth')
-        modelfit_cv(train_save,cv_type='max_bin')
-        modelfit_cv(train_save,cv_type='bagging_fraction')
-        modelfit_cv(train_save,cv_type='lambda')
+        for oper in op:
+            logging.debug("CV:"+oper)
+            modelfit_cv(train_save,cv_type=oper)
+            ret=dump(cv_params, FLAGS.tmp_data_path+'cv_params_'+oper+'lgbm.joblib_dat') 
         logging.debug("开始训练")
         gbm = lgb.train(cv_params,                     # 参数字典
                         train_save,                  # 训练集
                         num_boost_round=2000,       # 迭代次数
                         valid_sets=val_save,        # 验证集
-        early_stopping_rounds=30) # 早停系数
+                        early_stopping_rounds=30) # 早停系数
 
         
         logging.debug("to save validation predictions ...")
@@ -242,7 +242,7 @@ def done(istrain=True):
         logging.debug(test_id['id'].shape)
         test_id['id']=test_id['id'].map(int)
         test_id['click']=y_pred
-        test_id.to_csv(FLAGS.tmp_data_path+'1-gdbt.test.csv',index=False)
+        test_id.to_csv(FLAGS.tmp_data_path+'1-lgbm.test.csv',index=False)
         
         ### 特征选择
         df = pd.DataFrame(val_x.columns.tolist(), columns=['feature'])
