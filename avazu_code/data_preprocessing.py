@@ -19,6 +19,7 @@ sys.path.append(FLAGS.tool_ml_dir)
 from ml.ml_utils import *
 from joblib import dump, load, Parallel, delayed
 from sklearn.model_selection import train_test_split
+import random
 
 import lightgbm as lgb 
 
@@ -131,6 +132,9 @@ def two_features_data_preprocessing(data1,data2,data3, is_train=True):
 # 计算各特征的 权重
 def new_features_w(src_data, new_expvn, is_train=True):
     
+    src_data=pd.read_csv(FLAGS.tmp_data_path+'num_features.csv')
+    new_expvn=b = random.sample(src_data.columns(),5)
+    src_data=data_concat(src_data,FLAGS.tmp_data_path +'date_list.csv')
     #后验均值编码中的先验强度,随机给定强度
     n_ks={}
     for x in new_expvn:
@@ -175,8 +179,12 @@ def new_features_w(src_data, new_expvn, is_train=True):
             pred1 *= day_v_before.click.values.mean() / pred1.mean()
             logging.debug("logloss = ", logloss(pred1, day_v_now.click.values))
 
+    t1=pd.DataFrame(np.zeros(src_data.shape[0]),columns=['click',])
     for vn in new_expvn:
-        src_data['exp2_'+vn] = exp2_dict[vn]
+        t1['exp2_'+vn] = exp2_dict[vn]
+    t1.drop('click', axis=1,inplace = True)
+    t1.to_csv(FLAGS.tmp_data_path+'new_features_w.csv',index=False)
+    return 
 
 #
 def data_concat(src_data, dst_data_path,usecols=None, is_train=True):
@@ -187,16 +195,7 @@ def data_concat(src_data, dst_data_path,usecols=None, is_train=True):
     try:
         Reader_.drop('id', axis=1,inplace = True)
     except:
-        pass
-#    try:
-#        Reader_.drop('Unnamed: 0',axis=1,inplace = True)
-#    except:
-#        pass
-#    try:
-#        src_data.drop('Unnamed: 0',axis=1,inplace = True)
-#    except:
-#        pass
-    
+        pass    
     
     logging.debug('data1.shape:'+str(src_data.shape))
     logging.debug('data2.shape:'+str(Reader_.shape))
@@ -220,9 +219,9 @@ def data_to_col_csv(col_name_list,train, tmp_data_path):
             date_list.append(col)
         else:
             num_writeheader_list.append(col)
-    train[cat_writeheader_list].to_csv(tmp_data_path+'cat_features.csv',index=False)
-    train[date_list].to_csv(tmp_data_path+'date_list.csv',index=False)
-    train[num_writeheader_list].to_csv(tmp_data_path+'num_features.csv',index=False)
+    train[cat_writeheader_list].to_csv(FLAGS.tmp_data_path+'cat_features.csv',index=False)
+    train[date_list].to_csv(FLAGS.tmp_data_path+'date_list.csv',index=False)
+    train[num_writeheader_list].to_csv(FLAGS.tmp_data_path+'num_features.csv',index=False)
     del train
     return 'cat_features.csv','date_list.csv','num_features.csv'
             
@@ -277,8 +276,9 @@ def gdbt_data_get(test_path):
     train_save = pd.read_csv(FLAGS.tmp_data_path +'cat_features.csv',)
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'date_list.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'click.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'num_features.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
-#    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join_cnt.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join_cnt.csv')
     test_index = load(FLAGS.tmp_data_path+'test_index.joblib_dat')
     logging.debug(test_index)
     test_id=test_index['test']
@@ -317,6 +317,7 @@ def lr_data_get(test_path):
 def lightgbm_data_get(test_path):
     train_save = pd.read_csv(FLAGS.tmp_data_path +'cat_features.csv',)
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'date_list.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'num_features.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'click.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join_cnt.csv')
