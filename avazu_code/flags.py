@@ -157,8 +157,6 @@ def tiny_parse_args(check=True):
     parser.add_argument('--train_set_path', type=str, default='d:/GitHub/kaggle-avazu/avazu_data',
                         help='path to save train test and .')
 
-    parser.add_argument('--tmp_data_path', type=str, default='f:/GitHub/data/avazu_data/output/',
-                        help='tmp_data_path')
 
     parser.add_argument('--train_job_name', type=str, default='trian_job',
                         help='number of time steps of one sample.')
