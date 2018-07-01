@@ -33,7 +33,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
 
 ### 设置初始参数--不含交叉验证参数
-print('设置参数')
+logging.debug('设置参数')
 cv_params = {
           'boosting_type': 'gbdt',
           'objective': 'binary',
