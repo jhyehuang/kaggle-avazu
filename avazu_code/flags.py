@@ -164,6 +164,6 @@ if pad=='win':
 elif pad=='linux':
     FLAGS, unparsed = parse_args()
 elif pad=='tiny':
-    FLAGS, unparsed = parse_args()
+    FLAGS, unparsed = tiny_parse_args()
 #for x in dir(FLAGS):
 #    print(getattr(FLAGS, x))
