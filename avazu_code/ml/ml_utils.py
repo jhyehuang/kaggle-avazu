@@ -7,7 +7,7 @@ import time
 import sys
 import os
 filepath=os.path.abspath(__file__)
-path=os.path.abspath(filepath)
+path=filepath.split()[0]
 sys.path.append(path)
 sys.path.append(path+'/..')
 print(sys.path)
