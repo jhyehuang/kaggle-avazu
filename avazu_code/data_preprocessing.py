@@ -419,7 +419,7 @@ def lightgbm_data_get(test_path):
 def tiny_lightgbm_data_get():
     train_save = pd.read_csv(FLAGS.tmp_data_path +'cat_features.csv',)
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'date_list.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path +'num_features.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path +'num_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train100/click.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join_cnt.csv')
@@ -427,7 +427,7 @@ def tiny_lightgbm_data_get():
 #    logging.debug(train_save['id'])
     test_save = pd.read_csv(FLAGS.test_data_path +'cat_features.csv',)
     test_save=data_concat(test_save,FLAGS.test_data_path +'date_list.csv')
-    test_save=data_concat(test_save,FLAGS.test_data_path +'num_features.csv')
+#    test_save=data_concat(test_save,FLAGS.test_data_path +'num_features.csv')
 #    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/click.csv')
     test_save=data_concat(test_save,FLAGS.test_data_path +'two_col_join.csv')
     test_save=data_concat(test_save,FLAGS.test_data_path +'two_col_join_cnt.csv')
