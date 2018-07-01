@@ -415,3 +415,48 @@ def lightgbm_data_get(test_path):
     lgb_eval = lgb.Dataset(X_val, y_val, reference=lgb_train,free_raw_data=False)
 
     return lgb_train,lgb_eval,X_test,X_val,y_val
+
+def tiny_lightgbm_data_get():
+    train_save = pd.read_csv(FLAGS.tmp_data_path +'cat_features.csv',)
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'date_list.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'num_features.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train100/click.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join_cnt.csv')
+    logging.debug(train_save.columns)
+#    logging.debug(train_save['id'])
+    test_save = pd.read_csv(FLAGS.test_data_path +'cat_features.csv',)
+    test_save=data_concat(test_save,FLAGS.test_data_path +'date_list.csv')
+    test_save=data_concat(test_save,FLAGS.test_data_path +'num_features.csv')
+#    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/click.csv')
+    test_save=data_concat(test_save,FLAGS.test_data_path +'two_col_join.csv')
+    test_save=data_concat(test_save,FLAGS.test_data_path +'two_col_join_cnt.csv')
+#    logging.debug(test_save.shape)
+    logging.debug(train_save.shape)
+    logging.debug(test_save.shape)
+    try:
+        train_save.drop('id', axis=1,inplace = True)
+    except:
+        pass
+    try:
+        test_save.drop('id', axis=1,inplace = True)
+    except:
+        pass
+    
+    print(train_save.shape)
+    y_train = train_save['click']
+    train_save.drop('click',axis=1,inplace=True)
+    X_train = train_save
+    
+    test_save.drop('click',axis=1,inplace=True)
+    X_test=test_save
+    
+    X_train_part, X_val, y_train_part, y_val = train_test_split(X_train, y_train, train_size = 0.9,random_state = 0)
+    logging.debug(X_train_part.head(1))
+    logging.debug(y_train_part.head(1))
+    ### 数据转换
+    lgb_train = lgb.Dataset(X_train_part, y_train_part, free_raw_data=False)
+    lgb_eval = lgb.Dataset(X_val, y_val, reference=lgb_train,free_raw_data=False)
+
+    return lgb_train,lgb_eval,X_test,X_val,y_val
+

@@ -148,7 +148,7 @@ def done(istrain=True):
 #    test_save.drop('click',axis=1,inplace=True)
     X_test=test_save
 #    op=['n_estimators','max_depth','subsample','reg_alpha']
-    op=['max_depth','subsample','reg_alpha']
+    op=['x']
     if istrain:
 #        dtrain = xgb.DMatrix(X_train, label=y_train)
 #        n_estimators = [i for i in range(200,1000,1)]
@@ -162,6 +162,8 @@ def done(istrain=True):
         objective='binary:logistic',
         nthread=-1,
         scale_pos_weight=1,
+        reg_alpha=1.5,
+        reg_lambda=0.5,
         seed=27,
         silent=0,**gpu_dict)
         for i,oper in enumerate(op):

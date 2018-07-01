@@ -265,7 +265,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
     logging.debug(cv_params)
 
 def done(istrain=True):
-    train_save,val_save,test_save,val_x,val_y = lightgbm_data_get(FLAGS.src_test_path)
+    train_save,val_save,test_save,val_x,val_y = tiny_lightgbm_data_get()
 #    op=['max_depth','max_bin','bagging_fraction','lambda']
     cv_params['num_leaves'] = 165
     cv_params['max_depth'] = 7

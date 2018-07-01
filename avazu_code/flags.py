@@ -148,6 +148,9 @@ def tiny_parse_args(check=True):
     parser.add_argument('--tmp_data_path', type=str, default='/data/jhyehuang/crt1537/',
                         help='path to QuanSongCi.txt')
     
+    parser.add_argument('--test_data_path', type=str, default='/data/jhyehuang/crttest/',
+                        help='path to QuanSongCi.txt')
+    
     parser.add_argument('--out_data_path', type=str, default='/output/',
                         help='path to out')
 
