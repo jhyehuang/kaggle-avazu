@@ -1,0 +1,411 @@
+/home/zhijiehuang/github/data/train.csv
+Traceback (most recent call last):
+  File "encode_cat_features.py", line 63, in <module>
+    new_features_w()
+TypeError: new_features_w() missing 2 required positional arguments: 'src_data' and 'new_expvn'
+/home/zhijiehuang/github/data/train.csv
+Traceback (most recent call last):
+  File "encode_cat_features.py", line 63, in <module>
+    new_features_w()
+  File "/home/zhijiehuang/github/kaggle-avazu/avazu_code/data_preprocessing.py", line 136, in new_features_w
+    new_expvn=b = random.sample(src_data.columns(),5)
+TypeError: 'Index' object is not callable
+/home/zhijiehuang/github/data/train.csv
+Traceback (most recent call last):
+  File "encode_cat_features.py", line 63, in <module>
+    new_features_w()
+  File "/home/zhijiehuang/github/kaggle-avazu/avazu_code/data_preprocessing.py", line 136, in new_features_w
+    new_expvn= random.sample(src_data.columns,5)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/random.py", line 314, in sample
+    raise TypeError("Population must be a sequence or set.  For dicts, use list(d).")
+TypeError: Population must be a sequence or set.  For dicts, use list(d).
+2018-06-29 20:10:26,547 - DEBUG - data_preprocessing.py:200 - data1.shape:(45006431, 60)
+2018-06-29 20:10:26,562 - DEBUG - data_preprocessing.py:201 - data2.shape:(45006431, 5)
+2018-06-29 20:11:29,772 - DEBUG - data_preprocessing.py:204 - 结果.shape:(45006431, 65)
+2018-06-29 20:11:29,778 - DEBUG - data_preprocessing.py:205 - 耗时0.008432626724243164
+/home/zhijiehuang/github/data/train.csv
+Traceback (most recent call last):
+  File "encode_cat_features.py", line 63, in <module>
+    new_features_w()
+  File "/home/zhijiehuang/github/kaggle-avazu/avazu_code/data_preprocessing.py", line 150, in new_features_w
+    day_v_before = src_data.ix[src_data.one_day.values < day_v, :].copy()
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/pandas/core/indexing.py", line 121, in __getitem__
+    return self._getitem_tuple(key)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/pandas/core/indexing.py", line 878, in _getitem_tuple
+    retval = getattr(retval, self.name)._getitem_axis(key, axis=i)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/pandas/core/indexing.py", line 1090, in _getitem_axis
+    return self._getitem_iterable(key, axis=axis)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/pandas/core/indexing.py", line 1122, in _getitem_iterable
+    return self.obj._take(inds, axis=axis, convert=False)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/pandas/core/generic.py", line 2143, in _take
+    self._consolidate_inplace()
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/pandas/core/generic.py", line 3677, in _consolidate_inplace
+    self._protect_consolidate(f)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/pandas/core/generic.py", line 3666, in _protect_consolidate
+    result = f()
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/pandas/core/generic.py", line 3675, in f
+    self._data = self._data.consolidate()
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/pandas/core/internals.py", line 3826, in consolidate
+    bm._consolidate_inplace()
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/pandas/core/internals.py", line 3831, in _consolidate_inplace
+    self.blocks = tuple(_consolidate(self.blocks))
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/pandas/core/internals.py", line 4853, in _consolidate
+    _can_consolidate=_can_consolidate)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/pandas/core/internals.py", line 4876, in _merge_blocks
+    new_values = new_values[argsort]
+MemoryError
+/home/zhijiehuang/github/kaggle-avazu/avazu_code/data_preprocessing.py:138: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+  src_data['click']=data['click'].values
+2018-06-29 20:25:02,916 - DEBUG - data_preprocessing.py:203 - data1.shape:(45006431, 6)
+2018-06-29 20:25:02,917 - DEBUG - data_preprocessing.py:204 - data2.shape:(45006431, 5)
+2018-06-29 20:25:17,278 - DEBUG - data_preprocessing.py:207 - 结果.shape:(45006431, 11)
+2018-06-29 20:25:17,278 - DEBUG - data_preprocessing.py:208 - 耗时0.00015807151794433594
+--- Logging error ---
+Traceback (most recent call last):
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/logging/__init__.py", line 992, in emit
+    msg = self.format(record)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/logging/__init__.py", line 838, in format
+    return fmt.format(record)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/logging/__init__.py", line 575, in format
+    record.message = record.getMessage()
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/logging/__init__.py", line 338, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "encode_cat_features.py", line 63, in <module>
+    new_features_w()
+  File "/home/zhijiehuang/github/kaggle-avazu/avazu_code/data_preprocessing.py", line 157, in new_features_w
+    logging.debug("Validation day:", day_v, ", train data shape:", day_v_before.shape, ", validation data shape:", day_v_now.shape)
+Message: 'Validation day:'
+Arguments: (22, ', train data shape:', (45006431, 11), ', validation data shape:', (0, 11))
+/home/zhijiehuang/github/data/train.csv
+Traceback (most recent call last):
+  File "encode_cat_features.py", line 63, in <module>
+    new_features_w()
+  File "/home/zhijiehuang/github/kaggle-avazu/avazu_code/data_preprocessing.py", line 169, in new_features_w
+    p1 = calcLeaveOneOut2(day_v_before, vn, 'click', n_ks[vn], 0, 0.25, mean0=pred_prev)
+  File "/home/zhijiehuang/github/kaggle-avazu/avazu_code/ml/ml_utils.py", line 48, in calcLeaveOneOut2
+    _key_codes = df[vn].values.codes
+AttributeError: 'numpy.ndarray' object has no attribute 'codes'
+/home/zhijiehuang/github/data/train.csv
+Traceback (most recent call last):
+  File "encode_cat_features.py", line 63, in <module>
+    new_features_w()
+  File "/home/zhijiehuang/github/kaggle-avazu/avazu_code/data_preprocessing.py", line 137, in new_features_w
+    src_data=data[new_expvn]
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/pandas/core/frame.py", line 2133, in __getitem__
+    return self._getitem_array(key)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/pandas/core/frame.py", line 2177, in _getitem_array
+    indexer = self.loc._convert_to_indexer(key, axis=1)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/pandas/core/indexing.py", line 1269, in _convert_to_indexer
+    .format(mask=objarr[mask]))
+KeyError: "['C17' 'C21'] not in index"
+2018-06-30 08:44:05,561 - DEBUG - data_preprocessing.py:287 - ['cat_features.csv', 'date_list.csv', 'id.csv', 'num_features.csv', 'two_col_join_cnt.csv', 'two_col_join.csv']
+2018-06-30 08:44:33,875 - DEBUG - data_preprocessing.py:292 - (4577464, 5)
+2018-06-30 08:44:35,392 - DEBUG - data_preprocessing.py:297 - (6865066, 5)
+2018-06-30 08:45:28,148 - DEBUG - data_preprocessing.py:297 - (6865066, 5)
+2018-06-30 08:46:21,012 - DEBUG - data_preprocessing.py:297 - (6865066, 5)
+2018-06-30 08:47:13,990 - DEBUG - data_preprocessing.py:297 - (6865066, 5)
+2018-06-30 08:48:27,342 - DEBUG - data_preprocessing.py:292 - (4577464, 5)
+2018-06-30 08:48:28,869 - DEBUG - data_preprocessing.py:297 - (6865066, 5)
+2018-06-30 08:49:17,612 - DEBUG - data_preprocessing.py:297 - (6865066, 5)
+2018-06-30 08:50:06,417 - DEBUG - data_preprocessing.py:297 - (6865066, 5)
+2018-06-30 08:50:55,099 - DEBUG - data_preprocessing.py:297 - (6865066, 5)
+2018-06-30 08:52:03,563 - DEBUG - data_preprocessing.py:292 - (4577464, 2)
+2018-06-30 08:52:04,711 - DEBUG - data_preprocessing.py:297 - (6865066, 2)
+2018-06-30 08:52:38,151 - DEBUG - data_preprocessing.py:297 - (6865066, 2)
+2018-06-30 08:53:11,527 - DEBUG - data_preprocessing.py:297 - (6865066, 2)
+2018-06-30 08:53:44,936 - DEBUG - data_preprocessing.py:297 - (6865066, 2)
+2018-06-30 09:01:57,703 - DEBUG - data_preprocessing.py:292 - (4577464, 60)
+2018-06-30 09:04:06,218 - DEBUG - data_preprocessing.py:297 - (6865066, 60)
+2018-06-30 09:11:46,338 - DEBUG - data_preprocessing.py:288 - ['cat_features.csv', 'date_list.csv', 'id.csv', 'num_features.csv', 'two_col_join_cnt.csv', 'two_col_join.csv']
+2018-06-30 09:12:13,507 - DEBUG - data_preprocessing.py:293 - (4577464, 5)
+2018-06-30 09:12:15,036 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:12:15,036 - DEBUG - data_preprocessing.py:299 - cat_features.csv
+2018-06-30 09:12:15,036 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 09:12:17,914 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:12:42,155 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:12:42,155 - DEBUG - data_preprocessing.py:299 - cat_features.csv
+2018-06-30 09:12:42,155 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 09:12:45,022 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:13:09,271 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:13:09,271 - DEBUG - data_preprocessing.py:299 - cat_features.csv
+2018-06-30 09:13:09,271 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 09:13:12,136 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:13:36,708 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:13:36,708 - DEBUG - data_preprocessing.py:299 - cat_features.csv
+2018-06-30 09:13:36,709 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 09:13:39,572 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:14:24,596 - DEBUG - data_preprocessing.py:293 - (4577464, 5)
+2018-06-30 09:14:26,144 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:14:26,144 - DEBUG - data_preprocessing.py:299 - date_list.csv
+2018-06-30 09:14:26,144 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 09:14:29,020 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:14:51,344 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:14:51,344 - DEBUG - data_preprocessing.py:299 - date_list.csv
+2018-06-30 09:14:51,344 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 09:14:54,200 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:15:16,609 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:15:16,609 - DEBUG - data_preprocessing.py:299 - date_list.csv
+2018-06-30 09:15:16,609 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 09:15:19,480 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:15:41,847 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:15:41,847 - DEBUG - data_preprocessing.py:299 - date_list.csv
+2018-06-30 09:15:41,847 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 09:15:44,706 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:16:26,796 - DEBUG - data_preprocessing.py:293 - (4577464, 2)
+2018-06-30 09:16:27,971 - DEBUG - data_preprocessing.py:298 - (6865066, 2)
+2018-06-30 09:16:27,972 - DEBUG - data_preprocessing.py:299 - id.csv
+2018-06-30 09:16:27,972 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 09:16:29,993 - DEBUG - data_preprocessing.py:306 - (6865066, 2)
+2018-06-30 09:16:46,553 - DEBUG - data_preprocessing.py:298 - (6865066, 2)
+2018-06-30 09:16:46,553 - DEBUG - data_preprocessing.py:299 - id.csv
+2018-06-30 09:16:46,553 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 09:16:48,582 - DEBUG - data_preprocessing.py:306 - (6865066, 2)
+2018-06-30 09:17:05,037 - DEBUG - data_preprocessing.py:298 - (6865066, 2)
+2018-06-30 09:17:05,038 - DEBUG - data_preprocessing.py:299 - id.csv
+2018-06-30 09:17:05,038 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 09:17:07,063 - DEBUG - data_preprocessing.py:306 - (6865066, 2)
+2018-06-30 09:17:23,615 - DEBUG - data_preprocessing.py:298 - (6865066, 2)
+2018-06-30 09:17:23,615 - DEBUG - data_preprocessing.py:299 - id.csv
+2018-06-30 09:17:23,615 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 09:17:25,643 - DEBUG - data_preprocessing.py:306 - (6865066, 2)
+2018-06-30 09:25:32,928 - DEBUG - data_preprocessing.py:293 - (4577464, 60)
+2018-06-30 09:27:39,501 - DEBUG - data_preprocessing.py:298 - (6865066, 60)
+2018-06-30 09:27:39,504 - DEBUG - data_preprocessing.py:299 - num_features.csv
+2018-06-30 09:27:39,505 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 09:28:26,195 - DEBUG - data_preprocessing.py:306 - (6865066, 60)
+2018-06-30 09:39:11,025 - DEBUG - data_preprocessing.py:298 - (6865066, 60)
+2018-06-30 09:39:11,031 - DEBUG - data_preprocessing.py:299 - num_features.csv
+2018-06-30 09:39:11,031 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 09:40:17,202 - DEBUG - data_preprocessing.py:288 - ['cat_features.csv', 'date_list.csv', 'id.csv', 'num_features.csv', 'two_col_join_cnt.csv', 'two_col_join.csv']
+2018-06-30 09:40:44,217 - DEBUG - data_preprocessing.py:293 - (4577464, 5)
+2018-06-30 09:40:45,738 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:40:45,738 - DEBUG - data_preprocessing.py:299 - cat_features.csv
+2018-06-30 09:40:45,738 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 09:40:48,599 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:41:12,938 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:41:12,938 - DEBUG - data_preprocessing.py:299 - cat_features.csv
+2018-06-30 09:41:12,938 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 09:41:15,787 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:41:40,203 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:41:40,203 - DEBUG - data_preprocessing.py:299 - cat_features.csv
+2018-06-30 09:41:40,203 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 09:41:43,051 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:42:07,629 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:42:07,630 - DEBUG - data_preprocessing.py:299 - cat_features.csv
+2018-06-30 09:42:07,630 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 09:42:10,477 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:42:54,589 - DEBUG - data_preprocessing.py:293 - (4577464, 5)
+2018-06-30 09:42:56,123 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:42:56,123 - DEBUG - data_preprocessing.py:299 - date_list.csv
+2018-06-30 09:42:56,123 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 09:42:58,975 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:43:21,586 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:43:21,586 - DEBUG - data_preprocessing.py:299 - date_list.csv
+2018-06-30 09:43:21,586 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 09:43:24,432 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:43:47,096 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:43:47,096 - DEBUG - data_preprocessing.py:299 - date_list.csv
+2018-06-30 09:43:47,096 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 09:43:49,945 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:44:12,572 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 09:44:12,572 - DEBUG - data_preprocessing.py:299 - date_list.csv
+2018-06-30 09:44:12,572 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 09:44:15,421 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 09:44:57,348 - DEBUG - data_preprocessing.py:293 - (4577464, 2)
+2018-06-30 09:44:58,498 - DEBUG - data_preprocessing.py:298 - (6865066, 2)
+2018-06-30 09:44:58,498 - DEBUG - data_preprocessing.py:299 - id.csv
+2018-06-30 09:44:58,498 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 09:45:00,513 - DEBUG - data_preprocessing.py:306 - (6865066, 2)
+2018-06-30 09:45:17,103 - DEBUG - data_preprocessing.py:298 - (6865066, 2)
+2018-06-30 09:45:17,103 - DEBUG - data_preprocessing.py:299 - id.csv
+2018-06-30 09:45:17,103 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 09:45:19,116 - DEBUG - data_preprocessing.py:306 - (6865066, 2)
+2018-06-30 09:45:35,671 - DEBUG - data_preprocessing.py:298 - (6865066, 2)
+2018-06-30 09:45:35,671 - DEBUG - data_preprocessing.py:299 - id.csv
+2018-06-30 09:45:35,671 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 09:45:37,687 - DEBUG - data_preprocessing.py:306 - (6865066, 2)
+2018-06-30 09:45:54,137 - DEBUG - data_preprocessing.py:298 - (6865066, 2)
+2018-06-30 09:45:54,137 - DEBUG - data_preprocessing.py:299 - id.csv
+2018-06-30 09:45:54,137 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 09:45:56,152 - DEBUG - data_preprocessing.py:306 - (6865066, 2)
+2018-06-30 09:53:41,815 - DEBUG - data_preprocessing.py:293 - (4577464, 60)
+2018-06-30 09:55:50,978 - DEBUG - data_preprocessing.py:298 - (6865066, 60)
+2018-06-30 09:55:50,998 - DEBUG - data_preprocessing.py:299 - num_features.csv
+2018-06-30 09:55:50,998 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 09:56:35,940 - DEBUG - data_preprocessing.py:306 - (6865066, 60)
+2018-06-30 10:03:17,295 - DEBUG - data_preprocessing.py:298 - (6865066, 60)
+2018-06-30 10:03:17,302 - DEBUG - data_preprocessing.py:299 - num_features.csv
+2018-06-30 10:03:17,302 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 10:03:58,823 - DEBUG - data_preprocessing.py:306 - (6865066, 60)
+2018-06-30 10:08:24,607 - DEBUG - data_preprocessing.py:298 - (6865066, 60)
+2018-06-30 10:08:24,609 - DEBUG - data_preprocessing.py:299 - num_features.csv
+2018-06-30 10:08:24,609 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 10:14:55,856 - DEBUG - data_preprocessing.py:306 - (6865066, 60)
+2018-06-30 10:19:24,196 - DEBUG - data_preprocessing.py:298 - (6865066, 60)
+2018-06-30 10:19:24,201 - DEBUG - data_preprocessing.py:299 - num_features.csv
+2018-06-30 10:19:24,201 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 10:19:40,892 - DEBUG - data_preprocessing.py:306 - (6865066, 60)
+2018-06-30 10:27:01,980 - DEBUG - data_preprocessing.py:293 - (4577464, 20)
+2018-06-30 10:27:04,462 - DEBUG - data_preprocessing.py:298 - (6865066, 20)
+2018-06-30 10:27:04,462 - DEBUG - data_preprocessing.py:299 - two_col_join_cnt.csv
+2018-06-30 10:27:04,462 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 10:27:17,646 - DEBUG - data_preprocessing.py:306 - (6865066, 20)
+2018-06-30 10:29:14,600 - DEBUG - data_preprocessing.py:298 - (6865066, 20)
+2018-06-30 10:29:14,600 - DEBUG - data_preprocessing.py:299 - two_col_join_cnt.csv
+2018-06-30 10:29:14,600 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 10:29:21,756 - DEBUG - data_preprocessing.py:306 - (6865066, 20)
+2018-06-30 10:31:17,864 - DEBUG - data_preprocessing.py:298 - (6865066, 20)
+2018-06-30 10:31:17,864 - DEBUG - data_preprocessing.py:299 - two_col_join_cnt.csv
+2018-06-30 10:31:17,864 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 10:31:25,014 - DEBUG - data_preprocessing.py:306 - (6865066, 20)
+2018-06-30 10:33:21,638 - DEBUG - data_preprocessing.py:298 - (6865066, 20)
+2018-06-30 10:33:21,638 - DEBUG - data_preprocessing.py:299 - two_col_join_cnt.csv
+2018-06-30 10:33:21,638 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 10:33:28,787 - DEBUG - data_preprocessing.py:306 - (6865066, 20)
+2018-06-30 10:36:23,537 - DEBUG - data_preprocessing.py:293 - (4577464, 11)
+2018-06-30 10:36:25,131 - DEBUG - data_preprocessing.py:298 - (6865066, 11)
+2018-06-30 10:36:25,131 - DEBUG - data_preprocessing.py:299 - two_col_join.csv
+2018-06-30 10:36:25,131 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 10:36:28,923 - DEBUG - data_preprocessing.py:306 - (6865066, 11)
+2018-06-30 10:37:18,465 - DEBUG - data_preprocessing.py:298 - (6865066, 11)
+2018-06-30 10:37:18,465 - DEBUG - data_preprocessing.py:299 - two_col_join.csv
+2018-06-30 10:37:18,465 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 10:37:22,253 - DEBUG - data_preprocessing.py:306 - (6865066, 11)
+2018-06-30 10:38:11,816 - DEBUG - data_preprocessing.py:298 - (6865066, 11)
+2018-06-30 10:38:11,816 - DEBUG - data_preprocessing.py:299 - two_col_join.csv
+2018-06-30 10:38:11,817 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 10:38:15,602 - DEBUG - data_preprocessing.py:306 - (6865066, 11)
+2018-06-30 10:39:05,140 - DEBUG - data_preprocessing.py:298 - (6865066, 11)
+2018-06-30 10:39:05,140 - DEBUG - data_preprocessing.py:299 - two_col_join.csv
+2018-06-30 10:39:05,140 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 10:39:08,917 - DEBUG - data_preprocessing.py:306 - (6865066, 11)
+/home/zhijiehuang/github/data/train.csv
+2018-06-30 10:55:08,564 - DEBUG - data_preprocessing.py:288 - ['click.csv', 'cat_features.csv', 'date_list.csv', 'id.csv', 'num_features.csv', 'two_col_join_cnt.csv', 'two_col_join.csv']
+2018-06-30 10:55:15,050 - DEBUG - data_preprocessing.py:293 - (4577464, 1)
+2018-06-30 10:55:15,993 - DEBUG - data_preprocessing.py:298 - (6865066, 1)
+2018-06-30 10:55:15,993 - DEBUG - data_preprocessing.py:299 - click.csv
+2018-06-30 10:55:15,993 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 10:55:17,611 - DEBUG - data_preprocessing.py:306 - (6865066, 1)
+2018-06-30 10:55:25,625 - DEBUG - data_preprocessing.py:298 - (6865066, 1)
+2018-06-30 10:55:25,625 - DEBUG - data_preprocessing.py:299 - click.csv
+2018-06-30 10:55:25,625 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 10:55:27,231 - DEBUG - data_preprocessing.py:306 - (6865066, 1)
+2018-06-30 10:55:35,283 - DEBUG - data_preprocessing.py:298 - (6865066, 1)
+2018-06-30 10:55:35,283 - DEBUG - data_preprocessing.py:299 - click.csv
+2018-06-30 10:55:35,283 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 10:55:36,888 - DEBUG - data_preprocessing.py:306 - (6865066, 1)
+2018-06-30 10:55:44,917 - DEBUG - data_preprocessing.py:298 - (6865066, 1)
+2018-06-30 10:55:44,917 - DEBUG - data_preprocessing.py:299 - click.csv
+2018-06-30 10:55:44,917 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 10:55:46,526 - DEBUG - data_preprocessing.py:306 - (6865066, 1)
+2018-06-30 10:56:21,608 - DEBUG - data_preprocessing.py:293 - (4577464, 5)
+2018-06-30 10:56:23,140 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 10:56:23,140 - DEBUG - data_preprocessing.py:299 - cat_features.csv
+2018-06-30 10:56:23,140 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 10:56:25,996 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 10:56:51,116 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 10:56:51,116 - DEBUG - data_preprocessing.py:299 - cat_features.csv
+2018-06-30 10:56:51,116 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 10:56:53,976 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 10:57:19,223 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 10:57:19,224 - DEBUG - data_preprocessing.py:299 - cat_features.csv
+2018-06-30 10:57:19,224 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 10:57:22,082 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 10:57:47,305 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 10:57:47,305 - DEBUG - data_preprocessing.py:299 - cat_features.csv
+2018-06-30 10:57:47,305 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 10:57:50,161 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 10:58:35,531 - DEBUG - data_preprocessing.py:293 - (4577464, 5)
+2018-06-30 10:58:37,055 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 10:58:37,055 - DEBUG - data_preprocessing.py:299 - date_list.csv
+2018-06-30 10:58:37,055 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 10:58:39,910 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 10:59:03,403 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 10:59:03,403 - DEBUG - data_preprocessing.py:299 - date_list.csv
+2018-06-30 10:59:03,403 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 10:59:06,271 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 10:59:29,910 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 10:59:29,910 - DEBUG - data_preprocessing.py:299 - date_list.csv
+2018-06-30 10:59:29,910 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 10:59:32,780 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 10:59:56,293 - DEBUG - data_preprocessing.py:298 - (6865066, 5)
+2018-06-30 10:59:56,294 - DEBUG - data_preprocessing.py:299 - date_list.csv
+2018-06-30 10:59:56,294 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 10:59:59,139 - DEBUG - data_preprocessing.py:306 - (6865066, 5)
+2018-06-30 11:00:42,566 - DEBUG - data_preprocessing.py:293 - (4577464, 2)
+2018-06-30 11:00:43,717 - DEBUG - data_preprocessing.py:298 - (6865066, 2)
+2018-06-30 11:00:43,717 - DEBUG - data_preprocessing.py:299 - id.csv
+2018-06-30 11:00:43,717 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 11:00:45,728 - DEBUG - data_preprocessing.py:306 - (6865066, 2)
+2018-06-30 11:01:02,498 - DEBUG - data_preprocessing.py:298 - (6865066, 2)
+2018-06-30 11:01:02,498 - DEBUG - data_preprocessing.py:299 - id.csv
+2018-06-30 11:01:02,498 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 11:01:04,510 - DEBUG - data_preprocessing.py:306 - (6865066, 2)
+2018-06-30 11:01:21,572 - DEBUG - data_preprocessing.py:298 - (6865066, 2)
+2018-06-30 11:01:21,572 - DEBUG - data_preprocessing.py:299 - id.csv
+2018-06-30 11:01:21,572 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 11:01:23,607 - DEBUG - data_preprocessing.py:306 - (6865066, 2)
+2018-06-30 11:01:40,450 - DEBUG - data_preprocessing.py:298 - (6865066, 2)
+2018-06-30 11:01:40,450 - DEBUG - data_preprocessing.py:299 - id.csv
+2018-06-30 11:01:40,450 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 11:01:42,462 - DEBUG - data_preprocessing.py:306 - (6865066, 2)
+2018-06-30 11:09:21,804 - DEBUG - data_preprocessing.py:293 - (4577464, 60)
+2018-06-30 11:11:30,492 - DEBUG - data_preprocessing.py:298 - (6865066, 60)
+2018-06-30 11:11:30,525 - DEBUG - data_preprocessing.py:299 - num_features.csv
+2018-06-30 11:11:30,525 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 11:12:17,263 - DEBUG - data_preprocessing.py:306 - (6865066, 60)
+2018-06-30 11:18:57,995 - DEBUG - data_preprocessing.py:298 - (6865066, 60)
+2018-06-30 11:18:58,001 - DEBUG - data_preprocessing.py:299 - num_features.csv
+2018-06-30 11:18:58,001 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 11:19:27,028 - DEBUG - data_preprocessing.py:306 - (6865066, 60)
+2018-06-30 11:24:00,730 - DEBUG - data_preprocessing.py:298 - (6865066, 60)
+2018-06-30 11:24:00,736 - DEBUG - data_preprocessing.py:299 - num_features.csv
+2018-06-30 11:24:00,736 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 11:26:54,336 - DEBUG - data_preprocessing.py:306 - (6865066, 60)
+2018-06-30 11:31:28,987 - DEBUG - data_preprocessing.py:298 - (6865066, 60)
+2018-06-30 11:31:28,993 - DEBUG - data_preprocessing.py:299 - num_features.csv
+2018-06-30 11:31:28,994 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 11:32:15,461 - DEBUG - data_preprocessing.py:306 - (6865066, 60)
+2018-06-30 11:39:50,256 - DEBUG - data_preprocessing.py:293 - (4577464, 20)
+2018-06-30 11:39:52,898 - DEBUG - data_preprocessing.py:298 - (6865066, 20)
+2018-06-30 11:39:52,898 - DEBUG - data_preprocessing.py:299 - two_col_join_cnt.csv
+2018-06-30 11:39:52,898 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 11:40:06,075 - DEBUG - data_preprocessing.py:306 - (6865066, 20)
+2018-06-30 11:42:04,993 - DEBUG - data_preprocessing.py:298 - (6865066, 20)
+2018-06-30 11:42:04,997 - DEBUG - data_preprocessing.py:299 - two_col_join_cnt.csv
+2018-06-30 11:42:04,997 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 11:42:12,123 - DEBUG - data_preprocessing.py:306 - (6865066, 20)
+2018-06-30 11:44:11,377 - DEBUG - data_preprocessing.py:298 - (6865066, 20)
+2018-06-30 11:44:11,377 - DEBUG - data_preprocessing.py:299 - two_col_join_cnt.csv
+2018-06-30 11:44:11,377 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 11:44:18,514 - DEBUG - data_preprocessing.py:306 - (6865066, 20)
+2018-06-30 11:46:17,695 - DEBUG - data_preprocessing.py:298 - (6865066, 20)
+2018-06-30 11:46:17,699 - DEBUG - data_preprocessing.py:299 - two_col_join_cnt.csv
+2018-06-30 11:46:17,699 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 11:46:24,844 - DEBUG - data_preprocessing.py:306 - (6865066, 20)
+2018-06-30 11:49:24,017 - DEBUG - data_preprocessing.py:293 - (4577464, 11)
+2018-06-30 11:49:25,616 - DEBUG - data_preprocessing.py:298 - (6865066, 11)
+2018-06-30 11:49:25,616 - DEBUG - data_preprocessing.py:299 - two_col_join.csv
+2018-06-30 11:49:25,616 - DEBUG - data_preprocessing.py:300 - 100
+2018-06-30 11:49:29,414 - DEBUG - data_preprocessing.py:306 - (6865066, 11)
+2018-06-30 11:50:21,510 - DEBUG - data_preprocessing.py:298 - (6865066, 11)
+2018-06-30 11:50:21,510 - DEBUG - data_preprocessing.py:299 - two_col_join.csv
+2018-06-30 11:50:21,510 - DEBUG - data_preprocessing.py:300 - 299
+2018-06-30 11:50:25,296 - DEBUG - data_preprocessing.py:306 - (6865066, 11)
+2018-06-30 11:51:17,385 - DEBUG - data_preprocessing.py:298 - (6865066, 11)
+2018-06-30 11:51:17,385 - DEBUG - data_preprocessing.py:299 - two_col_join.csv
+2018-06-30 11:51:17,385 - DEBUG - data_preprocessing.py:300 - 799
+2018-06-30 11:51:21,182 - DEBUG - data_preprocessing.py:306 - (6865066, 11)
+2018-06-30 11:52:13,132 - DEBUG - data_preprocessing.py:298 - (6865066, 11)
+2018-06-30 11:52:13,132 - DEBUG - data_preprocessing.py:299 - two_col_join.csv
+2018-06-30 11:52:13,132 - DEBUG - data_preprocessing.py:300 - 1537
+2018-06-30 11:52:16,916 - DEBUG - data_preprocessing.py:306 - (6865066, 11)
+/home/zhijiehuang/github/data/train.csv
+python: can't open file 'lgbm.py': [Errno 2] No such file or directory
+python: can't open file 'lgbm.py': [Errno 2] No such file or directory

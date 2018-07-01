@@ -7,7 +7,8 @@ import pytz
 
 
 #pad='win'
-pad='linux'
+pad='tiny'
+#pad='linux'
 # pool.supportxmr.com:3333
 #bounced zombie fossil wayside enforce visited arsenic educated serving linen mittens argue wayside
 # 42MXU6g6N1q46FfEFWFqGF5xu6vBEHh4CUdE9iJGevPUPexfTa3eGgjh46gBGieH4gHwb7QCCCiF7HNNTwPQ3V59HK1rVm6
@@ -32,7 +33,7 @@ def parse_args(check=True):
     parser.add_argument('--tool_ml_dir', type=str, default='/home/zhijiehuang/github/jhye_tool/ml',
                         help='path to my ml tool.')
     
-    parser.add_argument('--output_dir', type=str, default='/home/zhijiehuang/github/output/',
+    parser.add_argument('--output_dir', type=str, default='/data/',
                         help='path to save log and checkpoint.')
     
     parser.add_argument('--train_set_path', type=str, default='/home/zhijiehuang/github/data/',
@@ -140,10 +141,26 @@ def win_parse_args(check=True):
     return FLAGS, unparsed
 
 
+def tiny_parse_args(check=True):
+    parser = argparse.ArgumentParser()
+    
+
+    parser.add_argument('--tmp_data_path', type=str, default='/data/jhyehuang/crt1537/',
+                        help='path to QuanSongCi.txt')
+    
+    parser.add_argument('--out_data_path', type=str, default='/output/',
+                        help='path to out')
+
+    
+    FLAGS, unparsed = parser.parse_known_args()
+
+    return FLAGS, unparsed
+
 if pad=='win':
     FLAGS, unparsed = win_parse_args()
-else:
+elif pad=='linux':
     FLAGS, unparsed = parse_args()
-
+elif pad=='tiny':
+    FLAGS, unparsed = parse_args()
 #for x in dir(FLAGS):
 #    print(getattr(FLAGS, x))

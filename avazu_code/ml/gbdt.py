@@ -34,8 +34,10 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
 
 #gpu_dict={'gpu_id':0,'max_bin':16,'tree_method':['gpu_hist'],'predictor':['gpu_predictor']}
-gpu_dict={'gpu_id':0,'max_bin':16,'tree_method':['gpu_hist'],'predictor':['gpu_predictor']}
+#gpu_dict={'gpu_id':0,'tree_method':'gpu_hist'}
+gpu_dict={'tree_method':'approx'}
 
+#  valid values are: {'approx', 'auto', 'exact', 'gpu_exact', 'gpu_hist', 'hist'}"
 #params=param.update(gpu_dict)
 #直接调用xgboost内嵌的交叉验证（cv），可对连续的n_estimators参数进行快速交叉验证
 #而GridSearchCV只能对有限个参数进行交叉验证
@@ -46,7 +48,7 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
     X_train_part, X_val, y_train_part, y_val = train_test_split(X_train, y_train, train_size = 0.9,random_state = random_state)
     if cv_type=='n_estimators':
         xgb_param = alg.get_xgb_params()
-        xgb_param['num_class'] = 2
+#        xgb_param['num_class'] = 2
 
         xgtrain = xgb.DMatrix(X_train, label = y_train)
         
@@ -143,14 +145,15 @@ def done(istrain=True):
     train_save.drop('click',axis=1,inplace=True)
     X_train = train_save
     
-    test_save.drop('click',axis=1,inplace=True)
+#    test_save.drop('click',axis=1,inplace=True)
     X_test=test_save
-    op=['n_estimators','max_depth','subsample','reg_alpha']
+#    op=['n_estimators','max_depth','subsample','reg_alpha']
+    op=['max_depth','subsample','reg_alpha']
     if istrain:
 #        dtrain = xgb.DMatrix(X_train, label=y_train)
 #        n_estimators = [i for i in range(200,1000,1)]
         xgb1 = XGBClassifier(learning_rate =0.1,
-        n_estimators=1000,
+        n_estimators=377,
         max_depth=7,
         min_child_weight=1,
         gamma=0,

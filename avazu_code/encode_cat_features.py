@@ -60,7 +60,8 @@ output = FLAGS.output_dir
 
 #a6
 #新特征 参随机选择5个特征，计算先验概率
-new_features_w()
+#new_features_w()
 
-
+# 
+get_train_split()
 

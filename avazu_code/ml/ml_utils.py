@@ -45,7 +45,7 @@ def get_agg(group_by, value, func):
 def calcLeaveOneOut2(df, vn, vn_y, cred_k, r_k, power, mean0=None, add_count=False):
 
     #每个特征取值对应的样本组成group
-    _key_codes = df[vn].values.codes
+    _key_codes = df[vn].values
     grp1 = df[vn_y].groupby(_key_codes)
 
     #先验也按每个特征取值进行group
