@@ -6,10 +6,10 @@ import  csv
 import time
 import sys
 import os
-path=os.path.abspath('.')
-#path=filepath.split()[0]
+filepath=os.path.abspath(__file__)
+path=os.path.split(filepath)[0]
 sys.path.append(path)
-sys.path.append(path+'/..')
+sys.path.append(path+'..')
 print(sys.path)
 from joblib import dump, load
 import copy
