@@ -126,14 +126,22 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
     alg.fit(X_train, y_train, eval_metric='logloss')
         
     #Predict training set:
+    
     train_predprob = alg.predict_proba(X_val)
-    logloss = log_loss(y_train, train_predprob)
-    logging.debug(logloss)
-    _,lloss = logloss(train_predprob[:,1],y_val)
+    try:
+        logloss = log_loss(y_val, train_predprob)
+        logging.debug(logloss)
+    except:
+        pass
+    
+    try:
+        _,lloss = logloss(train_predprob[:,1],y_val)
 
-   #Print model report:
-    logging.debug ("logloss of train :" )
-    logging.debug(lloss)
+       #Print model report:
+        logging.debug ("logloss of train :" )
+        logging.debug(lloss)
+    except:
+        pass
 
 
 kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)

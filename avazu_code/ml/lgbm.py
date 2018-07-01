@@ -38,9 +38,9 @@ cv_params = {
           'boosting_type': 'gbdt',
           'objective': 'binary',
           'metric': 'binary_logloss',
-            'device': 'gpu',
-            'gpu_platform_id': 0,
-            'gpu_device_id': 0
+#            'device': 'gpu',
+#            'gpu_platform_id': 0,
+#            'gpu_device_id': 0
 }
 
 
@@ -65,9 +65,10 @@ gpu_params = {
             'lambda_l2': 0,
             'min_split_gain': 0.1,
             'sparse_threshold': 1.0,
-            'device': 'gpu',
-            'gpu_platform_id': 0,
-            'gpu_device_id': 0}
+#            'device': 'gpu',
+#            'gpu_platform_id': 0,
+#            'gpu_device_id': 0
+}
 
 
 cv_params.update(gpu_params)

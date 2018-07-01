@@ -5208,3 +5208,67 @@ ValueError: labels ['click'] not contained in axis
 [17:36:54] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
 [17:37:20] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
 [17:37:44] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+['/home/zhijiehuang/github/kaggle-avazu/avazu_code/ml', '/home/zhijiehuang/anaconda3/lib/python36.zip', '/home/zhijiehuang/anaconda3/lib/python3.6', '/home/zhijiehuang/anaconda3/lib/python3.6/lib-dynload', '/home/zhijiehuang/anaconda3/lib/python3.6/site-packages', '/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/xgboost-0.72-py3.6.egg', '..', '/home/zhijiehuang/github/kaggle-avazu/avazu_code/ml', '/home/zhijiehuang/github/kaggle-avazu/avazu_code/ml/..']
+['/home/zhijiehuang/github/kaggle-avazu/avazu_code/ml', '/home/zhijiehuang/anaconda3/lib/python36.zip', '/home/zhijiehuang/anaconda3/lib/python3.6', '/home/zhijiehuang/anaconda3/lib/python3.6/lib-dynload', '/home/zhijiehuang/anaconda3/lib/python3.6/site-packages', '/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/xgboost-0.72-py3.6.egg', '..', '/home/zhijiehuang/github/kaggle-avazu/avazu_code/ml', '/home/zhijiehuang/github/kaggle-avazu/avazu_code/ml/..', 'd:/GitHub/jhye_tool/ml', '/home/zhijiehuang/github/kaggle-avazu/avazu_code/ml', '/home/zhijiehuang/github/kaggle-avazu/avazu_code/ml/..']
+Traceback (most recent call last):
+  File "gbdt.py", line 199, in <module>
+    done()
+  File "gbdt.py", line 150, in done
+    train_save,test_save = gdbt_data_get(FLAGS.src_test_path)
+AttributeError: 'Namespace' object has no attribute 'src_test_path'
+2018-07-02 07:20:21,726 - DEBUG - data_preprocessing.py:204 - data1.shape:(6865066, 5)
+2018-07-02 07:20:21,726 - DEBUG - data_preprocessing.py:205 - data2.shape:(6865066, 5)
+2018-07-02 07:20:22,032 - DEBUG - data_preprocessing.py:208 - 结果.shape:(6865066, 10)
+2018-07-02 07:20:22,032 - DEBUG - data_preprocessing.py:209 - 耗时0.00015735626220703125
+2018-07-02 07:20:47,860 - DEBUG - data_preprocessing.py:204 - data1.shape:(6865066, 10)
+2018-07-02 07:20:47,860 - DEBUG - data_preprocessing.py:205 - data2.shape:(6865066, 60)
+2018-07-02 07:20:50,011 - DEBUG - data_preprocessing.py:208 - 结果.shape:(6865066, 70)
+2018-07-02 07:20:50,011 - DEBUG - data_preprocessing.py:209 - 耗时0.0001506805419921875
+2018-07-02 07:20:54,525 - DEBUG - data_preprocessing.py:204 - data1.shape:(6865066, 70)
+2018-07-02 07:20:54,526 - DEBUG - data_preprocessing.py:205 - data2.shape:(6865066, 11)
+2018-07-02 07:21:01,269 - DEBUG - data_preprocessing.py:208 - 结果.shape:(6865066, 81)
+2018-07-02 07:21:01,269 - DEBUG - data_preprocessing.py:209 - 耗时0.00016045570373535156
+2018-07-02 07:21:20,652 - DEBUG - data_preprocessing.py:204 - data1.shape:(6865066, 81)
+2018-07-02 07:21:20,652 - DEBUG - data_preprocessing.py:205 - data2.shape:(6865066, 20)
+2018-07-02 07:21:28,525 - DEBUG - data_preprocessing.py:208 - 结果.shape:(6865066, 101)
+2018-07-02 07:21:28,525 - DEBUG - data_preprocessing.py:209 - 耗时0.00016236305236816406
+2018-07-02 07:21:28,659 - DEBUG - data_preprocessing.py:320 - Index(['C14', 'C17', 'C21', 'device_model', 'site_domain', 'one_day',
+       'one_day_hour', 'day_hour_prev', 'day_hour_next', 'is_work_day',
+       ...
+       'exptv_C17C21', 'cnttv_C17C21', 'exptv_C17site_domain',
+       'cnttv_C17site_domain', 'exptv_C21device_model',
+       'cnttv_C21device_model', 'exptv_C21site_domain', 'cnttv_C21site_domain',
+       'exptv_site_domaindevice_model', 'cnttv_site_domaindevice_model'],
+      dtype='object', length=101)
+2018-07-02 07:21:30,306 - DEBUG - data_preprocessing.py:204 - data1.shape:(4577464, 5)
+2018-07-02 07:21:30,306 - DEBUG - data_preprocessing.py:205 - data2.shape:(4577464, 5)
+2018-07-02 07:21:30,374 - DEBUG - data_preprocessing.py:208 - 结果.shape:(4577464, 10)
+2018-07-02 07:21:30,374 - DEBUG - data_preprocessing.py:209 - 耗时0.0001533031463623047
+2018-07-02 07:21:46,512 - DEBUG - data_preprocessing.py:204 - data1.shape:(4577464, 10)
+2018-07-02 07:21:46,512 - DEBUG - data_preprocessing.py:205 - data2.shape:(4577464, 60)
+2018-07-02 07:21:47,924 - DEBUG - data_preprocessing.py:208 - 结果.shape:(4577464, 70)
+2018-07-02 07:21:47,924 - DEBUG - data_preprocessing.py:209 - 耗时0.00015473365783691406
+2018-07-02 07:21:51,462 - DEBUG - data_preprocessing.py:204 - data1.shape:(4577464, 70)
+2018-07-02 07:21:51,462 - DEBUG - data_preprocessing.py:205 - data2.shape:(4577464, 11)
+2018-07-02 07:21:55,931 - DEBUG - data_preprocessing.py:208 - 结果.shape:(4577464, 81)
+2018-07-02 07:21:55,931 - DEBUG - data_preprocessing.py:209 - 耗时0.00016760826110839844
+2018-07-02 07:22:09,032 - DEBUG - data_preprocessing.py:204 - data1.shape:(4577464, 81)
+2018-07-02 07:22:09,032 - DEBUG - data_preprocessing.py:205 - data2.shape:(4577464, 20)
+2018-07-02 07:22:14,285 - DEBUG - data_preprocessing.py:208 - 结果.shape:(4577464, 101)
+2018-07-02 07:22:14,286 - DEBUG - data_preprocessing.py:209 - 耗时0.00015425682067871094
+2018-07-02 07:22:14,371 - DEBUG - data_preprocessing.py:328 - (6865066, 101)
+2018-07-02 07:22:14,371 - DEBUG - data_preprocessing.py:329 - (4577464, 101)
+[07:22:53] Tree method is selected to be 'approx'
+[07:23:37] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[07:24:11] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[07:24:44] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[07:25:17] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[07:25:50] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[07:26:23] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[07:26:56] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[07:27:29] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[07:28:02] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[07:28:35] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[07:29:08] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[07:29:42] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[07:30:15] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
