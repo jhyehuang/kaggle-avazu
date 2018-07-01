@@ -6,7 +6,7 @@ import  csv
 import time
 import sys
 import os
-path=os.getcwd()
+path=os.path.abspath('.')
 #path=filepath.split()[0]
 sys.path.append(path)
 sys.path.append(path+'/..')
