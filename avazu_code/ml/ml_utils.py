@@ -5,7 +5,10 @@ import  csv
 
 import time
 import sys
-sys.path.append('..')
+import os
+path=os.path.abspath(__file__)
+sys.path.append(path)
+sys.path.append(os.path.join(path,'/..'))
 from joblib import dump, load
 import copy
 import logging
