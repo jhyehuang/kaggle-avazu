@@ -144,6 +144,24 @@ def win_parse_args(check=True):
 def tiny_parse_args(check=True):
     parser = argparse.ArgumentParser()
     
+    
+    parser.add_argument('--tool_dir', type=str, default='d:/GitHub/jhye_tool',
+                        help='path to my tool.')
+    
+    parser.add_argument('--tool_ml_dir', type=str, default='d:/GitHub/jhye_tool/ml',
+                        help='path to my ml tool.')
+    
+    parser.add_argument('--output_dir', type=str, default='f:/GitHub/data/avazu_data/output',
+                        help='path to save log and checkpoint.')
+    
+    parser.add_argument('--train_set_path', type=str, default='d:/GitHub/kaggle-avazu/avazu_data',
+                        help='path to save train test and .')
+
+    parser.add_argument('--tmp_data_path', type=str, default='f:/GitHub/data/avazu_data/output/',
+                        help='tmp_data_path')
+
+    parser.add_argument('--train_job_name', type=str, default='trian_job',
+                        help='number of time steps of one sample.')
 
     parser.add_argument('--tmp_data_path', type=str, default='/data/jhyehuang/crt1537/',
                         help='path to QuanSongCi.txt')
