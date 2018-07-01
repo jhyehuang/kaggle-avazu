@@ -7,8 +7,10 @@ import time
 import sys
 import os
 path=os.path.abspath(__file__)
+sys.path.append('..')
 sys.path.append(path)
 sys.path.append(os.path.join(path,'/..'))
+print(sys.path)
 from joblib import dump, load
 import copy
 import logging
