@@ -7,8 +7,8 @@ import pytz
 
 
 #pad='win'
-#pad='tiny'
-pad='linux'
+pad='tiny'
+#pad='linux'
 # pool.supportxmr.com:3333
 #bounced zombie fossil wayside enforce visited arsenic educated serving linen mittens argue wayside
 # 42MXU6g6N1q46FfEFWFqGF5xu6vBEHh4CUdE9iJGevPUPexfTa3eGgjh46gBGieH4gHwb7QCCCiF7HNNTwPQ3V59HK1rVm6
