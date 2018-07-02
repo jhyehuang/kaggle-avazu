@@ -286,7 +286,7 @@ def get_train_split():
     filter_0 = np.logical_and(train_click.click.values == 0,True)
     files_name=['click.csv','cat_features.csv','date_list.csv','id.csv','num_features.csv','two_col_join_cnt.csv','two_col_join.csv']
     
-    prc=filter_1/filter_0
+    
     logging.debug(files_name)
     for file in files_name:
         save=pd.read_csv(FLAGS.tmp_data_path+file)
@@ -297,11 +297,12 @@ def get_train_split():
         for x in [100,299,799,1537]:
             train_0=train_save.ix[filter_0, :]
             train_1=train_save.ix[filter_1, :]
+            prc=train_1.shape[0]/train_0.shape[0]
             train_1=train_1.sample(frac=0.5).reset_index(drop=True)
             logging.debug(train_1.shape)
             logging.debug(file)
             logging.debug(x )
-            sampler = np.random.randint(0,train_0.shape[0],size=int(train_1.shape[0]/prc))
+            sampler = np.random.randint(0,train_0.shape[0],size=int(int(train_1.shape[0])/prc))
             train_0=train_0.take(sampler)
             train = pd.concat([train_0, train_1])
 #            train = shuffle(train)
