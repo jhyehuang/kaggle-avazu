@@ -299,6 +299,13 @@ def done(istrain=True):
 
         logging.debug('log_loss:')
         logging.debug(log_loss(val_y, preds_offline))
+        
+        ### 特征选择
+        df = pd.DataFrame(val_x.columns.tolist(), columns=['feature'])
+        df['importance']=list(gbm.feature_importance())                           # 特征分数
+        df = df.sort_values(by='importance',ascending=False)                      # 特征排序
+        df.to_csv(FLAGS.out_data_path+'feature_score.csv',index=None,encoding='utf-8') # 保存分数
+        
         del train_save,val_save,val_x,val_y
         
     else:
@@ -320,11 +327,7 @@ def done(istrain=True):
         test_id['click']=y_pred
         test_id.to_csv(FLAGS.out_data_path+'1-lgbm.test.csv',index=False)
         
-        ### 特征选择
-        df = pd.DataFrame(val_x.columns.tolist(), columns=['feature'])
-        df['importance']=list(gbm.feature_importance())                           # 特征分数
-        df = df.sort_values(by='importance',ascending=False)                      # 特征排序
-        df.to_csv(FLAGS.out_data_path+'feature_score.csv',index=None,encoding='utf-8') # 保存分数
+
         del test_save
         
 if __name__ == "__main__":

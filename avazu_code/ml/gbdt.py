@@ -63,11 +63,11 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
         cvresult.to_csv( FLAGS.tmp_data_path+'n_estimators.csv', index_label = 'n_estimators')
         
         # plot
-        test_means = cvresult['test-mlogloss-mean']
-        test_stds = cvresult['test-mlogloss-std'] 
+        test_means = cvresult['test-logloss-mean']
+        test_stds = cvresult['test-logloss-std'] 
         
-        train_means = cvresult['train-mlogloss-mean']
-        train_stds = cvresult['train-mlogloss-std'] 
+        train_means = cvresult['train-logloss-mean']
+        train_stds = cvresult['train-logloss-std'] 
 
         x_axis = range(0, n_estimators)
         pyplot.errorbar(x_axis, test_means, yerr=test_stds ,label='Test')
@@ -148,8 +148,8 @@ kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)
 
 def done(istrain=True):
 #    test_save.drop('click',axis=1,inplace=True)
-    op=['n_estimators','max_depth','subsample','reg_alpha']
-#    op=['x']
+#    op=['n_estimators','max_depth','subsample','reg_alpha']
+    op=['max_depth','subsample','reg_alpha']
     if istrain:
         train_save = gdbt_data_get_train(1537)
         print(train_save.shape)
@@ -159,7 +159,7 @@ def done(istrain=True):
 #        dtrain = xgb.DMatrix(X_train, label=y_train)
 #        n_estimators = [i for i in range(200,1000,1)]
         xgb1 = XGBClassifier(learning_rate =0.1,
-        n_estimators=1000,
+        n_estimators=666,
         max_depth=7,
         min_child_weight=1,
         gamma=0,
@@ -195,7 +195,7 @@ def done(istrain=True):
             logging.debug(test_id['id'].shape)
             test_id['id']=test_id['id'].map(int)
             test_id['click']=y_pred
-            test_id.to_csv(FLAGS.tmp_data_path+'1-xgboost.test.csv',index=False)
+            test_id.to_csv(FLAGS.tmp_data_path+'1-'+oper+'xgboost.test.csv',index=False)
         del X_test
         
         
