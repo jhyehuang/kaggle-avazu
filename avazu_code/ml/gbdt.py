@@ -148,8 +148,8 @@ kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)
 
 def done(istrain=True):
 #    test_save.drop('click',axis=1,inplace=True)
-#    op=['n_estimators','max_depth','subsample','reg_alpha']
-    op=['x']
+    op=['n_estimators','max_depth','subsample','reg_alpha']
+#    op=['x']
     if istrain:
         train_save = gdbt_data_get_train(1537)
         print(train_save.shape)
@@ -159,7 +159,7 @@ def done(istrain=True):
 #        dtrain = xgb.DMatrix(X_train, label=y_train)
 #        n_estimators = [i for i in range(200,1000,1)]
         xgb1 = XGBClassifier(learning_rate =0.1,
-        n_estimators=377,
+        n_estimators=1000,
         max_depth=7,
         min_child_weight=1,
         gamma=0,
