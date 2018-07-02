@@ -6,3 +6,562 @@ Traceback (most recent call last):
   File "..\data_preprocessing.py", line 25, in <module>
     import lightgbm as lgb 
 ModuleNotFoundError: No module named 'lightgbm'
+2018-07-02 14:43:24,668 - DEBUG - data_preprocessing.py:204 - data1.shape:(6865066, 5)
+2018-07-02 14:43:24,668 - DEBUG - data_preprocessing.py:205 - data2.shape:(6865066, 5)
+2018-07-02 14:43:24,970 - DEBUG - data_preprocessing.py:208 - 结果.shape:(6865066, 10)
+2018-07-02 14:43:24,970 - DEBUG - data_preprocessing.py:209 - 耗时0.00015044212341308594
+2018-07-02 14:43:49,215 - DEBUG - data_preprocessing.py:204 - data1.shape:(6865066, 10)
+2018-07-02 14:43:49,215 - DEBUG - data_preprocessing.py:205 - data2.shape:(6865066, 60)
+2018-07-02 14:43:51,356 - DEBUG - data_preprocessing.py:208 - 结果.shape:(6865066, 70)
+2018-07-02 14:43:51,356 - DEBUG - data_preprocessing.py:209 - 耗时0.00014972686767578125
+2018-07-02 14:43:55,682 - DEBUG - data_preprocessing.py:204 - data1.shape:(6865066, 70)
+2018-07-02 14:43:55,682 - DEBUG - data_preprocessing.py:205 - data2.shape:(6865066, 11)
+2018-07-02 14:44:02,298 - DEBUG - data_preprocessing.py:208 - 结果.shape:(6865066, 81)
+2018-07-02 14:44:02,298 - DEBUG - data_preprocessing.py:209 - 耗时0.00015735626220703125
+2018-07-02 14:44:20,248 - DEBUG - data_preprocessing.py:204 - data1.shape:(6865066, 81)
+2018-07-02 14:44:20,248 - DEBUG - data_preprocessing.py:205 - data2.shape:(6865066, 20)
+2018-07-02 14:44:27,949 - DEBUG - data_preprocessing.py:208 - 结果.shape:(6865066, 101)
+2018-07-02 14:44:27,949 - DEBUG - data_preprocessing.py:209 - 耗时0.00015425682067871094
+2018-07-02 14:44:28,079 - DEBUG - data_preprocessing.py:320 - Index(['C14', 'C17', 'C21', 'device_model', 'site_domain', 'one_day',
+       'one_day_hour', 'day_hour_prev', 'day_hour_next', 'is_work_day',
+       ...
+       'exptv_C17C21', 'cnttv_C17C21', 'exptv_C17site_domain',
+       'cnttv_C17site_domain', 'exptv_C21device_model',
+       'cnttv_C21device_model', 'exptv_C21site_domain', 'cnttv_C21site_domain',
+       'exptv_site_domaindevice_model', 'cnttv_site_domaindevice_model'],
+      dtype='object', length=101)
+2018-07-02 14:44:28,080 - DEBUG - data_preprocessing.py:322 - (6865066, 101)
+[14:46:25] Tree method is selected to be 'approx'
+[14:46:55] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[14:46:55] Tree method is selected to be 'approx'
+[14:47:41] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[14:47:41] Tree method is selected to be 'approx'
+[14:48:28] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[14:48:50] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[14:49:11] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[14:49:33] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[14:49:55] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[14:50:17] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[14:50:38] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[14:51:00] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[14:51:22] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[14:51:43] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[14:52:05] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[14:52:26] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[14:52:48] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[14:53:09] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[14:53:31] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[14:53:52] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[14:54:14] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[14:54:35] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[14:54:57] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[14:55:19] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[14:55:40] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[14:56:02] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[14:56:23] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[14:56:45] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[14:57:07] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[14:57:29] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[14:57:50] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[14:58:12] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[14:58:34] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[14:58:55] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[14:59:17] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[14:59:39] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[15:00:00] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[15:00:22] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[15:00:44] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[15:01:06] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[15:01:27] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[15:01:49] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[15:02:10] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[15:02:32] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[15:02:54] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[15:03:16] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[15:03:37] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:03:59] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 222 extra nodes, 0 pruned nodes, max_depth=7
+[15:04:21] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[15:04:43] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:05:04] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[15:05:26] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[15:05:48] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[15:06:10] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[15:06:31] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:06:53] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[15:07:15] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[15:07:37] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[15:07:58] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[15:08:20] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[15:08:41] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:09:03] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[15:09:25] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[15:09:47] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[15:10:08] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[15:10:30] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[15:10:51] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[15:11:13] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[15:11:35] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:11:57] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[15:12:19] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:12:42] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[15:13:03] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[15:13:25] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:13:47] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[15:14:08] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[15:14:30] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[15:14:52] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:15:13] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[15:15:35] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[15:15:57] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[15:16:18] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[15:16:40] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[15:17:02] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[15:17:24] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:17:45] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[15:18:07] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[15:18:28] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[15:18:50] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[15:19:12] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[15:19:33] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[15:19:55] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[15:20:16] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[15:20:38] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[15:21:00] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 222 extra nodes, 0 pruned nodes, max_depth=7
+[15:21:22] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[15:21:44] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[15:22:05] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:22:28] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[15:22:49] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[15:23:11] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[15:23:33] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:23:54] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 222 extra nodes, 0 pruned nodes, max_depth=7
+[15:24:16] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[15:24:38] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:24:59] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 212 extra nodes, 0 pruned nodes, max_depth=7
+[15:25:21] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[15:25:42] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[15:26:04] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[15:26:25] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[15:26:47] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[15:27:09] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[15:27:31] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[15:27:53] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:28:14] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:28:36] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[15:28:58] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[15:29:20] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[15:29:41] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:30:03] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[15:30:25] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:30:47] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[15:31:09] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[15:31:31] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[15:31:53] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[15:32:15] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[15:32:37] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[15:32:58] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[15:33:20] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+2018-07-02 17:10:36,048 - DEBUG - data_preprocessing.py:204 - data1.shape:(10107242, 5)
+2018-07-02 17:10:36,049 - DEBUG - data_preprocessing.py:205 - data2.shape:(10107242, 5)
+2018-07-02 17:10:36,500 - DEBUG - data_preprocessing.py:208 - 结果.shape:(10107242, 10)
+2018-07-02 17:10:36,500 - DEBUG - data_preprocessing.py:209 - 耗时0.00015354156494140625
+2018-07-02 17:11:07,340 - DEBUG - data_preprocessing.py:204 - data1.shape:(10107242, 10)
+2018-07-02 17:11:07,341 - DEBUG - data_preprocessing.py:205 - data2.shape:(10107242, 60)
+2018-07-02 17:11:10,457 - DEBUG - data_preprocessing.py:208 - 结果.shape:(10107242, 70)
+2018-07-02 17:11:10,457 - DEBUG - data_preprocessing.py:209 - 耗时0.0001537799835205078
+2018-07-02 17:11:16,647 - DEBUG - data_preprocessing.py:204 - data1.shape:(10107242, 70)
+2018-07-02 17:11:16,647 - DEBUG - data_preprocessing.py:205 - data2.shape:(10107242, 11)
+2018-07-02 17:11:26,350 - DEBUG - data_preprocessing.py:208 - 结果.shape:(10107242, 81)
+2018-07-02 17:11:26,351 - DEBUG - data_preprocessing.py:209 - 耗时0.00016117095947265625
+2018-07-02 17:11:53,225 - DEBUG - data_preprocessing.py:204 - data1.shape:(10107242, 81)
+2018-07-02 17:11:53,225 - DEBUG - data_preprocessing.py:205 - data2.shape:(10107242, 20)
+2018-07-02 17:12:04,558 - DEBUG - data_preprocessing.py:208 - 结果.shape:(10107242, 101)
+2018-07-02 17:12:04,558 - DEBUG - data_preprocessing.py:209 - 耗时0.0001552104949951172
+2018-07-02 17:12:04,734 - DEBUG - data_preprocessing.py:324 - Index(['C14', 'C17', 'C21', 'device_model', 'site_domain', 'one_day',
+       'one_day_hour', 'day_hour_prev', 'day_hour_next', 'is_work_day',
+       ...
+       'exptv_C17C21', 'cnttv_C17C21', 'exptv_C17site_domain',
+       'cnttv_C17site_domain', 'exptv_C21device_model',
+       'cnttv_C21device_model', 'exptv_C21site_domain', 'cnttv_C21site_domain',
+       'exptv_site_domaindevice_model', 'cnttv_site_domaindevice_model'],
+      dtype='object', length=101)
+2018-07-02 17:12:04,735 - DEBUG - data_preprocessing.py:326 - (10107242, 101)
+[17:16:37] Tree method is selected to be 'approx'
+[17:17:28] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[17:17:28] Tree method is selected to be 'approx'
+[17:18:40] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[17:18:41] Tree method is selected to be 'approx'
+[17:19:53] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[17:20:28] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+2018-07-02 18:42:14,299 - DEBUG - data_preprocessing.py:204 - data1.shape:(5053621, 5)
+2018-07-02 18:42:14,304 - DEBUG - data_preprocessing.py:205 - data2.shape:(5053621, 5)
+2018-07-02 18:42:14,523 - DEBUG - data_preprocessing.py:208 - 结果.shape:(5053621, 10)
+2018-07-02 18:42:14,524 - DEBUG - data_preprocessing.py:209 - 耗时0.00014472007751464844
+2018-07-02 18:42:30,510 - DEBUG - data_preprocessing.py:204 - data1.shape:(5053621, 10)
+2018-07-02 18:42:30,510 - DEBUG - data_preprocessing.py:205 - data2.shape:(5053621, 60)
+2018-07-02 18:42:32,083 - DEBUG - data_preprocessing.py:208 - 结果.shape:(5053621, 70)
+2018-07-02 18:42:32,083 - DEBUG - data_preprocessing.py:209 - 耗时0.00014448165893554688
+2018-07-02 18:42:35,172 - DEBUG - data_preprocessing.py:204 - data1.shape:(5053621, 70)
+2018-07-02 18:42:35,172 - DEBUG - data_preprocessing.py:205 - data2.shape:(5053621, 11)
+2018-07-02 18:42:39,965 - DEBUG - data_preprocessing.py:208 - 结果.shape:(5053621, 81)
+2018-07-02 18:42:39,965 - DEBUG - data_preprocessing.py:209 - 耗时0.0001506805419921875
+2018-07-02 18:42:53,053 - DEBUG - data_preprocessing.py:204 - data1.shape:(5053621, 81)
+2018-07-02 18:42:53,053 - DEBUG - data_preprocessing.py:205 - data2.shape:(5053621, 20)
+2018-07-02 18:42:58,713 - DEBUG - data_preprocessing.py:208 - 结果.shape:(5053621, 101)
+2018-07-02 18:42:58,713 - DEBUG - data_preprocessing.py:209 - 耗时0.0001468658447265625
+2018-07-02 18:42:58,793 - DEBUG - data_preprocessing.py:324 - Index(['C14', 'C17', 'C21', 'device_model', 'site_domain', 'one_day',
+       'one_day_hour', 'day_hour_prev', 'day_hour_next', 'is_work_day',
+       ...
+       'exptv_C17C21', 'cnttv_C17C21', 'exptv_C17site_domain',
+       'cnttv_C17site_domain', 'exptv_C21device_model',
+       'cnttv_C21device_model', 'exptv_C21site_domain', 'cnttv_C21site_domain',
+       'exptv_site_domaindevice_model', 'cnttv_site_domaindevice_model'],
+      dtype='object', length=101)
+2018-07-02 18:42:58,793 - DEBUG - data_preprocessing.py:326 - (5053621, 101)
+[18:43:52] Tree method is selected to be 'approx'
+[18:44:12] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[18:44:12] Tree method is selected to be 'approx'
+[18:44:32] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[18:44:32] Tree method is selected to be 'approx'
+[18:44:52] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[18:45:07] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[18:45:23] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[18:45:39] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[18:45:55] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[18:46:11] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[18:46:26] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[18:46:42] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[18:46:58] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[18:47:14] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[18:47:29] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[18:47:45] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[18:48:00] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[18:48:16] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[18:48:32] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[18:48:48] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[18:49:03] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 230 extra nodes, 0 pruned nodes, max_depth=7
+[18:49:19] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[18:49:35] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[18:49:51] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 230 extra nodes, 0 pruned nodes, max_depth=7
+[18:50:07] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[18:50:23] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[18:50:39] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[18:50:55] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[18:51:10] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[18:51:26] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[18:51:42] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[18:51:58] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[18:52:14] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[18:52:30] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[18:52:45] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 220 extra nodes, 0 pruned nodes, max_depth=7
+[18:53:01] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[18:53:17] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[18:53:32] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[18:53:48] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[18:54:04] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[18:54:19] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 218 extra nodes, 0 pruned nodes, max_depth=7
+[18:54:35] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[18:54:51] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[18:55:07] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[18:55:23] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[18:55:38] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 224 extra nodes, 0 pruned nodes, max_depth=7
+[18:55:54] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[18:56:10] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[18:56:26] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 224 extra nodes, 0 pruned nodes, max_depth=7
+[18:56:42] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[18:56:58] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[18:57:13] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 208 extra nodes, 0 pruned nodes, max_depth=7
+[18:57:29] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 212 extra nodes, 0 pruned nodes, max_depth=7
+[18:57:45] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[18:58:01] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 208 extra nodes, 0 pruned nodes, max_depth=7
+[18:58:17] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[18:58:33] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[18:58:49] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 206 extra nodes, 0 pruned nodes, max_depth=7
+[18:59:04] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[18:59:20] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[18:59:36] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[18:59:52] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 204 extra nodes, 0 pruned nodes, max_depth=7
+[19:00:08] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 206 extra nodes, 0 pruned nodes, max_depth=7
+[19:00:24] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[19:00:39] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 210 extra nodes, 0 pruned nodes, max_depth=7
+[19:00:55] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 220 extra nodes, 0 pruned nodes, max_depth=7
+[19:01:11] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[19:01:26] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 218 extra nodes, 0 pruned nodes, max_depth=7
+[19:01:42] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[19:01:58] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[19:02:14] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[19:02:30] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[19:02:46] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 218 extra nodes, 0 pruned nodes, max_depth=7
+[19:03:02] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[19:03:18] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[19:03:33] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[19:03:49] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[19:04:05] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[19:04:21] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[19:04:37] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[19:04:53] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[19:05:09] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 218 extra nodes, 0 pruned nodes, max_depth=7
+[19:05:25] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[19:05:41] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:05:56] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 216 extra nodes, 0 pruned nodes, max_depth=7
+[19:06:12] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[19:06:28] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[19:06:43] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 210 extra nodes, 0 pruned nodes, max_depth=7
+[19:06:59] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 224 extra nodes, 0 pruned nodes, max_depth=7
+[19:07:15] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[19:07:30] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[19:07:46] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 230 extra nodes, 0 pruned nodes, max_depth=7
+[19:08:02] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[19:08:18] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[19:08:34] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[19:08:50] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:09:06] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[19:09:22] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[19:09:38] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[19:09:54] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[19:10:09] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[19:10:25] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[19:10:41] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 220 extra nodes, 0 pruned nodes, max_depth=7
+[19:10:57] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[19:11:13] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[19:11:28] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[19:11:44] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[19:12:00] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[19:12:16] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[19:12:32] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[19:12:48] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[19:13:04] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:13:20] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[19:13:35] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 212 extra nodes, 0 pruned nodes, max_depth=7
+[19:13:51] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[19:14:07] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[19:14:23] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[19:14:39] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[19:14:55] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:15:11] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[19:15:27] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[19:15:43] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[19:15:58] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[19:16:14] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:16:30] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 202 extra nodes, 0 pruned nodes, max_depth=7
+[19:16:46] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 212 extra nodes, 0 pruned nodes, max_depth=7
+[19:17:02] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 220 extra nodes, 0 pruned nodes, max_depth=7
+[19:17:18] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[19:17:34] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[19:17:49] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[19:18:05] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 208 extra nodes, 0 pruned nodes, max_depth=7
+[19:18:21] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 220 extra nodes, 0 pruned nodes, max_depth=7
+[19:18:37] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:18:53] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[19:19:09] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[19:19:25] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 218 extra nodes, 0 pruned nodes, max_depth=7
+[19:19:41] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[19:19:57] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 222 extra nodes, 0 pruned nodes, max_depth=7
+[19:20:13] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 220 extra nodes, 0 pruned nodes, max_depth=7
+[19:20:29] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[19:20:45] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[19:21:01] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[19:21:16] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 212 extra nodes, 0 pruned nodes, max_depth=7
+[19:21:32] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 220 extra nodes, 0 pruned nodes, max_depth=7
+[19:21:48] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[19:22:04] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[19:22:20] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[19:22:36] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:22:51] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:23:07] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 222 extra nodes, 0 pruned nodes, max_depth=7
+[19:23:23] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 208 extra nodes, 0 pruned nodes, max_depth=7
+[19:23:39] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 202 extra nodes, 0 pruned nodes, max_depth=7
+[19:23:55] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[19:24:11] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[19:24:26] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 208 extra nodes, 0 pruned nodes, max_depth=7
+[19:24:42] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[19:24:58] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[19:25:14] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 218 extra nodes, 0 pruned nodes, max_depth=7
+[19:25:30] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[19:25:46] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[19:26:02] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[19:26:17] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 222 extra nodes, 0 pruned nodes, max_depth=7
+[19:26:33] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[19:26:49] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[19:27:05] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 224 extra nodes, 0 pruned nodes, max_depth=7
+[19:27:21] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[19:27:37] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[19:27:53] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[19:28:08] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:28:24] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[19:28:39] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:28:55] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[19:29:11] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 206 extra nodes, 0 pruned nodes, max_depth=7
+[19:29:27] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 214 extra nodes, 0 pruned nodes, max_depth=7
+[19:29:42] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[19:29:59] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 210 extra nodes, 0 pruned nodes, max_depth=7
+[19:30:14] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[19:30:30] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 198 extra nodes, 0 pruned nodes, max_depth=7
+[19:30:46] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[19:31:02] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[19:31:18] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 204 extra nodes, 0 pruned nodes, max_depth=7
+[19:31:34] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[19:31:49] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 196 extra nodes, 0 pruned nodes, max_depth=7
+[19:32:05] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 120 extra nodes, 0 pruned nodes, max_depth=7
+[19:32:21] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[19:32:37] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[19:32:53] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 220 extra nodes, 0 pruned nodes, max_depth=7
+[19:33:09] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 224 extra nodes, 0 pruned nodes, max_depth=7
+[19:33:25] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[19:33:41] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[19:33:57] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 170 extra nodes, 0 pruned nodes, max_depth=7
+[19:34:13] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 164 extra nodes, 0 pruned nodes, max_depth=7
+[19:34:29] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 172 extra nodes, 0 pruned nodes, max_depth=7
+[19:34:44] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[19:35:00] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 216 extra nodes, 0 pruned nodes, max_depth=7
+[19:35:16] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[19:35:32] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 190 extra nodes, 0 pruned nodes, max_depth=7
+[19:35:48] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 184 extra nodes, 0 pruned nodes, max_depth=7
+[19:36:03] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 224 extra nodes, 0 pruned nodes, max_depth=7
+[19:36:19] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 166 extra nodes, 0 pruned nodes, max_depth=7
+[19:36:35] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[19:36:51] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 212 extra nodes, 0 pruned nodes, max_depth=7
+[19:37:07] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 218 extra nodes, 0 pruned nodes, max_depth=7
+[19:37:23] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[19:37:39] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 176 extra nodes, 0 pruned nodes, max_depth=7
+[19:37:54] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[19:38:10] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 210 extra nodes, 0 pruned nodes, max_depth=7
+[19:38:26] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[19:38:42] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 162 extra nodes, 0 pruned nodes, max_depth=7
+[19:38:58] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 224 extra nodes, 0 pruned nodes, max_depth=7
+[19:39:14] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:39:29] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 200 extra nodes, 0 pruned nodes, max_depth=7
+[19:39:45] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[19:40:01] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[19:40:17] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 204 extra nodes, 0 pruned nodes, max_depth=7
+[19:40:32] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[19:40:48] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[19:41:04] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[19:41:19] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:41:35] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 134 extra nodes, 0 pruned nodes, max_depth=7
+[19:41:51] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 178 extra nodes, 0 pruned nodes, max_depth=7
+[19:42:07] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 156 extra nodes, 0 pruned nodes, max_depth=7
+[19:42:22] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 190 extra nodes, 0 pruned nodes, max_depth=7
+[19:42:38] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:42:54] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 204 extra nodes, 0 pruned nodes, max_depth=7
+[19:43:10] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[19:43:25] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[19:43:41] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[19:43:57] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[19:44:13] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 164 extra nodes, 0 pruned nodes, max_depth=7
+[19:44:29] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 214 extra nodes, 0 pruned nodes, max_depth=7
+[19:44:45] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 152 extra nodes, 0 pruned nodes, max_depth=7
+[19:45:00] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 172 extra nodes, 0 pruned nodes, max_depth=7
+[19:45:16] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 230 extra nodes, 0 pruned nodes, max_depth=7
+[19:45:32] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[19:45:47] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 152 extra nodes, 0 pruned nodes, max_depth=7
+[19:46:04] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[19:46:19] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 186 extra nodes, 0 pruned nodes, max_depth=7
+[19:46:35] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 206 extra nodes, 0 pruned nodes, max_depth=7
+[19:46:51] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[19:47:07] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[19:47:23] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 192 extra nodes, 0 pruned nodes, max_depth=7
+[19:47:39] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 220 extra nodes, 0 pruned nodes, max_depth=7
+[19:47:55] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 160 extra nodes, 0 pruned nodes, max_depth=7
+[19:48:10] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 168 extra nodes, 0 pruned nodes, max_depth=7
+[19:48:26] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[19:48:42] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[19:48:58] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[19:49:13] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[19:49:29] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[19:49:45] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 178 extra nodes, 0 pruned nodes, max_depth=7
+[19:50:00] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 156 extra nodes, 0 pruned nodes, max_depth=7
+[19:50:16] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[19:50:32] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 212 extra nodes, 0 pruned nodes, max_depth=7
+[19:50:48] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 178 extra nodes, 0 pruned nodes, max_depth=7
+[19:51:03] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 134 extra nodes, 0 pruned nodes, max_depth=7
+[19:51:19] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[19:51:34] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 224 extra nodes, 0 pruned nodes, max_depth=7
+[19:51:50] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[19:52:05] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 232 extra nodes, 0 pruned nodes, max_depth=7
+[19:52:21] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[19:52:37] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 166 extra nodes, 0 pruned nodes, max_depth=7
+[19:52:53] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 210 extra nodes, 0 pruned nodes, max_depth=7
+[19:53:09] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:53:24] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[19:53:40] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 208 extra nodes, 0 pruned nodes, max_depth=7
+[19:53:56] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:54:12] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 224 extra nodes, 0 pruned nodes, max_depth=7
+[19:54:27] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[19:54:43] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 184 extra nodes, 0 pruned nodes, max_depth=7
+[19:54:59] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 204 extra nodes, 0 pruned nodes, max_depth=7
+[19:55:14] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 202 extra nodes, 0 pruned nodes, max_depth=7
+[19:55:30] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[19:55:46] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[19:56:01] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[19:56:17] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 204 extra nodes, 0 pruned nodes, max_depth=7
+[19:56:33] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 186 extra nodes, 0 pruned nodes, max_depth=7
+[19:56:49] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 162 extra nodes, 0 pruned nodes, max_depth=7
+[19:57:05] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[19:57:21] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[19:57:37] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 222 extra nodes, 0 pruned nodes, max_depth=7
+[19:57:53] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 204 extra nodes, 0 pruned nodes, max_depth=7
+[19:58:08] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 178 extra nodes, 0 pruned nodes, max_depth=7
+[19:58:24] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[19:58:40] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 144 extra nodes, 0 pruned nodes, max_depth=7
+[19:58:56] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 152 extra nodes, 0 pruned nodes, max_depth=7
+[19:59:11] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 194 extra nodes, 0 pruned nodes, max_depth=7
+[19:59:28] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[19:59:44] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[19:59:59] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 166 extra nodes, 0 pruned nodes, max_depth=7
+[20:00:15] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[20:00:31] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[20:00:47] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 254 extra nodes, 0 pruned nodes, max_depth=7
+[20:01:02] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[20:01:18] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 200 extra nodes, 0 pruned nodes, max_depth=7
+[20:01:33] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 162 extra nodes, 0 pruned nodes, max_depth=7
+[20:01:49] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[20:02:05] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 142 extra nodes, 0 pruned nodes, max_depth=7
+[20:02:21] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
+[20:02:37] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 134 extra nodes, 0 pruned nodes, max_depth=7
+[20:02:52] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[20:03:08] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 208 extra nodes, 0 pruned nodes, max_depth=7
+[20:03:24] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 104 extra nodes, 0 pruned nodes, max_depth=7
+[20:03:39] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[20:03:55] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[20:04:11] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 200 extra nodes, 0 pruned nodes, max_depth=7
+[20:04:26] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 150 extra nodes, 0 pruned nodes, max_depth=7
+[20:04:42] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 204 extra nodes, 0 pruned nodes, max_depth=7
+[20:04:58] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 234 extra nodes, 0 pruned nodes, max_depth=7
+[20:05:14] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 210 extra nodes, 0 pruned nodes, max_depth=7
+[20:05:30] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 198 extra nodes, 0 pruned nodes, max_depth=7
+[20:05:45] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 216 extra nodes, 0 pruned nodes, max_depth=7
+[20:06:01] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 178 extra nodes, 0 pruned nodes, max_depth=7
+[20:06:17] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[20:06:33] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[20:06:49] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 142 extra nodes, 0 pruned nodes, max_depth=7
+[20:07:05] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 166 extra nodes, 0 pruned nodes, max_depth=7
+[20:07:21] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 212 extra nodes, 0 pruned nodes, max_depth=7
+[20:07:37] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 242 extra nodes, 0 pruned nodes, max_depth=7
+[20:07:52] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 188 extra nodes, 0 pruned nodes, max_depth=7
+[20:08:08] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 222 extra nodes, 0 pruned nodes, max_depth=7
+[20:08:24] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[20:08:40] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 168 extra nodes, 0 pruned nodes, max_depth=7
+[20:08:56] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 246 extra nodes, 0 pruned nodes, max_depth=7
+[20:09:11] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 186 extra nodes, 0 pruned nodes, max_depth=7
+[20:09:27] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 190 extra nodes, 0 pruned nodes, max_depth=7
+[20:09:44] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 216 extra nodes, 0 pruned nodes, max_depth=7
+[20:10:00] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 244 extra nodes, 0 pruned nodes, max_depth=7
+[20:10:15] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 164 extra nodes, 0 pruned nodes, max_depth=7
+[20:10:31] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 250 extra nodes, 0 pruned nodes, max_depth=7
+[20:10:47] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 220 extra nodes, 0 pruned nodes, max_depth=7
+[20:11:03] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 212 extra nodes, 0 pruned nodes, max_depth=7
+[20:11:19] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 202 extra nodes, 0 pruned nodes, max_depth=7
+[20:11:34] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 252 extra nodes, 0 pruned nodes, max_depth=7
+[20:11:50] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 170 extra nodes, 0 pruned nodes, max_depth=7
+[20:12:06] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 154 extra nodes, 0 pruned nodes, max_depth=7
+[20:12:22] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 228 extra nodes, 0 pruned nodes, max_depth=7
+[20:12:38] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[20:12:55] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[20:13:11] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[20:13:27] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 94 extra nodes, 0 pruned nodes, max_depth=7
+[20:13:43] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 134 extra nodes, 0 pruned nodes, max_depth=7
+[20:14:00] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[20:14:16] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 226 extra nodes, 0 pruned nodes, max_depth=7
+[20:14:32] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 200 extra nodes, 0 pruned nodes, max_depth=7
+[20:14:48] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 184 extra nodes, 0 pruned nodes, max_depth=7
