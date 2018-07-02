@@ -147,17 +147,15 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
 kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)
 
 def done(istrain=True):
-    train_save,test_save = gdbt_data_get(FLAGS.src_test_path)
-    print(train_save.shape)
-    y_train = train_save['click']
-    train_save.drop('click',axis=1,inplace=True)
-    X_train = train_save
-    
 #    test_save.drop('click',axis=1,inplace=True)
-    X_test=test_save
 #    op=['n_estimators','max_depth','subsample','reg_alpha']
     op=['x']
     if istrain:
+        train_save = gdbt_data_get_train(1537)
+        print(train_save.shape)
+        y_train = train_save['click']
+        train_save.drop('click',axis=1,inplace=True)
+        X_train = train_save
 #        dtrain = xgb.DMatrix(X_train, label=y_train)
 #        n_estimators = [i for i in range(200,1000,1)]
         xgb1 = XGBClassifier(learning_rate =0.1,
@@ -179,7 +177,12 @@ def done(istrain=True):
             logging.debug(oper+":to save validation predictions ...")
             ret=dump(xgb1, FLAGS.tmp_data_path+'xgboost.cv_'+oper+'.model.joblib_dat') 
             logging.debug(ret)
+        del train_save
     else:
+        X_test = gdbt_data_get_test()
+        print(X_test.shape)
+        X_test.drop('click',axis=1,inplace=True)
+
         for oper in op:
             xgb1 = load(FLAGS.tmp_data_path+'xgboost.cv_'+oper+'.model.joblib_dat')
             dtrain_predprob = xgb1.predict_proba(X_test)[:,1]
@@ -193,6 +196,7 @@ def done(istrain=True):
             test_id['id']=test_id['id'].map(int)
             test_id['click']=y_pred
             test_id.to_csv(FLAGS.tmp_data_path+'1-xgboost.test.csv',index=False)
+        del X_test
         
         
 if __name__ == "__main__":

@@ -266,7 +266,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
     logging.debug(cv_params)
 
 def done(istrain=True):
-    train_save,val_save,test_save,val_x,val_y = tiny_lightgbm_data_get()
+    
 #    op=['max_depth','max_bin','bagging_fraction','lambda']
     cv_params['num_leaves'] = 165
     cv_params['max_depth'] = 7
@@ -274,6 +274,7 @@ def done(istrain=True):
     ### 开始训练
     logging.debug('设置参数')
     if istrain:
+        train_save,val_save,val_x,val_y = tiny_lightgbm_data_get_train()
         for oper in op:
             logging.debug("CV:"+oper)
             modelfit_cv(train_save,cv_type=oper)
@@ -297,11 +298,13 @@ def done(istrain=True):
 
         logging.debug('log_loss:')
         logging.debug(log_loss(val_y, preds_offline))
+        del train_save,val_save,val_x,val_y
         
     else:
         gbm = load(FLAGS.out_data_path+'1-lgbm.model.joblib_dat')
         
         ### 线下预测
+        test_save=tiny_lightgbm_data_get_test()
         logging.debug ("预测")
         dtrain_predprob = gbm.predict(test_save, num_iteration=gbm.best_iteration) # 输出概率
         
@@ -321,7 +324,7 @@ def done(istrain=True):
         df['importance']=list(gbm.feature_importance())                           # 特征分数
         df = df.sort_values(by='importance',ascending=False)                      # 特征排序
         df.to_csv(FLAGS.out_data_path+'feature_score.csv',index=None,encoding='utf-8') # 保存分数
-        
+        del test_save
         
 if __name__ == "__main__":
     done()
