@@ -38,6 +38,7 @@ cv_params = {
           'boosting_type': 'gbdt',
           'objective': 'binary',
           'metric': 'binary_logloss',
+          'num_trees':300
 #            'device': 'gpu',
 #            'gpu_platform_id': 0,
 #            'gpu_device_id': 0
@@ -83,8 +84,8 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
     if cv_type=='max_depth':
         # 准确率
         logging.debug("调参1：提高准确率")
-        for num_leaves in range(20,200,5):
-            for max_depth in range(3,8,1):
+        for num_leaves in range(100,200,5):
+            for max_depth in range(6,8,1):
                 cv_params['num_leaves'] = num_leaves
                 cv_params['max_depth'] = max_depth
         
@@ -112,9 +113,9 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                 else:
                     early_stopping_dict['times']+=1
                     
-                if early_stopping_dict['times']>3:
-                    early_stopping_dict['times']=0
-                    break
+#                if early_stopping_dict['times']>3:
+#                    early_stopping_dict['times']=0
+#                    break
 #            if early_stopping_dict['times']>3:
 #                break
 
@@ -124,8 +125,8 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
     elif cv_type=='max_bin':
         # 过拟合
         logging.debug("调参2：降低过拟合")
-        for max_bin in range(7,255,5):
-            for min_data_in_leaf in range(10,200,5):
+        for max_bin in range(1,70,5):
+            for min_data_in_leaf in range(80,90,1):
                 cv_params['max_bin'] = max_bin
                 cv_params['min_data_in_leaf'] = min_data_in_leaf
                 
@@ -155,9 +156,9 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                 else:
                     early_stopping_dict['times']+=1
                     
-                if early_stopping_dict['times']>3:
-                    early_stopping_dict['times']=0
-                    break
+#                if early_stopping_dict['times']>3:
+#                    early_stopping_dict['times']=0
+#                    break
 #            if early_stopping_dict['times']>3:
 #                break
         
@@ -166,9 +167,9 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
         cv_params['max_bin'] = best_params['max_bin']
     elif cv_type=='bagging_fraction':
         logging.debug("调参3：降低过拟合")
-        for feature_fraction in [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]:
-            for bagging_fraction in [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]:
-                for bagging_freq in range(0,50,5):
+        for feature_fraction in [0.2,0.3,0.4]:
+            for bagging_fraction in [0.03,0.06,0.1,0.2,0.3]:
+                for bagging_freq in range(4,10,1):
                     cv_params['feature_fraction'] = feature_fraction
                     cv_params['bagging_fraction'] = bagging_fraction
                     cv_params['bagging_freq'] = bagging_freq
@@ -202,9 +203,9 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                     else:
                         early_stopping_dict['times']+=1
                     
-                    if early_stopping_dict['times']>3:
-                        early_stopping_dict['times']=0
-                        break
+#                    if early_stopping_dict['times']>3:
+#                        early_stopping_dict['times']=0
+#                        break
 #                if early_stopping_dict['times']>3:
 #                    break
 #            if early_stopping_dict['times']>3:
@@ -216,9 +217,9 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
         cv_params['bagging_freq'] = best_params['bagging_freq']
     elif cv_type=='lambda':
         logging.debug("调参4：降低过拟合")
-        for lambda_l1 in [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]:
-            for lambda_l2 in [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]:
-                for min_split_gain in [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]:
+        for lambda_l1 in [0.9,1.0,1.1,1.2]:
+            for lambda_l2 in [0.6,0.7,0.8]:
+                for min_split_gain in [0.01,0.05,0.07,0.1,0.2]:
                     cv_params['lambda_l1'] = lambda_l1
                     cv_params['lambda_l2'] = lambda_l2
                     cv_params['min_split_gain'] = min_split_gain
@@ -252,9 +253,9 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                     else:
                         early_stopping_dict['times']+=1
                     
-                    if early_stopping_dict['times']>3:
-                        early_stopping_dict['times']=0
-                        break
+#                    if early_stopping_dict['times']>3:
+#                        early_stopping_dict['times']=0
+#                        break
 #                if early_stopping_dict['times']>3:
 #                    break
 #            if early_stopping_dict['times']>3:
@@ -267,10 +268,10 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
 
 def done(istrain=True):
     
-#    op=['max_depth','max_bin','bagging_fraction','lambda']
-    cv_params['num_leaves'] = 165
-    cv_params['max_depth'] = 7
-    op=['max_bin','bagging_fraction','lambda']
+    op=['max_depth','max_bin','bagging_fraction','lambda']
+#    cv_params['num_leaves'] = 165
+#    cv_params['max_depth'] = 7
+#    op=['max_bin','bagging_fraction','lambda']
     ### 开始训练
     logging.debug('设置参数')
     if istrain:
