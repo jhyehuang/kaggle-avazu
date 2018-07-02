@@ -567,3 +567,8 @@ ModuleNotFoundError: No module named 'lightgbm'
 [20:14:48] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 184 extra nodes, 0 pruned nodes, max_depth=7
 [20:15:05] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 238 extra nodes, 0 pruned nodes, max_depth=7
 [20:15:20] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 180 extra nodes, 0 pruned nodes, max_depth=7
+[20:15:37] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[20:15:52] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 248 extra nodes, 0 pruned nodes, max_depth=7
+[20:16:08] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 236 extra nodes, 0 pruned nodes, max_depth=7
+[20:16:24] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 240 extra nodes, 0 pruned nodes, max_depth=7
+[20:16:40] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 156 extra nodes, 0 pruned nodes, max_depth=7

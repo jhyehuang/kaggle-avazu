@@ -125,7 +125,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
     elif cv_type=='max_bin':
         # 过拟合
         logging.debug("调参2：降低过拟合")
-        for max_bin in range(10,70,5):
+        for max_bin in range(6,9,1):
             for min_data_in_leaf in range(80,90,1):
                 cv_params['max_bin'] = max_bin
                 cv_params['min_data_in_leaf'] = min_data_in_leaf
