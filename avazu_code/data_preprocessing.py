@@ -306,7 +306,7 @@ def get_train_split():
             train_0=train_0.take(sampler)
             train = pd.concat([train_0, train_1])
 #            train = shuffle(train)
-            train=train.sample(frac=0.5).reset_index(drop=True)
+            train=train.sample(frac=0.25).reset_index(drop=True)
             logging.debug(train.shape)
             train.to_csv(FLAGS.tmp_data_path+'train'+str(x)+'/'+file,index=False)
             del train
