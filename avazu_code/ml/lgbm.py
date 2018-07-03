@@ -125,8 +125,8 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
     elif cv_type=='max_bin':
         # 过拟合
         logging.debug("调参2：降低过拟合")
-        for max_bin in range(6,9,1):
-            for min_data_in_leaf in range(80,90,1):
+        for max_bin in range(2,9,1):
+            for min_data_in_leaf in range(60,90,1):
                 cv_params['max_bin'] = max_bin
                 cv_params['min_data_in_leaf'] = min_data_in_leaf
                 
@@ -168,7 +168,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
     elif cv_type=='bagging_fraction':
         logging.debug("调参3：降低过拟合")
         for feature_fraction in [0.2,0.3,0.4]:
-            for bagging_fraction in [0.03,0.06,0.1,0.2,0.3]:
+            for bagging_fraction in [0.2,0.3,0.4,0.5]:
                 for bagging_freq in range(4,10,1):
                     cv_params['feature_fraction'] = feature_fraction
                     cv_params['bagging_fraction'] = bagging_fraction
@@ -217,8 +217,8 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
         cv_params['bagging_freq'] = best_params['bagging_freq']
     elif cv_type=='lambda':
         logging.debug("调参4：降低过拟合")
-        for lambda_l1 in [0.9,1.0,1.1,1.2]:
-            for lambda_l2 in [0.6,0.7,0.8]:
+        for lambda_l1 in [0.7,0.8,0.9,1.0]:
+            for lambda_l2 in [0.4,0.5,0.6,0.7]:
                 for min_split_gain in [0.01,0.05,0.07,0.1,0.2]:
                     cv_params['lambda_l1'] = lambda_l1
                     cv_params['lambda_l2'] = lambda_l2
