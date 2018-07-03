@@ -7,8 +7,8 @@ import pytz
 
 
 #pad='win'
-#pad='tiny'
-pad='linux'
+pad='tiny'
+#pad='linux'
 # pool.supportxmr.com:3333
 #bounced zombie fossil wayside enforce visited arsenic educated serving linen mittens argue wayside
 # 42MXU6g6N1q46FfEFWFqGF5xu6vBEHh4CUdE9iJGevPUPexfTa3eGgjh46gBGieH4gHwb7QCCCiF7HNNTwPQ3V59HK1rVm6
@@ -154,7 +154,7 @@ def tiny_parse_args(check=True):
     parser.add_argument('--output_dir', type=str, default='f:/GitHub/data/avazu_data/output',
                         help='path to save log and checkpoint.')
     
-    parser.add_argument('--train_set_path', type=str, default='d:/GitHub/kaggle-avazu/avazu_data',
+    parser.add_argument('--train_set_path', type=str, default='/data/jhyehuang/train1537/',
                         help='path to save train test and .')
 
 
