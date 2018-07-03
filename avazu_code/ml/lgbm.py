@@ -55,7 +55,7 @@ gpu_params = {
             'num_leaves':100,
             'max_depth':7,
             
-            'max_bin':4,
+            'max_bin':80,
             'min_data_in_leaf':60,
             
             'feature_fraction': 0.2,
@@ -125,7 +125,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
     elif cv_type=='max_bin':
         # 过拟合
         logging.debug("调参2：降低过拟合")
-        for max_bin in range(4,9,1):
+        for max_bin in range(4,80,5):
             for min_data_in_leaf in range(10,60,1):
                 cv_params['max_bin'] = max_bin
                 cv_params['min_data_in_leaf'] = min_data_in_leaf
