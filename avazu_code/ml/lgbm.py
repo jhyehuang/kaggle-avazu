@@ -72,7 +72,7 @@ gpu_params = {
 }
 
 
-cv_params.update(gpu_params)
+#cv_params.update(gpu_params)
 ### 交叉验证(调参)
 
 
