@@ -52,19 +52,19 @@ gpu_params = {
             'metric': 'binary_logloss',
             
             'learning_rate': 0.01,
-            'num_leaves':377,
+            'num_leaves':100,
             'max_depth':7,
             
-            'max_bin':10,
-            'min_data_in_leaf':8,
+            'max_bin':2,
+            'min_data_in_leaf':60,
             
-            'feature_fraction': 0.6,
-            'bagging_fraction': 1,
-            'bagging_freq':0,
+            'feature_fraction': 0.2,
+            'bagging_fraction': 0.2,
+            'bagging_freq':4,
 
-            'lambda_l1': 0,
-            'lambda_l2': 0,
-            'min_split_gain': 0.1,
+            'lambda_l1': 0.7,
+            'lambda_l2': 0.4,
+            'min_split_gain': 0.01,
             'sparse_threshold': 1.0,
 #            'device': 'gpu',
 #            'gpu_platform_id': 0,
