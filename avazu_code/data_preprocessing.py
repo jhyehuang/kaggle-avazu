@@ -314,6 +314,29 @@ def get_train_split():
             del train_1
             del sampler
 
+def get_train_test_split():
+    test_index = load(FLAGS.tmp_data_path+'test_index.joblib_dat')
+    train_id=test_index['train']
+
+    files_name=['click.csv','cat_features.csv','date_list.csv','id.csv','num_features.csv','two_col_join_cnt.csv','two_col_join.csv']
+    
+    
+    logging.debug(files_name)
+    for file in files_name:
+        save=pd.read_csv(FLAGS.tmp_data_path+file)
+#        test_save=save[(-test_id):]
+#        test_save.to_csv(FLAGS.tmp_data_path+'test/'+file,index=False)
+#        logging.debug(test_save.shape)
+        train_save=save[:train_id]
+
+
+        train_save=train_save.sample(frac=0.25).reset_index(drop=True)
+        logging.debug(train_save.shape)
+        train_save.to_csv(FLAGS.tmp_data_path+'train_all'+'/'+file,index=False)
+        del train_save
+        del save
+
+
 def gdbt_data_get_train(seed=1537):
     train_save = pd.read_csv(FLAGS.tmp_data_path +'train'+str(seed)+'/cat_features.csv',)
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/date_list.csv')

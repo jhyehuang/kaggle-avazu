@@ -62,6 +62,10 @@ output = FLAGS.output_dir
 #新特征 参随机选择5个特征，计算先验概率
 #new_features_w()
 
-# 
-get_train_split()
+# 随机切割4个 500w的小数据集  调参
+#get_train_split()
+
+
+#  将全部训练集 分割出来 
+get_train_test_split()
 
