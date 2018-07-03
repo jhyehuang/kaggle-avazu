@@ -38,7 +38,7 @@ cv_params = {
           'boosting_type': 'gbdt',
           'objective': 'binary',
           'metric': 'binary_logloss',
-          'num_trees':300
+          'num_trees':377
 #            'device': 'gpu',
 #            'gpu_platform_id': 0,
 #            'gpu_device_id': 0
@@ -84,7 +84,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
     if cv_type=='max_depth':
         # 准确率
         logging.debug("调参1：提高准确率")
-        for num_leaves in range(100,200,5):
+        for num_leaves in range(50,150,5):
             for max_depth in range(6,8,1):
                 cv_params['num_leaves'] = num_leaves
                 cv_params['max_depth'] = max_depth
@@ -126,7 +126,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
         # 过拟合
         logging.debug("调参2：降低过拟合")
         for max_bin in range(2,9,1):
-            for min_data_in_leaf in range(60,90,1):
+            for min_data_in_leaf in range(10,60,1):
                 cv_params['max_bin'] = max_bin
                 cv_params['min_data_in_leaf'] = min_data_in_leaf
                 
@@ -136,7 +136,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                                     seed=42,
                                     nfold=3,
                                     metrics=['binary_error'],
-                                    early_stopping_rounds=3,
+                                    early_stopping_rounds=10,
                                     verbose_eval=True
                                     )
                         
@@ -167,9 +167,9 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
         cv_params['max_bin'] = best_params['max_bin']
     elif cv_type=='bagging_fraction':
         logging.debug("调参3：降低过拟合")
-        for feature_fraction in [0.2,0.3,0.4]:
-            for bagging_fraction in [0.2,0.3,0.4,0.5]:
-                for bagging_freq in range(4,10,1):
+        for feature_fraction in [0.1,0.2,0.3,0.4]:
+            for bagging_fraction in [0.1,0.2,0.3,0.4,0.5]:
+                for bagging_freq in range(2,7,1):
                     cv_params['feature_fraction'] = feature_fraction
                     cv_params['bagging_fraction'] = bagging_fraction
                     cv_params['bagging_freq'] = bagging_freq
@@ -180,7 +180,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                                         seed=42,
                                         nfold=3,
                                         metrics=['binary_error'],
-                                        early_stopping_rounds=3,
+                                        early_stopping_rounds=10,
                                         verbose_eval=True
                                         )
                             
@@ -230,7 +230,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                                         seed=42,
                                         nfold=3,
                                         metrics=['binary_error'],
-                                        early_stopping_rounds=3,
+                                        early_stopping_rounds=10,
                                         verbose_eval=True
                                         )
                             
