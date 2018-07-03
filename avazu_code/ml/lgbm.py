@@ -94,13 +94,13 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                                     lgb_train,
                                     seed=2018,
                                     nfold=3,
-                                    metrics=['binary_error'],
+                                    metrics=['binary_logloss'],
                                     early_stopping_rounds=10,
                                     verbose_eval=True
                                     )
                     
-                mean_merror = pd.Series(cv_results['binary_error-mean']).min()
-                boost_rounds = pd.Series(cv_results['binary_error-mean']).argmin()
+                mean_merror = pd.Series(cv_results['binary_logloss-mean']).min()
+                boost_rounds = pd.Series(cv_results['binary_logloss-mean']).argmin()
                 logging.debug("boost_rounds="+str(boost_rounds))
                 logging.debug("mean_merror="+str(mean_merror))
                 if mean_merror < early_stopping_dict['mean_merror']:
@@ -135,13 +135,13 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                                     lgb_train,
                                     seed=42,
                                     nfold=3,
-                                    metrics=['binary_error'],
+                                    metrics=['binary_logloss'],
                                     early_stopping_rounds=10,
                                     verbose_eval=True
                                     )
                         
-                mean_merror = pd.Series(cv_results['binary_error-mean']).min()
-                boost_rounds = pd.Series(cv_results['binary_error-mean']).argmin()
+                mean_merror = pd.Series(cv_results['binary_logloss-mean']).min()
+                boost_rounds = pd.Series(cv_results['binary_logloss-mean']).argmin()
                 logging.debug("boost_rounds="+str(boost_rounds))
                 logging.debug("mean_merror="+str(mean_merror))
                 logging.debug("best_params['max_bin']="+str(max_bin))
@@ -179,13 +179,13 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                                         lgb_train,
                                         seed=42,
                                         nfold=3,
-                                        metrics=['binary_error'],
+                                        metrics=['binary_logloss'],
                                         early_stopping_rounds=10,
                                         verbose_eval=True
                                         )
                             
-                    mean_merror = pd.Series(cv_results['binary_error-mean']).min()
-                    boost_rounds = pd.Series(cv_results['binary_error-mean']).argmin()
+                    mean_merror = pd.Series(cv_results['binary_logloss-mean']).min()
+                    boost_rounds = pd.Series(cv_results['binary_logloss-mean']).argmin()
                     logging.debug("boost_rounds="+str(boost_rounds))
                     logging.debug("mean_merror="+str(mean_merror))
 
@@ -229,13 +229,13 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                                         lgb_train,
                                         seed=42,
                                         nfold=3,
-                                        metrics=['binary_error'],
+                                        metrics=['binary_logloss'],
                                         early_stopping_rounds=10,
                                         verbose_eval=True
                                         )
                             
-                    mean_merror = pd.Series(cv_results['binary_error-mean']).min()
-                    boost_rounds = pd.Series(cv_results['binary_error-mean']).argmin()
+                    mean_merror = pd.Series(cv_results['binary_logloss-mean']).min()
+                    boost_rounds = pd.Series(cv_results['binary_logloss-mean']).argmin()
                     logging.debug("boost_rounds="+str(boost_rounds))
                     logging.debug("mean_merror="+str(mean_merror))
 
