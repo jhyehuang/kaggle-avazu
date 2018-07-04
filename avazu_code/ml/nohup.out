@@ -8677,3 +8677,10 @@ terminate called after throwing an instance of 'std::bad_alloc'
 [15:08:47] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 108 extra nodes, 0 pruned nodes, max_depth=6
 [15:08:47] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 74 extra nodes, 0 pruned nodes, max_depth=6
 [15:08:55] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 54 extra nodes, 0 pruned nodes, max_depth=6
+[15:09:18] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 50 extra nodes, 0 pruned nodes, max_depth=6
+[15:09:19] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 12 extra nodes, 0 pruned nodes, max_depth=6
+[15:09:20] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 78 extra nodes, 0 pruned nodes, max_depth=6
+[15:09:28] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 94 extra nodes, 0 pruned nodes, max_depth=6
+[15:09:50] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 12 extra nodes, 0 pruned nodes, max_depth=6
+[15:09:52] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 92 extra nodes, 0 pruned nodes, max_depth=6
+[15:09:53] /home/zhijiehuang/github/xgboost/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 90 extra nodes, 0 pruned nodes, max_depth=6
