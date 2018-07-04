@@ -178,6 +178,8 @@ def done(istrain=True):
             ret=dump(xgb1, FLAGS.tmp_data_path+'xgboost.cv_'+oper+'.model.joblib_dat') 
             logging.debug(ret)
         del train_save
+        del X_train
+        del y_train
     else:
         X_test = gdbt_data_get_test()
         print(X_test.shape)
