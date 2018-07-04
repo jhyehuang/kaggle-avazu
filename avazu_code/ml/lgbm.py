@@ -47,13 +47,13 @@ cv_params = {
 
 gpu_params = {
             'boosting_type': 'gbdt',
-            'boosting': 'dart',
+#            'boosting': 'dart',
             'objective': 'binary',
-            'metric': 'binary_logloss',
+            'metric': ['auc', 'binary_logloss'],
             
             'learning_rate': 0.01,
-            'num_leaves':50,
-            'max_depth':6,
+            'num_leaves':55,
+            'max_depth':7,
             
             'max_bin':4,
             'min_data_in_leaf':55,
@@ -66,9 +66,10 @@ gpu_params = {
             'lambda_l2': 0.7,
             'min_split_gain': 0.01,
             'sparse_threshold': 1.0,
-#            'device': 'gpu',
-#            'gpu_platform_id': 0,
-#            'gpu_device_id': 0
+            'device': 'gpu',
+            'gpu_platform_id': -1,
+            'gpu_device_id': -1,
+            'gpu_use_dp': False
 }
 
 
@@ -94,7 +95,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                                     lgb_train,
                                     seed=2018,
                                     nfold=3,
-                                    metrics=['binary_logloss'],
+                                    metrics=['auc', 'binary_logloss'],
                                     early_stopping_rounds=10,
                                     verbose_eval=True
                                     )
@@ -135,7 +136,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                                     lgb_train,
                                     seed=42,
                                     nfold=3,
-                                    metrics=['binary_logloss'],
+                                    metrics=['auc', 'binary_logloss'],
                                     early_stopping_rounds=10,
                                     verbose_eval=True
                                     )
@@ -179,7 +180,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                                         lgb_train,
                                         seed=42,
                                         nfold=3,
-                                        metrics=['binary_logloss'],
+                                        metrics=['auc', 'binary_logloss'],
                                         early_stopping_rounds=10,
                                         verbose_eval=True
                                         )
@@ -229,7 +230,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                                         lgb_train,
                                         seed=42,
                                         nfold=3,
-                                        metrics=['binary_logloss'],
+                                        metrics=['auc', 'binary_logloss'],
                                         early_stopping_rounds=10,
                                         verbose_eval=True
                                         )
@@ -272,7 +273,7 @@ def done(istrain=True):
 #    cv_params['num_leaves'] = 50
 #    cv_params['max_depth'] = 6
 #    op=['max_bin','bagging_fraction','lambda']
-    op=['max_depth']
+    op=['max_bin']
     ### 开始训练
     logging.debug('设置参数')
     if istrain:
