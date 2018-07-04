@@ -457,7 +457,7 @@ def tiny_lightgbm_data_get_train():
     train_save=data_concat(train_save,FLAGS.train_set_path +'num_features.csv')
 #    train_save=data_concat(train_save,FLAGS.train_set_path +'click.csv')
     train_save=data_concat(train_save,FLAGS.train_set_path +'two_col_join.csv')
-    train_save=data_concat(train_save,FLAGS.train_set_path +'two_col_join_cnt.csv')
+#    train_save=data_concat(train_save,FLAGS.train_set_path +'two_col_join_cnt.csv')
     logging.debug(train_save.columns)
 #    logging.debug(train_save['id'])
 
@@ -491,7 +491,7 @@ def tiny_lightgbm_data_get_test():
     test_save=data_concat(test_save,FLAGS.test_data_path +'num_features.csv')
 #    test_save=data_concat(test_save,FLAGS.test_data_path +'click.csv')
     test_save=data_concat(test_save,FLAGS.test_data_path +'two_col_join.csv')
-    test_save=data_concat(test_save,FLAGS.test_data_path +'two_col_join_cnt.csv')
+#    test_save=data_concat(test_save,FLAGS.test_data_path +'two_col_join_cnt.csv')
     logging.debug(test_save.shape)
 
     try:
