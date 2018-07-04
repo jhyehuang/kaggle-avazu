@@ -671,3 +671,13 @@ TypeError: only size-1 arrays can be converted to Python scalars
 2018-07-02 18:19:19,364 - DEBUG - data_preprocessing.py:310 - (5053621, 11)
 /home/zhijiehuang/github/data/train.csv
 ['/home/zhijiehuang/github/kaggle-avazu/avazu_code', '/home/zhijiehuang/anaconda3/lib/python36.zip', '/home/zhijiehuang/anaconda3/lib/python3.6', '/home/zhijiehuang/anaconda3/lib/python3.6/lib-dynload', '/home/zhijiehuang/anaconda3/lib/python3.6/site-packages', '/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/xgboost-0.72-py3.6.egg', '/home/zhijiehuang/github/jhye_tool/ml', '/home/zhijiehuang/github/kaggle-avazu/avazu_code/ml', '/home/zhijiehuang/github/kaggle-avazu/avazu_code/ml/..']
+2018-07-03 20:39:01,172 - DEBUG - data_preprocessing.py:324 - ['click.csv', 'cat_features.csv', 'date_list.csv', 'id.csv', 'num_features.csv', 'two_col_join_cnt.csv', 'two_col_join.csv']
+2018-07-03 20:39:05,718 - DEBUG - data_preprocessing.py:334 - (10107242, 1)
+2018-07-03 20:39:31,073 - DEBUG - data_preprocessing.py:334 - (10107242, 5)
+2018-07-03 20:40:15,407 - DEBUG - data_preprocessing.py:334 - (10107242, 5)
+2018-07-03 20:41:00,310 - DEBUG - data_preprocessing.py:334 - (10107242, 2)
+2018-07-03 20:47:06,799 - DEBUG - data_preprocessing.py:334 - (10107242, 60)
+2018-07-03 20:55:42,681 - DEBUG - data_preprocessing.py:334 - (10107242, 20)
+2018-07-03 20:59:04,778 - DEBUG - data_preprocessing.py:334 - (10107242, 11)
+/home/zhijiehuang/github/data/train.csv
+['/home/zhijiehuang/github/kaggle-avazu/avazu_code', '/home/zhijiehuang/anaconda3/lib/python36.zip', '/home/zhijiehuang/anaconda3/lib/python3.6', '/home/zhijiehuang/anaconda3/lib/python3.6/lib-dynload', '/home/zhijiehuang/anaconda3/lib/python3.6/site-packages', '/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/xgboost-0.72-py3.6.egg', '/home/zhijiehuang/github/jhye_tool/ml', '/home/zhijiehuang/github/kaggle-avazu/avazu_code/ml', '/home/zhijiehuang/github/kaggle-avazu/avazu_code/ml/..']
