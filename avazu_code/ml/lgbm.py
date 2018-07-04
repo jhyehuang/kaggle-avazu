@@ -52,18 +52,18 @@ gpu_params = {
             'metric': 'binary_logloss',
             
             'learning_rate': 0.01,
-            'num_leaves':100,
-            'max_depth':7,
+            'num_leaves':50,
+            'max_depth':6,
             
-            'max_bin':80,
-            'min_data_in_leaf':60,
+            'max_bin':4,
+            'min_data_in_leaf':55,
             
-            'feature_fraction': 0.2,
-            'bagging_fraction': 0.2,
-            'bagging_freq':4,
+            'feature_fraction': 0.4,
+            'bagging_fraction': 0.4,
+            'bagging_freq':2,
 
             'lambda_l1': 0.7,
-            'lambda_l2': 0.4,
+            'lambda_l2': 0.7,
             'min_split_gain': 0.01,
             'sparse_threshold': 1.0,
 #            'device': 'gpu',
@@ -72,7 +72,7 @@ gpu_params = {
 }
 
 
-#cv_params.update(gpu_params)
+cv_params.update(gpu_params)
 ### 交叉验证(调参)
 
 
@@ -84,8 +84,8 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
     if cv_type=='max_depth':
         # 准确率
         logging.debug("调参1：提高准确率")
-        for num_leaves in range(50,150,5):
-            for max_depth in range(6,8,1):
+        for num_leaves in range(30,60,5):
+            for max_depth in range(4,8,1):
                 cv_params['num_leaves'] = num_leaves
                 cv_params['max_depth'] = max_depth
         
@@ -269,9 +269,10 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
 def done(istrain=True):
     
 #    op=['max_depth','max_bin','bagging_fraction','lambda']
-    cv_params['num_leaves'] = 50
-    cv_params['max_depth'] = 6
-    op=['max_bin','bagging_fraction','lambda']
+#    cv_params['num_leaves'] = 50
+#    cv_params['max_depth'] = 6
+#    op=['max_bin','bagging_fraction','lambda']
+    op=['max_depth']
     ### 开始训练
     logging.debug('设置参数')
     if istrain:
