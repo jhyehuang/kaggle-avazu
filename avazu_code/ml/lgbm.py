@@ -85,7 +85,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
     if cv_type=='num_trees':
         # 准确率
         logging.debug("num_trees")
-        for num_trees in range(100,300,5):
+        for num_trees in range(300,500,5):
                 cv_params['num_trees'] = num_trees
                 cv_results = lgb.cv(
                                     cv_params,
