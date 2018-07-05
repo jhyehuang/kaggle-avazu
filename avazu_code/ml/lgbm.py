@@ -38,7 +38,7 @@ cv_params = {
           'boosting_type': 'gbdt',
           'objective': 'binary',
           'metric': 'binary_logloss',
-          'num_trees':377,
+          'num_trees':300,
 #            'device': 'gpu',
 #            'gpu_platform_id': 0,
 #            'gpu_device_id': 0
@@ -73,7 +73,7 @@ gpu_params = {
 }
 
 
-cv_params.update(gpu_params)
+#cv_params.update(gpu_params)
 ### 交叉验证(调参)
 
 
@@ -273,7 +273,7 @@ def done(istrain=True):
 #    cv_params['num_leaves'] = 50
 #    cv_params['max_depth'] = 6
 #    op=['max_bin','bagging_fraction','lambda']
-    op=['max_bin']
+    op=['max_depth']
     ### 开始训练
     logging.debug('设置参数')
     if istrain:
