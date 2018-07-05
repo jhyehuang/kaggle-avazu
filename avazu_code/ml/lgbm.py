@@ -51,21 +51,23 @@ gpu_params = {
             'objective': 'binary',
             'metric': ['auc', 'binary_logloss'],
             
-            'learning_rate': 0.01,
-            'num_leaves':55,
-            'max_depth':7,
+#            'learning_rate': 0.01,
+#            'num_leaves':128,
+#            'max_depth':8,
+#            'colsample_bytree':0.8,
+#            'is_unbalance':True,
             
-            'max_bin':4,
-            'min_data_in_leaf':55,
+#            'max_bin':4,
+#            'min_data_in_leaf':55,
             
-            'feature_fraction': 0.4,
-            'bagging_fraction': 0.4,
-            'bagging_freq':2,
+#            'feature_fraction': 0.4,
+#            'bagging_fraction': 0.4,
+#            'bagging_freq':2,
 
-            'lambda_l1': 0.7,
-            'lambda_l2': 0.7,
-            'min_split_gain': 0.01,
-            'sparse_threshold': 1.0,
+#            'lambda_l1': 0.7,
+#            'lambda_l2': 0.7,
+#            'min_split_gain': 0.01,
+#            'sparse_threshold': 1.0,
 #            'device': 'gpu',
 #            'gpu_platform_id': -1,
 #            'gpu_device_id': -1,
@@ -73,7 +75,7 @@ gpu_params = {
 }
 
 
-#cv_params.update(gpu_params)
+cv_params.update(gpu_params)
 ### 交叉验证(调参)
 
 
@@ -125,8 +127,8 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
     elif cv_type=='max_depth':
         # 准确率
         logging.debug("调参1：提高准确率")
-        for num_leaves in range(30,60,5):
-            for max_depth in range(4,8,1):
+        for num_leaves in range(64,256,5):
+            for max_depth in range(6,9,1):
                 cv_params['num_leaves'] = num_leaves
                 cv_params['max_depth'] = max_depth
         
@@ -136,6 +138,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                                     seed=2018,
                                     nfold=3,
                                     metrics=['auc', 'binary_logloss'],
+                                    init_model=load(FLAGS.out_data_path+'1-lgbm.model.joblib_dat'),
                                     early_stopping_rounds=10,
                                     verbose_eval=True
                                     )
@@ -177,6 +180,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                                     seed=42,
                                     nfold=3,
                                     metrics=['auc', 'binary_logloss'],
+                                    init_model=load(FLAGS.out_data_path+'1-lgbm.model.joblib_dat'),
                                     early_stopping_rounds=10,
                                     verbose_eval=True
                                     )
@@ -221,6 +225,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                                         seed=42,
                                         nfold=3,
                                         metrics=['auc', 'binary_logloss'],
+                                        init_model=load(FLAGS.out_data_path+'1-lgbm.model.joblib_dat'),
                                         early_stopping_rounds=10,
                                         verbose_eval=True
                                         )
@@ -271,6 +276,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                                         seed=42,
                                         nfold=3,
                                         metrics=['auc', 'binary_logloss'],
+                                        init_model=load(FLAGS.out_data_path+'1-lgbm.model.joblib_dat'),
                                         early_stopping_rounds=10,
                                         verbose_eval=True
                                         )
@@ -311,6 +317,7 @@ def done(istrain=True):
     
 #    op=['num_trees','max_depth','max_bin','bagging_fraction','lambda']
     cv_params['num_trees'] = 315
+    cv_params['num_trees'] = 300
 #    cv_params['num_leaves'] = 50
 #    cv_params['max_depth'] = 6
 #    op=['max_bin','bagging_fraction','lambda']
@@ -318,41 +325,48 @@ def done(istrain=True):
     ### 开始训练
     logging.debug('设置参数')
     if istrain:
-        train_save,val_save,val_x,val_y = tiny_lightgbm_data_get_train()
-        for oper in op:
-            logging.debug("CV:"+oper)
-            modelfit_cv(train_save,cv_type=oper)
-            ret=dump(cv_params, FLAGS.out_data_path+'cv_params_'+oper+'lgbm.joblib_dat') 
-        logging.debug("开始训练")
-        gbm = lgb.train(cv_params,                     # 参数字典
-                        train_save,                  # 训练集
-                        num_boost_round=100,       # 迭代次数
-                        valid_sets=val_save,        # 验证集
-#                        init_model=FLAGS.out_data_path+'1-lgbm.model.joblib_dat',
-                        init_model=None,
-                        learning_rates=[0.01,0.001],
-                        early_stopping_rounds=30) # 早停系数
-
+        for i in [25,100,299,799,1537]:
+            train_save,val_save,val_x,val_y = tiny_lightgbm_data_get_train(i)
+            for oper in op:
+                logging.debug("CV:"+oper)
+                modelfit_cv(train_save,cv_type=oper)
+                ret=dump(cv_params, FLAGS.out_data_path+'cv_params_'+oper+'lgbm.joblib_dat') 
+            logging.debug("开始训练")
+            try:
+                init_model=load(FLAGS.out_data_path+'1-lgbm.model.joblib_dat')
+            except:
+                init_model=None
+            gbm = lgb.train(cv_params,                     # 参数字典
+                            train_save,                  # 训练集
+                            num_boost_round=1000,       # 迭代次数
+                            valid_sets=val_save,        # 验证集
+                            init_model=init_model,
+    #                        init_model=None,
+    #                        learning_rates=0.01,
+                            verbose_eval=True,
+                            early_stopping_rounds=60) # 早停系数
+    
+            
+            logging.debug("to save validation predictions ...")
+            ret=dump(gbm, FLAGS.out_data_path+'1-lgbm.model.joblib_dat') 
+            logging.debug(ret)
+            
         
-        logging.debug("to save validation predictions ...")
-        ret=dump(gbm, FLAGS.out_data_path+'1-lgbm.model.joblib_dat') 
-        logging.debug(ret)
         
-        
-        ### 验证
-        logging.debug ("验证")
-        preds_offline = gbm.predict(val_x, num_iteration=gbm.best_iteration) # 输出概率
-
-        logging.debug('log_loss:')
-        logging.debug(log_loss(val_y, preds_offline))
-        
-        ### 特征选择
-        df = pd.DataFrame(val_x.columns.tolist(), columns=['feature'])
-        df['importance']=list(gbm.feature_importance())                           # 特征分数
-        df = df.sort_values(by='importance',ascending=False)                      # 特征排序
-        df.to_csv(FLAGS.out_data_path+'feature_score.csv',index=None,encoding='utf-8') # 保存分数
-        
-        del train_save,val_save,val_x,val_y
+            ### 验证
+            logging.debug ("验证")
+            preds_offline = gbm.predict(val_x, num_iteration=gbm.best_iteration) # 输出概率
+    
+            logging.debug('log_loss:')
+            logging.debug(log_loss(val_y, preds_offline))
+            
+            ### 特征选择
+            df = pd.DataFrame(val_x.columns.tolist(), columns=['feature'])
+            df['importance']=list(gbm.feature_importance())                           # 特征分数
+            df = df.sort_values(by='importance',ascending=False)                      # 特征排序
+            df.to_csv(FLAGS.out_data_path+'feature_score.csv',index=None,encoding='utf-8') # 保存分数
+            
+            del train_save,val_save,val_x,val_y
         
     else:
         gbm = load(FLAGS.out_data_path+'1-lgbm.model.joblib_dat')
@@ -377,7 +391,7 @@ def done(istrain=True):
         del test_save
         
 if __name__ == "__main__":
-#    done()
+    done()
     done(False)
         
 
