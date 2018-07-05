@@ -38,10 +38,10 @@ cv_params = {
           'boosting_type': 'gbdt',
           'objective': 'binary',
           'metric': 'binary_logloss',
-          'num_trees':100,
-#            'device': 'gpu',
-#            'gpu_platform_id': 0,
-#            'gpu_device_id': 0
+#          'num_trees':100,
+            'device': 'gpu',
+            'gpu_platform_id': -1,
+            'gpu_device_id': -1
 }
 
 
@@ -82,7 +82,46 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
     logging.debug('交叉验证')
     best_params = {}
     early_stopping_dict={'mean_merror':min_merror,'times':0}
-    if cv_type=='max_depth':
+    if cv_type=='num_trees':
+        # 准确率
+        logging.debug("num_trees")
+        for num_trees in range(100,300,5):
+                cv_params['num_trees'] = num_trees
+                cv_results = lgb.cv(
+                                    cv_params,
+                                    lgb_train,
+                                    seed=2018,
+                                    nfold=3,
+                                    metrics=['auc', 'binary_logloss'],
+                                    early_stopping_rounds=3,
+                                    verbose_eval=True
+                                    )
+                    
+                mean_merror = pd.Series(cv_results['binary_logloss-mean']).min()
+                boost_rounds = pd.Series(cv_results['binary_logloss-mean']).argmin()
+                logging.debug("boost_rounds="+str(boost_rounds))
+                logging.debug("mean_merror="+str(mean_merror))
+                if mean_merror < early_stopping_dict['mean_merror']:
+                    early_stopping_dict['mean_merror']=mean_merror
+                    early_stopping_dict['times']=0
+                    if mean_merror < min_merror:
+                        min_merror = mean_merror
+                        best_params['num_trees'] = num_trees
+                else:
+                    early_stopping_dict['times']+=1
+                    
+#                if early_stopping_dict['times']>3:
+#                    early_stopping_dict['times']=0
+#                    break
+#            if early_stopping_dict['times']>3:
+#                break
+
+                    
+        cv_params['num_trees'] = best_params['num_trees']
+        logging.debug("best_params['num_trees']="+str(best_params['num_trees']))
+    
+    
+    elif cv_type=='max_depth':
         # 准确率
         logging.debug("调参1：提高准确率")
         for num_leaves in range(30,60,5):
@@ -269,11 +308,11 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
 
 def done(istrain=True):
     
-#    op=['max_depth','max_bin','bagging_fraction','lambda']
+#    op=['num_trees','max_depth','max_bin','bagging_fraction','lambda']
 #    cv_params['num_leaves'] = 50
 #    cv_params['max_depth'] = 6
 #    op=['max_bin','bagging_fraction','lambda']
-    op=['max_depth']
+    op=['num_trees']
     ### 开始训练
     logging.debug('设置参数')
     if istrain:
