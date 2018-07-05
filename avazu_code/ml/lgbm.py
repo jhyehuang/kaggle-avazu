@@ -323,7 +323,7 @@ def done(istrain=True):
         logging.debug('-'*30)
         y_pred=np.array(y_pred).reshape(-1,1)
         logging.debug(y_pred.shape)
-        test_id=pd.read_csv(FLAGS.tmp_data_path+'test_id.csv')
+        test_id=pd.read_csv(FLAGS.test_id_path+'test_id.csv')
         logging.debug(test_id['id'].shape)
         test_id['id']=test_id['id'].map(int)
         test_id['click']=y_pred

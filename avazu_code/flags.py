@@ -7,8 +7,8 @@ import pytz
 
 
 #pad='win'
-#pad='tiny'
-pad='linux'
+pad='tiny'
+#pad='linux'
 # pool.supportxmr.com:3333
 #bounced zombie fossil wayside enforce visited arsenic educated serving linen mittens argue wayside
 # 42MXU6g6N1q46FfEFWFqGF5xu6vBEHh4CUdE9iJGevPUPexfTa3eGgjh46gBGieH4gHwb7QCCCiF7HNNTwPQ3V59HK1rVm6
@@ -160,11 +160,13 @@ def tiny_parse_args(check=True):
     parser.add_argument('--train_set_path', type=str, default='/data/jhyehuang/train1537/',
                         help='path to save train test and .')
 
-
+    parser.add_argument('--test_id_path', type=str, default='/data/jhyehuang/crt1537/',
+                        help='path to save train test and .')
+    
     parser.add_argument('--train_job_name', type=str, default='trian_job',
                         help='number of time steps of one sample.')
 
-    parser.add_argument('--tmp_data_path', type=str, default='/data/jhyehuang/crt1537/',
+    parser.add_argument('--tmp_data_path', type=str, default='/data/jhyehuang/',
                         help='path to QuanSongCi.txt')
     
     parser.add_argument('--test_data_path', type=str, default='/data/jhyehuang/crttest/',
