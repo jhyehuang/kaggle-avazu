@@ -37,11 +37,11 @@ logging.debug('设置参数')
 cv_params = {
           'boosting_type': 'gbdt',
           'objective': 'binary',
-          'metric': 'binary_logloss',
+          'metric': ['auc', 'binary_logloss'],
 #          'num_trees':100,
-#            'device': 'gpu',
-#            'gpu_platform_id': -1,
-#            'gpu_device_id': -1
+            'device': 'gpu',
+            'gpu_platform_id': -1,
+            'gpu_device_id': -1
 }
 
 
@@ -310,10 +310,11 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
 def done(istrain=True):
     
 #    op=['num_trees','max_depth','max_bin','bagging_fraction','lambda']
+    cv_params['num_trees'] = 315
 #    cv_params['num_leaves'] = 50
 #    cv_params['max_depth'] = 6
 #    op=['max_bin','bagging_fraction','lambda']
-    op=['num_trees']
+    op=['x']
     ### 开始训练
     logging.debug('设置参数')
     if istrain:
@@ -355,7 +356,7 @@ def done(istrain=True):
         
     else:
         gbm = load(FLAGS.out_data_path+'1-lgbm.model.joblib_dat')
-        
+#        logging.debug(gbm.get_params())
         ### 线下预测
         test_save=tiny_lightgbm_data_get_test()
         logging.debug ("预测")
@@ -376,7 +377,7 @@ def done(istrain=True):
         del test_save
         
 if __name__ == "__main__":
-    done()
+#    done()
     done(False)
         
 

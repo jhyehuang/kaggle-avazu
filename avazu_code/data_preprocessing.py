@@ -451,7 +451,7 @@ def lightgbm_data_get(test_path):
 
     return lgb_train,lgb_eval,X_test,X_val,y_val
 
-def tiny_lightgbm_data_get_train(seed=1537):
+def tiny_lightgbm_data_get_train(seed=25):
     train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/cat_features.csv',)
     train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
