@@ -327,6 +327,9 @@ def done(istrain=True):
                         train_save,                  # 训练集
                         num_boost_round=100,       # 迭代次数
                         valid_sets=val_save,        # 验证集
+#                        init_model=FLAGS.out_data_path+'1-lgbm.model.joblib_dat',
+                        init_model=None,
+                        learning_rates=[0.01,0.001],
                         early_stopping_rounds=30) # 早停系数
 
         
