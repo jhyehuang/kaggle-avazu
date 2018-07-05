@@ -66,10 +66,10 @@ gpu_params = {
             'lambda_l2': 0.7,
             'min_split_gain': 0.01,
             'sparse_threshold': 1.0,
-            'device': 'gpu',
-            'gpu_platform_id': -1,
-            'gpu_device_id': -1,
-            'gpu_use_dp': False
+#            'device': 'gpu',
+#            'gpu_platform_id': -1,
+#            'gpu_device_id': -1,
+#            'gpu_use_dp': False
 }
 
 
