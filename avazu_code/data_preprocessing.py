@@ -486,12 +486,12 @@ def tiny_lightgbm_data_get_train(seed=1537):
 
 def tiny_lightgbm_data_get_test():
 
-    test_save = pd.read_csv(FLAGS.tmp_data_path +'test/cat_features.csv',)
-    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/date_list.csv')
-    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/num_features.csv')
+    test_save = pd.read_csv(FLAGS.test_data_path +'cat_features.csv',)
+    test_save=data_concat(test_save,FLAGS.test_data_path +'date_list.csv')
+    test_save=data_concat(test_save,FLAGS.test_data_path +'num_features.csv')
 #    test_save=data_concat(FLAGS.tmp_data_path +'test/click.csv')
-    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join.csv')
-    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join_cnt.csv')
+    test_save=data_concat(test_save,FLAGS.test_data_path +'two_col_join.csv')
+    test_save=data_concat(test_save,FLAGS.test_data_path +'two_col_join_cnt.csv')
     logging.debug(test_save.shape)
 
     try:
