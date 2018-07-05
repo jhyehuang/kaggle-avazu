@@ -38,7 +38,8 @@ cv_params = {
           'boosting_type': 'gbdt',
           'objective': 'binary',
           'metric': 'binary_logloss',
-          'num_trees':377
+          'num_trees':377,
+          'stratified':False
 #            'device': 'gpu',
 #            'gpu_platform_id': 0,
 #            'gpu_device_id': 0
@@ -285,7 +286,7 @@ def done(istrain=True):
         logging.debug("开始训练")
         gbm = lgb.train(cv_params,                     # 参数字典
                         train_save,                  # 训练集
-                        num_boost_round=1000,       # 迭代次数
+                        num_boost_round=100,       # 迭代次数
                         valid_sets=val_save,        # 验证集
                         early_stopping_rounds=30) # 早停系数
 
