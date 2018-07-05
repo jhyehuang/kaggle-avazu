@@ -38,7 +38,7 @@ cv_params = {
           'boosting_type': 'gbdt',
           'objective': 'binary',
           'metric': 'binary_logloss',
-          'num_trees':300,
+          'num_trees':100,
 #            'device': 'gpu',
 #            'gpu_platform_id': 0,
 #            'gpu_device_id': 0
