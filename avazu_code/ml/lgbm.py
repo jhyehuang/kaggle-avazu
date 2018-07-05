@@ -39,9 +39,9 @@ cv_params = {
           'objective': 'binary',
           'metric': 'binary_logloss',
 #          'num_trees':100,
-            'device': 'gpu',
-            'gpu_platform_id': -1,
-            'gpu_device_id': -1
+#            'device': 'gpu',
+#            'gpu_platform_id': -1,
+#            'gpu_device_id': -1
 }
 
 
