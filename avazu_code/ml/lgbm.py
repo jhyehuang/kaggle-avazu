@@ -99,6 +99,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
                     
                 mean_merror = pd.Series(cv_results['binary_logloss-mean']).min()
                 boost_rounds = pd.Series(cv_results['binary_logloss-mean']).argmin()
+                logging.debug("now num_trees="+str(num_trees))
                 logging.debug("boost_rounds="+str(boost_rounds))
                 logging.debug("mean_merror="+str(mean_merror))
                 if mean_merror < early_stopping_dict['mean_merror']:
