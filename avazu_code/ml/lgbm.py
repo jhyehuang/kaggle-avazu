@@ -373,7 +373,7 @@ def done(istrain=True):
         del test_save
         
 if __name__ == "__main__":
-#    done()
+    done()
     done(False)
         
 
