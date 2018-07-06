@@ -316,7 +316,7 @@ def modelfit_cv(lgb_train,cv_type='max_depth',):
 def done(istrain=True):
     
 #    op=['num_trees','max_depth','max_bin','bagging_fraction','lambda']
-    cv_params['num_trees'] = 315
+#    cv_params['num_trees'] = 315
     cv_params['num_trees'] = 300
 #    cv_params['num_leaves'] = 50
 #    cv_params['max_depth'] = 6
@@ -333,8 +333,8 @@ def done(istrain=True):
                 ret=dump(cv_params, FLAGS.out_data_path+'cv_params_'+oper+'lgbm.joblib_dat') 
             logging.debug("开始训练")
             try:
-                init_model=load(FLAGS.out_data_path+'1-lgbm.model.joblib_dat')
-            except:
+                init_model=load(FLAGS.out_data_path+'1-'+str(i)+'-lgbm.model.joblib_dat')
+            except:i
                 init_model=None
             gbm = lgb.train(cv_params,                     # 参数字典
                             train_save,                  # 训练集
@@ -348,7 +348,7 @@ def done(istrain=True):
     
             
             logging.debug("to save validation predictions ...")
-            ret=dump(gbm, FLAGS.out_data_path+'1-lgbm.model.joblib_dat') 
+            ret=dump(gbm, FLAGS.out_data_path+'1-'+str(i)+'-lgbm.model.joblib_dat') 
             logging.debug(ret)
             
         
@@ -369,26 +369,27 @@ def done(istrain=True):
             del train_save,val_save,val_x,val_y
         
     else:
-        gbm = load(FLAGS.out_data_path+'1-lgbm.model.joblib_dat')
-#        logging.debug(gbm.get_params())
-        ### 线下预测
-        test_save=tiny_lightgbm_data_get_test()
-        logging.debug ("预测")
-        dtrain_predprob = gbm.predict(test_save, num_iteration=gbm.best_iteration) # 输出概率
-        
-        logging.debug(dtrain_predprob)
-        y_pred = [round(value,4) for value in dtrain_predprob]
-        logging.debug('-'*30)
-        y_pred=np.array(y_pred).reshape(-1,1)
-        logging.debug(y_pred.shape)
-        test_id=pd.read_csv(FLAGS.test_id_path+'test_id.csv')
-        logging.debug(test_id['id'].shape)
-        test_id['id']=test_id['id'].map(int)
-        test_id['click']=y_pred
-        test_id.to_csv(FLAGS.out_data_path+'1-lgbm.test.csv',index=False)
-        
-
-        del test_save
+        for i in [25,100,299,799,1537]:
+            gbm = load(FLAGS.out_data_path+'1-'+str(i)+'-lgbm.model.joblib_dat')
+    #        logging.debug(gbm.get_params())
+            ### 线下预测
+            test_save=tiny_lightgbm_data_get_test()
+            logging.debug ("预测")
+            dtrain_predprob = gbm.predict(test_save, num_iteration=gbm.best_iteration) # 输出概率
+            
+            logging.debug(dtrain_predprob)
+            y_pred = [round(value,4) for value in dtrain_predprob]
+            logging.debug('-'*30)
+            y_pred=np.array(y_pred).reshape(-1,1)
+            logging.debug(y_pred.shape)
+            test_id=pd.read_csv(FLAGS.test_id_path+'test_id.csv')
+            logging.debug(test_id['id'].shape)
+            test_id['id']=test_id['id'].map(int)
+            test_id['click']=y_pred
+            test_id.to_csv(FLAGS.out_data_path+'1-'+str(i)+'-lgbm.test.csv',index=False)
+            
+    
+            del test_save
         
 if __name__ == "__main__":
     done()
