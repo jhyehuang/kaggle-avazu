@@ -149,9 +149,9 @@ kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)
 def done(istrain=True):
 #    test_save.drop('click',axis=1,inplace=True)
 #    op=['n_estimators','max_depth','subsample','reg_alpha']
-    op=['subsample','reg_alpha']
+    op=['x']
     if istrain:
-        train_save = gdbt_data_get_train(25)
+        train_save = gdbt_data_get_train(100)
         print(train_save.shape)
         y_train = train_save['click']
         train_save.drop('click',axis=1,inplace=True)
@@ -159,18 +159,18 @@ def done(istrain=True):
 #        dtrain = xgb.DMatrix(X_train, label=y_train)
 #        n_estimators = [i for i in range(200,1000,1)]
         xgb1 = XGBClassifier(learning_rate =0.1,
-        n_estimators=666,
-        max_depth=6,
-        min_child_weight=1,
-        gamma=0,
-        subsample=0.8,
-        colsample_bytree=0.8,
+        n_estimators=300,
+        max_depth=7,
+#        min_child_weight=1,
+#        gamma=0,
+#        subsample=0.8,
+#        colsample_bytree=0.8,
         objective='binary:logistic',
         nthread=-1,
-        scale_pos_weight=1,
-        reg_alpha=1.5,
-        reg_lambda=0.5,
-        seed=27,
+#        scale_pos_weight=1,
+#        reg_alpha=1.5,
+#        reg_lambda=0.5,
+#        seed=27,
         silent=0,**gpu_dict)
         for i,oper in enumerate(op):
             modelfit_cv(xgb1, X_train,y_train, cv_folds = kfold,cv_type=oper,random_state=i)        
