@@ -334,7 +334,7 @@ def done(istrain=True):
             logging.debug("开始训练")
             try:
                 init_model=load(FLAGS.out_data_path+'1-'+str(i)+'-lgbm.model.joblib_dat')
-            except:i
+            except:
                 init_model=None
             gbm = lgb.train(cv_params,                     # 参数字典
                             train_save,                  # 训练集
