@@ -7,7 +7,7 @@ cmd = 'python {par} {cvt} {src} {des} -n {nr_thread}'.format(par='libffm_paralle
 
 subprocess.call(cmd, shell=True)
 
-print time.time() - start, 'sec'
+print(time.time() - start, 'sec')
 
 # # Serial
 # start = time.time()
