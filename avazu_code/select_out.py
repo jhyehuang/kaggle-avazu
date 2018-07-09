@@ -32,6 +32,18 @@ logging.debug( "src data loaded")
 pred=[]
 logging.debug( xgb_pred.shape)
 
+#def select_pred(xgb_pred_value,lgbm_pred_value):
+#    if xgb_pred_value>=0.5 and lgbm_pred_value >=0.5:
+#        pred_value=max(xgb_pred_value,lgbm_pred_value)
+#    elif xgb_pred_value <0.5 and lgbm_pred_value <0.5:
+#        pred_value=min(xgb_pred_value,lgbm_pred_value)
+#    else:
+#        if abs(xgb_pred_value-0.5)>=abs(lgbm_pred_value-0.5):
+#            pred_value=xgb_pred_value
+#        else:
+#            pred_value=lgbm_pred_value
+#    return pred_value
+
 def select_pred(xgb_pred_value,lgbm_pred_value):
     if xgb_pred_value>=0.5 and lgbm_pred_value >=0.5:
         pred_value=max(xgb_pred_value,lgbm_pred_value)
@@ -42,10 +54,6 @@ def select_pred(xgb_pred_value,lgbm_pred_value):
             pred_value=xgb_pred_value
         else:
             pred_value=lgbm_pred_value
-    if pred_value < 0.2:
-        pred_value=0.0
-    if pred_value > 0.9:
-        pred_value=1.0
     return pred_value
 
 new_pd=pd.merge(xgb_pred,lgbm_pred,on='id')

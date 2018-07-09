@@ -67,5 +67,9 @@ output = FLAGS.output_dir
 
 
 #  将全部训练集 分割出来 
-get_train_test_split()
+#get_train_test_split()
 
+
+# one hot
+
+train_data_ont_hot()

@@ -21,6 +21,7 @@ from joblib import dump, load, Parallel, delayed
 from sklearn.model_selection import train_test_split
 import random
 from sklearn.utils import shuffle
+from sklearn.preprocessing import OneHotEncoder
     
 import lightgbm as lgb 
 
@@ -541,5 +542,86 @@ def ffm_data_get_test():
     
     test_save.drop('click',axis=1,inplace=True)
     return test_save
+
+
+def pandas_onehot(df, col):
+    df = pd.get_dummies(df, columns=col)
+    return df
+
+def sklearn_onehoot(df):
+    enc = OneHotEncoder()
+    enc.fit(df)  
+    data = enc.transform(df).toarray()
+    return data
+
+def col_one_hot(train):
+#    enc = OneHotEncoder()
+#    enc.fit(train)
+    
+    now = time.time()
+    logging.debug('Format Converting begin in time:...',now)
+    columns = train.columns.values
+    d = len(columns)
+    feature_index = [i for i in range(d)]
+    field_index = [0]*d
+    field = []
+    for col in columns:
+        field.append(col.split('_')[0])
+    index = -1
+    for i in range(d):
+        if i==0 or field[i]!=field[i-1]:
+            index+=1
+        field_index[i] = index
+
+    fp=FLAGS.tmp_data_path +'ont_hot_train.libffm.txt'
+    with open(fp, 'w') as f:
+        for row in train.values:
+            line =str(row[0])           
+#            row= enc.transform(row).toarray()
+            for i in range(1, len(row)):
+                if row[i]!=0:
+                    line += ' ' + "%d:%d:%d" % (field_index[i], feature_index[i], row[i]) + ' '
+            line+='\n'
+            f.write(line)
+    logging.debug('finish convert,the cost time is ',time.time()-now)
+    logging.debug('[Done]')
+    logging.debug()
+#    return  pd.DataFrame(train)
+
+
+def train_data_ont_hot(seed=100):
+    train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/cat_features.csv',)
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/click.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join_cnt.csv')
+    logging.debug(train_save.columns)
+#    logging.debug(train_save['id'])
+
+#    logging.debug(test_save.shape)
+    logging.debug(train_save.shape)
+    try:
+        train_save.drop('id', axis=1,inplace = True)
+    except:
+        pass
+
+    
+    print(train_save.shape)
+#    y_train = train_save['click']
+#    train_save.drop('click',axis=1,inplace=True)
+    
+    features = list(train_save.columns)
+    for feature in features:
+        max_ = train_save[feature].max()
+        train_save[feature] = (train_save[feature] - max_) * (-1)
+    
+    train_save=pandas_onehot(train_save,features)
+    col_one_hot(train_save)
+
+    logging.debug(train_save.head(2))
+    logging.debug(train_save.shape)
+
+
 
 
