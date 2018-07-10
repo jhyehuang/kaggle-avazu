@@ -641,7 +641,7 @@ def train_data_ont_hot(seed=100):
         for y,row in zip(y_train.values,train_save.values):
             logging.debug(row)
             row=[str(x) for x in row]
-            line=str(y)+' '.join(row)+'\n'
+            line=str(y)+' '+' '.join(row)+'\n'
             f.write(line)
     logging.debug('finish convert,the cost time is ')
     logging.debug(time.time()-now)
