@@ -25,8 +25,8 @@ from flags import FLAGS, unparsed
 logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
 
-param = {'task':'binary', 'lr':0.01, 'lambda':0.002,'epoch':10,
-         'metric':'acc','k':8,
+param = {'task':'binary', 'lr':0.5, 'lambda':0.002,'epoch':10,
+         'metric':'auc','k':8,
          'opt':'ftrl'}
 
 #param = {'task':'binary', 'lr':0.2}
@@ -60,6 +60,7 @@ def done(op_type='istrain'):
         logging.debug("to save validation predictions ...")
 #        ret=dump(ffm_model, FLAGS.out_data_path+'1-'+'-ffm_model.model.joblib_dat') 
 #        logging.debug(ret)
+        ffm_model.show()   
         logging.debug(ffm_model) 
     elif op_type=='cv':
         logging.debug("开始 CV")                
@@ -79,7 +80,7 @@ def done(op_type='istrain'):
         ffm_model.setTest(test_save)  # Test data
         ffm_model.setSigmoid()  # Convert output to 0-1
         ffm_model.predict(FLAGS.tmp_data_path +'ffm_model.out', FLAGS.tmp_data_path+'output.txt')
- 
+        ffm_model.show()
         fp=open(FLAGS.tmp_data_path+'output.txt','r')
         dtrain_predprob=fp.readlines()
         logging.debug(ffm_model)
@@ -97,5 +98,5 @@ def done(op_type='istrain'):
 if __name__ == "__main__":
     done()
 #    done('cv')
-    done(False)
+#    done(False)
 
