@@ -554,7 +554,7 @@ def sklearn_onehoot(df):
     data = enc.transform(df).toarray()
     return data
 
-def col_one_hot(train):
+def col_one_hot(train,one_field):
 #    enc = OneHotEncoder()
 #    enc.fit(train)
     
@@ -573,10 +573,10 @@ def col_one_hot(train):
             index+=1
         field_index[i] = index
 
-    fp=FLAGS.tmp_data_path +'ont_hot_train.libffm.txt'
+    fp=FLAGS.tmp_data_path +one_field+'-ont_hot_train.libffm.txt'
     with open(fp, 'w') as f:
         for row in train.values:
-            line =str(row[0])           
+            line =one_field'           
 #            row= enc.transform(row).toarray()
             for i in range(1, len(row)):
                 if row[i]!=0:
@@ -607,20 +607,23 @@ def train_data_ont_hot(seed=100):
         pass
 
     
-    print(train_save.shape)
-#    y_train = train_save['click']
-#    train_save.drop('click',axis=1,inplace=True)
-    
+    logging.debug(train_save.shape)
+    try:
+        y_train = train_save['click']
+        train_save.drop('click',axis=1,inplace=True)
+    except:
+        pass    
     features = list(train_save.columns)
     for feature in features:
         max_ = train_save[feature].max()
         train_save[feature] = (train_save[feature] - max_) * (-1)
-    
-    train_save=pandas_onehot(train_save,features)
-    col_one_hot(train_save)
+        one_col=pandas_onehot(train_save[feature],feature)
+        logging.debug(one_col.shape)
+        col_one_hot(one_col,feature)
+        del one_col
 
-    logging.debug(train_save.head(2))
-    logging.debug(train_save.shape)
+#    logging.debug(train_save.head(2))
+#    logging.debug(train_save.shape)
 
 
 
