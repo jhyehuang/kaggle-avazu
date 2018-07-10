@@ -585,7 +585,7 @@ def train_data_ont_hot(seed=100):
     for feature_index,feature in enumerate(features):
         def set_field_feature_value(row):
             return "%d:%d:%d" % (feature_index,row, 1)
-        logging.debug(feature+':'+str(train_save[feature].max()))
+        logging.debug(feature+':cnt:'+str(train_save[feature].max()))
         now=time.time()
         logging.debug(feature + ' Format Converting begin in time:...')
         logging.debug(now)
