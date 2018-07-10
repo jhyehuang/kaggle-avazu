@@ -46,11 +46,11 @@ param = {'task':'binary', 'lr':0.01, 'lambda':0.002,'epoch':10,
 
 #param.update(ftrl_param)
 
-def done(istrain=True):
+def done(op_type='istrain'):
     ### 开始训练
     ffm_model = xl.create_ffm()
     logging.debug('设置参数')
-    if istrain:
+    if op_type=='istrain':
         logging.debug("开始训练")                
         ffm_model.setTrain(FLAGS.tmp_data_path +'ont_hot_train.libffm.csv')
         ffm_model.setValidate(FLAGS.tmp_data_path +'ont_hot_vali.libffm.csv')
@@ -60,7 +60,14 @@ def done(istrain=True):
         logging.debug("to save validation predictions ...")
 #        ret=dump(ffm_model, FLAGS.out_data_path+'1-'+'-ffm_model.model.joblib_dat') 
 #        logging.debug(ret)
-        logging.debug(ffm_model)        
+        logging.debug(ffm_model) 
+    elif op_type=='cv':
+        logging.debug("开始 CV")                
+        ffm_model.setTrain(FLAGS.tmp_data_path +'ont_hot_train.libffm.csv')
+        ffm_model.cv(param)
+        
+        logging.debug("to save validation predictions ...")
+        logging.debug(ffm_model)
     else:
 
 #        ffm_model = load(FLAGS.out_data_path+'1-'+'-ffm_model.model.joblib_dat')
@@ -88,6 +95,7 @@ def done(istrain=True):
         
         
 if __name__ == "__main__":
-    done()
-    done(False)
+#    done()
+    done('cv')
+#    done(False)
 

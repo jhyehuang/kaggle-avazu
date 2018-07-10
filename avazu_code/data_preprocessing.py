@@ -505,44 +505,6 @@ def tiny_lightgbm_data_get_test():
 
     return test_save
 
-def ffm_data_get_train(seed=25):
-    train_save = pd.read_csv(FLAGS.tmp_data_path +'train'+str(seed)+'/cat_features.csv',)
-    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/date_list.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/num_features.csv')
-#    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train100/click.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join_cnt.csv')
-    logging.debug(train_save.columns)
-
-    logging.debug(train_save.shape)
-    y_train = train_save['click']
-    train_save.drop('click',axis=1,inplace=True)
-    try:
-        train_save.drop('id', axis=1,inplace = True)
-    except:
-        pass
-    X_train_part, X_val, y_train_part, y_val = train_test_split(train_save, y_train, train_size = 0.9,random_state = 3)
-    return X_train_part, X_val, y_train_part, y_val
-
-
-def ffm_data_get_test():
-    test_save = pd.read_csv(FLAGS.tmp_data_path +'test/cat_features.csv',)
-    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/date_list.csv')
-    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/num_features.csv')
-#    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/click.csv')
-    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join.csv')
-    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join_cnt.csv')
-    logging.debug(test_save.shape)
-
-    try:
-        test_save.drop('id', axis=1,inplace = True)
-    except:
-        pass
-    
-    
-    test_save.drop('click',axis=1,inplace=True)
-    return test_save
-
 
 def pandas_onehot(df, col):
     df = pd.get_dummies(df, columns=col)
