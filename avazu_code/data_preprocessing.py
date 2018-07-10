@@ -593,8 +593,7 @@ def col_one_hot(train,one_field):
     logging.debug()
 #    return  pd.DataFrame(train)
 
-def set_field_feature_value(row):
-    return ' ' + "%s:%d:%d:" % (one_field,row.values, 1)
+
 
 def train_data_ont_hot(seed=100):
     train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/cat_features.csv',)
@@ -622,6 +621,8 @@ def train_data_ont_hot(seed=100):
         pass    
     features = list(train_save.columns)
     for feature in features:
+        def set_field_feature_value(row):
+            return ' ' + "%s:%d:%d:" % (feature,row.values, 1)
         now=time.time()
         logging.debug(feature + 'Format Converting begin in time:...')
         logging.debug(now)
