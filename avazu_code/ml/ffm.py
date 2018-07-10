@@ -72,7 +72,7 @@ def done(istrain=True):
         fp=open(FLAGS.tmp_data_path+'output.txt','r')
         dtrain_predprob=fp.readlines()
         logging.debug(ffm_model)
-        y_pred = [round(int(value.replace('\n','')),4) for value in dtrain_predprob]
+        y_pred = [round(float(value.replace('\n','')),4) for value in dtrain_predprob]
         logging.debug('-'*30)
         y_pred=np.array(y_pred).reshape(-1,1)
         logging.debug(y_pred.shape)
