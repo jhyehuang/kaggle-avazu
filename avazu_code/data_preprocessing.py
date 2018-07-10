@@ -581,6 +581,7 @@ def col_one_hot(train,one_field):
         for row in train.values:
             line =str(row[0])          
 #            row= enc.transform(row).toarray()
+            logging.debug(row)
             for i in range(1, len(row)):
                 if row[i]!=0:
                     line += ' ' + "%d:%d" % (field_index[i], row[i]) + ' '
