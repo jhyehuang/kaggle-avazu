@@ -12,12 +12,9 @@ from joblib import dump, load, Parallel, delayed
 
 import xlearn as xl
 
-sys.path.append(utils.xgb_path)
-
-import xgboost as xgb
-import logging
 
 import logging
+
 
 
 from flags import FLAGS, unparsed
