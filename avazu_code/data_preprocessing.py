@@ -597,11 +597,11 @@ def col_one_hot(train,one_field):
 
 def train_data_ont_hot(seed=100):
     train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/cat_features.csv',)
-#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
-#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/click.csv')
-#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
-#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join_cnt.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join_cnt.csv')
     logging.debug(train_save.columns)
 #    logging.debug(train_save['id'])
 
