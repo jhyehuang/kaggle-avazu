@@ -69,20 +69,21 @@ def done(istrain=True):
         ffm_model.setSigmoid()  # Convert output to 0-1
         ffm_model.predict(FLAGS.tmp_data_path +'ffm_model.out', FLAGS.tmp_data_path+'output.txt')
  
-        
+        fp=open(FLAGS.tmp_data_path+'output.txt','r')
+        dtrain_predprob=fp.readlines()
         logging.debug(ffm_model)
-#        y_pred = [round(value,4) for value in dtrain_predprob]
-#        logging.debug('-'*30)
-#        y_pred=np.array(y_pred).reshape(-1,1)
-#        logging.debug(y_pred.shape)
-#        test_id=pd.read_csv(FLAGS.test_id_path+'test_id.csv')
-#        logging.debug(test_id['id'].shape)
-#        test_id['id']=test_id['id'].map(int)
-#        test_id['click']=y_pred
-#        test_id.to_csv(FLAGS.out_data_path+'1-'+'-ffm_model.test.csv',index=False)
+        y_pred = [round(int(value),4) for value in dtrain_predprob]
+        logging.debug('-'*30)
+        y_pred=np.array(y_pred).reshape(-1,1)
+        logging.debug(y_pred.shape)
+        test_id=pd.read_csv(FLAGS.test_id_path+'test_id.csv')
+        logging.debug(test_id['id'].shape)
+        test_id['id']=test_id['id'].map(int)
+        test_id['click']=y_pred
+        test_id.to_csv(FLAGS.out_data_path+'1-'+'-ffm_model.test.csv',index=False)
         
         
 if __name__ == "__main__":
-    done()
+#    done()
     done(False)
 
