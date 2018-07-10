@@ -74,8 +74,8 @@ output = FLAGS.output_dir
 
 train_data_ont_hot()
 
-vali_data_ont_hot()
+#vali_data_ont_hot()
 
-test_data_ont_hot()
+#test_data_ont_hot()
 
 

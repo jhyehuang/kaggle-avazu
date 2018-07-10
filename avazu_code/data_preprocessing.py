@@ -563,7 +563,7 @@ def train_data_ont_hot(seed=100):
     train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/click.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
-#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join_cnt.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join_cnt.csv')
     logging.debug(train_save.columns)
 #    logging.debug(train_save['id'])
 
@@ -585,6 +585,7 @@ def train_data_ont_hot(seed=100):
     for feature_index,feature in enumerate(features):
         def set_field_feature_value(row):
             return "%d:%d:%d" % (feature_index,row, 1)
+        logging.debug(feature+':'+str(train_save[feature].max()))
         now=time.time()
         logging.debug(feature + ' Format Converting begin in time:...')
         logging.debug(now)
