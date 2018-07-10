@@ -56,7 +56,7 @@ def done(istrain=True):
         logging.debug("to save validation predictions ...")
 #        ret=dump(ffm_model, FLAGS.out_data_path+'1-'+'-ffm_model.model.joblib_dat') 
 #        logging.debug(ret)
-        logging.debug(ffm_model.weights)        
+        logging.debug(ffm_model)        
     else:
 
 #        ffm_model = load(FLAGS.out_data_path+'1-'+'-ffm_model.model.joblib_dat')
