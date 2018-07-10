@@ -640,7 +640,7 @@ def train_data_ont_hot(seed=100):
     with open(fp, 'w') as f:
         for row_no,row in enumerate(train_save.values):
             logging.debug(row)
-            row=list(row)
+            row=[str(x) for x in row]
             line=' '.join(row)+'\n'
             f.write(line)
     logging.debug('finish convert,the cost time is ')
