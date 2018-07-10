@@ -622,9 +622,14 @@ def train_data_ont_hot(seed=100):
         pass    
     features = list(train_save.columns)
     for feature in features:
+        now=time.time()
+        logging.debug(feature + 'Format Converting begin in time:...')
+        logging.debug(now)
         max_ = train_save[feature].max()
         train_save[feature] = (train_save[feature] - max_) * (-1)
         train_save[feature]=train_save[feature].apply(set_field_feature_value)
+        logging.debug(feature + 'finish convert,the cost time is ')
+        logging.debug(time.time()-now)
 #        one_col=pandas_onehot(train_save.loc[:,feature],feature)
 #        logging.debug(one_col.shape)
 #        col_one_hot(one_col,feature)
