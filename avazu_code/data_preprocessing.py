@@ -584,7 +584,7 @@ def col_one_hot(train,one_field):
             logging.debug(row)
             for i in range(1, len(row)):
                 if row[i]!=0:
-                    line += ' ' + "%d:%d" % (field_index[i], row[i]) + ' '
+                    line += ' ' + "%d:%d:%d:" % (one_field,feature_index[i], row[i]) + ' '
             line+='\n'
             f.write(line)
     logging.debug('finish convert,the cost time is ')
