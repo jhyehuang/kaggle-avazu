@@ -84,6 +84,6 @@ def done(istrain=True):
         
         
 if __name__ == "__main__":
-#    done()
+    done()
     done(False)
 
