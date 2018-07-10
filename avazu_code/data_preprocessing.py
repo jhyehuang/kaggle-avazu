@@ -624,24 +624,24 @@ def train_data_ont_hot(seed=100):
         def set_field_feature_value(row):
             return "%d:%d:%d" % (feature_index,row, 1)
         now=time.time()
-        logging.debug(feature + 'Format Converting begin in time:...')
+        logging.debug(feature + ' Format Converting begin in time:...')
         logging.debug(now)
         max_ = train_save[feature].max()
         train_save[feature] = (train_save[feature] - max_) * (-1)
         train_save[feature]=train_save[feature].apply(set_field_feature_value)
-        train_save['label']=y_train
-        logging.debug(feature + 'finish convert,the cost time is ')
+#        train_save['label']=y_train
+        logging.debug(feature + ' finish convert,the cost time is ')
         logging.debug(time.time()-now)
 #        one_col=pandas_onehot(train_save.loc[:,feature],feature)
 #        logging.debug(one_col.shape)
 #        col_one_hot(one_col,feature)
 #        del one_col
-    fp=FLAGS.tmp_data_path +'-ont_hot_train.libffm.txt'
+    fp=FLAGS.tmp_data_path +'ont_hot_train.libffm.txt'
     with open(fp, 'w') as f:
-        for row_no,row in enumerate(train_save.values):
+        for y,row in zip(y_train.values,train_save.values):
             logging.debug(row)
             row=[str(x) for x in row]
-            line=' '.join(row)+'\n'
+            line=str(y)+' '.join(row)+'\n'
             f.write(line)
     logging.debug('finish convert,the cost time is ')
     logging.debug(time.time()-now)
