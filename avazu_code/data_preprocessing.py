@@ -578,8 +578,8 @@ def col_one_hot(train,one_field):
 
     fp=FLAGS.tmp_data_path +one_field+'-ont_hot_train.libffm.txt'
     with open(fp, 'w') as f:
-        for row in train.values:
-            line =str(row[0])          
+        for row_no,row in enumerate(train.values):
+            line =str(row_no)          
 #            row= enc.transform(row).toarray()
             logging.debug(row)
             for i in range(1, len(row)):
