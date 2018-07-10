@@ -45,10 +45,10 @@ param.update(ftrl_param)
 
 def done(istrain=True):
     ### 开始训练
+    ffm_model = xl.create_ffm()
     logging.debug('设置参数')
     if istrain:
         logging.debug("开始训练")                
-        ffm_model = xl.create_ffm()
         ffm_model.setTrain(FLAGS.tmp_data_path +'ont_hot_train.libffm.csv')
         ffm_model.setValidate(FLAGS.tmp_data_path +'ont_hot_train.libffm.csv')
         ffm_model.fit(param, FLAGS.tmp_data_path +'ffm_model.out')
