@@ -49,7 +49,7 @@ def done(istrain=True):
     if istrain:
         logging.debug("开始训练")                
         ffm_model = xl.FFMModel(model_type='ffm')
-        ffm_model.fit(FLAGS.tmp_data_path +'ont_hot_train.libffm.csv', eval_set=FLAGS.tmp_data_path +'ont_hot_train.libffm.csv')
+        ffm_model.fit(param,FLAGS.tmp_data_path +'ont_hot_train.libffm.csv', eval_set=FLAGS.tmp_data_path +'ont_hot_train.libffm.csv')
         
         logging.debug("to save validation predictions ...")
         ret=dump(ffm_model, FLAGS.out_data_path+'1-'+'-ffm_model.model.joblib_dat') 
