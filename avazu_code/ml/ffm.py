@@ -26,8 +26,8 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
 
 param = {'task':'binary', 'lr':0.01, 'lambda':0.002,'epoch':10,
-         'metric':'acc','k':4,
-         'opt':'sgd'}
+         'metric':'acc','k':8,
+         'opt':'ftrl'}
 
 #param = {'task':'binary', 'lr':0.2}
 #param = {'task':'binary', 'lr':0.5}
@@ -95,7 +95,7 @@ def done(op_type='istrain'):
         
         
 if __name__ == "__main__":
-#    done()
-    done('cv')
-#    done(False)
+    done()
+#    done('cv')
+    done(False)
 
