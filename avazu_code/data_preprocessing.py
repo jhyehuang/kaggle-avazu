@@ -548,7 +548,7 @@ def pandas_onehot(df, col):
     df = pd.get_dummies(df, columns=col)
     return df
 
-def sklearn_onehoot(df):
+def sklearn_onehoot(df,col):
     enc = OneHotEncoder()
     enc.fit(df)  
     data = enc.transform(df).toarray()
@@ -568,7 +568,7 @@ def col_one_hot(train,one_field):
     field_index = [0]*d
     field = []
     for col in columns:
-        field.append(col.split('_')[0])
+        field.append(col)
     index = -1
     for i in range(d):
         if i==0 or field[i]!=field[i-1]:
