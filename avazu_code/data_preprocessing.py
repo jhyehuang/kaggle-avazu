@@ -622,7 +622,7 @@ def train_data_ont_hot(seed=100):
     features = list(train_save.columns)
     for feature in features:
         def set_field_feature_value(row):
-            return ' ' + "%s:%d:%d:" % (feature,row.values, 1)
+            return ' ' + "%s:%d:%d:" % (feature,row, 1)
         now=time.time()
         logging.debug(feature + 'Format Converting begin in time:...')
         logging.debug(now)
