@@ -50,7 +50,7 @@ def done(istrain=True):
     if istrain:
         logging.debug("开始训练")                
         ffm_model.setTrain(FLAGS.tmp_data_path +'ont_hot_train.libffm.csv')
-        ffm_model.setValidate(FLAGS.tmp_data_path +'ont_hot_train.libffm.csv')
+        ffm_model.setValidate(FLAGS.tmp_data_path +'ont_hot_vali.libffm.csv')
         ffm_model.fit(param, FLAGS.tmp_data_path +'ffm_model.out')
         
         logging.debug("to save validation predictions ...")
@@ -80,7 +80,7 @@ def done(istrain=True):
         logging.debug(test_id['id'].shape)
         test_id['id']=test_id['id'].map(int)
         test_id['click']=y_pred
-        test_id.to_csv(FLAGS.out_data_path+'1-'+'-ffm_model.test.csv',index=False)
+        test_id.to_csv(FLAGS.out_data_path+'1-'+'ffm_model.test.csv',index=False)
         
         
 if __name__ == "__main__":

@@ -652,6 +652,63 @@ def train_data_ont_hot(seed=100):
     logging.debug(train_save.head(2))
     logging.debug(train_save.shape)
 
+def vali_data_ont_hot(seed=25):
+    train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/cat_features.csv',)
+    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/click.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join_cnt.csv')
+    logging.debug(train_save.columns)
+#    logging.debug(train_save['id'])
+
+#    logging.debug(test_save.shape)
+    logging.debug(train_save.shape)
+    try:
+        train_save.drop('id', axis=1,inplace = True)
+    except:
+        pass
+
+    
+    logging.debug(train_save.shape)
+    try:
+        y_train = train_save['click']
+        train_save.drop('click',axis=1,inplace=True)
+    except:
+        pass    
+    features = list(train_save.columns)
+    for feature_index,feature in enumerate(features):
+        def set_field_feature_value(row):
+            return "%d:%d:%d" % (feature_index,row, 1)
+        now=time.time()
+        logging.debug(feature + ' Format Converting begin in time:...')
+        logging.debug(now)
+        max_ = train_save[feature].max()
+        train_save[feature] = (train_save[feature] - max_) * (-1)
+        train_save[feature]=train_save[feature].apply(set_field_feature_value)
+#        train_save['label']=y_train
+        logging.debug(feature + ' finish convert,the cost time is ')
+        logging.debug(time.time()-now)
+#        one_col=pandas_onehot(train_save.loc[:,feature],feature)
+#        logging.debug(one_col.shape)
+#        col_one_hot(one_col,feature)
+#        del one_col
+    fp=FLAGS.tmp_data_path +'ont_hot_vali.libffm.csv'
+    train_save=pd.concat([y_train,train_save],axis = 1)
+#    with open(fp, 'w') as f:
+#        for y,row in zip(y_train.values,train_save.values):
+#            logging.debug(row)
+#            row=[str(x) for x in row]
+#            line=str(y)+' '+' '.join(row)+'\n'
+#            f.write(line)
+    train_save.to_csv(fp, sep=' ', header=False, index=False)
+    logging.debug('finish convert,the cost time is ')
+    logging.debug(time.time()-now)
+    logging.debug('[Done]')
+    
+    logging.debug(train_save.head(2))
+    logging.debug(train_save.shape)
+
 def test_data_ont_hot():
     test_save = pd.read_csv(FLAGS.tmp_data_path +'test/cat_features.csv',)
     test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/date_list.csv')
