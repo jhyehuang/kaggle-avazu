@@ -27,7 +27,7 @@ logging.basicConfig(
 
 param = {'task':'binary', 'lr':0.01, 'lambda':0.002,'epoch':10,
          'metric':'acc','k':4,
-         'opt':'adagrad'}
+         'opt':'sgd'}
 
 #param = {'task':'binary', 'lr':0.2}
 #param = {'task':'binary', 'lr':0.5}
@@ -54,6 +54,7 @@ def done(istrain=True):
         logging.debug("开始训练")                
         ffm_model.setTrain(FLAGS.tmp_data_path +'ont_hot_train.libffm.csv')
         ffm_model.setValidate(FLAGS.tmp_data_path +'ont_hot_vali.libffm.csv')
+        ffm_model.disableEarlyStop()
         ffm_model.fit(param, FLAGS.tmp_data_path +'ffm_model.out')
         
         logging.debug("to save validation predictions ...")
