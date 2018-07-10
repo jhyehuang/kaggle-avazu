@@ -636,13 +636,15 @@ def train_data_ont_hot(seed=100):
 #        logging.debug(one_col.shape)
 #        col_one_hot(one_col,feature)
 #        del one_col
-    fp=FLAGS.tmp_data_path +'ont_hot_train.libffm.txt'
-    with open(fp, 'w') as f:
-        for y,row in zip(y_train.values,train_save.values):
-            logging.debug(row)
-            row=[str(x) for x in row]
-            line=str(y)+' '+' '.join(row)+'\n'
-            f.write(line)
+    fp=FLAGS.tmp_data_path +'ont_hot_train.libffm.csv'
+    train_save=pd.concat([y_train,train_save],axis = 1)
+#    with open(fp, 'w') as f:
+#        for y,row in zip(y_train.values,train_save.values):
+#            logging.debug(row)
+#            row=[str(x) for x in row]
+#            line=str(y)+' '+' '.join(row)+'\n'
+#            f.write(line)
+    train_save.to_csv(fp, sep=' ', header=False, index=False)
     logging.debug('finish convert,the cost time is ')
     logging.debug(time.time()-now)
     logging.debug('[Done]')
