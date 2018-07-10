@@ -558,8 +558,10 @@ def col_one_hot(train,one_field):
 #    enc = OneHotEncoder()
 #    enc.fit(train)
     
+    logging.debug(train.head(2))
+    logging.debug(one_field)
     now = time.time()
-    logging.debug('Format Converting begin in time:...',now)
+    logging.debug('Format Converting begin in time:...{1}',now)
     columns = train.columns.values
     d = len(columns)
     feature_index = [i for i in range(d)]
