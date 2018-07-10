@@ -561,7 +561,7 @@ def col_one_hot(train,one_field):
     logging.debug(train.head(2))
     logging.debug(one_field)
     now = time.time()
-    logging.debug('Format Converting begin in time:...',str(now))
+    logging.debug('Format Converting begin in time:...',str(int(now)))
     columns = train.columns.values
     d = len(columns)
     feature_index = [i for i in range(d)]
@@ -585,7 +585,7 @@ def col_one_hot(train,one_field):
                     line += ' ' + "%d:%d:%d" % (field_index[i], feature_index[i], row[i]) + ' '
             line+='\n'
             f.write(line)
-    logging.debug('finish convert,the cost time is ',str(time.time()-now))
+    logging.debug('finish convert,the cost time is ',str(int(time.time()-now)))
     logging.debug('[Done]')
     logging.debug()
 #    return  pd.DataFrame(train)
