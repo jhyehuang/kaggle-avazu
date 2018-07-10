@@ -584,7 +584,7 @@ def col_one_hot(train,one_field):
             logging.debug(row)
             for i in range(1, len(row)):
                 if row[i]!=0:
-                    line += ' ' + "%s:%d:%d:" % (one_field,feature_index[i], row[i]) + ' '
+                    line += ' ' + "%s:%d:%d:" % (one_field,train.values, 1) + ' '
             line+='\n'
             f.write(line)
     logging.debug('finish convert,the cost time is ')
@@ -593,6 +593,8 @@ def col_one_hot(train,one_field):
     logging.debug()
 #    return  pd.DataFrame(train)
 
+def set_field_feature_value(row):
+    return ' ' + "%s:%d:%d:" % (one_field,row.values, 1)
 
 def train_data_ont_hot(seed=100):
     train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/cat_features.csv',)
@@ -622,13 +624,14 @@ def train_data_ont_hot(seed=100):
     for feature in features:
         max_ = train_save[feature].max()
         train_save[feature] = (train_save[feature] - max_) * (-1)
-        one_col=pandas_onehot(train_save.loc[:,feature],feature)
-        logging.debug(one_col.shape)
-        col_one_hot(one_col,feature)
-        del one_col
+        train_save[feature]=train_save[feature].apply(set_field_feature_value)
+#        one_col=pandas_onehot(train_save.loc[:,feature],feature)
+#        logging.debug(one_col.shape)
+#        col_one_hot(one_col,feature)
+#        del one_col
 
-#    logging.debug(train_save.head(2))
-#    logging.debug(train_save.shape)
+    logging.debug(train_save.head(2))
+    logging.debug(train_save.shape)
 
 
 
