@@ -72,4 +72,6 @@ output = FLAGS.output_dir
 
 # one hot
 
-train_data_ont_hot()
+#train_data_ont_hot()
+
+test_data_ont_hot()
