@@ -26,7 +26,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
 
 param = {'task':'binary', 'lr':0.2, 'lambda':0.002,'epoch':10,
-         'metric':['acc','log_loss'],'k':4,
+         'metric':'log_loss','k':4,
          'opt':'ftrl'}
 
 #param = {'task':'binary', 'lr':0.2}
