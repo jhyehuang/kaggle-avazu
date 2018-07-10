@@ -25,23 +25,23 @@ from flags import FLAGS, unparsed
 logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
 
-#param = {'task':'binary', 'lr':0.2, 'lambda':0.002,'epoch':10,
-#         'metric':'acc','k':4,
-#         'opt':'ftrl'}
+param = {'task':'binary', 'lr':0.2, 'lambda':0.002,'epoch':10,
+         'metric':'acc','k':4,
+         'opt':'ftrl'}
 
-param = {'task':'binary', 'lr':0.2}
+#param = {'task':'binary', 'lr':0.2}
 #param = {'task':'binary', 'lr':0.5}
 #param = {'task':'binary', 'lr':0.01}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.01}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.02}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.002}
-#ftrl_param = {'alpha':0.002, 'beta':0.8, 'lambda_1':0.001, 'lambda_2': 1.0}
+ftrl_param = {'alpha':0.002, 'beta':0.8, 'lambda_1':0.001, 'lambda_2': 1.0}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'k':2}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'k':4}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'k':5}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'k':8}
 
-#param.update(ftrl_param)
+param.update(ftrl_param)
 
 def done(istrain=True):
     ### 开始训练
@@ -54,31 +54,35 @@ def done(istrain=True):
         ffm_model.fit(param, FLAGS.tmp_data_path +'ffm_model.out')
         
         logging.debug("to save validation predictions ...")
-        ret=dump(ffm_model, FLAGS.out_data_path+'1-'+'-ffm_model.model.joblib_dat') 
-        logging.debug(ret)
+#        ret=dump(ffm_model, FLAGS.out_data_path+'1-'+'-ffm_model.model.joblib_dat') 
+#        logging.debug(ret)
         logging.debug(ffm_model.weights)        
     else:
 
-        ffm_model = load(FLAGS.out_data_path+'1-'+'-ffm_model.model.joblib_dat')
+#        ffm_model = load(FLAGS.out_data_path+'1-'+'-ffm_model.model.joblib_dat')
 #        logging.debug(gbm.get_params())
         ### 线下预测
+
         test_save=FLAGS.tmp_data_path +'ont_hot_test.libffm.csv'
         logging.debug ("预测")
-        dtrain_predprob = ffm_model.predict(test_save) # 输出概率
+        ffm_model.setTest(test_save)  # Test data
+        ffm_model.setSigmoid()  # Convert output to 0-1
+        ffm_model.predict(FLAGS.tmp_data_path +'ffm_model.out', FLAGS.tmp_data_path+'output.txt')
+ 
         
-        logging.debug(dtrain_predprob)
-        y_pred = [round(value,4) for value in dtrain_predprob]
-        logging.debug('-'*30)
-        y_pred=np.array(y_pred).reshape(-1,1)
-        logging.debug(y_pred.shape)
-        test_id=pd.read_csv(FLAGS.test_id_path+'test_id.csv')
-        logging.debug(test_id['id'].shape)
-        test_id['id']=test_id['id'].map(int)
-        test_id['click']=y_pred
-        test_id.to_csv(FLAGS.out_data_path+'1-'+'-ffm_model.test.csv',index=False)
+        logging.debug(ffm_model)
+#        y_pred = [round(value,4) for value in dtrain_predprob]
+#        logging.debug('-'*30)
+#        y_pred=np.array(y_pred).reshape(-1,1)
+#        logging.debug(y_pred.shape)
+#        test_id=pd.read_csv(FLAGS.test_id_path+'test_id.csv')
+#        logging.debug(test_id['id'].shape)
+#        test_id['id']=test_id['id'].map(int)
+#        test_id['click']=y_pred
+#        test_id.to_csv(FLAGS.out_data_path+'1-'+'-ffm_model.test.csv',index=False)
         
         
 if __name__ == "__main__":
     done()
-#    done(False)
+    done(False)
 
