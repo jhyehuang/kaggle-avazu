@@ -155,8 +155,8 @@ def new_features_w( is_train=True):
         day_v_before = src_data.ix[src_data.one_day.values < day_v, :].copy()
     
         #当前天的记录，作为校验集
-        day_v_str(now) = src_data.ix[src_data.one_day.values == day_v, :]
-        logging.debug("Validation day:", day_v, ", train data shape:", day_v_before.shape, ", validation data shape:", day_v_str(now).shape)
+        day_v_now = src_data.ix[src_data.one_day.values == day_v, :]
+        logging.debug("Validation day:", day_v, ", train data shape:", day_v_before.shape, ", validation data shape:", day_v_now.shape)
     
         #初始化每个样本的y的先验 都等于 平均click率
         pred_prev = day_v_before.click.values.mean() * np.ones(day_v_before.shape[0])
@@ -177,12 +177,12 @@ def new_features_w( is_train=True):
             pred1 = day_v_before.click.values.mean()
             for vn in new_expvn:
                 logging.debug("="*20, "merge", day_v, vn)
-                diff1 = mergeLeaveOneOut2(day_v_before, day_v_str(now), vn)
+                diff1 = mergeLeaveOneOut2(day_v_before, day_v_now, vn)
                 pred1 *= diff1
                 exp2_dict[vn][days_npa == day_v] = diff1
             
             pred1 *= day_v_before.click.values.mean() / pred1.mean()
-            logging.debug("logloss = ", logloss(pred1, day_v_str(now).click.values))
+            logging.debug("logloss = ", logloss(pred1, day_v_now.click.values))
 
     t1=pd.DataFrame(np.zeros(src_data.shape[0]),columns=['click',])
     for vn in new_expvn:
@@ -560,7 +560,7 @@ def col_one_hot(train,one_field):
     
     logging.debug(train.head(2))
     logging.debug(one_field)
-    str(now) = time.time()
+    now = time.time()
     logging.debug('Format Converting begin in time:...',str(now))
     columns = train.columns.values
     d = len(columns)
@@ -585,7 +585,7 @@ def col_one_hot(train,one_field):
                     line += ' ' + "%d:%d:%d" % (field_index[i], feature_index[i], row[i]) + ' '
             line+='\n'
             f.write(line)
-    logging.debug('finish convert,the cost time is ',time.time()-str(now))
+    logging.debug('finish convert,the cost time is ',str(time.time()-now))
     logging.debug('[Done]')
     logging.debug()
 #    return  pd.DataFrame(train)
