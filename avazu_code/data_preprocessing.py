@@ -619,7 +619,7 @@ def train_data_ont_hot(seed=100):
     for feature in features:
         max_ = train_save[feature].max()
         train_save[feature] = (train_save[feature] - max_) * (-1)
-        one_col=pandas_onehot(train_save[feature],feature)
+        one_col=pandas_onehot(train_save.iloc[:,feature],feature)
         logging.debug(one_col.shape)
         col_one_hot(one_col,feature)
         del one_col
