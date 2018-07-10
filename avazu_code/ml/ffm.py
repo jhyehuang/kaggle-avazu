@@ -48,7 +48,7 @@ def done(istrain=True):
     logging.debug('设置参数')
     if istrain:
         logging.debug("开始训练")                
-        ffm_model = xl.FFMModel(param)
+        ffm_model = xl.FFMModel(param,model_type='ffm')
         ffm_model.fit(FLAGS.tmp_data_path +'ont_hot_train.libffm.csv', eval_set=FLAGS.tmp_data_path +'ont_hot_train.libffm.csv')
         
         logging.debug("to save validation predictions ...")
