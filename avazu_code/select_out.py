@@ -28,6 +28,7 @@ logging.basicConfig(
 #rf_pred = load(utils.tmp_data_path + '1-fin-xgboost.test.csv')
 xgb_pred = pd.read_csv(FLAGS.tmp_data_path + '1-fin-xgboost.test.csv')
 lgbm_pred = pd.read_csv(FLAGS.tmp_data_path + '1-799-lgbm.test.csv')
+ffm_pred = pd.read_csv(FLAGS.tmp_data_path + '1-ffm_model.test.csv')
 logging.debug( "src data loaded")
 pred=[]
 logging.debug( xgb_pred.shape)
@@ -57,8 +58,10 @@ def select_pred(xgb_pred_value,lgbm_pred_value):
     return pred_value
 
 new_pd=pd.merge(xgb_pred,lgbm_pred,on='id')
+new_pd=pd.merge(new_pd,ffm_pred,on='id')
 logging.debug( new_pd.head(5))
 new_pd['pred']=new_pd.apply(lambda row: select_pred(row['click_x'], row['click_y']), axis=1)
+new_pd['pred']=new_pd.apply(lambda row: select_pred(row['pred'], row['click_z']), axis=1)
 pred=np.array(pred).reshape(-1,1)
 test_id=pd.read_csv(FLAGS.tmp_data_path+'test_id.csv')
 logging.debug(test_id['id'].shape)
