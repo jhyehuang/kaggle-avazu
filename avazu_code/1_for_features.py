@@ -19,7 +19,7 @@ from ml.ml_utils import *
 from data_preprocessing import *
 
 import logging
-
+import gc
 
 logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
@@ -33,53 +33,57 @@ output = FLAGS.output_dir
 # 将train 和test 拼到一起
 train=concat_train_test(FLAGS.src_train_path,FLAGS.src_test_path)
 
+gc.collect()
 
 
 # a2
 #计算 特征中 1、不同用户出现的次数 2、不同设备id出现的次数 3、不同ip出现的次数 4、不同用户不同时间出现的次数
 #将训练集写入硬盘
-file1,file2,file3=one_line_data_preprocessing(train)  
-
+#file1,file2,file3=one_line_data_preprocessing(train)  
+#gc.collect()
 
 #a4
 #将点击数据按列写入硬盘
-#click_to_csv()
-
+click_to_csv()
+gc.collect()
 # a5
 # 类别特征之间每俩个特征进行拼接 组成新特征
-#new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path+file1,FLAGS.tmp_data_path+file2,FLAGS.tmp_data_path+file3)
-
+new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path+file1,FLAGS.tmp_data_path+file2,FLAGS.tmp_data_path+file3)
+gc.collect()
 
 
 # a6
 # 按照时间维度对 特征进行概率计算
 #features_by_chick()
-
+#gc.collect()
 
 
 # a7
 # ouwenzhang
 #ouwenzhang()
-
+#gc.collect()
 
 #a6
 #新特征 参随机选择5个特征，计算先验概率
 #new_features_w()
+#gc.collect()
 
 # 随机切割4个 500w的小数据集  调参
 #get_train_split()
-
+#gc.collect()
 
 #  将全部训练集 分割出来 
 #get_train_test_split()
-
+#gc.collect()
 
 # one hot
 
 #train_data_ont_hot()
+#gc.collect()
 
 #vali_data_ont_hot()
+#gc.collect()
 
 #test_data_ont_hot()
-
+#gc.collect()
 
