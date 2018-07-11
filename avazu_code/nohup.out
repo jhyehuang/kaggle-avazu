@@ -1,0 +1,556 @@
+2018-07-10 20:59:33,077 - DEBUG - data_preprocessing.py:205 - data1.shape:(5053621, 5)
+2018-07-10 20:59:33,077 - DEBUG - data_preprocessing.py:206 - data2.shape:(5053621, 5)
+2018-07-10 20:59:33,304 - DEBUG - data_preprocessing.py:209 - 结果.shape:(5053621, 10)
+2018-07-10 20:59:33,304 - DEBUG - data_preprocessing.py:210 - 耗时0.00014543533325195312
+2018-07-10 20:59:50,849 - DEBUG - data_preprocessing.py:205 - data1.shape:(5053621, 10)
+2018-07-10 20:59:50,850 - DEBUG - data_preprocessing.py:206 - data2.shape:(5053621, 60)
+2018-07-10 20:59:52,432 - DEBUG - data_preprocessing.py:209 - 结果.shape:(5053621, 70)
+2018-07-10 20:59:52,432 - DEBUG - data_preprocessing.py:210 - 耗时0.0001475811004638672
+2018-07-10 20:59:55,674 - DEBUG - data_preprocessing.py:205 - data1.shape:(5053621, 70)
+2018-07-10 20:59:55,675 - DEBUG - data_preprocessing.py:206 - data2.shape:(5053621, 11)
+2018-07-10 21:00:00,471 - DEBUG - data_preprocessing.py:209 - 结果.shape:(5053621, 81)
+2018-07-10 21:00:00,471 - DEBUG - data_preprocessing.py:210 - 耗时0.00014328956604003906
+2018-07-10 21:00:13,764 - DEBUG - data_preprocessing.py:205 - data1.shape:(5053621, 81)
+2018-07-10 21:00:13,764 - DEBUG - data_preprocessing.py:206 - data2.shape:(5053621, 20)
+2018-07-10 21:00:19,420 - DEBUG - data_preprocessing.py:209 - 结果.shape:(5053621, 101)
+2018-07-10 21:00:19,420 - DEBUG - data_preprocessing.py:210 - 耗时0.00014662742614746094
+2018-07-10 21:00:19,492 - DEBUG - data_preprocessing.py:567 - Index(['C14', 'C17', 'C21', 'device_model', 'site_domain', 'one_day',
+       'one_day_hour', 'day_hour_prev', 'day_hour_next', 'is_work_day',
+       ...
+       'exptv_C17C21', 'cnttv_C17C21', 'exptv_C17site_domain',
+       'cnttv_C17site_domain', 'exptv_C21device_model',
+       'cnttv_C21device_model', 'exptv_C21site_domain', 'cnttv_C21site_domain',
+       'exptv_site_domaindevice_model', 'cnttv_site_domaindevice_model'],
+      dtype='object', length=101)
+2018-07-10 21:00:19,493 - DEBUG - data_preprocessing.py:571 - (5053621, 101)
+2018-07-10 21:00:19,493 - DEBUG - data_preprocessing.py:578 - (5053621, 101)
+2018-07-10 21:00:25,852 - DEBUG - data_preprocessing.py:588 - C14:cnt:24052
+2018-07-10 21:00:25,852 - DEBUG - data_preprocessing.py:590 - C14 Format Converting begin in time:...
+2018-07-10 21:00:25,852 - DEBUG - data_preprocessing.py:591 - 1531227625.852276
+2018-07-10 21:00:30,013 - DEBUG - data_preprocessing.py:596 - C14 finish convert,the cost time is 
+2018-07-10 21:00:30,013 - DEBUG - data_preprocessing.py:597 - 4.160955190658569
+2018-07-10 21:00:30,036 - DEBUG - data_preprocessing.py:588 - C17:cnt:2758
+2018-07-10 21:00:30,036 - DEBUG - data_preprocessing.py:590 - C17 Format Converting begin in time:...
+2018-07-10 21:00:30,036 - DEBUG - data_preprocessing.py:591 - 1531227630.036558
+2018-07-10 21:00:33,623 - DEBUG - data_preprocessing.py:596 - C17 finish convert,the cost time is 
+2018-07-10 21:00:33,624 - DEBUG - data_preprocessing.py:597 - 3.587453603744507
+2018-07-10 21:00:33,646 - DEBUG - data_preprocessing.py:588 - C21:cnt:255
+2018-07-10 21:00:33,646 - DEBUG - data_preprocessing.py:590 - C21 Format Converting begin in time:...
+2018-07-10 21:00:33,646 - DEBUG - data_preprocessing.py:591 - 1531227633.6467934
+2018-07-10 21:00:37,085 - DEBUG - data_preprocessing.py:596 - C21 finish convert,the cost time is 
+2018-07-10 21:00:37,085 - DEBUG - data_preprocessing.py:597 - 3.4391279220581055
+2018-07-10 21:00:37,108 - DEBUG - data_preprocessing.py:588 - device_model:cnt:8301
+2018-07-10 21:00:37,108 - DEBUG - data_preprocessing.py:590 - device_model Format Converting begin in time:...
+2018-07-10 21:00:37,108 - DEBUG - data_preprocessing.py:591 - 1531227637.1087604
+2018-07-10 21:00:40,651 - DEBUG - data_preprocessing.py:596 - device_model finish convert,the cost time is 
+2018-07-10 21:00:40,651 - DEBUG - data_preprocessing.py:597 - 3.542632818222046
+2018-07-10 21:00:40,673 - DEBUG - data_preprocessing.py:588 - site_domain:cnt:7911
+2018-07-10 21:00:40,673 - DEBUG - data_preprocessing.py:590 - site_domain Format Converting begin in time:...
+2018-07-10 21:00:40,673 - DEBUG - data_preprocessing.py:591 - 1531227640.673895
+2018-07-10 21:00:44,189 - DEBUG - data_preprocessing.py:596 - site_domain finish convert,the cost time is 
+2018-07-10 21:00:44,189 - DEBUG - data_preprocessing.py:597 - 3.5153286457061768
+2018-07-10 21:00:44,212 - DEBUG - data_preprocessing.py:588 - one_day:cnt:1
+2018-07-10 21:00:44,212 - DEBUG - data_preprocessing.py:590 - one_day Format Converting begin in time:...
+2018-07-10 21:00:44,212 - DEBUG - data_preprocessing.py:591 - 1531227644.212461
+2018-07-10 21:00:47,560 - DEBUG - data_preprocessing.py:596 - one_day finish convert,the cost time is 
+2018-07-10 21:00:47,560 - DEBUG - data_preprocessing.py:597 - 3.347825050354004
+2018-07-10 21:00:47,583 - DEBUG - data_preprocessing.py:588 - one_day_hour:cnt:0
+2018-07-10 21:00:47,583 - DEBUG - data_preprocessing.py:590 - one_day_hour Format Converting begin in time:...
+2018-07-10 21:00:47,583 - DEBUG - data_preprocessing.py:591 - 1531227647.5833964
+2018-07-10 21:00:50,917 - DEBUG - data_preprocessing.py:596 - one_day_hour finish convert,the cost time is 
+2018-07-10 21:00:50,917 - DEBUG - data_preprocessing.py:597 - 3.334507703781128
+2018-07-10 21:00:50,940 - DEBUG - data_preprocessing.py:588 - day_hour_prev:cnt:-1
+2018-07-10 21:00:50,940 - DEBUG - data_preprocessing.py:590 - day_hour_prev Format Converting begin in time:...
+2018-07-10 21:00:50,940 - DEBUG - data_preprocessing.py:591 - 1531227650.940817
+2018-07-10 21:00:54,244 - DEBUG - data_preprocessing.py:596 - day_hour_prev finish convert,the cost time is 
+2018-07-10 21:00:54,244 - DEBUG - data_preprocessing.py:597 - 3.30383563041687
+2018-07-10 21:00:54,267 - DEBUG - data_preprocessing.py:588 - day_hour_next:cnt:1
+2018-07-10 21:00:54,267 - DEBUG - data_preprocessing.py:590 - day_hour_next Format Converting begin in time:...
+2018-07-10 21:00:54,267 - DEBUG - data_preprocessing.py:591 - 1531227654.267289
+2018-07-10 21:00:57,540 - DEBUG - data_preprocessing.py:596 - day_hour_next finish convert,the cost time is 
+2018-07-10 21:00:57,540 - DEBUG - data_preprocessing.py:597 - 3.273603677749634
+2018-07-10 21:00:57,563 - DEBUG - data_preprocessing.py:588 - is_work_day:cnt:1
+2018-07-10 21:00:57,563 - DEBUG - data_preprocessing.py:590 - is_work_day Format Converting begin in time:...
+2018-07-10 21:00:57,563 - DEBUG - data_preprocessing.py:591 - 1531227657.5631576
+2018-07-10 21:01:00,820 - DEBUG - data_preprocessing.py:596 - is_work_day finish convert,the cost time is 
+2018-07-10 21:01:00,820 - DEBUG - data_preprocessing.py:597 - 3.257112503051758
+2018-07-10 21:01:00,842 - DEBUG - data_preprocessing.py:588 - C1:cnt:1012
+2018-07-10 21:01:00,842 - DEBUG - data_preprocessing.py:590 - C1 Format Converting begin in time:...
+2018-07-10 21:01:00,842 - DEBUG - data_preprocessing.py:591 - 1531227660.8422496
+2018-07-10 21:01:04,105 - DEBUG - data_preprocessing.py:596 - C1 finish convert,the cost time is 
+2018-07-10 21:01:04,105 - DEBUG - data_preprocessing.py:597 - 3.2631676197052
+2018-07-10 21:01:04,127 - DEBUG - data_preprocessing.py:588 - C15:cnt:1024
+2018-07-10 21:01:04,127 - DEBUG - data_preprocessing.py:590 - C15 Format Converting begin in time:...
+2018-07-10 21:01:04,127 - DEBUG - data_preprocessing.py:591 - 1531227664.1272948
+2018-07-10 21:01:07,492 - DEBUG - data_preprocessing.py:596 - C15 finish convert,the cost time is 
+2018-07-10 21:01:07,493 - DEBUG - data_preprocessing.py:597 - 3.365755081176758
+2018-07-10 21:01:07,515 - DEBUG - data_preprocessing.py:588 - C16:cnt:1024
+2018-07-10 21:01:07,515 - DEBUG - data_preprocessing.py:590 - C16 Format Converting begin in time:...
+2018-07-10 21:01:07,515 - DEBUG - data_preprocessing.py:591 - 1531227667.5153956
+2018-07-10 21:01:10,861 - DEBUG - data_preprocessing.py:596 - C16 finish convert,the cost time is 
+2018-07-10 21:01:10,861 - DEBUG - data_preprocessing.py:597 - 3.3461058139801025
+2018-07-10 21:01:10,883 - DEBUG - data_preprocessing.py:588 - C18:cnt:3
+2018-07-10 21:01:10,883 - DEBUG - data_preprocessing.py:590 - C18 Format Converting begin in time:...
+2018-07-10 21:01:10,883 - DEBUG - data_preprocessing.py:591 - 1531227670.8836412
+2018-07-10 21:01:14,065 - DEBUG - data_preprocessing.py:596 - C18 finish convert,the cost time is 
+2018-07-10 21:01:14,065 - DEBUG - data_preprocessing.py:597 - 3.181896686553955
+2018-07-10 21:01:14,087 - DEBUG - data_preprocessing.py:588 - C19:cnt:1839
+2018-07-10 21:01:14,087 - DEBUG - data_preprocessing.py:590 - C19 Format Converting begin in time:...
+2018-07-10 21:01:14,087 - DEBUG - data_preprocessing.py:591 - 1531227674.0874283
+2018-07-10 21:01:17,387 - DEBUG - data_preprocessing.py:596 - C19 finish convert,the cost time is 
+2018-07-10 21:01:17,387 - DEBUG - data_preprocessing.py:597 - 3.3001224994659424
+2018-07-10 21:01:17,409 - DEBUG - data_preprocessing.py:588 - C20:cnt:100248
+2018-07-10 21:01:17,409 - DEBUG - data_preprocessing.py:590 - C20 Format Converting begin in time:...
+2018-07-10 21:01:17,409 - DEBUG - data_preprocessing.py:591 - 1531227677.4091876
+2018-07-10 21:01:20,725 - DEBUG - data_preprocessing.py:596 - C20 finish convert,the cost time is 
+2018-07-10 21:01:20,725 - DEBUG - data_preprocessing.py:597 - 3.3163859844207764
+2018-07-10 21:01:20,747 - DEBUG - data_preprocessing.py:588 - app_category:cnt:35
+2018-07-10 21:01:20,747 - DEBUG - data_preprocessing.py:590 - app_category Format Converting begin in time:...
+2018-07-10 21:01:20,747 - DEBUG - data_preprocessing.py:591 - 1531227680.7478497
+2018-07-10 21:01:23,886 - DEBUG - data_preprocessing.py:596 - app_category finish convert,the cost time is 
+2018-07-10 21:01:23,886 - DEBUG - data_preprocessing.py:597 - 3.1391005516052246
+2018-07-10 21:01:23,908 - DEBUG - data_preprocessing.py:588 - app_domain:cnt:577
+2018-07-10 21:01:23,908 - DEBUG - data_preprocessing.py:590 - app_domain Format Converting begin in time:...
+2018-07-10 21:01:23,909 - DEBUG - data_preprocessing.py:591 - 1531227683.9089766
+2018-07-10 21:01:27,157 - DEBUG - data_preprocessing.py:596 - app_domain finish convert,the cost time is 
+2018-07-10 21:01:27,157 - DEBUG - data_preprocessing.py:597 - 3.2485246658325195
+2018-07-10 21:01:27,179 - DEBUG - data_preprocessing.py:588 - app_id:cnt:9135
+2018-07-10 21:01:27,179 - DEBUG - data_preprocessing.py:590 - app_id Format Converting begin in time:...
+2018-07-10 21:01:27,179 - DEBUG - data_preprocessing.py:591 - 1531227687.1793768
+2018-07-10 21:01:30,420 - DEBUG - data_preprocessing.py:596 - app_id finish convert,the cost time is 
+2018-07-10 21:01:30,420 - DEBUG - data_preprocessing.py:597 - 3.2408642768859863
+2018-07-10 21:01:30,442 - DEBUG - data_preprocessing.py:588 - banner_pos:cnt:7
+2018-07-10 21:01:30,442 - DEBUG - data_preprocessing.py:590 - banner_pos Format Converting begin in time:...
+2018-07-10 21:01:30,442 - DEBUG - data_preprocessing.py:591 - 1531227690.4422843
+2018-07-10 21:01:33,516 - DEBUG - data_preprocessing.py:596 - banner_pos finish convert,the cost time is 
+2018-07-10 21:01:33,516 - DEBUG - data_preprocessing.py:597 - 3.0745773315429688
+2018-07-10 21:01:33,539 - DEBUG - data_preprocessing.py:588 - device_conn_type:cnt:5
+2018-07-10 21:01:33,539 - DEBUG - data_preprocessing.py:590 - device_conn_type Format Converting begin in time:...
+2018-07-10 21:01:33,539 - DEBUG - data_preprocessing.py:591 - 1531227693.5393758
+2018-07-10 21:01:36,577 - DEBUG - data_preprocessing.py:596 - device_conn_type finish convert,the cost time is 
+2018-07-10 21:01:36,577 - DEBUG - data_preprocessing.py:597 - 3.0382392406463623
+2018-07-10 21:01:36,599 - DEBUG - data_preprocessing.py:588 - device_id:cnt:2895971
+2018-07-10 21:01:36,599 - DEBUG - data_preprocessing.py:590 - device_id Format Converting begin in time:...
+2018-07-10 21:01:36,599 - DEBUG - data_preprocessing.py:591 - 1531227696.5994778
+2018-07-10 21:01:39,774 - DEBUG - data_preprocessing.py:596 - device_id finish convert,the cost time is 
+2018-07-10 21:01:39,775 - DEBUG - data_preprocessing.py:597 - 3.1756155490875244
+2018-07-10 21:01:39,797 - DEBUG - data_preprocessing.py:588 - device_ip:cnt:7338654
+2018-07-10 21:01:39,797 - DEBUG - data_preprocessing.py:590 - device_ip Format Converting begin in time:...
+2018-07-10 21:01:39,797 - DEBUG - data_preprocessing.py:591 - 1531227699.7973075
+2018-07-10 21:01:42,956 - DEBUG - data_preprocessing.py:596 - device_ip finish convert,the cost time is 
+2018-07-10 21:01:42,956 - DEBUG - data_preprocessing.py:597 - 3.159005880355835
+2018-07-10 21:01:42,977 - DEBUG - data_preprocessing.py:588 - device_type:cnt:5
+2018-07-10 21:01:42,977 - DEBUG - data_preprocessing.py:590 - device_type Format Converting begin in time:...
+2018-07-10 21:01:42,977 - DEBUG - data_preprocessing.py:591 - 1531227702.977873
+2018-07-10 21:01:45,959 - DEBUG - data_preprocessing.py:596 - device_type finish convert,the cost time is 
+2018-07-10 21:01:45,959 - DEBUG - data_preprocessing.py:597 - 2.981947183609009
+2018-07-10 21:01:45,982 - DEBUG - data_preprocessing.py:588 - hour:cnt:14103023
+2018-07-10 21:01:45,982 - DEBUG - data_preprocessing.py:590 - hour Format Converting begin in time:...
+2018-07-10 21:01:45,982 - DEBUG - data_preprocessing.py:591 - 1531227705.982217
+2018-07-10 21:01:49,073 - DEBUG - data_preprocessing.py:596 - hour finish convert,the cost time is 
+2018-07-10 21:01:49,073 - DEBUG - data_preprocessing.py:597 - 3.091254472732544
+2018-07-10 21:01:49,095 - DEBUG - data_preprocessing.py:588 - site_category:cnt:25
+2018-07-10 21:01:49,095 - DEBUG - data_preprocessing.py:590 - site_category Format Converting begin in time:...
+2018-07-10 21:01:49,095 - DEBUG - data_preprocessing.py:591 - 1531227709.0956013
+2018-07-10 21:01:52,061 - DEBUG - data_preprocessing.py:596 - site_category finish convert,the cost time is 
+2018-07-10 21:01:52,061 - DEBUG - data_preprocessing.py:597 - 2.966003894805908
+2018-07-10 21:01:52,083 - DEBUG - data_preprocessing.py:588 - site_id:cnt:4841
+2018-07-10 21:01:52,083 - DEBUG - data_preprocessing.py:590 - site_id Format Converting begin in time:...
+2018-07-10 21:01:52,083 - DEBUG - data_preprocessing.py:591 - 1531227712.0833132
+2018-07-10 21:01:55,146 - DEBUG - data_preprocessing.py:596 - site_id finish convert,the cost time is 
+2018-07-10 21:01:55,146 - DEBUG - data_preprocessing.py:597 - 3.063458204269409
+2018-07-10 21:01:55,168 - DEBUG - data_preprocessing.py:588 - uid:cnt:14015905
+2018-07-10 21:01:55,168 - DEBUG - data_preprocessing.py:590 - uid Format Converting begin in time:...
+2018-07-10 21:01:55,168 - DEBUG - data_preprocessing.py:591 - 1531227715.168773
+2018-07-10 21:01:58,232 - DEBUG - data_preprocessing.py:596 - uid finish convert,the cost time is 
+2018-07-10 21:01:58,232 - DEBUG - data_preprocessing.py:597 - 3.0635807514190674
+2018-07-10 21:01:58,254 - DEBUG - data_preprocessing.py:588 - uid_time:cnt:14015905
+2018-07-10 21:01:58,254 - DEBUG - data_preprocessing.py:590 - uid_time Format Converting begin in time:...
+2018-07-10 21:01:58,254 - DEBUG - data_preprocessing.py:591 - 1531227718.254835
+2018-07-10 21:02:01,291 - DEBUG - data_preprocessing.py:596 - uid_time finish convert,the cost time is 
+2018-07-10 21:02:01,291 - DEBUG - data_preprocessing.py:597 - 3.0367586612701416
+2018-07-10 21:02:01,313 - DEBUG - data_preprocessing.py:588 - device_id_cnt:cnt:37300009
+2018-07-10 21:02:01,313 - DEBUG - data_preprocessing.py:590 - device_id_cnt Format Converting begin in time:...
+2018-07-10 21:02:01,313 - DEBUG - data_preprocessing.py:591 - 1531227721.31328
+2018-07-10 21:02:04,210 - DEBUG - data_preprocessing.py:596 - device_id_cnt finish convert,the cost time is 
+2018-07-10 21:02:04,210 - DEBUG - data_preprocessing.py:597 - 2.897411823272705
+2018-07-10 21:02:04,232 - DEBUG - data_preprocessing.py:588 - device_ip_cnt:cnt:228637
+2018-07-10 21:02:04,233 - DEBUG - data_preprocessing.py:590 - device_ip_cnt Format Converting begin in time:...
+2018-07-10 21:02:04,233 - DEBUG - data_preprocessing.py:591 - 1531227724.2330208
+2018-07-10 21:02:07,212 - DEBUG - data_preprocessing.py:596 - device_ip_cnt finish convert,the cost time is 
+2018-07-10 21:02:07,213 - DEBUG - data_preprocessing.py:597 - 2.9800331592559814
+2018-07-10 21:02:07,234 - DEBUG - data_preprocessing.py:588 - uid_cnt:cnt:37238
+2018-07-10 21:02:07,234 - DEBUG - data_preprocessing.py:590 - uid_cnt Format Converting begin in time:...
+2018-07-10 21:02:07,234 - DEBUG - data_preprocessing.py:591 - 1531227727.2349348
+2018-07-10 21:02:10,177 - DEBUG - data_preprocessing.py:596 - uid_cnt finish convert,the cost time is 
+2018-07-10 21:02:10,177 - DEBUG - data_preprocessing.py:597 - 2.942709445953369
+2018-07-10 21:02:10,199 - DEBUG - data_preprocessing.py:588 - uid_time_cnt:cnt:37238
+2018-07-10 21:02:10,199 - DEBUG - data_preprocessing.py:590 - uid_time_cnt Format Converting begin in time:...
+2018-07-10 21:02:10,199 - DEBUG - data_preprocessing.py:591 - 1531227730.1998599
+2018-07-10 21:02:13,127 - DEBUG - data_preprocessing.py:596 - uid_time_cnt finish convert,the cost time is 
+2018-07-10 21:02:13,127 - DEBUG - data_preprocessing.py:597 - 2.927994966506958
+2018-07-10 21:02:13,149 - DEBUG - data_preprocessing.py:588 - top_10_app_id:cnt:1
+2018-07-10 21:02:13,150 - DEBUG - data_preprocessing.py:590 - top_10_app_id Format Converting begin in time:...
+2018-07-10 21:02:13,150 - DEBUG - data_preprocessing.py:591 - 1531227733.150048
+2018-07-10 21:02:15,888 - DEBUG - data_preprocessing.py:596 - top_10_app_id finish convert,the cost time is 
+2018-07-10 21:02:15,888 - DEBUG - data_preprocessing.py:597 - 2.738085985183716
+2018-07-10 21:02:15,910 - DEBUG - data_preprocessing.py:588 - top_25_app_id:cnt:1
+2018-07-10 21:02:15,910 - DEBUG - data_preprocessing.py:590 - top_25_app_id Format Converting begin in time:...
+2018-07-10 21:02:15,910 - DEBUG - data_preprocessing.py:591 - 1531227735.910343
+2018-07-10 21:02:18,628 - DEBUG - data_preprocessing.py:596 - top_25_app_id finish convert,the cost time is 
+2018-07-10 21:02:18,628 - DEBUG - data_preprocessing.py:597 - 2.718020439147949
+2018-07-10 21:02:18,649 - DEBUG - data_preprocessing.py:588 - top_5_app_id:cnt:1
+2018-07-10 21:02:18,649 - DEBUG - data_preprocessing.py:590 - top_5_app_id Format Converting begin in time:...
+2018-07-10 21:02:18,649 - DEBUG - data_preprocessing.py:591 - 1531227738.6498725
+2018-07-10 21:02:21,346 - DEBUG - data_preprocessing.py:596 - top_5_app_id finish convert,the cost time is 
+2018-07-10 21:02:21,346 - DEBUG - data_preprocessing.py:597 - 2.6965227127075195
+2018-07-10 21:02:21,368 - DEBUG - data_preprocessing.py:588 - top_50_app_id:cnt:1
+2018-07-10 21:02:21,369 - DEBUG - data_preprocessing.py:590 - top_50_app_id Format Converting begin in time:...
+2018-07-10 21:02:21,369 - DEBUG - data_preprocessing.py:591 - 1531227741.3690176
+2018-07-10 21:02:24,034 - DEBUG - data_preprocessing.py:596 - top_50_app_id finish convert,the cost time is 
+2018-07-10 21:02:24,034 - DEBUG - data_preprocessing.py:597 - 2.665334701538086
+2018-07-10 21:02:24,056 - DEBUG - data_preprocessing.py:588 - top_1_app_id:cnt:1
+2018-07-10 21:02:24,056 - DEBUG - data_preprocessing.py:590 - top_1_app_id Format Converting begin in time:...
+2018-07-10 21:02:24,056 - DEBUG - data_preprocessing.py:591 - 1531227744.056301
+2018-07-10 21:02:26,711 - DEBUG - data_preprocessing.py:596 - top_1_app_id finish convert,the cost time is 
+2018-07-10 21:02:26,711 - DEBUG - data_preprocessing.py:597 - 2.655021905899048
+2018-07-10 21:02:26,732 - DEBUG - data_preprocessing.py:588 - top_2_app_id:cnt:1
+2018-07-10 21:02:26,733 - DEBUG - data_preprocessing.py:590 - top_2_app_id Format Converting begin in time:...
+2018-07-10 21:02:26,733 - DEBUG - data_preprocessing.py:591 - 1531227746.7330256
+2018-07-10 21:02:29,350 - DEBUG - data_preprocessing.py:596 - top_2_app_id finish convert,the cost time is 
+2018-07-10 21:02:29,350 - DEBUG - data_preprocessing.py:597 - 2.617872714996338
+2018-07-10 21:02:29,372 - DEBUG - data_preprocessing.py:588 - top_15_app_id:cnt:1
+2018-07-10 21:02:29,372 - DEBUG - data_preprocessing.py:590 - top_15_app_id Format Converting begin in time:...
+2018-07-10 21:02:29,372 - DEBUG - data_preprocessing.py:591 - 1531227749.3723989
+2018-07-10 21:02:31,967 - DEBUG - data_preprocessing.py:596 - top_15_app_id finish convert,the cost time is 
+2018-07-10 21:02:31,967 - DEBUG - data_preprocessing.py:597 - 2.595127820968628
+2018-07-10 21:02:31,989 - DEBUG - data_preprocessing.py:588 - top_20_app_id:cnt:1
+2018-07-10 21:02:31,989 - DEBUG - data_preprocessing.py:590 - top_20_app_id Format Converting begin in time:...
+2018-07-10 21:02:31,989 - DEBUG - data_preprocessing.py:591 - 1531227751.9896386
+2018-07-10 21:02:34,562 - DEBUG - data_preprocessing.py:596 - top_20_app_id finish convert,the cost time is 
+2018-07-10 21:02:34,567 - DEBUG - data_preprocessing.py:597 - 2.577820301055908
+2018-07-10 21:02:34,604 - DEBUG - data_preprocessing.py:588 - top_30_app_id:cnt:1
+2018-07-10 21:02:34,604 - DEBUG - data_preprocessing.py:590 - top_30_app_id Format Converting begin in time:...
+2018-07-10 21:02:34,604 - DEBUG - data_preprocessing.py:591 - 1531227754.6044636
+2018-07-10 21:02:37,187 - DEBUG - data_preprocessing.py:596 - top_30_app_id finish convert,the cost time is 
+2018-07-10 21:02:37,187 - DEBUG - data_preprocessing.py:597 - 2.5829031467437744
+2018-07-10 21:02:37,209 - DEBUG - data_preprocessing.py:588 - top_10_site_id:cnt:1
+2018-07-10 21:02:37,209 - DEBUG - data_preprocessing.py:590 - top_10_site_id Format Converting begin in time:...
+2018-07-10 21:02:37,209 - DEBUG - data_preprocessing.py:591 - 1531227757.2093468
+2018-07-10 21:02:39,748 - DEBUG - data_preprocessing.py:596 - top_10_site_id finish convert,the cost time is 
+2018-07-10 21:02:39,748 - DEBUG - data_preprocessing.py:597 - 2.539301633834839
+2018-07-10 21:02:39,770 - DEBUG - data_preprocessing.py:588 - top_25_site_id:cnt:1
+2018-07-10 21:02:39,770 - DEBUG - data_preprocessing.py:590 - top_25_site_id Format Converting begin in time:...
+2018-07-10 21:02:39,770 - DEBUG - data_preprocessing.py:591 - 1531227759.770276
+2018-07-10 21:02:42,281 - DEBUG - data_preprocessing.py:596 - top_25_site_id finish convert,the cost time is 
+2018-07-10 21:02:42,281 - DEBUG - data_preprocessing.py:597 - 2.5117154121398926
+2018-07-10 21:02:42,304 - DEBUG - data_preprocessing.py:588 - top_5_site_id:cnt:1
+2018-07-10 21:02:42,304 - DEBUG - data_preprocessing.py:590 - top_5_site_id Format Converting begin in time:...
+2018-07-10 21:02:42,304 - DEBUG - data_preprocessing.py:591 - 1531227762.3044708
+2018-07-10 21:02:44,803 - DEBUG - data_preprocessing.py:596 - top_5_site_id finish convert,the cost time is 
+2018-07-10 21:02:44,803 - DEBUG - data_preprocessing.py:597 - 2.498805046081543
+2018-07-10 21:02:44,825 - DEBUG - data_preprocessing.py:588 - top_50_site_id:cnt:1
+2018-07-10 21:02:44,825 - DEBUG - data_preprocessing.py:590 - top_50_site_id Format Converting begin in time:...
+2018-07-10 21:02:44,825 - DEBUG - data_preprocessing.py:591 - 1531227764.8253305
+2018-07-10 21:02:47,301 - DEBUG - data_preprocessing.py:596 - top_50_site_id finish convert,the cost time is 
+2018-07-10 21:02:47,301 - DEBUG - data_preprocessing.py:597 - 2.4762983322143555
+2018-07-10 21:02:47,323 - DEBUG - data_preprocessing.py:588 - top_1_site_id:cnt:1
+2018-07-10 21:02:47,323 - DEBUG - data_preprocessing.py:590 - top_1_site_id Format Converting begin in time:...
+2018-07-10 21:02:47,323 - DEBUG - data_preprocessing.py:591 - 1531227767.3237448
+2018-07-10 21:02:49,786 - DEBUG - data_preprocessing.py:596 - top_1_site_id finish convert,the cost time is 
+2018-07-10 21:02:49,786 - DEBUG - data_preprocessing.py:597 - 2.4630215167999268
+2018-07-10 21:02:49,808 - DEBUG - data_preprocessing.py:588 - top_2_site_id:cnt:1
+2018-07-10 21:02:49,808 - DEBUG - data_preprocessing.py:590 - top_2_site_id Format Converting begin in time:...
+2018-07-10 21:02:49,808 - DEBUG - data_preprocessing.py:591 - 1531227769.8084419
+2018-07-10 21:02:52,263 - DEBUG - data_preprocessing.py:596 - top_2_site_id finish convert,the cost time is 
+2018-07-10 21:02:52,263 - DEBUG - data_preprocessing.py:597 - 2.4555482864379883
+2018-07-10 21:02:52,301 - DEBUG - data_preprocessing.py:588 - top_15_site_id:cnt:1
+2018-07-10 21:02:52,301 - DEBUG - data_preprocessing.py:590 - top_15_site_id Format Converting begin in time:...
+2018-07-10 21:02:52,301 - DEBUG - data_preprocessing.py:591 - 1531227772.3015745
+2018-07-10 21:02:54,777 - DEBUG - data_preprocessing.py:596 - top_15_site_id finish convert,the cost time is 
+2018-07-10 21:02:54,777 - DEBUG - data_preprocessing.py:597 - 2.4759316444396973
+2018-07-10 21:02:54,815 - DEBUG - data_preprocessing.py:588 - top_20_site_id:cnt:1
+2018-07-10 21:02:54,815 - DEBUG - data_preprocessing.py:590 - top_20_site_id Format Converting begin in time:...
+2018-07-10 21:02:54,815 - DEBUG - data_preprocessing.py:591 - 1531227774.8152468
+2018-07-10 21:02:57,266 - DEBUG - data_preprocessing.py:596 - top_20_site_id finish convert,the cost time is 
+2018-07-10 21:02:57,266 - DEBUG - data_preprocessing.py:597 - 2.4516897201538086
+2018-07-10 21:02:57,304 - DEBUG - data_preprocessing.py:588 - top_30_site_id:cnt:1
+2018-07-10 21:02:57,304 - DEBUG - data_preprocessing.py:590 - top_30_site_id Format Converting begin in time:...
+2018-07-10 21:02:57,304 - DEBUG - data_preprocessing.py:591 - 1531227777.304609
+2018-07-10 21:02:59,739 - DEBUG - data_preprocessing.py:596 - top_30_site_id finish convert,the cost time is 
+2018-07-10 21:02:59,740 - DEBUG - data_preprocessing.py:597 - 2.4355013370513916
+2018-07-10 21:02:59,778 - DEBUG - data_preprocessing.py:588 - top_10_app_domain:cnt:1
+2018-07-10 21:02:59,778 - DEBUG - data_preprocessing.py:590 - top_10_app_domain Format Converting begin in time:...
+2018-07-10 21:02:59,778 - DEBUG - data_preprocessing.py:591 - 1531227779.7781992
+2018-07-10 21:03:02,203 - DEBUG - data_preprocessing.py:596 - top_10_app_domain finish convert,the cost time is 
+2018-07-10 21:03:02,203 - DEBUG - data_preprocessing.py:597 - 2.4251110553741455
+2018-07-10 21:03:02,241 - DEBUG - data_preprocessing.py:588 - top_25_app_domain:cnt:1
+2018-07-10 21:03:02,241 - DEBUG - data_preprocessing.py:590 - top_25_app_domain Format Converting begin in time:...
+2018-07-10 21:03:02,241 - DEBUG - data_preprocessing.py:591 - 1531227782.2412975
+2018-07-10 21:03:04,630 - DEBUG - data_preprocessing.py:596 - top_25_app_domain finish convert,the cost time is 
+2018-07-10 21:03:04,630 - DEBUG - data_preprocessing.py:597 - 2.3889217376708984
+2018-07-10 21:03:04,667 - DEBUG - data_preprocessing.py:588 - top_5_app_domain:cnt:1
+2018-07-10 21:03:04,667 - DEBUG - data_preprocessing.py:590 - top_5_app_domain Format Converting begin in time:...
+2018-07-10 21:03:04,667 - DEBUG - data_preprocessing.py:591 - 1531227784.6677275
+2018-07-10 21:03:07,033 - DEBUG - data_preprocessing.py:596 - top_5_app_domain finish convert,the cost time is 
+2018-07-10 21:03:07,033 - DEBUG - data_preprocessing.py:597 - 2.365931987762451
+2018-07-10 21:03:07,071 - DEBUG - data_preprocessing.py:588 - top_50_app_domain:cnt:1
+2018-07-10 21:03:07,071 - DEBUG - data_preprocessing.py:590 - top_50_app_domain Format Converting begin in time:...
+2018-07-10 21:03:07,071 - DEBUG - data_preprocessing.py:591 - 1531227787.0714662
+2018-07-10 21:03:09,417 - DEBUG - data_preprocessing.py:596 - top_50_app_domain finish convert,the cost time is 
+2018-07-10 21:03:09,417 - DEBUG - data_preprocessing.py:597 - 2.3461391925811768
+2018-07-10 21:03:09,455 - DEBUG - data_preprocessing.py:588 - top_1_app_domain:cnt:1
+2018-07-10 21:03:09,455 - DEBUG - data_preprocessing.py:590 - top_1_app_domain Format Converting begin in time:...
+2018-07-10 21:03:09,455 - DEBUG - data_preprocessing.py:591 - 1531227789.4554584
+2018-07-10 21:03:11,783 - DEBUG - data_preprocessing.py:596 - top_1_app_domain finish convert,the cost time is 
+2018-07-10 21:03:11,783 - DEBUG - data_preprocessing.py:597 - 2.3283889293670654
+2018-07-10 21:03:11,821 - DEBUG - data_preprocessing.py:588 - top_2_app_domain:cnt:1
+2018-07-10 21:03:11,821 - DEBUG - data_preprocessing.py:590 - top_2_app_domain Format Converting begin in time:...
+2018-07-10 21:03:11,821 - DEBUG - data_preprocessing.py:591 - 1531227791.821859
+2018-07-10 21:03:14,117 - DEBUG - data_preprocessing.py:596 - top_2_app_domain finish convert,the cost time is 
+2018-07-10 21:03:14,117 - DEBUG - data_preprocessing.py:597 - 2.295395851135254
+2018-07-10 21:03:14,154 - DEBUG - data_preprocessing.py:588 - top_15_app_domain:cnt:1
+2018-07-10 21:03:14,154 - DEBUG - data_preprocessing.py:590 - top_15_app_domain Format Converting begin in time:...
+2018-07-10 21:03:14,154 - DEBUG - data_preprocessing.py:591 - 1531227794.1549268
+2018-07-10 21:03:16,440 - DEBUG - data_preprocessing.py:596 - top_15_app_domain finish convert,the cost time is 
+2018-07-10 21:03:16,440 - DEBUG - data_preprocessing.py:597 - 2.286000967025757
+2018-07-10 21:03:16,479 - DEBUG - data_preprocessing.py:588 - top_20_app_domain:cnt:1
+2018-07-10 21:03:16,479 - DEBUG - data_preprocessing.py:590 - top_20_app_domain Format Converting begin in time:...
+2018-07-10 21:03:16,479 - DEBUG - data_preprocessing.py:591 - 1531227796.479542
+2018-07-10 21:03:18,734 - DEBUG - data_preprocessing.py:596 - top_20_app_domain finish convert,the cost time is 
+2018-07-10 21:03:18,735 - DEBUG - data_preprocessing.py:597 - 2.255572557449341
+2018-07-10 21:03:18,772 - DEBUG - data_preprocessing.py:588 - top_30_app_domain:cnt:1
+2018-07-10 21:03:18,772 - DEBUG - data_preprocessing.py:590 - top_30_app_domain Format Converting begin in time:...
+2018-07-10 21:03:18,772 - DEBUG - data_preprocessing.py:591 - 1531227798.7729375
+2018-07-10 21:03:21,010 - DEBUG - data_preprocessing.py:596 - top_30_app_domain finish convert,the cost time is 
+2018-07-10 21:03:21,010 - DEBUG - data_preprocessing.py:597 - 2.237910032272339
+2018-07-10 21:03:21,048 - DEBUG - data_preprocessing.py:588 - top_10_app_category:cnt:1
+2018-07-10 21:03:21,048 - DEBUG - data_preprocessing.py:590 - top_10_app_category Format Converting begin in time:...
+2018-07-10 21:03:21,048 - DEBUG - data_preprocessing.py:591 - 1531227801.0486429
+2018-07-10 21:03:23,265 - DEBUG - data_preprocessing.py:596 - top_10_app_category finish convert,the cost time is 
+2018-07-10 21:03:23,265 - DEBUG - data_preprocessing.py:597 - 2.2173404693603516
+2018-07-10 21:03:23,303 - DEBUG - data_preprocessing.py:588 - top_25_app_category:cnt:1
+2018-07-10 21:03:23,303 - DEBUG - data_preprocessing.py:590 - top_25_app_category Format Converting begin in time:...
+2018-07-10 21:03:23,303 - DEBUG - data_preprocessing.py:591 - 1531227803.3036048
+2018-07-10 21:03:25,492 - DEBUG - data_preprocessing.py:596 - top_25_app_category finish convert,the cost time is 
+2018-07-10 21:03:25,492 - DEBUG - data_preprocessing.py:597 - 2.1889843940734863
+2018-07-10 21:03:25,530 - DEBUG - data_preprocessing.py:588 - top_5_app_category:cnt:1
+2018-07-10 21:03:25,530 - DEBUG - data_preprocessing.py:590 - top_5_app_category Format Converting begin in time:...
+2018-07-10 21:03:25,530 - DEBUG - data_preprocessing.py:591 - 1531227805.5303245
+2018-07-10 21:03:27,704 - DEBUG - data_preprocessing.py:596 - top_5_app_category finish convert,the cost time is 
+2018-07-10 21:03:27,705 - DEBUG - data_preprocessing.py:597 - 2.174677610397339
+2018-07-10 21:03:27,742 - DEBUG - data_preprocessing.py:588 - top_50_app_category:cnt:1
+2018-07-10 21:03:27,743 - DEBUG - data_preprocessing.py:590 - top_50_app_category Format Converting begin in time:...
+2018-07-10 21:03:27,743 - DEBUG - data_preprocessing.py:591 - 1531227807.7430766
+2018-07-10 21:03:29,889 - DEBUG - data_preprocessing.py:596 - top_50_app_category finish convert,the cost time is 
+2018-07-10 21:03:29,890 - DEBUG - data_preprocessing.py:597 - 2.1470344066619873
+2018-07-10 21:03:29,928 - DEBUG - data_preprocessing.py:588 - top_1_app_category:cnt:1
+2018-07-10 21:03:29,928 - DEBUG - data_preprocessing.py:590 - top_1_app_category Format Converting begin in time:...
+2018-07-10 21:03:29,928 - DEBUG - data_preprocessing.py:591 - 1531227809.9281492
+2018-07-10 21:03:32,077 - DEBUG - data_preprocessing.py:596 - top_1_app_category finish convert,the cost time is 
+2018-07-10 21:03:32,078 - DEBUG - data_preprocessing.py:597 - 2.1498467922210693
+2018-07-10 21:03:32,115 - DEBUG - data_preprocessing.py:588 - top_2_app_category:cnt:1
+2018-07-10 21:03:32,116 - DEBUG - data_preprocessing.py:590 - top_2_app_category Format Converting begin in time:...
+2018-07-10 21:03:32,116 - DEBUG - data_preprocessing.py:591 - 1531227812.1160362
+2018-07-10 21:03:34,238 - DEBUG - data_preprocessing.py:596 - top_2_app_category finish convert,the cost time is 
+2018-07-10 21:03:34,238 - DEBUG - data_preprocessing.py:597 - 2.1227052211761475
+2018-07-10 21:03:34,276 - DEBUG - data_preprocessing.py:588 - top_15_app_category:cnt:1
+2018-07-10 21:03:34,276 - DEBUG - data_preprocessing.py:590 - top_15_app_category Format Converting begin in time:...
+2018-07-10 21:03:34,276 - DEBUG - data_preprocessing.py:591 - 1531227814.2764652
+2018-07-10 21:03:36,367 - DEBUG - data_preprocessing.py:596 - top_15_app_category finish convert,the cost time is 
+2018-07-10 21:03:36,367 - DEBUG - data_preprocessing.py:597 - 2.0913872718811035
+2018-07-10 21:03:36,405 - DEBUG - data_preprocessing.py:588 - top_20_app_category:cnt:1
+2018-07-10 21:03:36,406 - DEBUG - data_preprocessing.py:590 - top_20_app_category Format Converting begin in time:...
+2018-07-10 21:03:36,406 - DEBUG - data_preprocessing.py:591 - 1531227816.40607
+2018-07-10 21:03:38,471 - DEBUG - data_preprocessing.py:596 - top_20_app_category finish convert,the cost time is 
+2018-07-10 21:03:38,471 - DEBUG - data_preprocessing.py:597 - 2.0650651454925537
+2018-07-10 21:03:38,509 - DEBUG - data_preprocessing.py:588 - top_30_app_category:cnt:1
+2018-07-10 21:03:38,510 - DEBUG - data_preprocessing.py:590 - top_30_app_category Format Converting begin in time:...
+2018-07-10 21:03:38,510 - DEBUG - data_preprocessing.py:591 - 1531227818.510065
+2018-07-10 21:03:40,547 - DEBUG - data_preprocessing.py:596 - top_30_app_category finish convert,the cost time is 
+2018-07-10 21:03:40,547 - DEBUG - data_preprocessing.py:597 - 2.037827491760254
+2018-07-10 21:03:40,586 - DEBUG - data_preprocessing.py:588 - C14C17:cnt:2884
+2018-07-10 21:03:40,586 - DEBUG - data_preprocessing.py:590 - C14C17 Format Converting begin in time:...
+2018-07-10 21:03:40,586 - DEBUG - data_preprocessing.py:591 - 1531227820.5862792
+2018-07-10 21:03:42,757 - DEBUG - data_preprocessing.py:596 - C14C17 finish convert,the cost time is 
+2018-07-10 21:03:42,757 - DEBUG - data_preprocessing.py:597 - 2.1712942123413086
+2018-07-10 21:03:42,795 - DEBUG - data_preprocessing.py:588 - _key1:cnt:387231
+2018-07-10 21:03:42,795 - DEBUG - data_preprocessing.py:590 - _key1 Format Converting begin in time:...
+2018-07-10 21:03:42,795 - DEBUG - data_preprocessing.py:591 - 1531227822.7955222
+2018-07-10 21:03:44,974 - DEBUG - data_preprocessing.py:596 - _key1 finish convert,the cost time is 
+2018-07-10 21:03:44,975 - DEBUG - data_preprocessing.py:597 - 2.1795549392700195
+2018-07-10 21:03:45,013 - DEBUG - data_preprocessing.py:588 - C14device_model:cnt:691017
+2018-07-10 21:03:45,013 - DEBUG - data_preprocessing.py:590 - C14device_model Format Converting begin in time:...
+2018-07-10 21:03:45,013 - DEBUG - data_preprocessing.py:591 - 1531227825.0136197
+2018-07-10 21:03:47,160 - DEBUG - data_preprocessing.py:596 - C14device_model finish convert,the cost time is 
+2018-07-10 21:03:47,160 - DEBUG - data_preprocessing.py:597 - 2.1469056606292725
+2018-07-10 21:03:47,198 - DEBUG - data_preprocessing.py:588 - C14C21:cnt:2884
+2018-07-10 21:03:47,198 - DEBUG - data_preprocessing.py:590 - C14C21 Format Converting begin in time:...
+2018-07-10 21:03:47,198 - DEBUG - data_preprocessing.py:591 - 1531227827.1985984
+2018-07-10 21:03:49,304 - DEBUG - data_preprocessing.py:596 - C14C21 finish convert,the cost time is 
+2018-07-10 21:03:49,304 - DEBUG - data_preprocessing.py:597 - 2.1061360836029053
+2018-07-10 21:03:49,342 - DEBUG - data_preprocessing.py:588 - C14site_domain:cnt:193587
+2018-07-10 21:03:49,342 - DEBUG - data_preprocessing.py:590 - C14site_domain Format Converting begin in time:...
+2018-07-10 21:03:49,343 - DEBUG - data_preprocessing.py:591 - 1531227829.3429916
+2018-07-10 21:03:51,453 - DEBUG - data_preprocessing.py:596 - C14site_domain finish convert,the cost time is 
+2018-07-10 21:03:51,453 - DEBUG - data_preprocessing.py:597 - 2.1106975078582764
+2018-07-10 21:03:51,491 - DEBUG - data_preprocessing.py:588 - C17device_model:cnt:265692
+2018-07-10 21:03:51,491 - DEBUG - data_preprocessing.py:590 - C17device_model Format Converting begin in time:...
+2018-07-10 21:03:51,491 - DEBUG - data_preprocessing.py:591 - 1531227831.4918993
+2018-07-10 21:03:53,572 - DEBUG - data_preprocessing.py:596 - C17device_model finish convert,the cost time is 
+2018-07-10 21:03:53,572 - DEBUG - data_preprocessing.py:597 - 2.0803723335266113
+2018-07-10 21:03:53,610 - DEBUG - data_preprocessing.py:588 - C17C21:cnt:473
+2018-07-10 21:03:53,610 - DEBUG - data_preprocessing.py:590 - C17C21 Format Converting begin in time:...
+2018-07-10 21:03:53,610 - DEBUG - data_preprocessing.py:591 - 1531227833.610266
+2018-07-10 21:03:55,638 - DEBUG - data_preprocessing.py:596 - C17C21 finish convert,the cost time is 
+2018-07-10 21:03:55,638 - DEBUG - data_preprocessing.py:597 - 2.0279059410095215
+2018-07-10 21:03:55,676 - DEBUG - data_preprocessing.py:588 - C17site_domain:cnt:79351
+2018-07-10 21:03:55,676 - DEBUG - data_preprocessing.py:590 - C17site_domain Format Converting begin in time:...
+2018-07-10 21:03:55,676 - DEBUG - data_preprocessing.py:591 - 1531227835.6765406
+2018-07-10 21:03:57,700 - DEBUG - data_preprocessing.py:596 - C17site_domain finish convert,the cost time is 
+2018-07-10 21:03:57,701 - DEBUG - data_preprocessing.py:597 - 2.024472951889038
+2018-07-10 21:03:57,739 - DEBUG - data_preprocessing.py:588 - C21device_model:cnt:97555
+2018-07-10 21:03:57,739 - DEBUG - data_preprocessing.py:590 - C21device_model Format Converting begin in time:...
+2018-07-10 21:03:57,739 - DEBUG - data_preprocessing.py:591 - 1531227837.7395525
+2018-07-10 21:03:59,740 - DEBUG - data_preprocessing.py:596 - C21device_model finish convert,the cost time is 
+2018-07-10 21:03:59,740 - DEBUG - data_preprocessing.py:597 - 2.001086473464966
+2018-07-10 21:03:59,778 - DEBUG - data_preprocessing.py:588 - C21site_domain:cnt:39028
+2018-07-10 21:03:59,778 - DEBUG - data_preprocessing.py:590 - C21site_domain Format Converting begin in time:...
+2018-07-10 21:03:59,778 - DEBUG - data_preprocessing.py:591 - 1531227839.7788367
+2018-07-10 21:04:01,769 - DEBUG - data_preprocessing.py:596 - C21site_domain finish convert,the cost time is 
+2018-07-10 21:04:01,769 - DEBUG - data_preprocessing.py:597 - 1.9911506175994873
+2018-07-10 21:04:01,807 - DEBUG - data_preprocessing.py:588 - site_domaindevice_model:cnt:387231
+2018-07-10 21:04:01,808 - DEBUG - data_preprocessing.py:590 - site_domaindevice_model Format Converting begin in time:...
+2018-07-10 21:04:01,808 - DEBUG - data_preprocessing.py:591 - 1531227841.8080404
+2018-07-10 21:04:03,787 - DEBUG - data_preprocessing.py:596 - site_domaindevice_model finish convert,the cost time is 
+2018-07-10 21:04:03,787 - DEBUG - data_preprocessing.py:597 - 1.979924201965332
+2018-07-10 21:04:03,824 - DEBUG - data_preprocessing.py:588 - exptv_C14C17:cnt:0.7277833347616378
+2018-07-10 21:04:03,824 - DEBUG - data_preprocessing.py:590 - exptv_C14C17 Format Converting begin in time:...
+2018-07-10 21:04:03,824 - DEBUG - data_preprocessing.py:591 - 1531227843.82464
+2018-07-10 21:04:05,914 - DEBUG - data_preprocessing.py:596 - exptv_C14C17 finish convert,the cost time is 
+2018-07-10 21:04:05,914 - DEBUG - data_preprocessing.py:597 - 2.0902152061462402
+2018-07-10 21:04:05,943 - DEBUG - data_preprocessing.py:588 - cnttv_C14C17:cnt:978248
+2018-07-10 21:04:05,943 - DEBUG - data_preprocessing.py:590 - cnttv_C14C17 Format Converting begin in time:...
+2018-07-10 21:04:05,943 - DEBUG - data_preprocessing.py:591 - 1531227845.943329
+2018-07-10 21:04:07,812 - DEBUG - data_preprocessing.py:596 - cnttv_C14C17 finish convert,the cost time is 
+2018-07-10 21:04:07,812 - DEBUG - data_preprocessing.py:597 - 1.8692340850830078
+2018-07-10 21:04:07,832 - DEBUG - data_preprocessing.py:588 - exptv_C14device_model:cnt:0.8777912112980251
+2018-07-10 21:04:07,833 - DEBUG - data_preprocessing.py:590 - exptv_C14device_model Format Converting begin in time:...
+2018-07-10 21:04:07,833 - DEBUG - data_preprocessing.py:591 - 1531227847.8330126
+2018-07-10 21:04:09,837 - DEBUG - data_preprocessing.py:596 - exptv_C14device_model finish convert,the cost time is 
+2018-07-10 21:04:09,837 - DEBUG - data_preprocessing.py:597 - 2.004300355911255
+2018-07-10 21:04:09,859 - DEBUG - data_preprocessing.py:588 - cnttv_C14device_model:cnt:189720
+2018-07-10 21:04:09,859 - DEBUG - data_preprocessing.py:590 - cnttv_C14device_model Format Converting begin in time:...
+2018-07-10 21:04:09,859 - DEBUG - data_preprocessing.py:591 - 1531227849.8595445
+2018-07-10 21:04:11,710 - DEBUG - data_preprocessing.py:596 - cnttv_C14device_model finish convert,the cost time is 
+2018-07-10 21:04:11,710 - DEBUG - data_preprocessing.py:597 - 1.8507084846496582
+2018-07-10 21:04:11,730 - DEBUG - data_preprocessing.py:588 - exptv_C14C21:cnt:0.7277833347616378
+2018-07-10 21:04:11,730 - DEBUG - data_preprocessing.py:590 - exptv_C14C21 Format Converting begin in time:...
+2018-07-10 21:04:11,730 - DEBUG - data_preprocessing.py:591 - 1531227851.730379
+2018-07-10 21:04:13,711 - DEBUG - data_preprocessing.py:596 - exptv_C14C21 finish convert,the cost time is 
+2018-07-10 21:04:13,711 - DEBUG - data_preprocessing.py:597 - 1.9808189868927002
+2018-07-10 21:04:13,733 - DEBUG - data_preprocessing.py:588 - cnttv_C14C21:cnt:978248
+2018-07-10 21:04:13,733 - DEBUG - data_preprocessing.py:590 - cnttv_C14C21 Format Converting begin in time:...
+2018-07-10 21:04:13,733 - DEBUG - data_preprocessing.py:591 - 1531227853.7336528
+2018-07-10 21:04:15,562 - DEBUG - data_preprocessing.py:596 - cnttv_C14C21 finish convert,the cost time is 
+2018-07-10 21:04:15,562 - DEBUG - data_preprocessing.py:597 - 1.828962802886963
+2018-07-10 21:04:15,583 - DEBUG - data_preprocessing.py:588 - exptv_C14site_domain:cnt:0.9067488265080432
+2018-07-10 21:04:15,583 - DEBUG - data_preprocessing.py:590 - exptv_C14site_domain Format Converting begin in time:...
+2018-07-10 21:04:15,583 - DEBUG - data_preprocessing.py:591 - 1531227855.5831594
+2018-07-10 21:04:17,544 - DEBUG - data_preprocessing.py:596 - exptv_C14site_domain finish convert,the cost time is 
+2018-07-10 21:04:17,544 - DEBUG - data_preprocessing.py:597 - 1.9616189002990723
+2018-07-10 21:04:17,566 - DEBUG - data_preprocessing.py:588 - cnttv_C14site_domain:cnt:966405
+2018-07-10 21:04:17,566 - DEBUG - data_preprocessing.py:590 - cnttv_C14site_domain Format Converting begin in time:...
+2018-07-10 21:04:17,566 - DEBUG - data_preprocessing.py:591 - 1531227857.5668337
+2018-07-10 21:04:19,371 - DEBUG - data_preprocessing.py:596 - cnttv_C14site_domain finish convert,the cost time is 
+2018-07-10 21:04:19,371 - DEBUG - data_preprocessing.py:597 - 1.8050432205200195
+2018-07-10 21:04:19,392 - DEBUG - data_preprocessing.py:588 - exptv_C17device_model:cnt:0.8600652711273151
+2018-07-10 21:04:19,392 - DEBUG - data_preprocessing.py:590 - exptv_C17device_model Format Converting begin in time:...
+2018-07-10 21:04:19,392 - DEBUG - data_preprocessing.py:591 - 1531227859.3921912
+2018-07-10 21:04:21,328 - DEBUG - data_preprocessing.py:596 - exptv_C17device_model finish convert,the cost time is 
+2018-07-10 21:04:21,328 - DEBUG - data_preprocessing.py:597 - 1.9362821578979492
+2018-07-10 21:04:21,350 - DEBUG - data_preprocessing.py:588 - cnttv_C17device_model:cnt:813402
+2018-07-10 21:04:21,350 - DEBUG - data_preprocessing.py:590 - cnttv_C17device_model Format Converting begin in time:...
+2018-07-10 21:04:21,351 - DEBUG - data_preprocessing.py:591 - 1531227861.350972
+2018-07-10 21:04:23,138 - DEBUG - data_preprocessing.py:596 - cnttv_C17device_model finish convert,the cost time is 
+2018-07-10 21:04:23,139 - DEBUG - data_preprocessing.py:597 - 1.7881290912628174
+2018-07-10 21:04:23,159 - DEBUG - data_preprocessing.py:588 - exptv_C17C21:cnt:0.719461528049016
+2018-07-10 21:04:23,159 - DEBUG - data_preprocessing.py:590 - exptv_C17C21 Format Converting begin in time:...
+2018-07-10 21:04:23,159 - DEBUG - data_preprocessing.py:591 - 1531227863.1596272
+2018-07-10 21:04:25,084 - DEBUG - data_preprocessing.py:596 - exptv_C17C21 finish convert,the cost time is 
+2018-07-10 21:04:25,084 - DEBUG - data_preprocessing.py:597 - 1.9250524044036865
+2018-07-10 21:04:25,123 - DEBUG - data_preprocessing.py:588 - cnttv_C17C21:cnt:4611516
+2018-07-10 21:04:25,123 - DEBUG - data_preprocessing.py:590 - cnttv_C17C21 Format Converting begin in time:...
+2018-07-10 21:04:25,123 - DEBUG - data_preprocessing.py:591 - 1531227865.1231365
+2018-07-10 21:04:26,959 - DEBUG - data_preprocessing.py:596 - cnttv_C17C21 finish convert,the cost time is 
+2018-07-10 21:04:26,959 - DEBUG - data_preprocessing.py:597 - 1.8364288806915283
+2018-07-10 21:04:26,996 - DEBUG - data_preprocessing.py:588 - exptv_C17site_domain:cnt:0.8507086548189933
+2018-07-10 21:04:26,996 - DEBUG - data_preprocessing.py:590 - exptv_C17site_domain Format Converting begin in time:...
+2018-07-10 21:04:26,996 - DEBUG - data_preprocessing.py:591 - 1531227866.9962864
+2018-07-10 21:04:28,959 - DEBUG - data_preprocessing.py:596 - exptv_C17site_domain finish convert,the cost time is 
+2018-07-10 21:04:28,959 - DEBUG - data_preprocessing.py:597 - 1.9631168842315674
+2018-07-10 21:04:28,997 - DEBUG - data_preprocessing.py:588 - cnttv_C17site_domain:cnt:3609830
+2018-07-10 21:04:28,997 - DEBUG - data_preprocessing.py:590 - cnttv_C17site_domain Format Converting begin in time:...
+2018-07-10 21:04:28,997 - DEBUG - data_preprocessing.py:591 - 1531227868.997801
+2018-07-10 21:04:30,806 - DEBUG - data_preprocessing.py:596 - cnttv_C17site_domain finish convert,the cost time is 
+2018-07-10 21:04:30,806 - DEBUG - data_preprocessing.py:597 - 1.808824062347412
+2018-07-10 21:04:30,842 - DEBUG - data_preprocessing.py:588 - exptv_C21device_model:cnt:0.8437126326669825
+2018-07-10 21:04:30,842 - DEBUG - data_preprocessing.py:590 - exptv_C21device_model Format Converting begin in time:...
+2018-07-10 21:04:30,842 - DEBUG - data_preprocessing.py:591 - 1531227870.8428018
+2018-07-10 21:04:32,780 - DEBUG - data_preprocessing.py:596 - exptv_C21device_model finish convert,the cost time is 
+2018-07-10 21:04:32,780 - DEBUG - data_preprocessing.py:597 - 1.938049077987671
+2018-07-10 21:04:32,819 - DEBUG - data_preprocessing.py:588 - cnttv_C21device_model:cnt:836341
+2018-07-10 21:04:32,819 - DEBUG - data_preprocessing.py:590 - cnttv_C21device_model Format Converting begin in time:...
+2018-07-10 21:04:32,819 - DEBUG - data_preprocessing.py:591 - 1531227872.8192165
+2018-07-10 21:04:34,600 - DEBUG - data_preprocessing.py:596 - cnttv_C21device_model finish convert,the cost time is 
+2018-07-10 21:04:34,600 - DEBUG - data_preprocessing.py:597 - 1.7812888622283936
+2018-07-10 21:04:34,636 - DEBUG - data_preprocessing.py:588 - exptv_C21site_domain:cnt:0.8013133805810996
+2018-07-10 21:04:34,636 - DEBUG - data_preprocessing.py:590 - exptv_C21site_domain Format Converting begin in time:...
+2018-07-10 21:04:34,636 - DEBUG - data_preprocessing.py:591 - 1531227874.63672
+2018-07-10 21:04:36,552 - DEBUG - data_preprocessing.py:596 - exptv_C21site_domain finish convert,the cost time is 
+2018-07-10 21:04:36,552 - DEBUG - data_preprocessing.py:597 - 1.916152000427246
+2018-07-10 21:04:36,590 - DEBUG - data_preprocessing.py:588 - cnttv_C21site_domain:cnt:3618798
+2018-07-10 21:04:36,590 - DEBUG - data_preprocessing.py:590 - cnttv_C21site_domain Format Converting begin in time:...
+2018-07-10 21:04:36,590 - DEBUG - data_preprocessing.py:591 - 1531227876.5905676
+2018-07-10 21:04:38,353 - DEBUG - data_preprocessing.py:596 - cnttv_C21site_domain finish convert,the cost time is 
+2018-07-10 21:04:38,353 - DEBUG - data_preprocessing.py:597 - 1.7632849216461182
+2018-07-10 21:04:38,390 - DEBUG - data_preprocessing.py:588 - exptv_site_domaindevice_model:cnt:0.94355363001104
+2018-07-10 21:04:38,390 - DEBUG - data_preprocessing.py:590 - exptv_site_domaindevice_model Format Converting begin in time:...
+2018-07-10 21:04:38,390 - DEBUG - data_preprocessing.py:591 - 1531227878.3902287
+2018-07-10 21:04:40,283 - DEBUG - data_preprocessing.py:596 - exptv_site_domaindevice_model finish convert,the cost time is 
+2018-07-10 21:04:40,283 - DEBUG - data_preprocessing.py:597 - 1.8930022716522217
+2018-07-10 21:04:40,320 - DEBUG - data_preprocessing.py:588 - cnttv_site_domaindevice_model:cnt:1029574
+2018-07-10 21:04:40,320 - DEBUG - data_preprocessing.py:590 - cnttv_site_domaindevice_model Format Converting begin in time:...
+2018-07-10 21:04:40,320 - DEBUG - data_preprocessing.py:591 - 1531227880.3208196
+2018-07-10 21:04:42,080 - DEBUG - data_preprocessing.py:596 - cnttv_site_domaindevice_model finish convert,the cost time is 
+2018-07-10 21:04:42,080 - DEBUG - data_preprocessing.py:597 - 1.759657621383667
+2018-07-10 21:09:13,022 - DEBUG - data_preprocessing.py:611 - finish convert,the cost time is 
+2018-07-10 21:09:13,026 - DEBUG - data_preprocessing.py:612 - 272.7055914402008
+2018-07-10 21:09:13,026 - DEBUG - data_preprocessing.py:613 - [Done]
+2018-07-10 21:09:13,035 - DEBUG - data_preprocessing.py:615 -    click        C14       C17      C21 device_model site_domain one_day  \
+0      1  0:23013:1  1:2580:1  2:240:1      3:100:1    4:1787:1   5:0:1   
+1      0   0:8346:1  1:1036:1  2:176:1     3:5734:1     4:416:1   5:0:1   
+
+  one_day_hour day_hour_prev day_hour_next              ...               \
+0        6:0:1         7:0:1         8:0:1              ...                
+1        6:0:1         7:0:1         8:0:1              ...                
+
+  exptv_C17C21  cnttv_C17C21 exptv_C17site_domain cnttv_C17site_domain  \
+0       90:0:1        91:0:1               92:0:1               93:0:1   
+1       90:0:1  91:4359691:1               92:0:1         93:3358005:1   
+
+  exptv_C21device_model cnttv_C21device_model exptv_C21site_domain  \
+0                94:0:1                95:0:1               96:0:1   
+1                94:0:1           95:823646:1               96:0:1   
+
+  cnttv_C21site_domain exptv_site_domaindevice_model  \
+0               97:0:1                        98:0:1   
+1         97:2847959:1                        98:0:1   
+
+  cnttv_site_domaindevice_model  
+0                        99:0:1  
+1                   99:837269:1  
+
+[2 rows x 101 columns]
+2018-07-10 21:09:13,119 - DEBUG - data_preprocessing.py:616 - (5053621, 101)
+/home/zhijiehuang/github/data/train.csv

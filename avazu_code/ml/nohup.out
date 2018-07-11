@@ -1,0 +1,584 @@
+2018-07-10 16:22:30,161 - DEBUG - ffm.py:48 - 设置参数
+2018-07-10 16:22:30,161 - DEBUG - ffm.py:50 - 开始训练
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mNumber of Feature: 691017
+[32m[------------] [0mNumber of Field: 21
+[32m[------------] [0mTime cost for reading problem: 7.81 (sec)
+[32m[1m[ ACTION     ] Initialize model ...[0m
+[32m[------------] [0mModel size: 672.19 MB
+[32m[------------] [0mTime cost for model initial: 0.38 (sec)
+[32m[1m[ ACTION     ] Start to train ...[0m
+[32m[------------][0m Epoch      Train log_loss       Test log_loss       Test Accuarcy     Time cost (sec)
+[32m[ [0m  10%[32m      ][0m     1            0.461877            0.456102            0.830113               19.95
+[32m[ [0m  20%[32m      ][0m     2            0.457680            0.455521            0.830113               19.40
+[32m[ [0m  30%[32m      ][0m     3            0.456009            0.457497            0.830113               19.29
+[32m[ [0m  40%[32m      ][0m     4            0.455999            0.455952            0.830113               19.67
+[32m[ [0m  50%[32m      ][0m     5            0.455962            0.455940            0.830113               19.84
+[32m[ [0m  60%[32m      ][0m     6            0.455907            0.455896            0.830113               19.76
+[32m[ [0m  70%[32m      ][0m     7            0.455923            0.455988            0.830113               19.22
+[32m[ [0m  80%[32m      ][0m     8            0.455958            0.455936            0.830113               19.18
+[32m[ [0m  90%[32m      ][0m     9            0.455947            0.455920            0.830113               19.54
+[32m[ [0m 100%[32m      ][0m    10            0.455921            0.455909            0.830113               19.68
+[32m[1m[ ACTION     ] Early-stopping at epoch 2[0m
+[32m[1m[ ACTION     ] Start to save model ...[0m
+[32m[------------] [0mModel file: /data/ffm_model.out
+[32m[------------] [0mTime cost for saving model: 2.76 (sec)
+[32m[1m[ ACTION     ] Finish training[0m
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 207.19 (sec)[0m
+2018-07-10 16:25:57,352 - DEBUG - ffm.py:56 - to save validation predictions ...
+Traceback (most recent call last):
+  File "ffm.py", line 86, in <module>
+    done()
+  File "ffm.py", line 59, in done
+    logging.debug(ffm_model.weights)        
+AttributeError: 'XLearn' object has no attribute 'weights'
+2018-07-10 16:27:24,793 - DEBUG - ffm.py:48 - 设置参数
+2018-07-10 16:27:24,794 - DEBUG - ffm.py:50 - 开始训练
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mNumber of Feature: 691017
+[32m[------------] [0mNumber of Field: 21
+[32m[------------] [0mTime cost for reading problem: 7.77 (sec)
+[32m[1m[ ACTION     ] Initialize model ...[0m
+[32m[------------] [0mModel size: 672.19 MB
+[32m[------------] [0mTime cost for model initial: 0.39 (sec)
+[32m[1m[ ACTION     ] Start to train ...[0m
+[32m[------------][0m Epoch      Train log_loss       Test log_loss       Test Accuarcy     Time cost (sec)
+[32m[ [0m  10%[32m      ][0m     1            0.461918            0.456093            0.830113               20.22
+[32m[ [0m  20%[32m      ][0m     2            0.457637            0.455220            0.830113               19.59
+[32m[ [0m  30%[32m      ][0m     3            0.456074            0.457454            0.830113               19.38
+[32m[ [0m  40%[32m      ][0m     4            0.455995            0.455985            0.830113               19.09
+[32m[ [0m  50%[32m      ][0m     5            0.455966            0.455933            0.830113               19.20
+[32m[ [0m  60%[32m      ][0m     6            0.455910            0.455954            0.830113               19.36
+[32m[ [0m  70%[32m      ][0m     7            0.455924            0.455994            0.830113               19.22
+[32m[1m[ ACTION     ] Early-stopping at epoch 2[0m
+[32m[1m[ ACTION     ] Start to save model ...[0m
+[32m[------------] [0mModel file: /data/ffm_model.out
+[32m[------------] [0mTime cost for saving model: 2.63 (sec)
+[32m[1m[ ACTION     ] Finish training[0m
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 147.57 (sec)[0m
+2018-07-10 16:29:52,361 - DEBUG - ffm.py:56 - to save validation predictions ...
+Traceback (most recent call last):
+  File "ffm.py", line 86, in <module>
+    done()
+  File "ffm.py", line 59, in done
+    logging.debug(ffm_model.weights)        
+AttributeError: 'XLearn' object has no attribute 'weights'
+2018-07-10 16:31:26,375 - DEBUG - ffm.py:48 - 设置参数
+2018-07-10 16:31:26,375 - DEBUG - ffm.py:50 - 开始训练
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mNumber of Feature: 691017
+[32m[------------] [0mNumber of Field: 21
+[32m[------------] [0mTime cost for reading problem: 7.84 (sec)
+[32m[1m[ ACTION     ] Initialize model ...[0m
+[32m[------------] [0mModel size: 672.19 MB
+[32m[------------] [0mTime cost for model initial: 0.39 (sec)
+[32m[1m[ ACTION     ] Start to train ...[0m
+[32m[------------][0m Epoch      Train log_loss       Test log_loss       Test Accuarcy     Time cost (sec)
+[32m[ [0m  10%[32m      ][0m     1            0.461914            0.456097            0.830113               20.34
+[32m[ [0m  20%[32m      ][0m     2            0.457586            0.454995            0.830113               19.38
+[32m[ [0m  30%[32m      ][0m     3            0.456088            0.457436            0.830113               19.80
+[32m[ [0m  40%[32m      ][0m     4            0.455994            0.455999            0.830113               20.36
+[32m[ [0m  50%[32m      ][0m     5            0.455968            0.455905            0.830113               19.32
+[32m[ [0m  60%[32m      ][0m     6            0.455908            0.455898            0.830113               19.26
+[32m[ [0m  70%[32m      ][0m     7            0.455921            0.455975            0.830113               19.19
+[32m[ [0m  80%[32m      ][0m     8            0.455958            0.455929            0.830113               19.31
+[32m[ [0m  90%[32m      ][0m     9            0.455946            0.455938            0.830113               19.49
+[32m[ [0m 100%[32m      ][0m    10            0.455918            0.455927            0.830113               19.54
+[32m[1m[ ACTION     ] Early-stopping at epoch 2[0m
+[32m[1m[ ACTION     ] Start to save model ...[0m
+[32m[------------] [0mModel file: /data/ffm_model.out
+[32m[------------] [0mTime cost for saving model: 2.86 (sec)
+[32m[1m[ ACTION     ] Finish training[0m
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 207.78 (sec)[0m
+2018-07-10 16:34:54,156 - DEBUG - ffm.py:56 - to save validation predictions ...
+2018-07-10 16:34:54,156 - DEBUG - ffm.py:59 - <xlearn.xlearn.XLearn object at 0x7f7085060f98>
+2018-07-10 16:34:54,156 - DEBUG - ffm.py:48 - 设置参数
+2018-07-10 16:34:54,156 - DEBUG - ffm.py:67 - 预测
+Traceback (most recent call last):
+  File "ffm.py", line 87, in <module>
+    done(False)
+  File "ffm.py", line 68, in done
+    ffm_model.setTest(test_save)  # Test data
+UnboundLocalError: local variable 'ffm_model' referenced before assignment
+2018-07-10 16:36:43,711 - DEBUG - ffm.py:49 - 设置参数
+2018-07-10 16:36:43,711 - DEBUG - ffm.py:51 - 开始训练
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mNumber of Feature: 691017
+[32m[------------] [0mNumber of Field: 21
+[32m[------------] [0mTime cost for reading problem: 7.83 (sec)
+[32m[1m[ ACTION     ] Initialize model ...[0m
+[32m[------------] [0mModel size: 672.19 MB
+[32m[------------] [0mTime cost for model initial: 0.39 (sec)
+[32m[1m[ ACTION     ] Start to train ...[0m
+[32m[------------][0m Epoch      Train log_loss       Test log_loss       Test Accuarcy     Time cost (sec)
+[32m[ [0m  10%[32m      ][0m     1            0.461913            0.456093            0.830113               19.82
+[32m[ [0m  20%[32m      ][0m     2            0.457663            0.455575            0.830113               19.41
+[32m[ [0m  30%[32m      ][0m     3            0.456050            0.457486            0.830113               20.07
+[32m[ [0m  40%[32m      ][0m     4            0.455993            0.456010            0.830113               19.53
+[32m[ [0m  50%[32m      ][0m     5            0.455965            0.455926            0.830113               19.33
+[32m[ [0m  60%[32m      ][0m     6            0.455911            0.455918            0.830113               19.61
+[32m[ [0m  70%[32m      ][0m     7            0.455919            0.455986            0.830113               19.44
+[32m[ [0m  80%[32m      ][0m     8            0.455958            0.455953            0.830113               19.86
+[32m[ [0m  90%[32m      ][0m     9            0.455947            0.455932            0.830113               19.56
+[32m[ [0m 100%[32m      ][0m    10            0.455917            0.455921            0.830113               19.54
+[32m[1m[ ACTION     ] Early-stopping at epoch 2[0m
+[32m[1m[ ACTION     ] Start to save model ...[0m
+[32m[------------] [0mModel file: /data/ffm_model.out
+[32m[------------] [0mTime cost for saving model: 2.59 (sec)
+[32m[1m[ ACTION     ] Finish training[0m
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 207.71 (sec)[0m
+2018-07-10 16:40:11,422 - DEBUG - ffm.py:56 - to save validation predictions ...
+2018-07-10 16:40:11,422 - DEBUG - ffm.py:59 - <xlearn.xlearn.XLearn object at 0x7f5a6833a630>
+2018-07-10 16:40:11,422 - DEBUG - ffm.py:49 - 设置参数
+2018-07-10 16:40:11,422 - DEBUG - ffm.py:67 - 预测
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Load model ...[0m
+[32m[------------] [0mLoad model from /data/ffm_model.out
+[32m[------------] [0mLoss function: cross-entropy
+[32m[------------] [0mScore function: ffm
+[32m[------------] [0mNumber of Feature: 691017
+[32m[------------] [0mNumber of K: 4
+[32m[------------] [0mNumber of field: 21
+[32m[------------] [0mTime cost for loading model: 0.25 (sec)
+[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_test.libffm.csv.bin) NOT found. Convert text file to binary file.
+[32m[------------] [0mTime cost for reading problem: 14.87 (sec)
+[32m[1m[ ACTION     ] Start to predict ...[0m
+[32m[------------] [0mThe test loss is: 0.195368
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 17.93 (sec)[0m
+2018-07-10 16:40:29,354 - DEBUG - ffm.py:73 - <xlearn.xlearn.XLearn object at 0x7f5a6833a630>
+2018-07-10 17:02:33,619 - DEBUG - ffm.py:49 - 设置参数
+2018-07-10 17:02:33,620 - DEBUG - ffm.py:67 - 预测
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Load model ...[0m
+[32m[------------] [0mLoad model from /data/ffm_model.out
+[32m[------------] [0mLoss function: cross-entropy
+[32m[------------] [0mScore function: ffm
+[32m[------------] [0mNumber of Feature: 691017
+[32m[------------] [0mNumber of K: 4
+[32m[------------] [0mNumber of field: 21
+[32m[------------] [0mTime cost for loading model: 0.24 (sec)
+[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_test.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mTime cost for reading problem: 1.53 (sec)
+[32m[1m[ ACTION     ] Start to predict ...[0m
+[32m[------------] [0mThe test loss is: 0.195368
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 4.61 (sec)[0m
+2018-07-10 17:02:38,454 - DEBUG - ffm.py:74 - <xlearn.xlearn.XLearn object at 0x7fe67725b7f0>
+2018-07-10 17:02:41,581 - DEBUG - ffm.py:76 - ------------------------------
+2018-07-10 17:02:41,696 - DEBUG - ffm.py:78 - (4577464, 1)
+2018-07-10 17:02:42,499 - DEBUG - ffm.py:80 - (4577464,)
+2018-07-10 17:03:14,898 - DEBUG - ffm.py:49 - 设置参数
+2018-07-10 17:03:14,898 - DEBUG - ffm.py:51 - 开始训练
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_vali.libffm.csv.bin) NOT found. Convert text file to binary file.
+[32m[------------] [0mNumber of Feature: 691018
+[32m[------------] [0mNumber of Field: 21
+[32m[------------] [0mTime cost for reading problem: 42.63 (sec)
+[32m[1m[ ACTION     ] Initialize model ...[0m
+[32m[------------] [0mModel size: 672.19 MB
+[32m[------------] [0mTime cost for model initial: 0.39 (sec)
+[32m[1m[ ACTION     ] Start to train ...[0m
+[32m[------------][0m Epoch      Train log_loss       Test log_loss       Test Accuarcy     Time cost (sec)
+[32m[ [0m  10%[32m      ][0m     1            0.461901            0.458376            0.830169               23.09
+[32m[ [0m  20%[32m      ][0m     2            0.457713            0.454336            0.830169               22.06
+[32m[ [0m  30%[32m      ][0m     3            0.455989            0.454291            0.830169               21.60
+[32m[ [0m  40%[32m      ][0m     4            0.456006            0.458978            0.830169               21.75
+[32m[ [0m  50%[32m      ][0m     5            0.455970            0.458939            0.830169               21.99
+[32m[ [0m  60%[32m      ][0m     6            0.455919            0.458937            0.830169               22.14
+[32m[ [0m  70%[32m      ][0m     7            0.455916            0.458820            0.830169               21.98
+[32m[ [0m  80%[32m      ][0m     8            0.455964            0.458833            0.830169               22.01
+[32m[ [0m  90%[32m      ][0m     9            0.455949            0.458777            0.830169               22.86
+[32m[ [0m 100%[32m      ][0m    10            0.455924            0.458776            0.830169               22.46
+[32m[1m[ ACTION     ] Early-stopping at epoch 3[0m
+[32m[1m[ ACTION     ] Start to save model ...[0m
+[32m[------------] [0mModel file: /data/ffm_model.out
+[32m[------------] [0mTime cost for saving model: 2.67 (sec)
+[32m[1m[ ACTION     ] Finish training[0m
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 268.48 (sec)[0m
+2018-07-10 17:07:43,378 - DEBUG - ffm.py:56 - to save validation predictions ...
+2018-07-10 17:07:43,378 - DEBUG - ffm.py:59 - <xlearn.xlearn.XLearn object at 0x7f9b6f462160>
+2018-07-10 17:07:43,378 - DEBUG - ffm.py:49 - 设置参数
+2018-07-10 17:07:43,378 - DEBUG - ffm.py:67 - 预测
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Load model ...[0m
+[32m[------------] [0mLoad model from /data/ffm_model.out
+[32m[------------] [0mLoss function: cross-entropy
+[32m[------------] [0mScore function: ffm
+[32m[------------] [0mNumber of Feature: 691018
+[32m[------------] [0mNumber of K: 4
+[32m[------------] [0mNumber of field: 21
+[32m[------------] [0mTime cost for loading model: 0.25 (sec)
+[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_test.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mTime cost for reading problem: 1.53 (sec)
+[32m[1m[ ACTION     ] Start to predict ...[0m
+[32m[------------] [0mThe test loss is: 0.200086
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 4.58 (sec)[0m
+2018-07-10 17:07:48,153 - DEBUG - ffm.py:74 - <xlearn.xlearn.XLearn object at 0x7f9b6f462160>
+2018-07-10 17:07:51,266 - DEBUG - ffm.py:76 - ------------------------------
+2018-07-10 17:07:51,380 - DEBUG - ffm.py:78 - (4577464, 1)
+2018-07-10 17:07:52,240 - DEBUG - ffm.py:80 - (4577464,)
+2018-07-10 17:27:41,069 - DEBUG - ffm.py:52 - 设置参数
+2018-07-10 17:27:41,069 - DEBUG - ffm.py:54 - 开始训练
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_vali.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mNumber of Feature: 691018
+[32m[------------] [0mNumber of Field: 21
+[32m[------------] [0mTime cost for reading problem: 12.39 (sec)
+[32m[1m[ ACTION     ] Initialize model ...[0m
+[32m[------------] [0mModel size: 448.12 MB
+[32m[------------] [0mTime cost for model initial: 0.33 (sec)
+[32m[1m[ ACTION     ] Start to train ...[0m
+[32m[------------][0m Epoch      Train log_loss       Test log_loss       Test Accuarcy     Time cost (sec)
+[32m[ [0m  10%[32m      ][0m     1            0.456969            0.456387            0.830169               13.04
+[32m[ [0m  20%[32m      ][0m     2            0.453968            0.456804            0.830169               13.00
+[32m[ [0m  30%[32m      ][0m     3            0.452355            0.457364            0.830169               13.22
+[32m[1m[ ACTION     ] Early-stopping at epoch 1[0m
+[32m[1m[ ACTION     ] Start to save model ...[0m
+[32m[------------] [0mModel file: /data/ffm_model.out
+[32m[------------] [0mTime cost for saving model: 1.60 (sec)
+[32m[1m[ ACTION     ] Finish training[0m
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 53.97 (sec)[0m
+2018-07-10 17:28:35,041 - DEBUG - ffm.py:59 - to save validation predictions ...
+2018-07-10 17:28:35,041 - DEBUG - ffm.py:62 - <xlearn.xlearn.XLearn object at 0x7fe2684277f0>
+2018-07-10 17:28:35,041 - DEBUG - ffm.py:52 - 设置参数
+2018-07-10 17:28:35,041 - DEBUG - ffm.py:70 - 预测
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Load model ...[0m
+[32m[------------] [0mLoad model from /data/ffm_model.out
+[32m[------------] [0mLoss function: cross-entropy
+[32m[------------] [0mScore function: ffm
+[32m[------------] [0mNumber of Feature: 691018
+[32m[------------] [0mNumber of K: 4
+[32m[------------] [0mNumber of field: 21
+[32m[------------] [0mTime cost for loading model: 0.17 (sec)
+[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_test.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mTime cost for reading problem: 1.53 (sec)
+[32m[1m[ ACTION     ] Start to predict ...[0m
+[32m[------------] [0mThe test loss is: 0.191189
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 4.32 (sec)[0m
+2018-07-10 17:28:39,561 - DEBUG - ffm.py:77 - <xlearn.xlearn.XLearn object at 0x7fe2684277f0>
+2018-07-10 17:28:42,746 - DEBUG - ffm.py:79 - ------------------------------
+2018-07-10 17:28:42,860 - DEBUG - ffm.py:81 - (4577464, 1)
+2018-07-10 17:28:43,709 - DEBUG - ffm.py:83 - (4577464,)
+2018-07-10 17:31:35,668 - DEBUG - ffm.py:52 - 设置参数
+2018-07-10 17:31:35,668 - DEBUG - ffm.py:54 - 开始训练
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_vali.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mNumber of Feature: 691018
+[32m[------------] [0mNumber of Field: 21
+[32m[------------] [0mTime cost for reading problem: 12.39 (sec)
+[32m[1m[ ACTION     ] Initialize model ...[0m
+[32m[------------] [0mModel size: 448.12 MB
+[32m[------------] [0mTime cost for model initial: 0.33 (sec)
+[32m[1m[ ACTION     ] Start to train ...[0m
+[32m[------------][0m Epoch      Train log_loss       Test log_loss       Test Accuarcy     Time cost (sec)
+[32m[ [0m  10%[32m      ][0m     1            0.456270            0.455969            0.830169               13.35
+[32m[ [0m  20%[32m      ][0m     2            0.455733            0.455697            0.830169               13.65
+[32m[ [0m  30%[32m      ][0m     3            0.455473            0.455570            0.830169               13.09
+[32m[ [0m  40%[32m      ][0m     4            0.455273            0.455463            0.830169               13.35
+[32m[ [0m  50%[32m      ][0m     5            0.455110            0.455418            0.830169               13.13
+[32m[ [0m  60%[32m      ][0m     6            0.454983            0.455459            0.830169               13.18
+[32m[ [0m  70%[32m      ][0m     7            0.454860            0.455453            0.830169               13.19
+[32m[ [0m  80%[32m      ][0m     8            0.454759            0.455667            0.830169               13.33
+[32m[ [0m  90%[32m      ][0m     9            0.454634            0.455481            0.830169               13.86
+[32m[ [0m 100%[32m      ][0m    10            0.454547            0.455507            0.830169               13.16
+[32m[1m[ ACTION     ] Early-stopping at epoch 5[0m
+[32m[1m[ ACTION     ] Start to save model ...[0m
+[32m[------------] [0mModel file: /data/ffm_model.out
+[32m[------------] [0mTime cost for saving model: 1.15 (sec)
+[32m[1m[ ACTION     ] Finish training[0m
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 147.92 (sec)[0m
+2018-07-10 17:34:03,586 - DEBUG - ffm.py:59 - to save validation predictions ...
+2018-07-10 17:34:03,586 - DEBUG - ffm.py:62 - <xlearn.xlearn.XLearn object at 0x7f16ed7f5198>
+2018-07-10 17:34:03,586 - DEBUG - ffm.py:52 - 设置参数
+2018-07-10 17:34:03,586 - DEBUG - ffm.py:70 - 预测
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Load model ...[0m
+[32m[------------] [0mLoad model from /data/ffm_model.out
+[32m[------------] [0mLoss function: cross-entropy
+[32m[------------] [0mScore function: ffm
+[32m[------------] [0mNumber of Feature: 691018
+[32m[------------] [0mNumber of K: 4
+[32m[------------] [0mNumber of field: 21
+[32m[------------] [0mTime cost for loading model: 0.17 (sec)
+[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_test.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mTime cost for reading problem: 1.54 (sec)
+[32m[1m[ ACTION     ] Start to predict ...[0m
+[32m[------------] [0mThe test loss is: 0.211198
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 4.29 (sec)[0m
+2018-07-10 17:34:08,068 - DEBUG - ffm.py:77 - <xlearn.xlearn.XLearn object at 0x7f16ed7f5198>
+2018-07-10 17:34:11,194 - DEBUG - ffm.py:79 - ------------------------------
+2018-07-10 17:34:11,308 - DEBUG - ffm.py:81 - (4577464, 1)
+2018-07-10 17:34:12,157 - DEBUG - ffm.py:83 - (4577464,)
+2018-07-10 17:39:03,714 - DEBUG - ffm.py:52 - 设置参数
+2018-07-10 17:39:03,714 - DEBUG - ffm.py:54 - 开始训练
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_vali.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mNumber of Feature: 691018
+[32m[------------] [0mNumber of Field: 21
+[32m[------------] [0mTime cost for reading problem: 12.52 (sec)
+[32m[1m[ ACTION     ] Initialize model ...[0m
+[32m[------------] [0mModel size: 224.06 MB
+[32m[------------] [0mTime cost for model initial: 0.28 (sec)
+[32m[1m[ ACTION     ] Start to train ...[0m
+[32m[------------][0m Epoch      Train log_loss       Test log_loss       Test Accuarcy     Time cost (sec)
+[32m[ [0m  10%[32m      ][0m     1            0.456753            0.456115            0.830169                9.11
+[32m[ [0m  20%[32m      ][0m     2            0.456370            0.457408            0.830169                9.22
+[32m[ [0m  30%[32m      ][0m     3            0.456114            0.457980            0.830169                9.39
+[32m[ [0m  40%[32m      ][0m     4            0.455882            0.456292            0.830169                9.03
+[32m[ [0m  50%[32m      ][0m     5            0.455656            0.456041            0.830169                9.34
+[32m[ [0m  60%[32m      ][0m     6            0.455471            0.456050            0.830169                9.08
+[32m[ [0m  70%[32m      ][0m     7            0.455310            0.456258            0.830169                8.95
+[32m[ [0m  80%[32m      ][0m     8            0.455148            0.456696            0.830169                9.08
+[32m[ [0m  90%[32m      ][0m     9            0.454996            0.456233            0.830169                9.14
+[32m[ [0m 100%[32m      ][0m    10            0.454859            0.457565            0.830169                9.08
+[32m[1m[ ACTION     ] Start to save model ...[0m
+[32m[------------] [0mModel file: /data/ffm_model.out
+[32m[------------] [0mTime cost for saving model: 0.30 (sec)
+[32m[1m[ ACTION     ] Finish training[0m
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 104.56 (sec)[0m
+2018-07-10 17:40:48,278 - DEBUG - ffm.py:60 - to save validation predictions ...
+2018-07-10 17:40:48,278 - DEBUG - ffm.py:63 - <xlearn.xlearn.XLearn object at 0x7fb539854160>
+2018-07-10 17:40:48,278 - DEBUG - ffm.py:52 - 设置参数
+2018-07-10 17:40:48,278 - DEBUG - ffm.py:71 - 预测
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Load model ...[0m
+[32m[------------] [0mLoad model from /data/ffm_model.out
+[32m[------------] [0mLoss function: cross-entropy
+[32m[------------] [0mScore function: ffm
+[32m[------------] [0mNumber of Feature: 691018
+[32m[------------] [0mNumber of K: 4
+[32m[------------] [0mNumber of field: 21
+[32m[------------] [0mTime cost for loading model: 0.09 (sec)
+[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_test.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mTime cost for reading problem: 1.53 (sec)
+[32m[1m[ ACTION     ] Start to predict ...[0m
+[32m[------------] [0mThe test loss is: 0.170833
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 3.86 (sec)[0m
+2018-07-10 17:40:52,333 - DEBUG - ffm.py:78 - <xlearn.xlearn.XLearn object at 0x7fb539854160>
+2018-07-10 17:40:55,479 - DEBUG - ffm.py:80 - ------------------------------
+2018-07-10 17:40:55,592 - DEBUG - ffm.py:82 - (4577464, 1)
+2018-07-10 17:40:56,441 - DEBUG - ffm.py:84 - (4577464,)
+2018-07-10 20:49:00,916 - DEBUG - ffm.py:52 - 设置参数
+2018-07-10 20:49:00,916 - DEBUG - ffm.py:54 - 开始训练
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) NOT found. Convert text file to binary file.
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_vali.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mNumber of Feature: 37300011
+[32m[------------] [0mNumber of Field: 100
+[32m[------------] [0mTime cost for reading problem: 116.01 (sec)
+[32m[1m[ ACTION     ] Initialize model ...[0m

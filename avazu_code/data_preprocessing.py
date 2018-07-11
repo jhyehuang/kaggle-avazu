@@ -516,7 +516,38 @@ def sklearn_onehoot(df,col):
     data = enc.transform(df).toarray()
     return data
 
-def col_one_hot(train,one_field):
+columns_all=['C14', 'C17', 'C21', 'device_model', 'site_domain',
+             'C1', 'C15', 'C16', 'C18', 'C19', 'C20', 'app_category', 
+             'app_domain', 'app_id', 'banner_pos', 'device_conn_type', 
+             'device_id', 'device_ip', 'device_type', 'hour', 'site_category', 
+             'site_id', 'uid', 'uid_time', 'device_id_cnt', 'device_ip_cnt', 
+             'uid_cnt', 'uid_time_cnt', 'C14C17', '_key1', 'C14device_model', 
+             'C14C21', 'C14site_domain', 'C17device_model', 'C17C21', 'C17site_domain',
+             'C21device_model', 'C21site_domain', 'site_domaindevice_model', 'cnttv_C14C17',
+             'cnttv_C14device_model', 'cnttv_C14C21', 'cnttv_C14site_domain', 'cnttv_C17device_model', 
+             'cnttv_C17C21', 'cnttv_C17site_domain', 'cnttv_C21device_model', 'cnttv_C21site_domain',
+             'cnttv_site_domaindevice_model']
+
+columns_top=['site_id', 'hour', 'app_id', 'C19', 'device_ip_cnt', 'C20', 'site_category', 
+             'uid_cnt', 'app_domain', 'device_id_cnt', 'device_ip', 'C18', 'uid_time_cnt', 
+             'device_model', 'app_category', 'site_domain', 'C21device_model', 
+             'exptv_site_domaindevice_model', 'banner_pos', 'C14', 'exptv_C21device_model',
+             'cnttv_C21device_model', 'cnttv_site_domaindevice_model', '_key1', 'cnttv_C14device_model',
+             'exptv_C14device_model', 'C16', 'cnttv_C17device_model', 'exptv_C17device_model', 
+             'device_conn_type', 'device_id', 'cnttv_C14site_domain', 'cnttv_C17C21', 
+             'exptv_C21site_domain', 'cnttv_C21site_domain', 'C17', 'C21', 'uid', 'C17device_model',
+             'cnttv_C17site_domain', 'exptv_C14site_domain', 'site_domaindevice_model', 'C21site_domain',
+             'exptv_C17site_domain', 'top_1_site_id', 'cnttv_C14C17', 'exptv_C17C21', 'C1', 
+             'C14device_model', 'top_2_site_id', 'uid_time', 'top_5_site_id', 'C15', 'exptv_C14C17',
+             'C14site_domain', 'top_1_app_id', 'cnttv_C14C21', 'C17site_domain', 'top_2_app_id', 
+             'device_type', 'top_10_site_id', 'exptv_C14C21']
+columns_100002w=['device_id', 'device_ip', 'device_id_cnt', 'device_ip_cnt', '_key1', 
+                'C14device_model', 'C17device_model', 'site_domaindevice_model', 
+                'cnttv_C14C17', 'cnttv_C14C21', 'cnttv_C14site_domain', 'cnttv_C17device_model', 
+                'cnttv_C17C21', 'cnttv_C17site_domain', 'cnttv_C21device_model', 'cnttv_C21site_domain']
+
+columns = [item for item in columns_top if item not in columns_100002w]
+def col_one_hot2(train,one_field):
 #    enc = OneHotEncoder()
 #    enc.fit(train)
     
@@ -526,6 +557,7 @@ def col_one_hot(train,one_field):
     logging.debug('Format Converting begin in time:...')
     logging.debug(now)
     columns = train.columns.values
+
     d = len(columns)
     feature_index = [i for i in range(d)]
     field_index = [0]*d
@@ -581,6 +613,7 @@ def train_data_ont_hot(seed=100):
         train_save.drop('click',axis=1,inplace=True)
     except:
         pass    
+    train_save=train_save[columns]
     features = list(train_save.columns)
     for feature_index,feature in enumerate(features):
         def set_field_feature_value(row):
@@ -614,14 +647,15 @@ def train_data_ont_hot(seed=100):
     
     logging.debug(train_save.head(2))
     logging.debug(train_save.shape)
+    del train_save
 
-def vali_data_ont_hot(seed=25):
+def vali_data_ont_hot(seed=799):
     train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/cat_features.csv',)
     train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/click.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
-#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join_cnt.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join_cnt.csv')
     logging.debug(train_save.columns)
 #    logging.debug(train_save['id'])
 
@@ -639,6 +673,7 @@ def vali_data_ont_hot(seed=25):
         train_save.drop('click',axis=1,inplace=True)
     except:
         pass    
+    train_save=train_save[columns]
     features = list(train_save.columns)
     for feature_index,feature in enumerate(features):
         def set_field_feature_value(row):
@@ -671,6 +706,7 @@ def vali_data_ont_hot(seed=25):
     
     logging.debug(train_save.head(2))
     logging.debug(train_save.shape)
+    del train_save
 
 def test_data_ont_hot():
     test_save = pd.read_csv(FLAGS.tmp_data_path +'test/cat_features.csv',)
@@ -678,7 +714,7 @@ def test_data_ont_hot():
     test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/num_features.csv')
 #    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/click.csv')
     test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join.csv')
-#    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join_cnt.csv')
+    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join_cnt.csv')
     logging.debug(test_save.shape)
 
     try:
@@ -693,7 +729,8 @@ def test_data_ont_hot():
         y_train = test_save['click']
         test_save.drop('click',axis=1,inplace=True)
     except:
-        pass    
+        pass   
+    test_save=test_save[columns]
     features = list(test_save.columns)
     for feature_index,feature in enumerate(features):
         def set_field_feature_value(row):
@@ -726,6 +763,8 @@ def test_data_ont_hot():
     
     logging.debug(train_save.head(2))
     logging.debug(train_save.shape)
+    del train_save
+    del test_save
 
 
 
