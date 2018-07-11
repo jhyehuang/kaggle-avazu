@@ -92,7 +92,10 @@ FIELDS = ['C1','click','app_id','site_id','banner_pos','device_id','device_ip','
 #exptv_vn_list=['device_id','device_ip','C14','C17','C21',
 #    'app_domain','site_domain','site_id','app_id','device_model','hour']
 
-exptv_vn_list=['C14','C17','C21','site_domain','device_model']
+category_list = ['app_or_web',  'device_ip', 'app_site_id', 'device_model', 'app_site_model', 'C1', 'C14', 'C17', 'C21',
+                            'device_type', 'device_conn_type','app_site_model_aw', 'dev_ip_app_site']
+    
+#exptv_vn_list=['C14','C17','C21','site_domain','device_model']
     
 
 def add_col_cnt(src_data,col_name,cnt):
@@ -103,7 +106,7 @@ def add_col_cnt(src_data,col_name,cnt):
     logging.debug(src_data[vn].head())
 
 # 可以在单条记录情况下 加工的类别特征
-def one_line_data_preprocessing(src_data, dst_app_path, is_train=True):
+def one_line_data_preprocessing(src_data, is_train=True):
     
     anly_hour(src_data)
     logging.debug(src_data.shape)
@@ -119,15 +122,30 @@ def one_line_data_preprocessing(src_data, dst_app_path, is_train=True):
     procdess_col(src_data,'app_domain')
     procdess_col(src_data,'app_category')
 #    procdess_col(src_data,'site_id')
+    num_writeheader_list=[]
+    cat_writeheader_list=[]
+    date_list=[]
+    for col in src_data.columns.values.tolist():
+        if col in category_list :
+            cat_writeheader_list.append(col)
+        elif 'day' in col:
+            date_list.append(col)
+        else:
+            num_writeheader_list.append(col)
+    src_data[cat_writeheader_list].to_csv(FLAGS.tmp_data_path+'cat_features.csv',index=False)
+    src_data[date_list].to_csv(FLAGS.tmp_data_path+'date_list.csv',index=False)
+    src_data[num_writeheader_list].to_csv(FLAGS.tmp_data_path+'num_features.csv',index=False)
+    del src_data
+    return 'cat_features.csv','date_list.csv','num_features.csv'
+ 
 
-    return src_data.columns.values.tolist()
 
 def two_features_data_preprocessing(data1,data2,data3, is_train=True):
     
     logging.debug("to add some basic features ...")
     
     #类别型特征俩俩 链接    
-    calc_exptv(data1,data2,data3,exptv_vn_list,add_count=True)
+    calc_exptv(data1,data2,data3,category_list,add_count=True)
     new_expvn=calc_exptv_cnt()
     return  new_expvn
 
@@ -204,8 +222,8 @@ def data_concat(src_data, dst_data_path,usecols=None, is_train=True):
     
     logging.debug('data1.shape:'+str(src_data.shape))
     logging.debug('data2.shape:'+str(Reader_.shape))
-    src_data=pd.concat([src_data,Reader_],axis = 1)
     start = time.time()
+    src_data=pd.concat([src_data,Reader_],axis = 1)
     logging.debug('结果.shape:'+str(src_data.shape))
     logging.debug('耗时'+str(time.time()-start))
 #    return NEW_FIELDS
@@ -213,23 +231,7 @@ def data_concat(src_data, dst_data_path,usecols=None, is_train=True):
 
 
 
-def data_to_col_csv(col_name_list,train, tmp_data_path):
-    num_writeheader_list=[]
-    cat_writeheader_list=[]
-    date_list=[]
-    for col in col_name_list:
-        if col in exptv_vn_list :
-            cat_writeheader_list.append(col)
-        elif 'day' in col:
-            date_list.append(col)
-        else:
-            num_writeheader_list.append(col)
-    train[cat_writeheader_list].to_csv(FLAGS.tmp_data_path+'cat_features.csv',index=False)
-    train[date_list].to_csv(FLAGS.tmp_data_path+'date_list.csv',index=False)
-    train[num_writeheader_list].to_csv(FLAGS.tmp_data_path+'num_features.csv',index=False)
-    del train
-    return 'cat_features.csv','date_list.csv','num_features.csv'
-            
+          
 
 def concat_train_test(src_path, test_path,):
     train = pd.read_csv(src_path, dtype ={'id': object,})
@@ -240,6 +242,12 @@ def concat_train_test(src_path, test_path,):
     col_cnts['train']=(t5.shape[0])
     logging.debug(train.shape)
     del t5
+    
+    #训练集 乱序，下采样
+    train = shuffle(train)
+    train=train.sample(frac=0.15).reset_index(drop=True)
+    
+    
     test = pd.read_csv(test_path,dtype ={'id': object,})
     test['click'] = 0  #测试样本加一列click，初始化为0
     t6=pd.DataFrame(test['id'].map(str),columns=['id',])
@@ -253,22 +261,145 @@ def concat_train_test(src_path, test_path,):
     
     logging.debug(test.shape)
     
-    try:
-        train.drop('id', axis=1,inplace = True)
-    except:
-        pass
-    try:
-        test.drop('id', axis=1,inplace = True)
-    except:
-        pass
-    #将训练样本和测试样本连接，一起进行特征工程
-    train = pd.concat([train, test])
-    logging.debug(train.shape)
 #    try:
 #        train.drop('id', axis=1,inplace = True)
 #    except:
 #        pass
+#    try:
+#        test.drop('id', axis=1,inplace = True)
+#    except:
+#        pass
+    #将训练样本和测试样本连接，一起进行特征工程
+    train = pd.concat([train, test])
+    logging.debug(train.shape)
+
     return train
+
+
+def features_by_chick():
+    
+    train_save = pd.read_csv(FLAGS.tmp_data_path +'cat_features.csv',)
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'date_list.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'click.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
+    
+    vns=train_save.columns.values
+
+    # 训练&测试
+    train_save = train_save.ix[np.logical_and(train_save.day.values >= 21, train_save.day.values < 32), vns]
+    dftv=train_save
+    #串联两个特征成新的特征
+    dftv['app_site_model'] = np.add(dftv.device_model.values, dftv.app_site_id.values)
+    dftv['app_site_model_aw'] = np.add(dftv.app_site_model.values, dftv.app_or_web.astype('string').values)
+    dftv['dev_ip_app_site'] = np.add(dftv.device_ip.values, dftv.app_site_id.values)
+    
+    #初始化
+    for vn in vns:
+        dftv[vn] = dftv[vn].astype('category')
+        print (vn)
+    
+    #后验均值编码中的先验强度
+    n_ks = {'app_or_web': 100, 'app_site_id': 100, 'device_ip': 10, 'C14': 50, 'app_site_model': 50, 'device_model': 100, 'device_id': 50,
+            'C17': 100, 'C21': 100, 'C1': 100, 'device_type': 100, 'device_conn_type': 100, 'banner_pos': 100,
+            'app_site_model_aw': 100, 'dev_ip_app_site': 10 , 'device_model': 500}
+    
+    #初始化
+    exp2_dict = {}
+    for vn in vns:
+        exp2_dict[vn] = np.zeros(dftv.shape[0])
+    
+    days_npa = dftv.day.values
+        
+    for day_v in range(22, 32):
+        # day_v之前的天，所以从22开始，作为训练集
+        df1 = dftv.ix[np.logical_and(dftv.day.values < day_v, dftv.day.values < 31), :].copy()
+    
+        #当前天的记录，作为校验集
+        df2 = dftv.ix[dftv.day.values == day_v, :]
+        print ("Validation day:", day_v, ", train data shape:", df1.shape, ", validation data shape:", df2.shape)
+    
+        #每个样本的y的先验都等于平均click率
+        pred_prev = df1.click.values.mean() * np.ones(df1.shape[0])
+    
+    
+        for vn in vns:
+            if 'exp2_'+vn in df1.columns:  #已经有了，丢弃重新计算
+                df1.drop('exp2_'+vn, inplace=True, axis=1)
+    
+        for i in range(3):
+            for vn in vns:
+                p1 = calcLeaveOneOut2(df1, vn, 'click', n_ks[vn], 0, 0.25, mean0=pred_prev)
+                pred = pred_prev * p1
+                print (day_v, i, vn, "change = ", ((pred - pred_prev)**2).mean())
+                pred_prev = pred    
+    
+            #y的先验
+            pred1 = df1.click.values.mean()
+            for vn in vns:
+                print ("="*20, "merge", day_v, vn)
+                diff1 = mergeLeaveOneOut2(df1, df2, vn)
+                pred1 *= diff1
+                exp2_dict[vn][days_npa == day_v] = diff1
+            
+            pred1 *= df1.click.values.mean() / pred1.mean()
+            print ("logloss = ", logloss(pred1, df2.click.values))
+            #print my_lift(pred1, None, df2.click.values, None, 20, fig_size=(10, 5))
+            #plt.show()
+    exp_list=[]
+    for vn in vns:
+        train_save['exp2_'+vn] = exp2_dict[vn]
+        exp_list.append('exp2_'+vn)
+    train_save[exp_list].to_csv(FLAGS.tmp_data_path+'exp_features.csv',index=False)
+    del train_save
+    
+def ouwenzhang():
+    train_save = pd.read_csv(FLAGS.tmp_data_path +'cat_features.csv',)
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'date_list.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'click.csv')
+    
+    ori_col=train_save.columns.values
+    print ("to count prev/current/next hour by ip ...")
+    cntDualKey(train_save, 'device_ip', None, 'day_hour', 'day_hour_prev', fill_na=0)
+    cntDualKey(train_save, 'device_ip', None, 'day_hour', 'day_hour', fill_na=0)
+    cntDualKey(train_save, 'device_ip', None, 'day_hour', 'day_hour_next', fill_na=0)
+    
+    print( "to create day diffs")
+    train_save['pday'] = train_save.day - 1
+    calcDualKey(train_save, 'device_ip', None, 'day', 'pday', 'click', 10, None, True, True)
+    train_save['cnt_diff_device_ip_day_pday'] = train_save.cnt_device_ip_day.values  - train_save.cnt_device_ip_pday.values
+    train_save['hour1_web'] = train_save.hour1.values
+    train_save.ix[train_save.app_or_web.values==0, 'hour1_web'] = -1
+    train_save['app_cnt_by_dev_ip'] = my_grp_cnt(train_save.device_ip.values.astype('string'), train_save.app_id.values.astype('string'))
+    
+    
+    train_save['hour1'] = np.round(train_save.hour.values % 100)
+    train_save['cnt_diff_device_ip_day_pday'] = train_save.cnt_device_ip_day.values  - train_save.cnt_device_ip_pday.values
+    
+    train_save['rank_dev_ip'] = my_grp_idx(train_save.device_ip.values.astype('string'), train_save.id.values.astype('string'))
+    train_save['rank_day_dev_ip'] = my_grp_idx(np.add(train_save.device_ip.values, train_save.day.astype('string').values).astype('string'), train_save.id.values.astype('string'))
+    train_save['rank_app_dev_ip'] = my_grp_idx(np.add(train_save.device_ip.values, train_save.app_id.values).astype('string'), train_save.id.values.astype('string'))
+    
+    
+    train_save['cnt_dev_ip'] = get_agg(train_save.device_ip.values, train_save.id, np.size)
+    train_save['cnt_dev_id'] = get_agg(train_save.device_id.values, train_save.id, np.size)
+    
+    train_save['dev_id_cnt2'] = np.minimum(train_save.cnt_dev_id.astype('int32').values, 300)
+    train_save['dev_ip_cnt2'] = np.minimum(train_save.cnt_dev_ip.astype('int32').values, 300)
+    
+    train_save['dev_id2plus'] = train_save.device_id.values
+    train_save.ix[train_save.cnt_dev_id.values == 1, 'dev_id2plus'] = '___only1'
+    train_save['dev_ip2plus'] = train_save.device_ip.values
+    train_save.ix[train_save.cnt_dev_ip.values == 1, 'dev_ip2plus'] = '___only1'
+    
+    train_save['diff_cnt_dev_ip_hour_phour_aw2_prev'] = (train_save.cnt_device_ip_day_hour.values - train_save.cnt_device_ip_day_hour_prev.values) * ((train_save.app_or_web * 2 - 1)) 
+    train_save['diff_cnt_dev_ip_hour_phour_aw2_next'] = (train_save.cnt_device_ip_day_hour.values - train_save.cnt_device_ip_day_hour_next.values) * ((train_save.app_or_web * 2 - 1)) 
+    
+    now_col=train_save.columns.values
+    new_col=[x for x in now_col if x not in ori_col]
+    print("to save train_save ...")
+    
+    train_save[new_col].to_csv(FLAGS.tmp_data_path+'idx_features.csv',index=False)
+    del train_save
 
 def click_to_csv():
     num_features=pd.read_csv(FLAGS.tmp_data_path+'num_features.csv')
