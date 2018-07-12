@@ -293,16 +293,15 @@ def features_by_chick():
 
     # 训练&测试
     train_save = train_save.ix[np.logical_and(train_save.one_day.values >= 21, train_save.one_day.values < 32), vns]
-    train_save=train_save
     #串联两个特征成新的特征
     train_save['app_site_model'] = np.add(train_save.device_model.values, train_save.app_site_id.values)
     train_save['app_site_model_aw'] = np.add(train_save.app_site_model.values, train_save.app_or_web.values)
     train_save['dev_ip_app_site'] = np.add(train_save.device_ip.values, train_save.app_site_id.values)
     
     #初始化
-    for vn in vns:
-        train_save[vn] = train_save[vn].astype('category')
-        print (vn)
+#    for vn in vns:
+#        train_save[vn] = train_save[vn].astype('category')
+#        print (vn)
     
     #后验均值编码中的先验强度
     n_ks = {'app_or_web': 100, 'app_site_id': 100, 'device_ip': 10, 'C14': 50, 'app_site_model': 50, 'device_model': 100, 'device_id': 50,
