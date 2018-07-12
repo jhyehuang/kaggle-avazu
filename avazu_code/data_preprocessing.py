@@ -301,7 +301,7 @@ def features_by_chick():
 
     #初始化
     
-    logging.debug(vns)
+    
 #    for vn in vns:
 #        if 'day' in vn and vn != 'one_day':
 #            vns.remove(vn)
@@ -313,6 +313,7 @@ def features_by_chick():
             'app_site_model_aw': 100,'one_day':100, 'dev_ip_app_site': 10 , 'device_model': 500}
     
     vns=list(n_ks.keys())
+    logging.debug(vns)
     #初始化
     exp2_dict = {}
     for vn in vns:
