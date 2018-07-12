@@ -292,16 +292,16 @@ def features_by_chick():
     vns=train_save.columns.values
 
     # 训练&测试
-    train_save = train_save.ix[np.logical_and(train_save.day.values >= 21, train_save.day.values < 32), vns]
-    dftv=train_save
+    train_save = train_save.ix[np.logical_and(train_save.one_day.values >= 21, train_save.one_day.values < 32), vns]
+    train_save=train_save
     #串联两个特征成新的特征
-    dftv['app_site_model'] = np.add(dftv.device_model.values, dftv.app_site_id.values)
-    dftv['app_site_model_aw'] = np.add(dftv.app_site_model.values, dftv.app_or_web.astype('string').values)
-    dftv['dev_ip_app_site'] = np.add(dftv.device_ip.values, dftv.app_site_id.values)
+    train_save['app_site_model'] = np.add(train_save.device_model.values, train_save.app_site_id.values)
+    train_save['app_site_model_aw'] = np.add(train_save.app_site_model.values, train_save.app_or_web.values)
+    train_save['dev_ip_app_site'] = np.add(train_save.device_ip.values, train_save.app_site_id.values)
     
     #初始化
     for vn in vns:
-        dftv[vn] = dftv[vn].astype('category')
+        train_save[vn] = train_save[vn].astype('category')
         print (vn)
     
     #后验均值编码中的先验强度
@@ -312,16 +312,16 @@ def features_by_chick():
     #初始化
     exp2_dict = {}
     for vn in vns:
-        exp2_dict[vn] = np.zeros(dftv.shape[0])
+        exp2_dict[vn] = np.zeros(train_save.shape[0])
     
-    days_npa = dftv.day.values
+    days_npa = train_save.one_day.values
         
     for day_v in range(22, 32):
         # day_v之前的天，所以从22开始，作为训练集
-        df1 = dftv.ix[np.logical_and(dftv.day.values < day_v, dftv.day.values < 31), :].copy()
+        df1 = train_save.ix[np.logical_and(train_save.one_day.values < day_v, train_save.one_day.values < 31), :].copy()
     
         #当前天的记录，作为校验集
-        df2 = dftv.ix[dftv.day.values == day_v, :]
+        df2 = train_save.ix[train_save.one_day.values == day_v, :]
         print ("Validation day:", day_v, ", train data shape:", df1.shape, ", validation data shape:", df2.shape)
     
         #每个样本的y的先验都等于平均click率
