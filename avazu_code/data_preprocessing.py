@@ -278,12 +278,12 @@ def concat_train_test(src_path, test_path,):
     #将训练样本和测试样本连接，一起进行特征工程
     train = pd.concat([train, test])
     
-    train['app_or_web'] = 0
+    train['app_or_web'] = '0'
     #如果app_id='ecad2386',app_or_web=1
-    train.ix[train.app_id.values=='ecad2386', 'app_or_web'] = 1
+    train.ix[train.app_id.values=='ecad2386', 'app_or_web'] = '1'
     train['app_site_id'] = np.add(train.app_id.values, train.site_id.values)
     train['app_site_model'] = np.add(train.device_model.values, train.app_site_id.values)
-    train['app_site_model_aw'] = np.add(train.app_site_model.values, train.app_or_web.astype('string').values)
+    train['app_site_model_aw'] = np.add(train.app_site_model.values, train.app_or_web.values)
     train['dev_ip_app_site'] = np.add(train.device_ip.values, train.app_site_id.values)
 
     logging.debug(train.shape)
