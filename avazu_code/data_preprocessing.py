@@ -289,7 +289,7 @@ def features_by_chick():
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'click.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
     
-    vns=[vn for vn in train_save.columns.values if 'day' not in vn or vn == 'one_day']
+#    vns=[vn for vn in train_save.columns.values if 'day' not in vn or vn == 'one_day']
     # 训练&测试
     train_save = train_save.ix[np.logical_and(train_save.one_day.values >= 21, train_save.one_day.values < 32), vns]
     #串联两个特征成新的特征
@@ -312,6 +312,7 @@ def features_by_chick():
             'C17': 100, 'C21': 100, 'C1': 100, 'device_type': 100, 'device_conn_type': 100, 'banner_pos': 100,
             'app_site_model_aw': 100,'one_day':100, 'dev_ip_app_site': 10 , 'device_model': 500}
     
+    vns=list(n_ks.keys())
     #初始化
     exp2_dict = {}
     for vn in vns:
