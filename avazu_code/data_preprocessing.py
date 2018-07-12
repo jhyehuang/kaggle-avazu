@@ -281,10 +281,10 @@ def concat_train_test(src_path, test_path,):
     train['app_or_web'] = 0
     #如果app_id='ecad2386',app_or_web=1
     train.ix[train.app_id.values=='ecad2386', 'app_or_web'] = 1
-    train['app_site_id'] = np.add(train.app_id.values.code, train.site_id.values.code)
-    train['app_site_model'] = np.add(train.device_model.values.code, train.app_site_id.values.code)
-    train['app_site_model_aw'] = np.add(train.app_site_model.values.code, train.app_or_web.values.code)
-    train['dev_ip_app_site'] = np.add(train.device_ip.values.code, train.app_site_id.values.code)
+    train['app_site_id'] = np.add(train.app_id.values, train.site_id.values)
+    train['app_site_model'] = np.add(train.device_model.values, train.app_site_id.values)
+    train['app_site_model_aw'] = np.add(train.app_site_model.values, train.app_or_web.astype('string').values)
+    train['dev_ip_app_site'] = np.add(train.device_ip.values, train.app_site_id.values)
 
     logging.debug(train.shape)
 
