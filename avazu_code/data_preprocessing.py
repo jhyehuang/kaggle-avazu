@@ -289,7 +289,7 @@ def features_by_chick():
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'click.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
     
-    vns=train_save.columns.values
+    vns=list[train_save.columns.values]
 
     # 训练&测试
     train_save = train_save.ix[np.logical_and(train_save.one_day.values >= 21, train_save.one_day.values < 32), vns]
@@ -301,9 +301,10 @@ def features_by_chick():
     
 
     #初始化
+    logging.debug(vns)
     for vn in vns:
         if 'day' in vn and vn != 'one_day':
-            vns.drop(vn, inplace=True, axis=1)
+            vns.remove(vn)
         logging.debug (vn)
     
     #后验均值编码中的先验强度
