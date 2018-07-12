@@ -51,6 +51,10 @@ def anly_hour(src_data):
 #    src_data[src_data['is_work_day']==0]
     src_data.drop(['date'], axis=1,inplace = True)
     src_data.drop(['week_day'], axis=1,inplace = True)
+    
+    date_list=['one_day','one_day_hour','day_hour_prev','day_hour_next','is_work_day']
+    
+    src_data[date_list].to_csv(FLAGS.tmp_data_path+'date_list.csv',index=False)
             
 def drop_limit_10(train,col_name):
     return dict((key,-1) if value <10 else (key,value)  for key,value in dict(train[col_name].value_counts()).items())
