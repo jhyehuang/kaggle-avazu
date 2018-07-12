@@ -312,7 +312,7 @@ def features_by_chick():
     
     
     for vn in vns:
-        if n_ks.has_key(vn):
+        if vn in n_ks:
             pass
         else:
             n_ks[vn]=100
