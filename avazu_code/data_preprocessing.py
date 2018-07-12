@@ -310,7 +310,7 @@ def features_by_chick():
     #后验均值编码中的先验强度
     n_ks = {'app_or_web': 100, 'app_site_id': 100, 'device_ip': 10, 'C14': 50, 'app_site_model': 50, 'device_model': 100, 'device_id': 50,
             'C17': 100, 'C21': 100, 'C1': 100, 'device_type': 100, 'device_conn_type': 100, 'banner_pos': 100,
-            'app_site_model_aw': 100, 'dev_ip_app_site': 10 , 'device_model': 500}
+            'app_site_model_aw': 100,'one_day':100, 'dev_ip_app_site': 10 , 'device_model': 500}
     
     #初始化
     exp2_dict = {}
