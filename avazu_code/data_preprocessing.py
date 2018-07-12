@@ -289,7 +289,7 @@ def features_by_chick():
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'click.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
     
-    vns=list[train_save.columns.values]
+    vns=train_save.columns.values.to_list()
 
     # 训练&测试
     train_save = train_save.ix[np.logical_and(train_save.one_day.values >= 21, train_save.one_day.values < 32), vns]
