@@ -303,7 +303,7 @@ def features_by_chick():
     #初始化
     for vn in vns:
         if 'day' in vn and vn != 'one_day':
-            vns.remove(vn)
+            vns.drop(vn, inplace=True, axis=1)
         logging.debug (vn)
     
     #后验均值编码中的先验强度
