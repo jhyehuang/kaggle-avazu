@@ -307,7 +307,8 @@ def features_by_chick():
     train_save['dev_ip_app_site'] = np.add(train_save.device_ip.values, train_save.app_site_id.values)
     
     
-
+    logging.debug(train_save.shape)
+    logging.debug(train_save.one_day.values)
     #初始化
     
     
@@ -325,14 +326,16 @@ def features_by_chick():
         exp2_dict[vn] = np.zeros(train_save.shape[0])
     
     days_npa = train_save.one_day.values
+    logging.debug(days_npa)
         
     for day_v in range(22, 32):
         # day_v之前的天，所以从22开始，作为训练集
         logging.debug(train_save['one_day'])
         df1 = train_save.ix[np.logical_and(train_save.one_day.values < day_v, train_save.one_day.values < 31), :].copy()
-    
+        logging.debug(df1.shape)
         #当前天的记录，作为校验集
         df2 = train_save.ix[train_save.one_day.values == day_v, :]
+        logging.debug(df2.shape)
         print ("Validation day:", day_v, ", train data shape:", df1.shape, ", validation data shape:", df2.shape)
     
         #每个样本的y的先验都等于平均click率
