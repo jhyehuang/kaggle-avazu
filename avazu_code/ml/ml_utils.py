@@ -177,7 +177,7 @@ def gini_norm(pred, y, weight=None):
 
 #如果俩个样本集内重叠就是按照 1赋值，其他不重回情况取1的均值
 def mergeLeaveOneOut2(df, dfv, vn):
-    _key_codes = df[vn].values.codes
+    _key_codes = df[vn].values
     vn_yexp = 'exp2_'+vn
 
     grp1 = df[vn_yexp].groupby(_key_codes)
