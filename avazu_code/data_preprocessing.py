@@ -290,13 +290,13 @@ def features_by_chick():
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
     
 
-#    vns=[vn for vn in train_save.columns.values if 'day' not in vn or vn == 'one_day']
+    vns=[vn for vn in train_save.columns.values if 'day' not in vn or vn == 'one_day']
     #后验均值编码中的先验强度
     n_ks = {'app_or_web': 100, 'app_site_id': 100, 'device_ip': 10, 'C14': 50, 'app_site_model': 50, 'device_id': 50,
             'C17': 100, 'C21': 100, 'C1': 100, 'device_type': 100, 'device_conn_type': 100, 'banner_pos': 100,
             'app_site_model_aw': 100,'one_day':100, 'dev_ip_app_site': 10 , 'device_model': 500}
     
-    vns=list(n_ks.keys())
+#    vns=list(n_ks.keys())
     logging.debug(vns)
     
     # 训练&测试
