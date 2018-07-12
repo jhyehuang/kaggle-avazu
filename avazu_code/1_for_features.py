@@ -31,9 +31,9 @@ output = FLAGS.output_dir
 
 #a2
 # 将train 和test 拼到一起
-train=concat_train_test(FLAGS.src_train_path,FLAGS.src_test_path)
+#train=concat_train_test(FLAGS.src_train_path,FLAGS.src_test_path)
 
-gc.collect()
+#gc.collect()
 
 
 # a2
@@ -44,8 +44,10 @@ gc.collect()
 
 #a4
 #将点击数据按列写入硬盘
-click_to_csv()
-gc.collect()
+#click_to_csv()
+#gc.collect()
+
+file1,file2,file3='cat_features.csv','date_list.csv','num_features.csv'
 # a5
 # 类别特征之间每俩个特征进行拼接 组成新特征
 new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path+file1,FLAGS.tmp_data_path+file2,FLAGS.tmp_data_path+file3)

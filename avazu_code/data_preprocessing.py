@@ -122,6 +122,10 @@ def one_line_data_preprocessing(src_data, is_train=True):
     procdess_col(src_data,'app_domain')
     procdess_col(src_data,'app_category')
 #    procdess_col(src_data,'site_id')
+    src_data['app_site_id'] = np.add(src_data.app_id.values, src_data.site_id.values)
+    src_data['app_site_model'] = np.add(src_data.device_model.values, src_data.app_site_id.values)
+    src_data['app_site_model_aw'] = np.add(src_data.app_site_model.values, src_data.app_or_web.values)
+    src_data['dev_ip_app_site'] = np.add(src_data.device_ip.values, src_data.app_site_id.values)
     num_writeheader_list=[]
     cat_writeheader_list=[]
     date_list=[]
@@ -258,7 +262,9 @@ def concat_train_test(src_path, test_path,):
     logging.debug(col_cnts)
     ret=dump(col_cnts, FLAGS.tmp_data_path+'test_index.joblib_dat')
     del t6
-    
+    train['app_or_web'] = 0
+    #如果app_id='ecad2386',app_or_web=1
+    train.ix[train.app_id.values=='ecad2386', 'app_or_web'] = 1
     logging.debug(test.shape)
     
 #    try:
