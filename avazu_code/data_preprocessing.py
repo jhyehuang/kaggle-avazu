@@ -133,11 +133,12 @@ def one_line_data_preprocessing(src_data, is_train=True):
         if col in category_list :
             cat_writeheader_list.append(col)
         elif 'day' in col:
-            date_list.append(col)
+            pass
+#            date_list.append(col)
         else:
             num_writeheader_list.append(col)
     src_data[cat_writeheader_list].to_csv(FLAGS.tmp_data_path+'cat_features.csv',index=False)
-    src_data[date_list].to_csv(FLAGS.tmp_data_path+'date_list.csv',index=False)
+#    src_data[date_list].to_csv(FLAGS.tmp_data_path+'date_list.csv',index=False)
     src_data[num_writeheader_list].to_csv(FLAGS.tmp_data_path+'num_features.csv',index=False)
     del src_data
     return 'cat_features.csv','date_list.csv','num_features.csv'
@@ -280,10 +281,10 @@ def concat_train_test(src_path, test_path,):
     train['app_or_web'] = 0
     #如果app_id='ecad2386',app_or_web=1
     train.ix[train.app_id.values=='ecad2386', 'app_or_web'] = 1
-    train['app_site_id'] = np.add(train.app_id.values, train.site_id.values)
-    train['app_site_model'] = np.add(train.device_model.values, train.app_site_id.values)
-    train['app_site_model_aw'] = np.add(train.app_site_model.values, train.app_or_web.values)
-    train['dev_ip_app_site'] = np.add(train.device_ip.values, train.app_site_id.values)
+    train['app_site_id'] = np.add(train.app_id.values.code, train.site_id.values.code)
+    train['app_site_model'] = np.add(train.device_model.values.code, train.app_site_id.values.code)
+    train['app_site_model_aw'] = np.add(train.app_site_model.values.code, train.app_or_web.values.code)
+    train['dev_ip_app_site'] = np.add(train.device_ip.values.code, train.app_site_id.values.code)
 
     logging.debug(train.shape)
 
