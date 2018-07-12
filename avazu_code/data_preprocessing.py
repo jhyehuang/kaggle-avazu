@@ -298,6 +298,7 @@ def features_by_chick():
     
 #    vns=list(n_ks.keys())
     logging.debug(vns)
+    logging.debug(train_save.one_day.values)
     
     # 训练&测试
     train_save = train_save.ix[np.logical_and(train_save.one_day.values >= 21, train_save.one_day.values < 32), vns]
