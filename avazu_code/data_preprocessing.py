@@ -289,6 +289,7 @@ def features_by_chick():
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'click.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
     
+    logging.debug(train_save['one_day'].unique())
 
     vns=[vn for vn in train_save.columns.values if 'day' not in vn or vn == 'one_day']
     #后验均值编码中的先验强度
