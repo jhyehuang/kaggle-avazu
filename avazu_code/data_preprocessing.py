@@ -311,10 +311,12 @@ def features_by_chick():
     #初始化
     
     
-#    for vn in vns:
-#        if 'day' in vn and vn != 'one_day':
-#            vns.remove(vn)
-#        logging.debug (vn)
+    for vn in vns:
+        if n_ks.has_key(vn):
+            pass
+        else:
+            n_ks[vn]=100
+    logging.debug (vn)
     
 
     #初始化
