@@ -343,7 +343,7 @@ def features_by_chick():
     for day_v in range(22, 32):
         # day_v之前的天，所以从22开始，作为训练集
         logging.debug(train_save['one_day'])
-        df1 = train_save.ix[np.logical_and(train_save.one_day.values < day_v, train_save.one_day.values < 31), :].copy()
+        df1 = train_save.ix[np.logical_and(train_save.one_day.values < day_v, True), :].copy()
         logging.debug(df1.shape)
         #当前天的记录，作为校验集
         df2 = train_save.ix[train_save.one_day.values == day_v, :]
