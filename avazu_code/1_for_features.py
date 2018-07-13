@@ -31,21 +31,21 @@ output = FLAGS.output_dir
 
 #a2
 # 将train 和test 拼到一起
-train=concat_train_test(FLAGS.src_train_path,FLAGS.src_test_path)
+#train=concat_train_test(FLAGS.src_train_path,FLAGS.src_test_path)
 
-gc.collect()
+#gc.collect()
 
 
 # a2
 #计算 特征中 1、不同用户出现的次数 2、不同设备id出现的次数 3、不同ip出现的次数 4、不同用户不同时间出现的次数
 #将训练集写入硬盘
-file1,file2,file3=one_line_data_preprocessing(train)  
-gc.collect()
+#file1,file2,file3=one_line_data_preprocessing(train)  
+#gc.collect()
 
 #a4
 #将点击数据按列写入硬盘
-click_to_csv()
-gc.collect()
+#click_to_csv()
+#gc.collect()
 
 #file1,file2,file3='cat_features.csv','date_list.csv','num_features.csv'
 # a5

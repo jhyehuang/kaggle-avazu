@@ -41,8 +41,10 @@ def def_user_one_day_hour(src_data):
 
 #  hour  shi jian tezheng
 def anly_hour(src_data):
-    src_data['date']=pd.to_datetime((src_data['hour'] / 100).map(int)+20000000)
+    src_data['date']=pd.to_datetime((src_data['hour'] / 100).map(int)+20000000,format='%Y%m%d')
+    logging.debug(src_data['date'].unique())
     src_data['one_day']=src_data['date'].dt.day
+    logging.debug(src_data['one_day'].unique())
     src_data['one_day_hour'] = src_data['date'].dt.hour
     src_data['week_day'] = src_data['date'].dt.dayofweek
     src_data['day_hour_prev']=src_data['one_day_hour']-1
@@ -301,7 +303,7 @@ def features_by_chick():
     
     logging.debug(train_save['one_day'].unique())
 
-    vns=[vn for vn in train_save.columns.values if 'day' not in vn or vn == 'one_day']
+    vns=[vn for vn in train_save.columns.values if 'day' not in vn ]
     #后验均值编码中的先验强度
     n_ks = {'app_or_web': 100, 'app_site_id': 100, 'device_ip': 10, 'C14': 50, 'app_site_model': 50, 'device_id': 50,
             'C17': 100, 'C21': 100, 'C1': 100, 'device_type': 100, 'device_conn_type': 100, 'banner_pos': 100,
@@ -312,7 +314,7 @@ def features_by_chick():
     logging.debug(train_save.one_day.unique())
     
     # 训练&测试
-    train_save = train_save.ix[np.logical_and(train_save.one_day.values >= 21, train_save.one_day.values < 32), vns]
+    train_save = train_save.ix[np.logical_and(train_save.one_day.values >= 21, train_save.one_day.values < 32), :]
     #串联两个特征成新的特征
     train_save['app_site_model'] = np.add(train_save.device_model.values, train_save.app_site_id.values)
     train_save['app_site_model_aw'] = np.add(train_save.app_site_model.values, train_save.app_or_web.values)
@@ -320,7 +322,7 @@ def features_by_chick():
     
     
     logging.debug(train_save.shape)
-    logging.debug(train_save.one_day.values)
+#    logging.debug(train_save.one_day.values)
     #初始化
     
     
