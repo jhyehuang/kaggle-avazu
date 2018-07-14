@@ -56,8 +56,8 @@ output = FLAGS.output_dir
 
 # a6
 # 按照时间维度对 特征进行概率计算
-features_by_chick()
-gc.collect()
+#features_by_chick()
+#gc.collect()
 
 
 # a7
@@ -71,8 +71,8 @@ gc.collect()
 #gc.collect()
 
 # 随机切割4个 500w的小数据集  调参
-#get_train_split()
-#gc.collect()
+get_train_split()
+gc.collect()
 
 #  将全部训练集 分割出来 
 #get_train_test_split()

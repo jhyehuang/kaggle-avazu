@@ -242,13 +242,13 @@ def calcTVTransform(df, vn, vn_y, cred_k, filter_train, mean0=None):
 def cntDualKey(df, vn, vn2, key_src, key_tgt, fill_na=False):
     
     logging.debug ("build src key")
-    _key_src = np.add(df[key_src].astype('string').values, df[vn].astype('string').values)
+    _key_src = np.add(df[key_src].values, df[vn].values)
     logging.debug ("build tgt key")
-    _key_tgt = np.add(df[key_tgt].astype('string').values, df[vn].astype('string').values)
+    _key_tgt = np.add(df[key_tgt].values, df[vn].values)
     
     if vn2 is not None:
-        _key_src = np.add(_key_src, df[vn2].astype('string').values)
-        _key_tgt = np.add(_key_tgt, df[vn2].astype('string').values)
+        _key_src = np.add(_key_src, df[vn2].values)
+        _key_tgt = np.add(_key_tgt, df[vn2].values)
 
     logging.debug ("aggreate by src key")
     grp1 = df.groupby(_key_src)
@@ -410,13 +410,13 @@ def calcDualKey(df, vn, vn2, key_src, key_tgt, vn_y, cred_k, mean0=None, add_cou
         mean0 = df[vn_y].mean()
     
     logging.debug ("build src key")
-    _key_src = np.add(df[key_src].astype('string').values, df[vn].astype('string').values)
+    _key_src = np.add(df[key_src].values, df[vn].values)
     logging.debug ("build tgt key")
-    _key_tgt = np.add(df[key_tgt].astype('string').values, df[vn].astype('string').values)
+    _key_tgt = np.add(df[key_tgt].values, df[vn].values)
     
     if vn2 is not None:
-        _key_src = np.add(_key_src, df[vn2].astype('string').values)
-        _key_tgt = np.add(_key_tgt, df[vn2].astype('string').values)
+        _key_src = np.add(_key_src, df[vn2].values)
+        _key_tgt = np.add(_key_tgt, df[vn2].values)
 
     logging.debug ("aggreate by src key")
     grp1 = df.groupby(_key_src)

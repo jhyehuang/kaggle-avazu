@@ -393,25 +393,25 @@ def ouwenzhang():
     
     ori_col=train_save.columns.values
     print ("to count prev/current/next hour by ip ...")
-    cntDualKey(train_save, 'device_ip', None, 'day_hour', 'day_hour_prev', fill_na=0)
-    cntDualKey(train_save, 'device_ip', None, 'day_hour', 'day_hour', fill_na=0)
-    cntDualKey(train_save, 'device_ip', None, 'day_hour', 'day_hour_next', fill_na=0)
+    cntDualKey(train_save, 'device_ip', None, 'one_day', 'day_hour_prev', fill_na=0)
+    cntDualKey(train_save, 'device_ip', None, 'one_day', 'one_day', fill_na=0)
+    cntDualKey(train_save, 'device_ip', None, 'one_day', 'day_hour_next', fill_na=0)
     
     print( "to create day diffs")
-    train_save['pday'] = train_save.day - 1
-    calcDualKey(train_save, 'device_ip', None, 'day', 'pday', 'click', 10, None, True, True)
-    train_save['cnt_diff_device_ip_day_pday'] = train_save.cnt_device_ip_day.values  - train_save.cnt_device_ip_pday.values
-    train_save['hour1_web'] = train_save.hour1.values
+    train_save['pday'] = train_save.one_day - 1
+    calcDualKey(train_save, 'device_ip', None, 'one_day', 'pday', 'click', 10, None, True, True)
+#    train_save['cnt_diff_device_ip_day_pday'] = train_save.cnt_device_ip_day.values  - train_save.cnt_device_ip_pday.values
+    train_save['hour1_web'] = train_save.one_day_hour.values
     train_save.ix[train_save.app_or_web.values==0, 'hour1_web'] = -1
-    train_save['app_cnt_by_dev_ip'] = my_grp_cnt(train_save.device_ip.values.astype('string'), train_save.app_id.values.astype('string'))
+#    train_save['app_cnt_by_dev_ip'] = my_grp_cnt(train_save.device_ip.values, train_save.app_id.values)
     
     
-    train_save['hour1'] = np.round(train_save.hour.values % 100)
-    train_save['cnt_diff_device_ip_day_pday'] = train_save.cnt_device_ip_day.values  - train_save.cnt_device_ip_pday.values
+    train_save['hour1'] = np.round(train_save.one_day_hour.values % 100)
+#    train_save['cnt_diff_device_ip_day_pday'] = train_save.cnt_device_ip_day.values  - train_save.cnt_device_ip_pday.values
     
-    train_save['rank_dev_ip'] = my_grp_idx(train_save.device_ip.values.astype('string'), train_save.id.values.astype('string'))
-    train_save['rank_day_dev_ip'] = my_grp_idx(np.add(train_save.device_ip.values, train_save.day.astype('string').values).astype('string'), train_save.id.values.astype('string'))
-    train_save['rank_app_dev_ip'] = my_grp_idx(np.add(train_save.device_ip.values, train_save.app_id.values).astype('string'), train_save.id.values.astype('string'))
+#    train_save['rank_dev_ip'] = my_grp_idx(train_save.device_ip.values, train_save.id.values)
+    train_save['rank_day_dev_ip'] = my_grp_idx(np.add(train_save.device_ip.values, train_save.day.values), train_save.id.values)
+#    train_save['rank_app_dev_ip'] = my_grp_idx(np.add(train_save.device_ip.values, train_save.app_id.values), train_save.id.values)
     
     
     train_save['cnt_dev_ip'] = get_agg(train_save.device_ip.values, train_save.id, np.size)
@@ -472,7 +472,7 @@ def get_train_split():
             train_0=train_0.take(sampler)
             train = pd.concat([train_0, train_1])
 #            train = shuffle(train)
-            train=train.sample(frac=0.25).reset_index(drop=True)
+            train=train.sample(frac=1).reset_index(drop=True)
             logging.debug(train.shape)
             train.to_csv(FLAGS.tmp_data_path+'train'+str(x)+'/'+file,index=False)
             del train
