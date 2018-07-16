@@ -13,8 +13,23 @@ import numpy as np
 from sklearn import svm
 from sklearn.model_selection import train_test_split
 from sklearn.decomposition import PCA
+sys.path.append('..')
 import time
+from joblib import dump, load, Parallel, delayed
+import utils
+from ml_utils import *
+from data_preprocessing import *
 
+
+
+#sys.path.append(utils.xgb_path)
+import xgboost as xgb
+
+
+import logging
+
+
+from flags import FLAGS, unparsed
 
 # In[2]:
 
@@ -53,7 +68,7 @@ print(X_val.shape)
 
 
 # 一个参数点（PCA维数为n）的模型训练和测试，得到该参数下模型在校验集上的预测性能
-def n_component_analysis(n, X_train, y_train, X_val, y_val):
+def n_component_analysis(n, X_train, y_train,):
     start = time.time()
     
     pca = PCA(n_components=n)
@@ -62,15 +77,14 @@ def n_component_analysis(n, X_train, y_train, X_val, y_val):
     
     # 在训练集和测试集降维 
     X_train_pca = pca.transform(X_train)
-    X_val_pca = pca.transform(X_val)
     
     # 利用SVC训练
-    print('SVC begin')
-    clf1 = svm.SVC()
-    clf1.fit(X_train_pca, y_train)
+    print('xgb begin')
+    xgb1 = load(FLAGS.tmp_data_path+'xgboost.cv_fin.model.joblib_dat')
+    dtrain_predprob = xgb1.predict_proba(X_train_pca)[:,1]
     
     # 返回accuracy
-    accuracy = clf1.score(X_val_pca, y_val)
+    accuracy = xgb1.score(dtrain_predprob, y_train)
     
     end = time.time()
     print("accuracy: {}, time elaps:{}".format(accuracy, int(end-start)))
