@@ -113,8 +113,8 @@ def add_col_cnt(src_data,col_name,cnt):
     logging.debug(src_data[vn].head())
 
 # 可以在单条记录情况下 加工的类别特征
-def one_line_data_preprocessing(src_data, is_train=True):
-    
+def one_line_data_preprocessing(is_train=True):
+    src_data=pd.read_csv(FLAGS.tmp_data_path+'train_test.csv')
     anly_hour(src_data)
     logging.debug(src_data.shape)
     id_cnt,ip_cnt,user_cnt,user_hour_cnt=cat_features_cnt(src_data) 
@@ -245,7 +245,7 @@ def concat_train_test(src_path, test_path,):
     train = pd.read_csv(src_path, dtype ={'id': object,})
     t5=pd.DataFrame(train['id'].map(int),columns=['id',])
 #    logging.debug(t5.head(5))
-    t5.to_csv(FLAGS.tmp_data_path+'train_id.csv',index=False)
+#    t5.to_csv(FLAGS.tmp_data_path+'train_id.csv',index=False)
     col_cnts={}
     col_cnts['train']=(t5.shape[0])
     logging.debug(train.shape)
@@ -290,9 +290,10 @@ def concat_train_test(src_path, test_path,):
     train['dev_ip_app_site'] = np.add(train.device_ip.values, train.app_site_id.values)
 
     logging.debug(train.shape)
-
-
-    return train
+    
+    
+    train.to_csv(FLAGS.tmp_data_path+'train_test.csv',index=False)
+    return 0
 
 
 def features_by_chick():
@@ -756,10 +757,12 @@ def col_one_hot2(train,one_field):
 #    return  pd.DataFrame(train)
 
 
+def features_index():
+    pass
 
 def train_data_ont_hot(seed=100):
     train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/click.csv',)
-#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/cat_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
@@ -823,7 +826,7 @@ def train_data_ont_hot(seed=100):
 
 def vali_data_ont_hot(seed=799):
     train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/click.csv',)
-#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/cat_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
@@ -884,7 +887,7 @@ def vali_data_ont_hot(seed=799):
 
 def test_data_ont_hot():
     test_save = pd.read_csv(FLAGS.tmp_data_path +'test/click.csv',)
-#    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/date_list.csv')
+    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/date_list.csv')
 #    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/num_features.csv')
 #    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/cat_features.csv')
 #    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join.csv')

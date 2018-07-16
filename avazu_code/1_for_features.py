@@ -31,7 +31,7 @@ output = FLAGS.output_dir
 
 #a2
 # 将train 和test 拼到一起
-#train=concat_train_test(FLAGS.src_train_path,FLAGS.src_test_path)
+concat_train_test(FLAGS.src_train_path,FLAGS.src_test_path)
 
 #gc.collect()
 
@@ -84,12 +84,12 @@ output = FLAGS.output_dir
 
 # one hot
 
-train_data_ont_hot()
-gc.collect()
+#train_data_ont_hot()
+#gc.collect()
 
-vali_data_ont_hot()
-gc.collect()
+#vali_data_ont_hot()
+#gc.collect()
 
-test_data_ont_hot()
-gc.collect()
+#test_data_ont_hot()
+#gc.collect()
 

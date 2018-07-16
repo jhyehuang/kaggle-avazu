@@ -325,7 +325,7 @@ def done(istrain=True):
     ### 开始训练
     logging.debug('设置参数')
     if istrain:
-        for i in [100,799,1537]:
+        for i in [100,799]:
             train_save,val_save,val_x,val_y = tiny_lightgbm_data_get_train(i)
             for oper in op:
                 logging.debug("CV:"+oper)
@@ -369,7 +369,7 @@ def done(istrain=True):
             del train_save,val_save,val_x,val_y
         
     else:
-        for i in [100,799,1537]:
+        for i in [100,799]:
             gbm = load(FLAGS.out_data_path+'1-'+str(i)+'-lgbm.model.joblib_dat')
     #        logging.debug(gbm.get_params())
             ### 线下预测
