@@ -47,11 +47,11 @@ file1,file2,file3=one_line_data_preprocessing()
 #click_to_csv()
 #gc.collect()
 
-#file1,file2,file3='cat_features.csv','date_list.csv','num_features.csv'
+file1,file2,file3='cat_features.csv','date_list.csv','num_features.csv'
 # a5
 # 类别特征之间每俩个特征进行拼接 组成新特征
-#new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path+file1,FLAGS.tmp_data_path+file2,FLAGS.tmp_data_path+file3)
-#gc.collect()
+new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path+file1,FLAGS.tmp_data_path+file2,FLAGS.tmp_data_path+file3)
+gc.collect()
 
 
 # a6
