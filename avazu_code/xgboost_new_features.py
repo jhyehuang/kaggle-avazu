@@ -23,7 +23,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
 
 
-n_trees=40
+n_trees=666
 def build_data(seed=100,is_type='train'):
     if 'train'==is_type:
         dtrain = xgb.DMatrix(FLAGS.tmp_data_path+'train'+str(seed)+'/xgboost.new_features.dtrain.joblib_dat')
@@ -34,9 +34,9 @@ def build_data(seed=100,is_type='train'):
         watchlist = [(dtrain, 'train'), (dvalid, 'valid')]
     #    print (X_train_part.shape, y_train_part.shape)
     
-        param = {'max_depth':6, 'eta':.5, 'objective':'binary:logistic', 'verbose':2,
-                 'subsample':1.0, 'min_child_weight':50, 'gamma':0,
-                 'nthread': -1, 'colsample_bytree':.5, 'base_score':0.16, 'seed': 7,'silent':0}
+        param = {'max_depth':6, 'eta':.1, 'objective':'binary:logistic', 'verbose':2,
+                 'subsample':1.0, 'min_child_weight':1, 'gamma':0,
+                 'nthread': -1, 'colsample_bytree':.8, 'base_score':0.16, 'seed': 27,'silent':0}
         param.update(gpu_dict)
         plst = list(param.items()) + [('eval_metric', 'logloss')]
         xgb_test_basis = xgb.train(plst, dtrain, n_trees, watchlist)
@@ -100,10 +100,8 @@ def build_data(seed=100,is_type='train'):
 
 
 #build_data()
-for i in [799]:
-    import gc
-    gc.collect()
-    build_data(seed=i)
+
+build_data(seed=100)
 
 #build_data(is_type='test')
 

@@ -44,14 +44,14 @@ output = FLAGS.output_dir
 
 #a4
 #将点击数据按列写入硬盘
-#click_to_csv()
+click_to_csv()
 #gc.collect()
 
-file1,file2,file3='cat_features.csv','date_list.csv','num_features.csv'
+#file1,file2,file3='cat_features.csv','date_list.csv','num_features.csv'
 # a5
 # 类别特征之间每俩个特征进行拼接 组成新特征
-new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path+file1,FLAGS.tmp_data_path+file2,FLAGS.tmp_data_path+file3)
-gc.collect()
+#new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path+file1,FLAGS.tmp_data_path+file2,FLAGS.tmp_data_path+file3)
+#gc.collect()
 
 
 # a6
@@ -73,10 +73,8 @@ gc.collect()
 # 随机切割4个 500w的小数据集  调参
 #get_train_split()
 #gc.collect()
-
-#for i in [799]:
-#    gdbt_DM_get_train(i)
-#    gc.collect()
+get_train_test_split()
+#gdbt_DM_get_train(100)
 #gdbt_DM_get_test()
 #  将全部训练集 分割出来 
 #get_train_test_split()
