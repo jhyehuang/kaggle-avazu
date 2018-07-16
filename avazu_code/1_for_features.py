@@ -31,7 +31,7 @@ output = FLAGS.output_dir
 
 #a2
 # 将train 和test 拼到一起
-concat_train_test(FLAGS.src_train_path,FLAGS.src_test_path)
+#concat_train_test(FLAGS.src_train_path,FLAGS.src_test_path)
 
 #gc.collect()
 
@@ -39,7 +39,7 @@ concat_train_test(FLAGS.src_train_path,FLAGS.src_test_path)
 # a2
 #计算 特征中 1、不同用户出现的次数 2、不同设备id出现的次数 3、不同ip出现的次数 4、不同用户不同时间出现的次数
 #将训练集写入硬盘
-#file1,file2,file3=one_line_data_preprocessing(train)  
+file1,file2,file3=one_line_data_preprocessing(train)  
 #gc.collect()
 
 #a4
