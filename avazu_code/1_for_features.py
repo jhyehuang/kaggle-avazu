@@ -39,7 +39,7 @@ output = FLAGS.output_dir
 # a2
 #计算 特征中 1、不同用户出现的次数 2、不同设备id出现的次数 3、不同ip出现的次数 4、不同用户不同时间出现的次数
 #将训练集写入硬盘
-file1,file2,file3=one_line_data_preprocessing(train)  
+file1,file2,file3=one_line_data_preprocessing()  
 #gc.collect()
 
 #a4
