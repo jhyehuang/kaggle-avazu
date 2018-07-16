@@ -71,21 +71,25 @@ output = FLAGS.output_dir
 #gc.collect()
 
 # 随机切割4个 500w的小数据集  调参
-get_train_split()
-gc.collect()
+#get_train_split()
+#gc.collect()
 
+#for i in [799]:
+#    gdbt_DM_get_train(i)
+#    gc.collect()
+#gdbt_DM_get_test()
 #  将全部训练集 分割出来 
 #get_train_test_split()
 #gc.collect()
 
 # one hot
 
-#train_data_ont_hot()
-#gc.collect()
+train_data_ont_hot()
+gc.collect()
 
-#vali_data_ont_hot()
-#gc.collect()
+vali_data_ont_hot()
+gc.collect()
 
-#test_data_ont_hot()
-#gc.collect()
+test_data_ont_hot()
+gc.collect()
 

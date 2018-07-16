@@ -22,7 +22,8 @@ from sklearn.model_selection import train_test_split
 import random
 from sklearn.utils import shuffle
 from sklearn.preprocessing import OneHotEncoder
-    
+import xgboost as xgb
+import gc
 import lightgbm as lgb 
 
 logging.basicConfig(
@@ -450,7 +451,7 @@ def get_train_split():
     train_click=click[:train_id]
     filter_1 = np.logical_and(train_click.click.values > 0, True)
     filter_0 = np.logical_and(train_click.click.values == 0,True)
-    files_name=['click.csv','cat_features.csv','date_list.csv','id.csv','num_features.csv','two_col_join_cnt.csv','two_col_join.csv']
+    files_name=['click.csv','cat_features.csv','date_list.csv','num_features.csv','two_col_join_cnt.csv','two_col_join.csv']
     
     
     logging.debug(files_name)
@@ -624,6 +625,7 @@ def tiny_lightgbm_data_get_train(seed=25):
 #    train_save=data_concat(FLAGS.tmp_data_path + 'train'+str(seed) +'/click.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join_cnt.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/xgb_new_features.csv')
     logging.debug(train_save.columns)
 #    logging.debug(train_save['id'])
 
@@ -658,6 +660,7 @@ def tiny_lightgbm_data_get_test():
 #    test_save=data_concat(FLAGS.tmp_data_path +'test/click.csv')
     test_save=data_concat(test_save,FLAGS.test_data_path +'two_col_join.csv')
     test_save=data_concat(test_save,FLAGS.test_data_path +'two_col_join_cnt.csv')
+    test_save=data_concat(test_save,FLAGS.test_data_path +'xgb_new_features.csv')
     logging.debug(test_save.shape)
 
     try:
@@ -755,12 +758,13 @@ def col_one_hot2(train,one_field):
 
 
 def train_data_ont_hot(seed=100):
-    train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/cat_features.csv',)
-    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
-#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/click.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join_cnt.csv')
+    train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/click.csv',)
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/cat_features.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join_cnt.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed) +'/xgb_new_features.csv')
     logging.debug(train_save.columns)
 #    logging.debug(train_save['id'])
 
@@ -778,6 +782,7 @@ def train_data_ont_hot(seed=100):
         train_save.drop('click',axis=1,inplace=True)
     except:
         pass    
+    columns=train_save.columns.values
     train_save=train_save[columns]
     features = list(train_save.columns)
     for feature_index,feature in enumerate(features):
@@ -798,7 +803,9 @@ def train_data_ont_hot(seed=100):
 #        col_one_hot(one_col,feature)
 #        del one_col
     fp=FLAGS.tmp_data_path +'ont_hot_train.libffm.csv'
-    train_save=pd.concat([y_train,train_save],axis = 1)
+    now=time.time()
+#    train_save=pd.concat([y_train,train_save],axis = 1)
+    logging.debug(time.time()-now)
 #    with open(fp, 'w') as f:
 #        for y,row in zip(y_train.values,train_save.values):
 #            logging.debug(row)
@@ -815,12 +822,13 @@ def train_data_ont_hot(seed=100):
     del train_save
 
 def vali_data_ont_hot(seed=799):
-    train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/cat_features.csv',)
-    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
-#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/click.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join_cnt.csv')
+    train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/click.csv',)
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/cat_features.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join_cnt.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed) +'/xgb_new_features.csv')
     logging.debug(train_save.columns)
 #    logging.debug(train_save['id'])
 
@@ -838,6 +846,7 @@ def vali_data_ont_hot(seed=799):
         train_save.drop('click',axis=1,inplace=True)
     except:
         pass    
+    columns=train_save.columns.values
     train_save=train_save[columns]
     features = list(train_save.columns)
     for feature_index,feature in enumerate(features):
@@ -874,12 +883,13 @@ def vali_data_ont_hot(seed=799):
     del train_save
 
 def test_data_ont_hot():
-    test_save = pd.read_csv(FLAGS.tmp_data_path +'test/cat_features.csv',)
-    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/date_list.csv')
-    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/num_features.csv')
-#    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/click.csv')
-    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join.csv')
-    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join_cnt.csv')
+    test_save = pd.read_csv(FLAGS.tmp_data_path +'test/click.csv',)
+#    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/date_list.csv')
+#    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/num_features.csv')
+#    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/cat_features.csv')
+#    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join.csv')
+#    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join_cnt.csv')
+    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/xgb_new_features.csv')
     logging.debug(test_save.shape)
 
     try:
@@ -895,6 +905,7 @@ def test_data_ont_hot():
         test_save.drop('click',axis=1,inplace=True)
     except:
         pass   
+    columns=test_save.columns.values
     test_save=test_save[columns]
     features = list(test_save.columns)
     for feature_index,feature in enumerate(features):
@@ -931,5 +942,62 @@ def test_data_ont_hot():
     del train_save
     del test_save
 
+def gdbt_DM_get_train(seed=25):
+    train_save = pd.read_csv(FLAGS.tmp_data_path +'train'+str(seed)+'/cat_features.csv',)
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/date_list.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/num_features.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train100/click.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join_cnt.csv')
+    logging.debug(train_save.columns)
 
+    logging.debug(train_save.shape)
+
+    try:
+        train_save.drop('id', axis=1,inplace = True)
+    except:
+        pass
+    
+    y_train = train_save['click']
+    train_save.drop('click',axis=1,inplace=True)
+    X_train_part, X_val, y_train_part, y_val = train_test_split(train_save, y_train, train_size = 0.6,random_state = 7)
+    
+    dtrain = xgb.DMatrix(X_train_part, label=y_train_part)
+    dtrain.save_binary(FLAGS.tmp_data_path+'train'+str(seed)+'/xgboost.new_features.dtrain.joblib_dat')
+    del dtrain,X_train_part,y_train_part
+    gc.collect()
+
+    dvalid = xgb.DMatrix(X_val, label=y_val)
+    dvalid.save_binary(FLAGS.tmp_data_path+'train'+str(seed)+'/xgboost.new_features.dvalid.joblib_dat')
+    del dvalid,X_val,y_val
+    gc.collect()
+
+    dtv = xgb.DMatrix(train_save)
+    dtv.save_binary(FLAGS.tmp_data_path+'train'+str(seed)+'/xgboost.new_features.dtv.joblib_dat')
+    del dtv,train_save
+    gc.collect()
+
+    return 0
+
+def gdbt_DM_get_test():
+    test_save = pd.read_csv(FLAGS.tmp_data_path +'test/cat_features.csv',)
+    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/date_list.csv')
+    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/num_features.csv')
+#    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/click.csv')
+    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join.csv')
+    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join_cnt.csv')
+    logging.debug(test_save.shape)
+
+    try:
+        test_save.drop('id', axis=1,inplace = True)
+    except:
+        pass
+    
+    
+    test_save.drop('click',axis=1,inplace=True)
+    dtv = xgb.DMatrix(test_save)
+    dtv.save_binary(FLAGS.tmp_data_path+'test/xgboost.new_features.test.joblib_dat')
+    del dtv,test_save
+    gc.collect()
+    return 0
 

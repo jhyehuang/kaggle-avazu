@@ -25,9 +25,9 @@ from flags import FLAGS, unparsed
 logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
 
-param = {'task':'binary', 'lr':0.5, 'lambda':0.002,'epoch':10,
-         'metric':'auc','k':8,
-         'opt':'ftrl'}
+param = {'task':'binary', 'lr':0.2, 'lambda':0.2,'epoch':10,
+         'metric':'auc','k':2,
+         'opt':'adagrad'}
 
 #param = {'task':'binary', 'lr':0.2}
 #param = {'task':'binary', 'lr':0.5}
@@ -36,8 +36,8 @@ param = {'task':'binary', 'lr':0.5, 'lambda':0.002,'epoch':10,
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.02}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.002}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'opt':'sgd'}
-#param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'opt':'adagrad'}
-#param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'opt':'ftrl'}
+#param_ad = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'opt':'adagrad'}
+param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'opt':'ftrl'}
 ftrl_param = {'alpha':0.002, 'beta':0.8, 'lambda_1':0.001, 'lambda_2': 1.0}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'k':2}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'k':4}
@@ -98,5 +98,5 @@ def done(op_type='istrain'):
 if __name__ == "__main__":
     done()
 #    done('cv')
-#    done(False)
+    done(False)
 
