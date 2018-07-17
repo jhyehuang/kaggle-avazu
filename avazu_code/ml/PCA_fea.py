@@ -157,7 +157,7 @@ def n_component_analysis(n, X_train, y_train, X_val, y_val):
 
 
 #最佳模型参数
-pca = PCA(n_components=0.75)
+pca = PCA(n_components=0.85)
 
 #根据最佳参数，在全体训练数据上重新训练模型
 pca.fit(X_train)
@@ -190,6 +190,7 @@ X_train_pca = pca.transform(X_train)
 
 # 降维后的特征维数
 logging.debug(X_train_pca.shape)
+logging.debug(X_train_pca.head(5))
 #logging.debug(X_test_pca.shape)
 
 
