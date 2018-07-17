@@ -99,7 +99,7 @@ def n_component_analysis(n, X_train, y_train,):
 n_s = np.linspace(0.70, 0.85, num=15)
 accuracy = []
 for n in n_s:
-    tmp = n_component_analysis(n, X_train_part, y_train_part, X_val, y_val)
+    tmp = n_component_analysis(n, X_train_part, y_train_part)
     accuracy.append(tmp)
 
 
