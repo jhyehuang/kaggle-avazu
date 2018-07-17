@@ -488,7 +488,7 @@ def get_train_split():
 def get_train_test_split():
     test_index = load(FLAGS.tmp_data_path+'test_index.joblib_dat')
     train_id=test_index['train']
-#    test_id=test_index['test']
+    test_id=test_index['test']
 
     files_name=['click.csv','cat_features.csv','date_list.csv','num_features.csv','two_col_join_cnt.csv','two_col_join.csv']
     
@@ -499,7 +499,7 @@ def get_train_test_split():
 #        test_save=save[(-test_id):]
 #        test_save.to_csv(FLAGS.tmp_data_path+'test/'+file,index=False)
 #        logging.debug(test_save.shape)
-        train_save=save[:train_id]
+        train_save=save[:-1*test_id]
 
 
 #        train_save=train_save.sample(frac=0.005).reset_index(drop=True)

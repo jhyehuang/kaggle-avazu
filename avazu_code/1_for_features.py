@@ -70,24 +70,31 @@ output = FLAGS.output_dir
 #new_features_w()
 #gc.collect()
 
+
 # 随机切割4个 500w的小数据集  调参
 #get_train_split()
 #gc.collect()
-#get_train_test_split()
+
+
+#切分训练集到25 中，测试集到test中
+get_train_test_split()
+
+# 将训练数据集切分为  训练、验证、 转化为 Dmtrix
 gdbt_DM_get_train(25)
+
+# 将测试集转化为 Dmtrix
 #gdbt_DM_get_test()
-#  将全部训练集 分割出来 
-#get_train_test_split()
-#gc.collect()
 
-# one hot
 
+# 训练集 one hot
 #train_data_ont_hot()
 #gc.collect()
 
+# 验证集one hot
 #vali_data_ont_hot()
 #gc.collect()
 
+# 测试集one hot
 #test_data_ont_hot()
 #gc.collect()
 
