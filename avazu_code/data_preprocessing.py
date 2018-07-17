@@ -969,21 +969,23 @@ def gdbt_DM_get_train(seed=25):
     y_train = train_save['click']
     train_save.drop('click',axis=1,inplace=True)
     pca = PCA(n_components=0.85)
-    train_save=pca.fit_transform(train_save)  
+      
     
     X_train_part, X_val, y_train_part, y_val = train_test_split(train_save, y_train, train_size = 0.6,random_state = 7)
-
-    
+    pca.fit(X_train_part[:200000])
+    X_train_part=pca.transform(X_train_part)
     dtrain = xgb.DMatrix(X_train_part, label=y_train_part)
     dtrain.save_binary(FLAGS.tmp_data_path+'train'+str(seed)+'/xgboost.new_features.dtrain.joblib_dat')
     del dtrain,X_train_part,y_train_part
     gc.collect()
 
+    X_val=pca.transform(X_val)
     dvalid = xgb.DMatrix(X_val, label=y_val)
     dvalid.save_binary(FLAGS.tmp_data_path+'train'+str(seed)+'/xgboost.new_features.dvalid.joblib_dat')
     del dvalid,X_val,y_val
     gc.collect()
 
+    train_save=pca.transform(train_save)
     dtv = xgb.DMatrix(train_save)
     dtv.save_binary(FLAGS.tmp_data_path+'train'+str(seed)+'/xgboost.new_features.dtv.joblib_dat')
     del dtv,train_save
