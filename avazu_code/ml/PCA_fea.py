@@ -126,7 +126,7 @@ def n_component_analysis(n, X_train, y_train, X_val, y_val):
 #    dtrain_predprob = xgb1.predict_proba(X_train_pca)[:,1]
     
     # 返回accuracy
-    accuracy = alg.score(train_predprob[:,1], y_val)
+    accuracy = alg.score(train_predprob, y_val)
     
     end = time.time()
     logging.debug("accuracy: {}, time elaps:{}".format(accuracy, int(end-start)))
