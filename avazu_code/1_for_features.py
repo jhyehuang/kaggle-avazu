@@ -77,13 +77,13 @@ output = FLAGS.output_dir
 
 
 #切分训练集到25 中，测试集到test中
-get_train_test_split()
+#get_train_test_split()
 
 # 将训练数据集切分为  训练、验证、 转化为 Dmtrix
 gdbt_DM_get_train(25)
 
 # 将测试集转化为 Dmtrix
-#gdbt_DM_get_test()
+gdbt_DM_get_test()
 
 
 # 训练集 one hot

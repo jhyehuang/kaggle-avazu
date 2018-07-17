@@ -955,7 +955,7 @@ def gdbt_DM_get_train(seed=25):
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/num_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train100/click.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join.csv')
-#    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join_cnt.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join_cnt.csv')
     logging.debug(train_save.columns)
 
     logging.debug(train_save.shape)
