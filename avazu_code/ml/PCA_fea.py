@@ -126,22 +126,22 @@ def n_component_analysis(n, X_train, y_train, X_val, y_val):
 #    dtrain_predprob = xgb1.predict_proba(X_train_pca)[:,1]
     
     # 返回accuracy
-    accuracy = alg.score(train_predprob, y_val)
+#    accuracy = alg.score(train_predprob, y_val)
     
-    end = time.time()
-    logging.debug("accuracy: {}, time elaps:{}".format(accuracy, int(end-start)))
-    return accuracy
+#    end = time.time()
+#    logging.debug("accuracy: {}, time elaps:{}".format(accuracy, int(end-start)))
+#    return accuracy
 
 
 # In[8]:
 
 
 # 设置超参数（PCA维数）搜索范围
-n_s = np.linspace(0.70, 0.85, num=15)
-accuracy = []
-for n in n_s:
-    tmp = n_component_analysis(n, X_train_part, y_train_part,X_val, y_val)
-    accuracy.append(tmp)
+#n_s = np.linspace(0.70, 0.85, num=15)
+#accuracy = []
+#for n in n_s:
+#    tmp = n_component_analysis(n, X_train_part, y_train_part,X_val, y_val)
+#    accuracy.append(tmp)
 
 
 # In[9]:
