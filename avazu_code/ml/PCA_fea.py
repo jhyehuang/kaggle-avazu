@@ -20,6 +20,8 @@ from joblib import dump, load, Parallel, delayed
 import utils
 from ml_utils import *
 from data_preprocessing import *
+from xgboost import XGBClassifier
+from sklearn.metrics import log_loss
 
 
 
@@ -33,6 +35,8 @@ import logging
 from flags import FLAGS, unparsed
 
 # In[2]:
+logging.basicConfig(
+    format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
 
 
 #读取训练数据和测试数据
@@ -46,8 +50,8 @@ X_train = train.drop("click",axis=1).values
 
 
 # 原始输入的特征维数和样本数目
-print('the shape of train_image: {}'.format(X_train.shape))
-#print('the shape of test_image: {}'.format(X_test.shape))
+logging.debug('the shape of train_image: {}'.format(X_train.shape))
+#logging.debug('the shape of test_image: {}'.format(X_test.shape))
 
 
 # In[5]:
@@ -61,34 +65,71 @@ X_train_part, X_val, y_train_part, y_val = train_test_split(X_train,y_train, tra
 
 
 #拆分后的训练集和校验集的样本数目
-print(X_train_part.shape)
-print(X_val.shape)
+logging.debug(X_train_part.shape)
+logging.debug(X_val.shape)
 
 
 # In[7]:
 
-
+gpu_dict={'tree_method':'gpu_hist',}
 # 一个参数点（PCA维数为n）的模型训练和测试，得到该参数下模型在校验集上的预测性能
-def n_component_analysis(n, X_train, y_train,):
+def n_component_analysis(n, X_train, y_train, X_val, y_val):
     start = time.time()
     
     pca = PCA(n_components=n)
-    print("PCA begin with n_components: {}".format(n));
+    logging.debug("PCA begin with n_components: {}".format(n));
     pca.fit(X_train)
     
     # 在训练集和测试集降维 
     X_train_pca = pca.transform(X_train)
     
     # 利用SVC训练
-    print('xgb begin')
-    xgb1 = load(FLAGS.tmp_data_path+'xgboost.cv_fin.model.joblib_dat')
-    dtrain_predprob = xgb1.predict_proba(X_train_pca)[:,1]
+    logging.debug('xgb begin')
+    alg = XGBClassifier(learning_rate =0.1,
+    n_estimators=666,
+    max_depth=6,
+    min_child_weight=1,
+#        gamma=0.1,
+#        subsample=0.8,
+#        colsample_bytree=0.8,
+    scoring='roc_auc',
+    objective='binary:logistic',
+    eval_metric=['logloss','auc'],
+    nthread=-1,
+    verbose=2,
+#        scale_pos_weight=1,
+#        reg_alpha=1.5,
+#        reg_lambda=0.5,
+    seed=27,
+    silent=0,**gpu_dict)
+    #Fit the algorithm on the data
+    alg.fit(X_train, y_train, eval_metric='logloss')
+        
+    #Predict training set:
+    
+    train_predprob = alg.predict_proba(X_val)
+    try:
+        logloss = log_loss(y_val, train_predprob)
+        logging.debug(logloss)
+    except:
+        pass
+    
+    try:
+        _,lloss = logloss(train_predprob[:,1],y_val)
+
+       #logging.debug model report:
+        logging.debug ("logloss of train :" )
+        logging.debug(lloss)
+    except:
+        pass
+#    xgb1 = load(FLAGS.tmp_data_path+'xgboost.cv_fin.model.joblib_dat')
+#    dtrain_predprob = xgb1.predict_proba(X_train_pca)[:,1]
     
     # 返回accuracy
-    accuracy = xgb1.score(dtrain_predprob, y_train)
+    accuracy = alg.score(train_predprob[:,1], y_val)
     
     end = time.time()
-    print("accuracy: {}, time elaps:{}".format(accuracy, int(end-start)))
+    logging.debug("accuracy: {}, time elaps:{}".format(accuracy, int(end-start)))
     return accuracy
 
 
@@ -99,7 +140,7 @@ def n_component_analysis(n, X_train, y_train,):
 n_s = np.linspace(0.70, 0.85, num=15)
 accuracy = []
 for n in n_s:
-    tmp = n_component_analysis(n, X_train_part, y_train_part)
+    tmp = n_component_analysis(n, X_train_part, y_train_part,X_val, y_val)
     accuracy.append(tmp)
 
 
@@ -116,22 +157,22 @@ for n in n_s:
 
 
 #最佳模型参数
-pca = PCA(n_components=0.75)
+#pca = PCA(n_components=0.75)
 
 #根据最佳参数，在全体训练数据上重新训练模型
-pca.fit(X_train)
+#pca.fit(X_train)
 
 
 # In[11]:
 
 
-print(pca.n_components_)
+#logging.debug(pca.n_components_)
 
 
 # In[12]:
 
 
-print(pca.explained_variance_ratio_)
+#logging.debug(pca.explained_variance_ratio_)
 
 
 # In[13]:
@@ -148,8 +189,8 @@ print(pca.explained_variance_ratio_)
 
 
 # 降维后的特征维数
-#print(X_train_pca.shape)
-#print(X_test_pca.shape)
+#logging.debug(X_train_pca.shape)
+#logging.debug(X_test_pca.shape)
 
 
 # In[15]:
