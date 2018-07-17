@@ -23,6 +23,7 @@ import random
 from sklearn.utils import shuffle
 from sklearn.preprocessing import OneHotEncoder
 import xgboost as xgb
+from sklearn.decomposition import PCA
 import gc
 import lightgbm as lgb 
 
@@ -959,6 +960,7 @@ def gdbt_DM_get_train(seed=25):
 
     logging.debug(train_save.shape)
 
+    
     try:
         train_save.drop('id', axis=1,inplace = True)
     except:
@@ -966,7 +968,11 @@ def gdbt_DM_get_train(seed=25):
     
     y_train = train_save['click']
     train_save.drop('click',axis=1,inplace=True)
+    pca = PCA(n_components=0.85)
+    train_save=pca.fit_transform(train_save)  
+    
     X_train_part, X_val, y_train_part, y_val = train_test_split(train_save, y_train, train_size = 0.6,random_state = 7)
+
     
     dtrain = xgb.DMatrix(X_train_part, label=y_train_part)
     dtrain.save_binary(FLAGS.tmp_data_path+'train'+str(seed)+'/xgboost.new_features.dtrain.joblib_dat')
@@ -1022,7 +1028,7 @@ def get_PCA_train_data(seed=25):
     except:
         pass
     
-
+    
     gc.collect()
 
     return train_save
