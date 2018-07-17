@@ -103,7 +103,7 @@ def n_component_analysis(n, X_train, y_train, X_val, y_val):
     seed=27,
     silent=0,**gpu_dict)
     #Fit the algorithm on the data
-    alg.fit(X_train, y_train, eval_metric='logloss')
+    alg.fit(X_train, y_train)
         
     #Predict training set:
     
@@ -126,11 +126,11 @@ def n_component_analysis(n, X_train, y_train, X_val, y_val):
 #    dtrain_predprob = xgb1.predict_proba(X_train_pca)[:,1]
     
     # 返回accuracy
-#    accuracy = alg.score(train_predprob, y_val)
+    accuracy = alg.score(train_predprob, y_val)
     
-#    end = time.time()
-#    logging.debug("accuracy: {}, time elaps:{}".format(accuracy, int(end-start)))
-#    return accuracy
+    end = time.time()
+    logging.debug("accuracy: {}, time elaps:{}".format(accuracy, int(end-start)))
+    return accuracy
 
 
 # In[8]:
@@ -157,29 +157,29 @@ for n in n_s:
 
 
 #最佳模型参数
-#pca = PCA(n_components=0.75)
+pca = PCA(n_components=0.75)
 
 #根据最佳参数，在全体训练数据上重新训练模型
-#pca.fit(X_train)
+pca.fit(X_train)
 
 
 # In[11]:
 
 
-#logging.debug(pca.n_components_)
+logging.debug(pca.n_components_)
 
 
 # In[12]:
 
 
-#logging.debug(pca.explained_variance_ratio_)
+logging.debug(pca.explained_variance_ratio_)
 
 
 # In[13]:
 
 
 #根据最佳参数，对全体训练数据降维
-#X_train_pca = pca.transform(X_train)
+X_train_pca = pca.transform(X_train)
 
 #根据最佳参数，对测试数据降维
 #X_test_pca = pca.transform(X_test)
@@ -189,7 +189,7 @@ for n in n_s:
 
 
 # 降维后的特征维数
-#logging.debug(X_train_pca.shape)
+logging.debug(X_train_pca.shape)
 #logging.debug(X_test_pca.shape)
 
 
