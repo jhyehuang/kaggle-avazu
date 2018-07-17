@@ -582,3 +582,295 @@ UnboundLocalError: local variable 'ffm_model' referenced before assignment
 [32m[------------] [0mNumber of Field: 100
 [32m[------------] [0mTime cost for reading problem: 116.01 (sec)
 [32m[1m[ ACTION     ] Initialize model ...[0m
+2018-07-16 11:43:02,893 - DEBUG - ffm.py:52 - 设置参数
+2018-07-16 11:43:02,894 - DEBUG - ffm.py:54 - 开始训练
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_vali.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mNumber of Feature: 59
+[32m[------------] [0mNumber of Field: 40
+[32m[------------] [0mTime cost for reading problem: 18.77 (sec)
+[32m[1m[ ACTION     ] Initialize model ...[0m
+[32m[------------] [0mModel size: 111.32 KB
+[32m[------------] [0mTime cost for model initial: 0.00 (sec)
+[32m[1m[ ACTION     ] Start to train ...[0m
+[32m[------------][0m Epoch      Train log_loss       Test log_loss     Time cost (sec)
+[32m[ [0m  10%[32m      ][0m     1            0.047103            0.415788               68.16
+[32m[ [0m  20%[32m      ][0m     2            0.015732            0.415788               68.55
+[32m[ [0m  30%[32m      ][0m     3            0.015732            0.415788               68.81
+[32m[ [0m  40%[32m      ][0m     4            0.015732            0.415788               68.30
+[32m[ [0m  50%[32m      ][0m     5            0.015732            0.415788               68.09
+[32m[ [0m  60%[32m      ][0m     6            0.015732            0.415788               68.37
+[32m[ [0m  70%[32m      ][0m     7            0.015732            0.415788               68.40
+[32m[ [0m  80%[32m      ][0m     8            0.015732            0.415788               68.35
+[32m[ [0m  90%[32m      ][0m     9            0.015732            0.415788               67.99
+[32m[ [0m 100%[32m      ][0m    10            0.015732            0.415788               68.22
+[32m[1m[ ACTION     ] Start to save model ...[0m
+[32m[------------] [0mModel file: /data/ffm_model.out
+[32m[------------] [0mTime cost for saving model: 0.00 (sec)
+[32m[1m[ ACTION     ] Finish training[0m
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 702.05 (sec)[0m
+2018-07-16 11:54:44,941 - DEBUG - ffm.py:60 - to save validation predictions ...
+2018-07-16 11:54:44,941 - DEBUG - ffm.py:64 - <xlearn.xlearn.XLearn object at 0x7f14eb7e23c8>
+2018-07-16 11:54:44,941 - DEBUG - ffm.py:52 - 设置参数
+2018-07-16 11:54:44,941 - DEBUG - ffm.py:79 - 预测
+Info: 
+ Model: ffm
+ Loss: cross-entropy
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Load model ...[0m
+[32m[------------] [0mLoad model from /data/ffm_model.out
+[32m[------------] [0mLoss function: cross-entropy
+[32m[------------] [0mScore function: ffm
+[32m[------------] [0mNumber of Feature: 59
+[32m[------------] [0mNumber of K: 4
+[32m[------------] [0mNumber of field: 40
+[32m[------------] [0mTime cost for loading model: 0.00 (sec)
+[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_test.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mTime cost for reading problem: 4.68 (sec)
+[32m[1m[ ACTION     ] Start to predict ...[0m
+[32m[------------] [0mThe test loss is: 0.015749
+[32m[1m[ ACTION     ] Clear the xLearn environment ...[0m
+[32m[1m[------------] Total time cost: 7.50 (sec)[0m
+2018-07-16 11:54:52,657 - DEBUG - ffm.py:86 - <xlearn.xlearn.XLearn object at 0x7f14eb7e23c8>
+2018-07-16 11:54:55,668 - DEBUG - ffm.py:88 - ------------------------------
+2018-07-16 11:54:55,783 - DEBUG - ffm.py:90 - (4577464, 1)
+2018-07-16 11:54:56,640 - DEBUG - ffm.py:92 - (4577464,)
+Info: 
+ Model: ffm
+ Loss: cross-entropy
+2018-07-16 14:03:08,307 - DEBUG - lgbm.py:36 - 设置参数
+2018-07-16 14:03:08,307 - DEBUG - lgbm.py:326 - 设置参数
+2018-07-16 14:03:13,281 - DEBUG - data_preprocessing.py:231 - data1.shape:(5320904, 13)
+2018-07-16 14:03:13,281 - DEBUG - data_preprocessing.py:232 - data2.shape:(5320904, 5)
+2018-07-16 14:03:13,696 - DEBUG - data_preprocessing.py:235 - 结果.shape:(5320904, 18)
+2018-07-16 14:03:13,696 - DEBUG - data_preprocessing.py:236 - 耗时0.41498470306396484
+2018-07-16 14:03:36,589 - DEBUG - data_preprocessing.py:231 - data1.shape:(5320904, 18)
+2018-07-16 14:03:36,589 - DEBUG - data_preprocessing.py:232 - data2.shape:(5320904, 57)
+2018-07-16 14:03:38,370 - DEBUG - data_preprocessing.py:235 - 结果.shape:(5320904, 75)
+2018-07-16 14:03:38,370 - DEBUG - data_preprocessing.py:236 - 耗时1.7805366516113281
+2018-07-16 14:04:16,783 - DEBUG - data_preprocessing.py:231 - data1.shape:(5320904, 75)
+2018-07-16 14:04:16,783 - DEBUG - data_preprocessing.py:232 - data2.shape:(5320904, 79)
+2018-07-16 14:04:24,104 - DEBUG - data_preprocessing.py:235 - 结果.shape:(5320904, 154)
+2018-07-16 14:04:24,105 - DEBUG - data_preprocessing.py:236 - 耗时7.3213043212890625
+2018-07-16 14:06:11,463 - DEBUG - data_preprocessing.py:231 - data1.shape:(5320904, 154)
+2018-07-16 14:06:11,464 - DEBUG - data_preprocessing.py:232 - data2.shape:(5320904, 156)
+2018-07-16 14:06:26,344 - DEBUG - data_preprocessing.py:235 - 结果.shape:(5320904, 310)
+2018-07-16 14:06:26,344 - DEBUG - data_preprocessing.py:236 - 耗时14.880600929260254
+2018-07-16 14:06:36,909 - DEBUG - data_preprocessing.py:231 - data1.shape:(5320904, 310)
+2018-07-16 14:06:36,909 - DEBUG - data_preprocessing.py:232 - data2.shape:(5320904, 40)
+2018-07-16 14:06:44,510 - DEBUG - data_preprocessing.py:235 - 结果.shape:(5320904, 350)
+2018-07-16 14:06:44,510 - DEBUG - data_preprocessing.py:236 - 耗时7.601315259933472
+2018-07-16 14:06:44,809 - DEBUG - data_preprocessing.py:629 - Index(['C1', 'C14', 'C17', 'C21', 'device_conn_type', 'device_ip',
+       'device_model', 'device_type', 'app_or_web', 'app_site_id',
+       ...
+       'xgb_basis30', 'xgb_basis31', 'xgb_basis32', 'xgb_basis33',
+       'xgb_basis34', 'xgb_basis35', 'xgb_basis36', 'xgb_basis37',
+       'xgb_basis38', 'xgb_basis39'],
+      dtype='object', length=350)
+2018-07-16 14:06:44,810 - DEBUG - data_preprocessing.py:633 - (5320904, 350)
+/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:2026: FutureWarning: From version 0.21, test_size will always complement train_size unless both are specified.
+  FutureWarning)
+2018-07-16 14:07:49,733 - DEBUG - data_preprocessing.py:647 -            C1    C14   C17  C21  device_conn_type  device_ip  device_model  \
+2909117  1005  20363  2333  157                 0    1808376          5075   
+
+         device_type  app_or_web  app_site_id     ...       xgb_basis30  \
+2909117            1           1         9513     ...              1208   
+
+         xgb_basis31  xgb_basis32  xgb_basis33  xgb_basis34  xgb_basis35  \
+2909117         1255         1317         1374         1414         1473   
+
+         xgb_basis36  xgb_basis37  xgb_basis38  xgb_basis39  
+2909117         1504         1540         1595         1641  
+
+[1 rows x 349 columns]
+2018-07-16 14:07:49,841 - DEBUG - data_preprocessing.py:648 - 2909117    0
+Name: click, dtype: int64
+2018-07-16 14:07:49,853 - DEBUG - lgbm.py:331 - CV:x
+2018-07-16 14:07:49,854 - DEBUG - lgbm.py:84 - 交叉验证
+2018-07-16 14:07:49,854 - DEBUG - lgbm.py:314 - {'boosting_type': 'gbdt', 'objective': 'binary', 'metric': ['auc', 'binary_logloss'], 'device': 'gpu', 'gpu_platform_id': -1, 'gpu_device_id': -1, 'num_trees': 300}
+2018-07-16 14:07:49,872 - DEBUG - lgbm.py:334 - 开始训练
+[LightGBM] [Info] Number of positive: 462785, number of negative: 4326028
+[LightGBM] [Info] This is the GPU trainer!!
+[LightGBM] [Info] Total Bins 61800
+[LightGBM] [Info] Number of data: 4788813, number of used features: 348
+[LightGBM] [Info] Using GPU Device: GeForce GTX 1070 Ti, Vendor: NVIDIA Corporation
+[LightGBM] [Info] Compiling OpenCL Kernel with 256 bins...
+[LightGBM] [Info] GPU programs have been built
+[LightGBM] [Info] Size of histogram bin entry: 12
+[LightGBM] [Info] 346 dense feature groups (1589.30 MB) transfered to GPU in 0.952937 secs. 1 sparse feature groups
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.096639 -> initscore=-2.235142
+[LightGBM] [Info] Start training from score -2.235142
+/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/lightgbm/engine.py:102: UserWarning: Found `num_trees` in params. Will use it instead of argument
+  warnings.warn("Found `{}` in params. Will use it instead of argument".format(alias))
+2018-07-16 14:13:17,067 - DEBUG - lgbm.py:350 - to save validation predictions ...
+2018-07-16 14:13:17,099 - DEBUG - lgbm.py:352 - ['/data/1-100-lgbm.model.joblib_dat']
+2018-07-16 14:13:17,099 - DEBUG - lgbm.py:357 - 验证
+2018-07-16 14:13:20,162 - DEBUG - lgbm.py:360 - log_loss:
+2018-07-16 14:13:20,397 - DEBUG - lgbm.py:361 - 0.29826305369206624
+2018-07-16 14:13:25,270 - DEBUG - data_preprocessing.py:231 - data1.shape:(5320904, 13)
+2018-07-16 14:13:25,270 - DEBUG - data_preprocessing.py:232 - data2.shape:(5320904, 5)
+2018-07-16 14:13:25,514 - DEBUG - data_preprocessing.py:235 - 结果.shape:(5320904, 18)
+2018-07-16 14:13:25,514 - DEBUG - data_preprocessing.py:236 - 耗时0.24385499954223633
+2018-07-16 14:13:44,647 - DEBUG - data_preprocessing.py:231 - data1.shape:(5320904, 18)
+2018-07-16 14:13:44,647 - DEBUG - data_preprocessing.py:232 - data2.shape:(5320904, 57)
+2018-07-16 14:13:46,411 - DEBUG - data_preprocessing.py:235 - 结果.shape:(5320904, 75)
+2018-07-16 14:13:46,411 - DEBUG - data_preprocessing.py:236 - 耗时1.7641353607177734
+2018-07-16 14:14:22,761 - DEBUG - data_preprocessing.py:231 - data1.shape:(5320904, 75)
+2018-07-16 14:14:22,761 - DEBUG - data_preprocessing.py:232 - data2.shape:(5320904, 79)
+2018-07-16 14:14:28,943 - DEBUG - data_preprocessing.py:235 - 结果.shape:(5320904, 154)
+2018-07-16 14:14:28,943 - DEBUG - data_preprocessing.py:236 - 耗时6.181918382644653
+2018-07-16 14:16:17,228 - DEBUG - data_preprocessing.py:231 - data1.shape:(5320904, 154)
+2018-07-16 14:16:17,228 - DEBUG - data_preprocessing.py:232 - data2.shape:(5320904, 156)
+2018-07-16 14:16:32,018 - DEBUG - data_preprocessing.py:235 - 结果.shape:(5320904, 310)
+2018-07-16 14:16:32,018 - DEBUG - data_preprocessing.py:236 - 耗时14.790148496627808
+2018-07-16 14:16:42,803 - DEBUG - data_preprocessing.py:231 - data1.shape:(5320904, 310)
+2018-07-16 14:16:42,803 - DEBUG - data_preprocessing.py:232 - data2.shape:(5320904, 40)
+2018-07-16 14:16:50,355 - DEBUG - data_preprocessing.py:235 - 结果.shape:(5320904, 350)
+2018-07-16 14:16:50,355 - DEBUG - data_preprocessing.py:236 - 耗时7.552399396896362
+2018-07-16 14:16:50,666 - DEBUG - data_preprocessing.py:629 - Index(['C1', 'C14', 'C17', 'C21', 'device_conn_type', 'device_ip',
+       'device_model', 'device_type', 'app_or_web', 'app_site_id',
+       ...
+       'xgb_basis30', 'xgb_basis31', 'xgb_basis32', 'xgb_basis33',
+       'xgb_basis34', 'xgb_basis35', 'xgb_basis36', 'xgb_basis37',
+       'xgb_basis38', 'xgb_basis39'],
+      dtype='object', length=350)
+2018-07-16 14:16:50,674 - DEBUG - data_preprocessing.py:633 - (5320904, 350)
+2018-07-16 14:18:48,640 - DEBUG - data_preprocessing.py:647 -            C1    C14   C17  C21  device_conn_type  device_ip  device_model  \
+2909117  1005  19950  1800   23                 0    1101276          4352   
+
+         device_type  app_or_web  app_site_id     ...       xgb_basis30  \
+2909117            1           1         8019     ...              1168   
+
+         xgb_basis31  xgb_basis32  xgb_basis33  xgb_basis34  xgb_basis35  \
+2909117         1218         1260         1310         1336         1396   
+
+         xgb_basis36  xgb_basis37  xgb_basis38  xgb_basis39  
+2909117         1426         1479         1540         1594  
+
+[1 rows x 349 columns]
+2018-07-16 14:18:48,663 - DEBUG - data_preprocessing.py:648 - 2909117    0
+Name: click, dtype: int64
+2018-07-16 14:18:48,669 - DEBUG - lgbm.py:331 - CV:x
+2018-07-16 14:18:48,669 - DEBUG - lgbm.py:84 - 交叉验证
+2018-07-16 14:18:48,670 - DEBUG - lgbm.py:314 - {'boosting_type': 'gbdt', 'objective': 'binary', 'metric': ['auc', 'binary_logloss'], 'device': 'gpu', 'gpu_platform_id': -1, 'gpu_device_id': -1, 'verbose': 1}
+2018-07-16 14:18:48,677 - DEBUG - lgbm.py:334 - 开始训练
+(5320904, 350)
+[1]	valid_0's binary_logloss: 0.305221	valid_0's auc: 0.83433
+Training until validation scores don't improve for 60 rounds.
+[2]	valid_0's binary_logloss: 0.307572	valid_0's auc: 0.835704
+[3]	valid_0's binary_logloss: 0.296694	valid_0's auc: 0.836082
+[4]	valid_0's binary_logloss: 0.296965	valid_0's auc: 0.837504
+[5]	valid_0's binary_logloss: 0.299931	valid_0's auc: 0.839181
+[6]	valid_0's binary_logloss: 0.302372	valid_0's auc: 0.838995
+[7]	valid_0's binary_logloss: 0.299193	valid_0's auc: 0.839101
+[8]	valid_0's binary_logloss: 0.300296	valid_0's auc: 0.838783
+[9]	valid_0's binary_logloss: 0.300541	valid_0's auc: 0.838621
+[10]	valid_0's binary_logloss: 0.295068	valid_0's auc: 0.838552
+[11]	valid_0's binary_logloss: 0.29531	valid_0's auc: 0.838953
+[12]	valid_0's binary_logloss: 0.298262	valid_0's auc: 0.839261
+[13]	valid_0's binary_logloss: 0.294838	valid_0's auc: 0.838648
+[14]	valid_0's binary_logloss: 0.302886	valid_0's auc: 0.839066
+[15]	valid_0's binary_logloss: 0.289669	valid_0's auc: 0.838337
+[16]	valid_0's binary_logloss: 0.300245	valid_0's auc: 0.83807
+[17]	valid_0's binary_logloss: 0.29079	valid_0's auc: 0.837394
+[18]	valid_0's binary_logloss: 0.295387	valid_0's auc: 0.837348
+[19]	valid_0's binary_logloss: 0.302348	valid_0's auc: 0.837605
+[20]	valid_0's binary_logloss: 0.297038	valid_0's auc: 0.837084
+[21]	valid_0's binary_logloss: 0.294642	valid_0's auc: 0.83725
+[22]	valid_0's binary_logloss: 0.294022	valid_0's auc: 0.836387
+[23]	valid_0's binary_logloss: 0.298091	valid_0's auc: 0.836586
+[24]	valid_0's binary_logloss: 0.291524	valid_0's auc: 0.836443
+[25]	valid_0's binary_logloss: 0.302673	valid_0's auc: 0.836507
+[26]	valid_0's binary_logloss: 0.3091	valid_0's auc: 0.836372
+[27]	valid_0's binary_logloss: 0.298172	valid_0's auc: 0.836029
+[28]	valid_0's binary_logloss: 0.304688	valid_0's auc: 0.836334
+[29]	valid_0's binary_logloss: 0.294956	valid_0's auc: 0.836281
+[30]	valid_0's binary_logloss: 0.309723	valid_0's auc: 0.83623
+[31]	valid_0's binary_logloss: 0.293517	valid_0's auc: 0.835998
+[32]	valid_0's binary_logloss: 0.294362	valid_0's auc: 0.835451
+[33]	valid_0's binary_logloss: 0.299314	valid_0's auc: 0.836432
+[34]	valid_0's binary_logloss: 0.328229	valid_0's auc: 0.835821
+[35]	valid_0's binary_logloss: 0.306391	valid_0's auc: 0.835618
+[36]	valid_0's binary_logloss: 0.30242	valid_0's auc: 0.834939
+[37]	valid_0's binary_logloss: 0.300354	valid_0's auc: 0.835228
+[38]	valid_0's binary_logloss: 0.324491	valid_0's auc: 0.83492
+[39]	valid_0's binary_logloss: 0.304302	valid_0's auc: 0.833871
+[40]	valid_0's binary_logloss: 0.309267	valid_0's auc: 0.833986
+[41]	valid_0's binary_logloss: 0.323394	valid_0's auc: 0.834673
+[42]	valid_0's binary_logloss: 0.316604	valid_0's auc: 0.834323
+[43]	valid_0's binary_logloss: 0.323465	valid_0's auc: 0.83432
+[44]	valid_0's binary_logloss: 0.32642	valid_0's auc: 0.834143
+[45]	valid_0's binary_logloss: 0.315528	valid_0's auc: 0.833443
+[46]	valid_0's binary_logloss: 0.34102	valid_0's auc: 0.833323
+[47]	valid_0's binary_logloss: 0.313816	valid_0's auc: 0.83309
+[48]	valid_0's binary_logloss: 0.309641	valid_0's auc: 0.833193
+[49]	valid_0's binary_logloss: 0.313865	valid_0's auc: 0.833246
+[50]	valid_0's binary_logloss: 0.318719	valid_0's auc: 0.833196
+[51]	valid_0's binary_logloss: 0.314304	valid_0's auc: 0.832997
+[52]	valid_0's binary_logloss: 0.312826	valid_0's auc: 0.83312
+[53]	valid_0's binary_logloss: 0.311603	valid_0's auc: 0.833074
+[54]	valid_0's binary_logloss: 0.319158	valid_0's auc: 0.833183
+[55]	valid_0's binary_logloss: 0.340312	valid_0's auc: 0.833632
+[56]	valid_0's binary_logloss: 0.338685	valid_0's auc: 0.833255
+[57]	valid_0's binary_logloss: 0.34548	valid_0's auc: 0.833534
+[58]	valid_0's binary_logloss: 0.344348	valid_0's auc: 0.83306
+[59]	valid_0's binary_logloss: 0.337409	valid_0's auc: 0.83249
+[60]	valid_0's binary_logloss: 0.336177	valid_0's auc: 0.832414
+[61]	valid_0's binary_logloss: 0.352579	valid_0's auc: 0.83269
+[62]	valid_0's binary_logloss: 0.341011	valid_0's auc: 0.832167
+[63]	valid_0's binary_logloss: 0.335626	valid_0's auc: 0.831962
+[64]	valid_0's binary_logloss: 0.37278	valid_0's auc: 0.831074
+[65]	valid_0's binary_logloss: 0.345381	valid_0's auc: 0.83194
+[66]	valid_0's binary_logloss: 0.342475	valid_0's auc: 0.831492
+[67]	valid_0's binary_logloss: 0.341505	valid_0's auc: 0.831117
+[68]	valid_0's binary_logloss: 0.380673	valid_0's auc: 0.830532
+[69]	valid_0's binary_logloss: 0.347612	valid_0's auc: 0.831671
+[70]	valid_0's binary_logloss: 0.344231	valid_0's auc: 0.831378
+[71]	valid_0's binary_logloss: 0.339533	valid_0's auc: 0.831533
+[72]	valid_0's binary_logloss: 0.340813	valid_0's auc: 0.831729
+Early stopping, best iteration is:
+[12]	valid_0's binary_logloss: 0.298262	valid_0's auc: 0.839261
+(5320904, 350)
+Traceback (most recent call last):
+  File "lgbm.py", line 395, in <module>
+    done()
+  File "lgbm.py", line 347, in done
+    early_stopping_rounds=60) # 早停系数
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/lightgbm/engine.py", line 183, in train
+    booster = Booster(params=params, train_set=train_set)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/lightgbm/basic.py", line 1307, in __init__
+    train_set.construct().handle,
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/lightgbm/basic.py", line 860, in construct
+    categorical_feature=self.categorical_feature, params=self.params)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/lightgbm/basic.py", line 652, in _lazy_init
+    data, feature_name, categorical_feature, self.pandas_categorical = _data_from_pandas(data, feature_name, categorical_feature, self.pandas_categorical)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/lightgbm/basic.py", line 274, in _data_from_pandas
+    data = data.values.astype('float')
+MemoryError

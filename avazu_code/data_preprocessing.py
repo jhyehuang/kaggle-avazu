@@ -218,11 +218,11 @@ def new_features_w( is_train=True):
     return 
 
 #
-def data_concat(src_data, dst_data_path,usecols=None, is_train=True):
+def data_concat(src_data, dst_data_path,nrows=200000,usecols=None, is_train=True):
     if usecols!=None:
         Reader_ = pd.read_csv(dst_data_path,usecols=[9,])
     else:
-        Reader_ = pd.read_csv(dst_data_path)
+        Reader_ = pd.read_csv(dst_data_path,)
     try:
         Reader_.drop('id', axis=1,inplace = True)
     except:
@@ -512,7 +512,7 @@ def gdbt_data_get_train(seed=25):
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/num_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train100/click.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join_cnt.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join_cnt.csv')
     logging.debug(train_save.columns)
 
     logging.debug(train_save.shape)
@@ -531,7 +531,7 @@ def gdbt_data_get_test():
     test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/num_features.csv')
 #    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/click.csv')
     test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join.csv')
-    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join_cnt.csv')
+#    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join_cnt.csv')
     logging.debug(test_save.shape)
 
     try:
@@ -761,9 +761,9 @@ def col_one_hot2(train,one_field):
 def features_index():
     pass
 
-def train_data_ont_hot(seed=100):
+def train_data_ont_hot(seed=25):
     train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/click.csv',)
-    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/cat_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
@@ -1005,3 +1005,23 @@ def gdbt_DM_get_test():
     gc.collect()
     return 0
 
+def get_PCA_train_data(seed=25):
+    train_save = pd.read_csv(FLAGS.tmp_data_path +'train'+str(seed)+'/cat_features.csv',nrows=200000)
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/date_list.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/num_features.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train100/click.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join_cnt.csv')
+    logging.debug(train_save.columns)
+
+    logging.debug(train_save.shape)
+    train_save=train_save[:200000]
+    try:
+        train_save.drop('id', axis=1,inplace = True)
+    except:
+        pass
+    
+
+    gc.collect()
+
+    return train_save

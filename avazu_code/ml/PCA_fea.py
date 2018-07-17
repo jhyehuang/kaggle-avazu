@@ -10,6 +10,7 @@
 #导入必要的工具包
 import pandas as pd
 import numpy as np
+import sys
 from sklearn import svm
 from sklearn.model_selection import train_test_split
 from sklearn.decomposition import PCA
@@ -36,17 +37,17 @@ from flags import FLAGS, unparsed
 
 #读取训练数据和测试数据
 train = get_PCA_train_data()
-test = get_PCA_test_data()
+#test = get_PCA_test_data()
 
-y_train = train.label.values
+y_train = train.click.values
 X_train = train.drop("click",axis=1).values
-X_test = test.values 
+#X_test = test.values 
 
 
 
 # 原始输入的特征维数和样本数目
 print('the shape of train_image: {}'.format(X_train.shape))
-print('the shape of test_image: {}'.format(X_test.shape))
+#print('the shape of test_image: {}'.format(X_test.shape))
 
 
 # In[5]:
@@ -106,9 +107,9 @@ for n in n_s:
 
 
 # 绘制不同PCA维数下模型的性能，找到最佳模型／参数（分数最高）
-import matplotlib.pyplot as plt
-get_ipython().magic('matplotlib inline')
-plt.plot(n_s, np.array(accuracy), 'b-')
+#import matplotlib.pyplot as plt
+##get_ipython().magic('matplotlib inline')
+#plt.plot(n_s, np.array(accuracy), 'b-')
 
 
 # In[10]:
@@ -124,56 +125,56 @@ pca.fit(X_train)
 # In[11]:
 
 
-pca.n_components_
+print(pca.n_components_)
 
 
 # In[12]:
 
 
-pca.explained_variance_ratio_
+print(pca.explained_variance_ratio_)
 
 
 # In[13]:
 
 
 #根据最佳参数，对全体训练数据降维
-X_train_pca = pca.transform(X_train)
+#X_train_pca = pca.transform(X_train)
 
 #根据最佳参数，对测试数据降维
-X_test_pca = pca.transform(X_test)
+#X_test_pca = pca.transform(X_test)
 
 
 # In[14]:
 
 
 # 降维后的特征维数
-print(X_train_pca.shape)
-print(X_test_pca.shape)
+#print(X_train_pca.shape)
+#print(X_test_pca.shape)
 
 
 # In[15]:
 
 
 #在降维后的训练数据集上训练SVM分类器
-clf = svm.SVC()
-clf.fit(X_train_pca, y_train)
+#clf = svm.SVC()
+#clf.fit(X_train_pca, y_train)
 
 
 # In[16]:
 
 
 # 用在降维后的全体训练数据集上训练的模型对测试集进行测试
-y_predict = clf.predict(X_test_pca)
+#y_predict = clf.predict(X_test_pca)
 
 
 # In[17]:
 
 
 #生成提交测试结果
-import pandas as pd
-df = pd.DataFrame(y_predict)
-df.columns=['Label']
-df.index+=1
-df.index.name = 'Imageid'
-df.to_csv('SVC_Minist_submission.csv', header=True)
+#import pandas as pd
+#df = pd.DataFrame(y_predict)
+#df.columns=['Label']
+#df.index+=1
+#df.index.name = 'Imageid'
+#df.to_csv('SVC_Minist_submission.csv', header=True)
 
