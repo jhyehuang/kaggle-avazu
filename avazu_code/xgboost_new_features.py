@@ -106,13 +106,12 @@ def build_data(seed=100,is_type='train'):
 
 #build_data()
 
-#build_data(seed=25)
-#gc.collect()
+build_data(seed=25)
+gc.collect()
 build_data(seed=25,is_type='train_predict')
 gc.collect()
-#build_data(is_type='test')
-#gc.collect()
-#build_data(is_type='test')
+build_data(is_type='test')
+gc.collect()
 
 
 
