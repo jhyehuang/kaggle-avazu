@@ -9,6 +9,7 @@ import os
 import utils
 from utils import *
 from joblib import dump, load, Parallel, delayed
+import gc
 
 #sys.path.append(utils.xgb_path)
 import xgboost as xgb
@@ -40,17 +41,21 @@ def build_data(seed=100,is_type='train'):
         param.update(gpu_dict)
         plst = list(param.items()) + [('eval_metric', 'logloss')]
         xgb_test_basis = xgb.train(plst, dtrain, n_trees, watchlist)
+        xgb_test_basis.save_model(FLAGS.tmp_data_path+'xgb_new_features.model')
         del dtrain,dvalid
         gc.collect()
+    elif 'train_predict'==is_type:
+
         dtv = xgb.DMatrix(FLAGS.tmp_data_path+'train'+str(seed)+'/xgboost.new_features.dtv.joblib_dat')
-    #    dtv = xgb.DMatrix(X_train)
+        xgb_test_basis = xgb.Booster({'nthread':-1}) #init model
+        xgb_test_basis.load_model(FLAGS.tmp_data_path+'xgb_new_features.model') # load data
         xgb_leaves = xgb_test_basis.predict(dtv, pred_leaf = True)
     
         new_pd = pd.DataFrame()
-        print(xgb_leaves.shape)
+        logging.debug(xgb_leaves.shape)
         for i in range(n_trees):
             pred2 = xgb_leaves[:, i]
-            print(i, np.unique(pred2).size)
+            logging.debug(i, np.unique(pred2).size)
             new_pd['xgb_basis'+str(i)] = pred2
     
     #    train_save = gdbt_data_get_train(799)
@@ -59,7 +64,7 @@ def build_data(seed=100,is_type='train'):
         for vn in ['xgb_basis' + str(i) for i in range(n_trees)]:
             _cat = np.asarray(new_pd[vn].astype('category').values.codes, dtype='int32')
             _cat1 = _cat + idx_base
-            print(vn, idx_base, _cat1.min(), _cat1.max(), np.unique(_cat).size)
+            logging.debug(vn, idx_base, _cat1.min(), _cat1.max(), np.unique(_cat).size)
             new_pd[vn] = _cat1
             idx_base += _cat.max() + 1
         logging.debug(new_pd.shape)
@@ -67,7 +72,7 @@ def build_data(seed=100,is_type='train'):
         new_pd.to_csv(FLAGS.tmp_data_path+'train'+str(seed)+'/xgb_new_features.csv',index=False)
         del new_pd,dtv
         gc.collect()
-        xgb_test_basis.save_model(FLAGS.tmp_data_path+'xgb_new_features.model')
+        
         
     elif 'test'==is_type:
         
@@ -78,10 +83,10 @@ def build_data(seed=100,is_type='train'):
         xgb_leaves = xgb_test_basis.predict(dtv, pred_leaf = True)
     
         new_pd = pd.DataFrame()
-        print(xgb_leaves.shape)
+        logging.debug(xgb_leaves.shape)
         for i in range(n_trees):
             pred2 = xgb_leaves[:, i]
-            print(i, np.unique(pred2).size)
+            logging.debug(i, np.unique(pred2).size)
             new_pd['xgb_basis'+str(i)] = pred2
     
     #    train_save = gdbt_data_get_train(799)
@@ -90,7 +95,7 @@ def build_data(seed=100,is_type='train'):
         for vn in ['xgb_basis' + str(i) for i in range(n_trees)]:
             _cat = np.asarray(new_pd[vn].astype('category').values.codes, dtype='int32')
             _cat1 = _cat + idx_base
-            print(vn, idx_base, _cat1.min(), _cat1.max(), np.unique(_cat).size)
+            logging.debug(vn, idx_base, _cat1.min(), _cat1.max(), np.unique(_cat).size)
             new_pd[vn] = _cat1
             idx_base += _cat.max() + 1
         logging.debug(new_pd.shape)
@@ -102,7 +107,11 @@ def build_data(seed=100,is_type='train'):
 #build_data()
 
 build_data(seed=25)
-
+gc.collect()
+build_data(seed=25,is_type='train_predict')
+gc.collect()
+build_data(is_type='test')
+gc.collect()
 #build_data(is_type='test')
 
 
