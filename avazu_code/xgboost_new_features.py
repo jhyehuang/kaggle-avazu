@@ -101,7 +101,7 @@ def build_data(seed=100,is_type='train'):
 
 #build_data()
 
-build_data(seed=100)
+build_data(seed=25)
 
 #build_data(is_type='test')
 
