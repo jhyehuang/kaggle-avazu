@@ -496,15 +496,15 @@ def get_train_test_split():
     logging.debug(files_name)
     for file in files_name:
         save=pd.read_csv(FLAGS.tmp_data_path+file)
-#        test_save=save[(-test_id):]
-#        test_save.to_csv(FLAGS.tmp_data_path+'test/'+file,index=False)
-#        logging.debug(test_save.shape)
+        test_save=save[(-test_id):]
+        test_save.to_csv(FLAGS.tmp_data_path+'test/'+file,index=False)
+        logging.debug(test_save.shape)
         train_save=save[:-1*test_id]
 
 
 #        train_save=train_save.sample(frac=0.005).reset_index(drop=True)
-        logging.debug(train_save.shape)
-        train_save.to_csv(FLAGS.tmp_data_path+'train25'+'/'+file,index=False)
+#        logging.debug(train_save.shape)
+#        train_save.to_csv(FLAGS.tmp_data_path+'train25'+'/'+file,index=False)
         del train_save
         del save
 
