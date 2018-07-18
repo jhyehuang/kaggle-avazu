@@ -165,7 +165,7 @@ def done(istrain=True):
 #    op=['n_estimators','max_depth','min_child_weight','subsample','reg_alpha']
     op=['fin']
     if istrain:
-        train_save = gdbt_data_get_train(100)
+        train_save = gdbt_data_get_train(25)
         print(train_save.shape)
         y_train = train_save['click']
         train_save.drop('click',axis=1,inplace=True)
