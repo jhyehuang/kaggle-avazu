@@ -204,7 +204,7 @@ def done(istrain=True):
 
         for oper in op:
             xgb1 = load(FLAGS.tmp_data_path+'xgboost.cv_'+oper+'.model.joblib_dat')
-            dtrain_predprob = xgb1.predict_proba(X_test)[:,1]
+            dtrain_predprob = xgb1.predict_proba(X_test)
             logging.debug(dtrain_predprob)
             y_pred = [round(value,4) for value in dtrain_predprob]
             logging.debug('-'*30)
