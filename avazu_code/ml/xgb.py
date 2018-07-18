@@ -183,7 +183,7 @@ def done(istrain=True):
         objective='binary:logistic',
         eval_metric=['logloss','auc'],
         nthread=-1,
-        verbose=2,
+        verbose=1,
 #        scale_pos_weight=1,
 #        reg_alpha=1.5,
 #        reg_lambda=0.5,
@@ -219,7 +219,7 @@ def done(istrain=True):
         
         
 if __name__ == "__main__":
-    done()
-#    done(False)
+#    done()
+    done(False)
         
 
