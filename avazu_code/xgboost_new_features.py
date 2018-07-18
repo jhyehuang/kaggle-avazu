@@ -24,7 +24,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
 
 
-n_trees=666
+n_trees=60
 def build_data(seed=100,is_type='train'):
     if 'train'==is_type:
         dtrain = xgb.DMatrix(FLAGS.tmp_data_path+'train'+str(seed)+'/xgboost.new_features.dtrain.joblib_dat')
@@ -36,7 +36,7 @@ def build_data(seed=100,is_type='train'):
     #    print (X_train_part.shape, y_train_part.shape)
     
         param = {'max_depth':6, 'eta':.1, 'objective':'binary:logistic', 'verbose':2,
-                 'subsample':1.0, 'min_child_weight':1, 'gamma':0,
+                 'subsample':1.0, 'min_child_weight':1, 'gamma':0,'early_stopping_rounds':10,
                  'nthread': -1, 'colsample_bytree':.8, 'base_score':0.16, 'seed': 27,'silent':0}
         param.update(gpu_dict)
         plst = list(param.items()) + [('eval_metric', 'logloss')]
@@ -55,7 +55,7 @@ def build_data(seed=100,is_type='train'):
         logging.debug(xgb_leaves.shape)
         for i in range(n_trees):
             pred2 = xgb_leaves[:, i]
-            logging.debug(i, np.unique(pred2).size)
+            print(i, np.unique(pred2).size)
             new_pd['xgb_basis'+str(i)] = pred2
     
     #    train_save = gdbt_data_get_train(799)
@@ -64,7 +64,7 @@ def build_data(seed=100,is_type='train'):
         for vn in ['xgb_basis' + str(i) for i in range(n_trees)]:
             _cat = np.asarray(new_pd[vn].astype('category').values.codes, dtype='int32')
             _cat1 = _cat + idx_base
-            logging.debug(vn, idx_base, _cat1.min(), _cat1.max(), np.unique(_cat).size)
+            print(vn, idx_base, _cat1.min(), _cat1.max(), np.unique(_cat).size)
             new_pd[vn] = _cat1
             idx_base += _cat.max() + 1
         logging.debug(new_pd.shape)
@@ -86,7 +86,7 @@ def build_data(seed=100,is_type='train'):
         logging.debug(xgb_leaves.shape)
         for i in range(n_trees):
             pred2 = xgb_leaves[:, i]
-            logging.debug(i, np.unique(pred2).size)
+            print(i, np.unique(pred2).size)
             new_pd['xgb_basis'+str(i)] = pred2
     
     #    train_save = gdbt_data_get_train(799)
@@ -95,7 +95,7 @@ def build_data(seed=100,is_type='train'):
         for vn in ['xgb_basis' + str(i) for i in range(n_trees)]:
             _cat = np.asarray(new_pd[vn].astype('category').values.codes, dtype='int32')
             _cat1 = _cat + idx_base
-            logging.debug(vn, idx_base, _cat1.min(), _cat1.max(), np.unique(_cat).size)
+            print(vn, idx_base, _cat1.min(), _cat1.max(), np.unique(_cat).size)
             new_pd[vn] = _cat1
             idx_base += _cat.max() + 1
         logging.debug(new_pd.shape)
@@ -106,12 +106,12 @@ def build_data(seed=100,is_type='train'):
 
 #build_data()
 
-#build_data(seed=25)
-#gc.collect()
+build_data(seed=25)
+gc.collect()
 build_data(seed=25,is_type='train_predict')
 gc.collect()
-#build_data(is_type='test')
-#gc.collect()
+build_data(is_type='test')
+gc.collect()
 #build_data(is_type='test')
 
 

@@ -80,18 +80,18 @@ output = FLAGS.output_dir
 #get_train_test_split()
 
 # 将训练数据集切分为  训练、验证、 转化为 Dmtrix
-gdbt_DM_get_train(25)
+#gdbt_DM_get_train(25)
 
 # 将测试集转化为 Dmtrix
-gdbt_DM_get_test()
+#gdbt_DM_get_test()
 
 
 # 训练集 one hot
-#train_data_ont_hot()
-#gc.collect()
+train_data_ont_hot()
+gc.collect()
 
 # 验证集one hot
-#vali_data_ont_hot()
+#vali_data_ont_hot(25)
 #gc.collect()
 
 # 测试集one hot
