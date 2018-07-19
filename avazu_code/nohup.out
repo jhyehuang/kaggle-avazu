@@ -49451,3 +49451,10 @@ Arguments: (34478, 34478, 34535, 58)
 2         34367         34403         34426         34535  
 
 [3 rows x 666 columns]
+2018-07-18 15:55:02,017 - DEBUG - data_preprocessing.py:496 - ['click.csv', 'cat_features.csv', 'date_list.csv', 'num_features.csv', 'two_col_join_cnt.csv', 'two_col_join.csv']
+2018-07-18 15:55:07,337 - DEBUG - data_preprocessing.py:501 - (4577464, 1)
+2018-07-18 15:55:53,147 - DEBUG - data_preprocessing.py:501 - (4577464, 13)
+2018-07-18 15:56:10,729 - DEBUG - data_preprocessing.py:501 - (4577464, 5)
+2018-07-18 15:59:31,043 - DEBUG - data_preprocessing.py:501 - (4577464, 58)
+2018-07-18 16:09:58,945 - DEBUG - data_preprocessing.py:501 - (4577464, 156)
+2018-07-18 16:16:10,059 - DEBUG - data_preprocessing.py:501 - (4577464, 79)

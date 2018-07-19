@@ -25,8 +25,8 @@ from flags import FLAGS, unparsed
 logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
 
-param = {'task':'binary', 'lr':0.2, 'lambda':0.2,'epoch':10,
-         'metric':'auc','k':2,
+param = {'task':'binary', 'lr':0.02, 'lambda':0.2,'epoch':10,
+         'metric':'auc','k':8,
          'opt':'adagrad'}
 
 #param = {'task':'binary', 'lr':0.2}
@@ -37,14 +37,14 @@ param = {'task':'binary', 'lr':0.2, 'lambda':0.2,'epoch':10,
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.002}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'opt':'sgd'}
 #param_ad = {'task':'binary', 'lr':0.2, 'lambda':0.002, 'opt':'adagrad'}
-param = {'task':'binary', 'lr':0.0002, 'lambda':0.002, 'opt':'ftrl'}
+#param = {'task':'binary', 'lr':0.0002, 'lambda':0.002, 'opt':'ftrl'}
 #ftrl_param = {'alpha':0.002, 'beta':0.8, 'lambda_1':0.001, 'lambda_2': 1.0}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'k':2}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'k':4}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'k':5}
 #param = {'task':'binary', 'lr':0.2, 'lambda':0.01, 'k':8}
 
-param.update(ftrl_param)
+#param.update(ftrl_param)
 
 def done(op_type='istrain'):
     ### 开始训练

@@ -1404,3 +1404,222 @@ Traceback (most recent call last):
   File "PCA_fea.py", line 193, in <module>
     logging.debug(X_train_pca.head(5))
 AttributeError: 'numpy.ndarray' object has no attribute 'head'
+2018-07-18 15:35:11,401 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 13)
+2018-07-18 15:35:11,401 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 5)
+2018-07-18 15:35:11,885 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 18)
+2018-07-18 15:35:11,885 - DEBUG - data_preprocessing.py:239 - 耗时0.48340797424316406
+2018-07-18 15:35:33,038 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 18)
+2018-07-18 15:35:33,038 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 57)
+2018-07-18 15:35:35,067 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 75)
+2018-07-18 15:35:35,067 - DEBUG - data_preprocessing.py:239 - 耗时2.028822660446167
+2018-07-18 15:36:18,143 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 75)
+2018-07-18 15:36:18,143 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 79)
+2018-07-18 15:36:26,300 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 154)
+2018-07-18 15:36:26,300 - DEBUG - data_preprocessing.py:239 - 耗时8.157424688339233
+2018-07-18 15:36:50,811 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 154)
+2018-07-18 15:36:50,811 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 60)
+2018-07-18 15:37:05,007 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 214)
+2018-07-18 15:37:05,008 - DEBUG - data_preprocessing.py:239 - 耗时14.196110725402832
+2018-07-18 15:37:05,233 - DEBUG - data_preprocessing.py:520 - Index(['C1', 'C14', 'C17', 'C21', 'device_conn_type', 'device_ip',
+       'device_model', 'device_type', 'app_or_web', 'app_site_id',
+       ...
+       'xgb_basis50', 'xgb_basis51', 'xgb_basis52', 'xgb_basis53',
+       'xgb_basis54', 'xgb_basis55', 'xgb_basis56', 'xgb_basis57',
+       'xgb_basis58', 'xgb_basis59'],
+      dtype='object', length=214)
+2018-07-18 15:37:05,234 - DEBUG - data_preprocessing.py:522 - (6064345, 214)
+[15:39:58] Allocated 2309MB on [0] GeForce GTX 1070 Ti, 5277MB remaining.
+[15:40:00] Allocated 162MB on [0] GeForce GTX 1070 Ti, 5161MB remaining.
+[15:40:00] Allocated 49MB on [0] GeForce GTX 1070 Ti, 5111MB remaining.
+[15:44:45] Allocated 990MB on [0] GeForce GTX 1070 Ti, 3999MB remaining.
+/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:2026: FutureWarning: From version 0.21, test_size will always complement train_size unless both are specified.
+  FutureWarning)
+2018-07-18 15:44:56,224 - DEBUG - xgb.py:147 - 0.388694814671163
+2018-07-18 15:44:56,462 - DEBUG - xgb.py:194 - fin:to save validation predictions ...
+2018-07-18 15:44:56,523 - DEBUG - xgb.py:196 - ['/data/xgboost.cv_fin.model.joblib_dat']
+(6064345, 214)
+2018-07-18 15:46:40,757 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 13)
+2018-07-18 15:46:40,758 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 5)
+2018-07-18 15:46:41,119 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 18)
+2018-07-18 15:46:41,119 - DEBUG - data_preprocessing.py:239 - 耗时0.36139583587646484
+2018-07-18 15:46:55,781 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 18)
+2018-07-18 15:46:55,781 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 57)
+2018-07-18 15:46:57,307 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 75)
+2018-07-18 15:46:57,307 - DEBUG - data_preprocessing.py:239 - 耗时1.5266571044921875
+2018-07-18 15:47:29,311 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 75)
+2018-07-18 15:47:29,311 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 79)
+2018-07-18 15:47:35,585 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 154)
+2018-07-18 15:47:35,585 - DEBUG - data_preprocessing.py:239 - 耗时6.2733776569366455
+2018-07-18 15:47:48,498 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 154)
+2018-07-18 15:47:48,498 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 60)
+2018-07-18 15:47:59,291 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 214)
+2018-07-18 15:47:59,291 - DEBUG - data_preprocessing.py:239 - 耗时10.793178081512451
+2018-07-18 15:47:59,448 - DEBUG - data_preprocessing.py:540 - (4577464, 214)
+(4577464, 213)
+Traceback (most recent call last):
+  File "xgb.py", line 223, in <module>
+    done(False)
+  File "xgb.py", line 207, in done
+    dtrain_predprob = xgb1.predict_proba(X_test)[:,1]
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/xgboost-0.72-py3.6.egg/xgboost/sklearn.py", line 587, in predict_proba
+    ntree_limit=ntree_limit)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/xgboost-0.72-py3.6.egg/xgboost/core.py", line 1142, in predict
+    self._validate_features(data)
+  File "/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/xgboost-0.72-py3.6.egg/xgboost/core.py", line 1400, in _validate_features
+    data.feature_names))
+ValueError: feature_names mismatch: ['C1', 'C14', 'C17', 'C21', 'device_conn_type', 'device_ip', 'device_model', 'device_type', 'app_or_web', 'app_site_id', 'app_site_model', 'app_site_model_aw', 'dev_ip_app_site', 'one_day', 'one_day_hour', 'day_hour_prev', 'day_hour_next', 'is_work_day', 'C15', 'C16', 'C18', 'C19', 'C20', 'app_category', 'app_domain', 'app_id', 'banner_pos', 'device_id', 'hour', 'site_category', 'site_domain', 'site_id', 'uid', 'uid_time', 'device_id_cnt', 'device_ip_cnt', 'uid_cnt', 'uid_time_cnt', 'top_10_app_id', 'top_25_app_id', 'top_5_app_id', 'top_50_app_id', 'top_1_app_id', 'top_2_app_id', 'top_15_app_id', 'top_20_app_id', 'top_30_app_id', 'top_10_site_id', 'top_25_site_id', 'top_5_site_id', 'top_50_site_id', 'top_1_site_id', 'top_2_site_id', 'top_15_site_id', 'top_20_site_id', 'top_30_site_id', 'top_10_app_domain', 'top_25_app_domain', 'top_5_app_domain', 'top_50_app_domain', 'top_1_app_domain', 'top_2_app_domain', 'top_15_app_domain', 'top_20_app_domain', 'top_30_app_domain', 'top_10_app_category', 'top_25_app_category', 'top_5_app_category', 'top_50_app_category', 'top_1_app_category', 'top_2_app_category', 'top_15_app_category', 'top_20_app_category', 'top_30_app_category', 'app_or_webC14', '_key1', 'app_or_webC21', 'app_or_webdevice_conn_type', 'app_or_webdevice_ip', 'app_or_webC1', 'app_or_webdevice_model', 'app_or_webdev_ip_app_site', 'app_or_webdevice_type', 'app_or_webapp_site_model', 'app_or_webapp_site_model_aw', 'app_or_webapp_site_id', 'app_or_webC17', 'device_ipC14', 'device_ipC21', 'device_ipdevice_conn_type', 'device_ipC1', 'device_ipdevice_model', 'device_ipdev_ip_app_site', 'device_ipdevice_type', 'device_ipapp_site_model', 'device_ipapp_site_model_aw', 'device_ipapp_site_id', 'device_ipC17', 'app_site_idC21', 'app_site_idC14', 'app_site_iddevice_conn_type', 'app_site_idC1', 'app_site_iddevice_model', 'app_site_iddev_ip_app_site', 'app_site_idC17', 'app_site_idapp_site_model', 'app_site_idapp_site_model_aw', 'app_site_iddevice_type', 'device_modelC21', 'device_modelC14', 'device_modeldevice_conn_type', 'device_modelC1', 'device_modelC17', 'device_modeldev_ip_app_site', 'device_modelapp_site_model', 'device_modelapp_site_model_aw', 'device_modeldevice_type', 'app_site_modelC21', 'app_site_modelC14', 'app_site_modeldevice_conn_type', 'app_site_modelC1', 'app_site_modelC17', 'app_site_modeldev_ip_app_site', 'app_site_modelapp_site_model_aw', 'app_site_modeldevice_type', 'C1C21', 'C1C14', 'C1device_conn_type', 'C1C17', 'C1dev_ip_app_site', 'C1app_site_model_aw', 'C1device_type', 'C14C21', 'C14device_conn_type', 'C14C17', 'C14dev_ip_app_site', 'C14app_site_model_aw', 'C14device_type', 'C17C21', 'C17device_conn_type', 'C17dev_ip_app_site', 'C17app_site_model_aw', 'C17device_type', 'C21app_site_model_aw', 'C21dev_ip_app_site', 'C21device_conn_type', 'C21device_type', 'device_typeapp_site_model_aw', 'device_typedev_ip_app_site', 'device_typedevice_conn_type', 'device_conn_typeapp_site_model_aw', 'device_conn_typedev_ip_app_site', 'app_site_model_awdev_ip_app_site', 'xgb_basis0', 'xgb_basis1', 'xgb_basis2', 'xgb_basis3', 'xgb_basis4', 'xgb_basis5', 'xgb_basis6', 'xgb_basis7', 'xgb_basis8', 'xgb_basis9', 'xgb_basis10', 'xgb_basis11', 'xgb_basis12', 'xgb_basis13', 'xgb_basis14', 'xgb_basis15', 'xgb_basis16', 'xgb_basis17', 'xgb_basis18', 'xgb_basis19', 'xgb_basis20', 'xgb_basis21', 'xgb_basis22', 'xgb_basis23', 'xgb_basis24', 'xgb_basis25', 'xgb_basis26', 'xgb_basis27', 'xgb_basis28', 'xgb_basis29', 'xgb_basis30', 'xgb_basis31', 'xgb_basis32', 'xgb_basis33', 'xgb_basis34', 'xgb_basis35', 'xgb_basis36', 'xgb_basis37', 'xgb_basis38', 'xgb_basis39', 'xgb_basis40', 'xgb_basis41', 'xgb_basis42', 'xgb_basis43', 'xgb_basis44', 'xgb_basis45', 'xgb_basis46', 'xgb_basis47', 'xgb_basis48', 'xgb_basis49', 'xgb_basis50', 'xgb_basis51', 'xgb_basis52', 'xgb_basis53', 'xgb_basis54', 'xgb_basis55', 'xgb_basis56', 'xgb_basis57', 'xgb_basis58', 'xgb_basis59'] ['C1', 'C14', 'C17', 'C21', 'device_conn_type', 'device_ip', 'device_model', 'device_type', 'app_or_web', 'app_site_id', 'app_site_model', 'app_site_model_aw', 'dev_ip_app_site', 'one_day', 'one_day_hour', 'day_hour_prev', 'day_hour_next', 'is_work_day', 'C15', 'C16', 'C18', 'C19', 'C20', 'app_category', 'app_domain', 'app_id', 'banner_pos', 'device_id', 'hour', 'site_category', 'site_domain', 'site_id', 'uid', 'uid_time', 'device_id_cnt', 'device_ip_cnt', 'uid_cnt', 'uid_time_cnt', 'top_10_app_id', 'top_25_app_id', 'top_5_app_id', 'top_50_app_id', 'top_1_app_id', 'top_2_app_id', 'top_15_app_id', 'top_20_app_id', 'top_30_app_id', 'top_10_site_id', 'top_25_site_id', 'top_5_site_id', 'top_50_site_id', 'top_1_site_id', 'top_2_site_id', 'top_15_site_id', 'top_20_site_id', 'top_30_site_id', 'top_10_app_domain', 'top_25_app_domain', 'top_5_app_domain', 'top_50_app_domain', 'top_1_app_domain', 'top_2_app_domain', 'top_15_app_domain', 'top_20_app_domain', 'top_30_app_domain', 'top_10_app_category', 'top_25_app_category', 'top_5_app_category', 'top_50_app_category', 'top_1_app_category', 'top_2_app_category', 'top_15_app_category', 'top_20_app_category', 'top_30_app_category', 'app_or_webdevice_type', '_key1', 'app_or_webC1', 'app_or_webC14', 'app_or_webdevice_model', 'app_or_webdevice_conn_type', 'app_or_webapp_site_model_aw', 'app_or_webdev_ip_app_site', 'app_or_webdevice_ip', 'app_or_webapp_site_model', 'app_or_webC17', 'app_or_webapp_site_id', 'app_or_webC21', 'device_ipdevice_type', 'device_ipC1', 'device_ipC14', 'device_ipdevice_model', 'device_ipdevice_conn_type', 'device_ipapp_site_model_aw', 'device_ipdev_ip_app_site', 'device_ipapp_site_model', 'device_ipC17', 'device_ipapp_site_id', 'device_ipC21', 'app_site_iddevice_type', 'app_site_idC1', 'app_site_idC14', 'app_site_iddevice_model', 'app_site_iddevice_conn_type', 'app_site_idapp_site_model_aw', 'app_site_iddev_ip_app_site', 'app_site_idapp_site_model', 'app_site_idC17', 'app_site_idC21', 'device_modeldevice_type', 'device_modelC1', 'device_modelC14', 'device_modeldevice_conn_type', 'device_modeldev_ip_app_site', 'device_modelapp_site_model_aw', 'device_modelapp_site_model', 'device_modelC17', 'device_modelC21', 'app_site_modeldevice_type', 'app_site_modelC1', 'app_site_modelC14', 'app_site_modeldevice_conn_type', 'app_site_modeldev_ip_app_site', 'app_site_modelapp_site_model_aw', 'app_site_modelC17', 'app_site_modelC21', 'C1device_type', 'C1C14', 'C1device_conn_type', 'C1dev_ip_app_site', 'C1app_site_model_aw', 'C1C17', 'C1C21', 'C14device_type', 'C14device_conn_type', 'C14dev_ip_app_site', 'C14app_site_model_aw', 'C14C17', 'C14C21', 'C17device_type', 'C17device_conn_type', 'C17dev_ip_app_site', 'C17app_site_model_aw', 'C17C21', 'C21app_site_model_aw', 'C21device_type', 'C21device_conn_type', 'C21dev_ip_app_site', 'device_typeapp_site_model_aw', 'device_typedevice_conn_type', 'device_typedev_ip_app_site', 'device_conn_typeapp_site_model_aw', 'device_conn_typedev_ip_app_site', 'app_site_model_awdev_ip_app_site', 'xgb_basis0', 'xgb_basis1', 'xgb_basis2', 'xgb_basis3', 'xgb_basis4', 'xgb_basis5', 'xgb_basis6', 'xgb_basis7', 'xgb_basis8', 'xgb_basis9', 'xgb_basis10', 'xgb_basis11', 'xgb_basis12', 'xgb_basis13', 'xgb_basis14', 'xgb_basis15', 'xgb_basis16', 'xgb_basis17', 'xgb_basis18', 'xgb_basis19', 'xgb_basis20', 'xgb_basis21', 'xgb_basis22', 'xgb_basis23', 'xgb_basis24', 'xgb_basis25', 'xgb_basis26', 'xgb_basis27', 'xgb_basis28', 'xgb_basis29', 'xgb_basis30', 'xgb_basis31', 'xgb_basis32', 'xgb_basis33', 'xgb_basis34', 'xgb_basis35', 'xgb_basis36', 'xgb_basis37', 'xgb_basis38', 'xgb_basis39', 'xgb_basis40', 'xgb_basis41', 'xgb_basis42', 'xgb_basis43', 'xgb_basis44', 'xgb_basis45', 'xgb_basis46', 'xgb_basis47', 'xgb_basis48', 'xgb_basis49', 'xgb_basis50', 'xgb_basis51', 'xgb_basis52', 'xgb_basis53', 'xgb_basis54', 'xgb_basis55', 'xgb_basis56', 'xgb_basis57', 'xgb_basis58', 'xgb_basis59']
+2018-07-18 17:35:04,178 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 13)
+2018-07-18 17:35:04,178 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 5)
+2018-07-18 17:35:04,549 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 18)
+2018-07-18 17:35:04,549 - DEBUG - data_preprocessing.py:239 - 耗时0.37105679512023926
+2018-07-18 17:35:20,942 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 18)
+2018-07-18 17:35:20,942 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 57)
+2018-07-18 17:35:22,459 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 75)
+2018-07-18 17:35:22,460 - DEBUG - data_preprocessing.py:239 - 耗时1.5176420211791992
+2018-07-18 17:35:55,153 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 75)
+2018-07-18 17:35:55,153 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 79)
+2018-07-18 17:36:01,522 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 154)
+2018-07-18 17:36:01,522 - DEBUG - data_preprocessing.py:239 - 耗时6.369340419769287
+2018-07-18 17:36:13,950 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 154)
+2018-07-18 17:36:13,951 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 60)
+2018-07-18 17:36:24,749 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 214)
+2018-07-18 17:36:24,749 - DEBUG - data_preprocessing.py:239 - 耗时10.798896074295044
+2018-07-18 17:36:24,912 - DEBUG - data_preprocessing.py:540 - (4577464, 214)
+2018-07-18 17:37:05,639 - DEBUG - xgb.py:208 - [[0.46185422 0.5381458 ]
+ [0.20074391 0.7992561 ]
+ [0.2519334  0.7480666 ]
+ ...
+ [0.0709821  0.9290179 ]
+ [0.7727472  0.2272528 ]
+ [0.47101235 0.52898765]]
+(4577464, 213)
+Traceback (most recent call last):
+  File "xgb.py", line 223, in <module>
+    done(False)
+  File "xgb.py", line 209, in done
+    y_pred = [round(value,4) for value in dtrain_predprob]
+  File "xgb.py", line 209, in <listcomp>
+    y_pred = [round(value,4) for value in dtrain_predprob]
+TypeError: type numpy.ndarray doesn't define __round__ method
+2018-07-18 17:39:02,643 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 13)
+2018-07-18 17:39:02,643 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 5)
+2018-07-18 17:39:03,001 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 18)
+2018-07-18 17:39:03,001 - DEBUG - data_preprocessing.py:239 - 耗时0.3583188056945801
+2018-07-18 17:39:20,273 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 18)
+2018-07-18 17:39:20,273 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 57)
+2018-07-18 17:39:21,801 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 75)
+2018-07-18 17:39:21,801 - DEBUG - data_preprocessing.py:239 - 耗时1.528367519378662
+2018-07-18 17:39:54,244 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 75)
+2018-07-18 17:39:54,244 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 79)
+2018-07-18 17:40:00,493 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 154)
+2018-07-18 17:40:00,494 - DEBUG - data_preprocessing.py:239 - 耗时6.249749660491943
+2018-07-18 17:40:12,849 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 154)
+2018-07-18 17:40:12,849 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 60)
+2018-07-18 17:40:23,816 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 214)
+2018-07-18 17:40:23,816 - DEBUG - data_preprocessing.py:239 - 耗时10.967443227767944
+2018-07-18 17:40:23,974 - DEBUG - data_preprocessing.py:540 - (4577464, 214)
+2018-07-18 17:41:05,130 - DEBUG - xgb.py:208 - [0.5381458  0.7992561  0.7480666  ... 0.9290179  0.2272528  0.52898765]
+2018-07-18 17:41:21,870 - DEBUG - xgb.py:210 - ------------------------------
+2018-07-18 17:41:22,104 - DEBUG - xgb.py:212 - (4577464, 1)
+2018-07-18 17:41:22,752 - DEBUG - xgb.py:214 - (4577464,)
+(4577464, 213)
+2018-07-18 18:06:08,361 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 13)
+2018-07-18 18:06:08,361 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 5)
+2018-07-18 18:06:08,840 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 18)
+2018-07-18 18:06:08,840 - DEBUG - data_preprocessing.py:239 - 耗时0.4789273738861084
+2018-07-18 18:06:33,523 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 18)
+2018-07-18 18:06:33,523 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 57)
+2018-07-18 18:06:35,550 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 75)
+2018-07-18 18:06:35,550 - DEBUG - data_preprocessing.py:239 - 耗时2.026984930038452
+2018-07-18 18:07:19,207 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 75)
+2018-07-18 18:07:19,207 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 79)
+2018-07-18 18:07:27,411 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 154)
+2018-07-18 18:07:27,412 - DEBUG - data_preprocessing.py:239 - 耗时8.204174518585205
+2018-07-18 18:07:52,952 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 154)
+2018-07-18 18:07:52,953 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 60)
+2018-07-18 18:08:07,120 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 214)
+2018-07-18 18:08:07,121 - DEBUG - data_preprocessing.py:239 - 耗时14.167970657348633
+2018-07-18 18:08:07,349 - DEBUG - data_preprocessing.py:520 - Index(['C1', 'C14', 'C17', 'C21', 'device_conn_type', 'device_ip',
+       'device_model', 'device_type', 'app_or_web', 'app_site_id',
+       ...
+       'xgb_basis50', 'xgb_basis51', 'xgb_basis52', 'xgb_basis53',
+       'xgb_basis54', 'xgb_basis55', 'xgb_basis56', 'xgb_basis57',
+       'xgb_basis58', 'xgb_basis59'],
+      dtype='object', length=214)
+2018-07-18 18:08:07,350 - DEBUG - data_preprocessing.py:522 - (6064345, 214)
+[18:11:01] Allocated 2309MB on [0] GeForce GTX 1070 Ti, 5277MB remaining.
+[18:11:03] Allocated 162MB on [0] GeForce GTX 1070 Ti, 5161MB remaining.
+[18:11:03] Allocated 49MB on [0] GeForce GTX 1070 Ti, 5111MB remaining.
+[18:15:47] Allocated 990MB on [0] GeForce GTX 1070 Ti, 3999MB remaining.
+/home/zhijiehuang/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:2026: FutureWarning: From version 0.21, test_size will always complement train_size unless both are specified.
+  FutureWarning)
+2018-07-18 18:15:58,436 - DEBUG - xgb.py:147 - 0.38877497809681655
+2018-07-18 18:15:58,668 - DEBUG - xgb.py:194 - fin:to save validation predictions ...
+2018-07-18 18:15:58,767 - DEBUG - xgb.py:196 - ['/data/xgboost.cv_fin.model.joblib_dat']
+2018-07-18 18:16:07,790 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 13)
+2018-07-18 18:16:07,790 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 5)
+2018-07-18 18:16:07,919 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 18)
+2018-07-18 18:16:07,919 - DEBUG - data_preprocessing.py:239 - 耗时0.12859392166137695
+2018-07-18 18:16:34,048 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 18)
+2018-07-18 18:16:34,048 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 57)
+2018-07-18 18:16:35,563 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 75)
+2018-07-18 18:16:35,563 - DEBUG - data_preprocessing.py:239 - 耗时1.5151755809783936
+2018-07-18 18:17:08,235 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 75)
+2018-07-18 18:17:08,236 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 79)
+2018-07-18 18:17:14,497 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 154)
+2018-07-18 18:17:14,497 - DEBUG - data_preprocessing.py:239 - 耗时6.261810302734375
+2018-07-18 18:17:27,051 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 154)
+2018-07-18 18:17:27,051 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 60)
+2018-07-18 18:17:37,866 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 214)
+2018-07-18 18:17:37,866 - DEBUG - data_preprocessing.py:239 - 耗时10.814516067504883
+2018-07-18 18:17:38,024 - DEBUG - data_preprocessing.py:540 - (4577464, 214)
+2018-07-18 18:18:18,492 - DEBUG - xgb.py:208 - [0.3148123  0.2516734  0.32945055 ... 0.0483011  0.8286959  0.5073052 ]
+2018-07-18 18:18:34,227 - DEBUG - xgb.py:210 - ------------------------------
+2018-07-18 18:18:34,461 - DEBUG - xgb.py:212 - (4577464, 1)
+2018-07-18 18:18:35,096 - DEBUG - xgb.py:214 - (4577464,)
+(6064345, 214)
+(4577464, 213)
+2018-07-19 10:50:03,187 - DEBUG - ffm.py:52 - 设置参数
+2018-07-19 10:50:03,192 - DEBUG - ffm.py:54 - 开始训练
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_vali.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mNumber of Feature: 4321643
+[32m[------------] [0mNumber of Field: 78
+[32m[------------] [0mTime cost for reading problem: 22.17 (sec)
+[32m[1m[ ACTION     ] Initialize model ...[0m
+2018-07-19 13:35:39,847 - DEBUG - ffm.py:52 - 设置参数
+2018-07-19 13:35:39,848 - DEBUG - ffm.py:54 - 开始训练
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_vali.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mNumber of Feature: 4321643
+[32m[------------] [0mNumber of Field: 78
+[32m[------------] [0mTime cost for reading problem: 21.92 (sec)
+[32m[1m[ ACTION     ] Initialize model ...[0m
