@@ -1728,3 +1728,28 @@ Info:
 Info: 
  Model: ffm
  Loss: cross-entropy
+2018-07-23 15:32:53,540 - DEBUG - ffm.py:52 - 设置参数
+2018-07-23 15:32:53,540 - DEBUG - ffm.py:54 - 开始训练
+[32m[1m----------------------------------------------------------------------------------------------
+           _
+          | |
+     __  _| |     ___  __ _ _ __ _ __
+     \ \/ / |    / _ \/ _` | '__| '_ \ 
+      >  <| |___|  __/ (_| | |  | | | |
+     /_/\_\_____/\___|\__,_|_|  |_| |_|
+
+        xLearn   -- 0.31 Version --
+----------------------------------------------------------------------------------------------
+
+[39m[0m[32m[1m[ ACTION     ] Read Problem ...[0m
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_train.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mFirst check if the text file has been already converted to binary format.
+[32m[------------] [0mBinary file (/data/ont_hot_vali.libffm.csv.bin) found. Skip converting text to binary.
+[32m[------------] [0mNumber of Feature: 64
+[32m[------------] [0mNumber of Field: 65
+[32m[------------] [0mTime cost for reading problem: 38.34 (sec)
+[32m[1m[ ACTION     ] Initialize model ...[0m
+[32m[------------] [0mModel size: 260.51 KB
+[32m[------------] [0mTime cost for model initial: 0.00 (sec)
+[32m[1m[ ACTION     ] Start to train ...[0m
