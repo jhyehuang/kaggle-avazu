@@ -49458,3 +49458,2117 @@ Arguments: (34478, 34478, 34535, 58)
 2018-07-18 15:59:31,043 - DEBUG - data_preprocessing.py:501 - (4577464, 58)
 2018-07-18 16:09:58,945 - DEBUG - data_preprocessing.py:501 - (4577464, 156)
 2018-07-18 16:16:10,059 - DEBUG - data_preprocessing.py:501 - (4577464, 79)
+2018-07-19 16:51:08,589 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 1)
+2018-07-19 16:51:08,590 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 13)
+2018-07-19 16:51:08,985 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 14)
+2018-07-19 16:51:08,985 - DEBUG - data_preprocessing.py:239 - 耗时0.3954031467437744
+2018-07-19 16:51:42,457 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 14)
+2018-07-19 16:51:42,457 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 60)
+2018-07-19 16:51:44,455 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 74)
+2018-07-19 16:51:44,455 - DEBUG - data_preprocessing.py:239 - 耗时1.998002052307129
+2018-07-19 16:51:44,523 - DEBUG - data_preprocessing.py:777 - Index(['click', 'C1', 'C14', 'C17', 'C21', 'device_conn_type', 'device_ip',
+       'device_model', 'device_type', 'app_or_web', 'app_site_id',
+       'app_site_model', 'app_site_model_aw', 'dev_ip_app_site', 'xgb_basis0',
+       'xgb_basis1', 'xgb_basis2', 'xgb_basis3', 'xgb_basis4', 'xgb_basis5',
+       'xgb_basis6', 'xgb_basis7', 'xgb_basis8', 'xgb_basis9', 'xgb_basis10',
+       'xgb_basis11', 'xgb_basis12', 'xgb_basis13', 'xgb_basis14',
+       'xgb_basis15', 'xgb_basis16', 'xgb_basis17', 'xgb_basis18',
+       'xgb_basis19', 'xgb_basis20', 'xgb_basis21', 'xgb_basis22',
+       'xgb_basis23', 'xgb_basis24', 'xgb_basis25', 'xgb_basis26',
+       'xgb_basis27', 'xgb_basis28', 'xgb_basis29', 'xgb_basis30',
+       'xgb_basis31', 'xgb_basis32', 'xgb_basis33', 'xgb_basis34',
+       'xgb_basis35', 'xgb_basis36', 'xgb_basis37', 'xgb_basis38',
+       'xgb_basis39', 'xgb_basis40', 'xgb_basis41', 'xgb_basis42',
+       'xgb_basis43', 'xgb_basis44', 'xgb_basis45', 'xgb_basis46',
+       'xgb_basis47', 'xgb_basis48', 'xgb_basis49', 'xgb_basis50',
+       'xgb_basis51', 'xgb_basis52', 'xgb_basis53', 'xgb_basis54',
+       'xgb_basis55', 'xgb_basis56', 'xgb_basis57', 'xgb_basis58',
+       'xgb_basis59'],
+      dtype='object')
+2018-07-19 16:51:44,524 - DEBUG - data_preprocessing.py:781 - (6064345, 74)
+2018-07-19 16:51:44,529 - DEBUG - data_preprocessing.py:788 - (6064345, 74)
+2018-07-19 16:51:52,432 - DEBUG - data_preprocessing.py:800 - C1:cnt:1012
+2018-07-19 16:51:52,432 - DEBUG - data_preprocessing.py:802 - C1 Format Converting begin in time:...
+2018-07-19 16:51:52,432 - DEBUG - data_preprocessing.py:803 - 1531990312.4322863
+2018-07-19 16:51:56,710 - DEBUG - data_preprocessing.py:808 - C1 finish convert,the cost time is 
+2018-07-19 16:51:56,710 - DEBUG - data_preprocessing.py:809 - 4.278623580932617
+2018-07-19 16:51:56,737 - DEBUG - data_preprocessing.py:800 - C14:cnt:24052
+2018-07-19 16:51:56,738 - DEBUG - data_preprocessing.py:802 - C14 Format Converting begin in time:...
+2018-07-19 16:51:56,738 - DEBUG - data_preprocessing.py:803 - 1531990316.7380133
+2018-07-19 16:52:00,613 - DEBUG - data_preprocessing.py:808 - C14 finish convert,the cost time is 
+2018-07-19 16:52:00,613 - DEBUG - data_preprocessing.py:809 - 3.875424385070801
+2018-07-19 16:52:00,640 - DEBUG - data_preprocessing.py:800 - C17:cnt:2758
+2018-07-19 16:52:00,640 - DEBUG - data_preprocessing.py:802 - C17 Format Converting begin in time:...
+2018-07-19 16:52:00,640 - DEBUG - data_preprocessing.py:803 - 1531990320.6403139
+2018-07-19 16:52:04,514 - DEBUG - data_preprocessing.py:808 - C17 finish convert,the cost time is 
+2018-07-19 16:52:04,514 - DEBUG - data_preprocessing.py:809 - 3.8745133876800537
+2018-07-19 16:52:04,541 - DEBUG - data_preprocessing.py:800 - C21:cnt:255
+2018-07-19 16:52:04,541 - DEBUG - data_preprocessing.py:802 - C21 Format Converting begin in time:...
+2018-07-19 16:52:04,541 - DEBUG - data_preprocessing.py:803 - 1531990324.5411348
+2018-07-19 16:52:08,325 - DEBUG - data_preprocessing.py:808 - C21 finish convert,the cost time is 
+2018-07-19 16:52:08,325 - DEBUG - data_preprocessing.py:809 - 3.784641981124878
+2018-07-19 16:52:08,352 - DEBUG - data_preprocessing.py:800 - device_conn_type:cnt:5
+2018-07-19 16:52:08,352 - DEBUG - data_preprocessing.py:802 - device_conn_type Format Converting begin in time:...
+2018-07-19 16:52:08,352 - DEBUG - data_preprocessing.py:803 - 1531990328.3523302
+2018-07-19 16:52:12,084 - DEBUG - data_preprocessing.py:808 - device_conn_type finish convert,the cost time is 
+2018-07-19 16:52:12,084 - DEBUG - data_preprocessing.py:809 - 3.73209810256958
+2018-07-19 16:52:12,110 - DEBUG - data_preprocessing.py:800 - device_ip:cnt:2982957
+2018-07-19 16:52:12,111 - DEBUG - data_preprocessing.py:802 - device_ip Format Converting begin in time:...
+2018-07-19 16:52:12,111 - DEBUG - data_preprocessing.py:803 - 1531990332.1110005
+2018-07-19 16:52:15,913 - DEBUG - data_preprocessing.py:808 - device_ip finish convert,the cost time is 
+2018-07-19 16:52:15,914 - DEBUG - data_preprocessing.py:809 - 3.8031015396118164
+2018-07-19 16:52:15,941 - DEBUG - data_preprocessing.py:800 - device_model:cnt:6949
+2018-07-19 16:52:15,941 - DEBUG - data_preprocessing.py:802 - device_model Format Converting begin in time:...
+2018-07-19 16:52:15,941 - DEBUG - data_preprocessing.py:803 - 1531990335.9411192
+2018-07-19 16:52:19,672 - DEBUG - data_preprocessing.py:808 - device_model finish convert,the cost time is 
+2018-07-19 16:52:19,672 - DEBUG - data_preprocessing.py:809 - 3.7313411235809326
+2018-07-19 16:52:19,698 - DEBUG - data_preprocessing.py:800 - device_type:cnt:5
+2018-07-19 16:52:19,698 - DEBUG - data_preprocessing.py:802 - device_type Format Converting begin in time:...
+2018-07-19 16:52:19,698 - DEBUG - data_preprocessing.py:803 - 1531990339.6986504
+2018-07-19 16:52:23,243 - DEBUG - data_preprocessing.py:808 - device_type finish convert,the cost time is 
+2018-07-19 16:52:23,243 - DEBUG - data_preprocessing.py:809 - 3.544935464859009
+2018-07-19 16:52:23,269 - DEBUG - data_preprocessing.py:800 - app_or_web:cnt:1
+2018-07-19 16:52:23,270 - DEBUG - data_preprocessing.py:802 - app_or_web Format Converting begin in time:...
+2018-07-19 16:52:23,270 - DEBUG - data_preprocessing.py:803 - 1531990343.2700377
+2018-07-19 16:52:26,801 - DEBUG - data_preprocessing.py:808 - app_or_web finish convert,the cost time is 
+2018-07-19 16:52:26,801 - DEBUG - data_preprocessing.py:809 - 3.5311636924743652
+2018-07-19 16:52:26,827 - DEBUG - data_preprocessing.py:800 - app_site_id:cnt:10454
+2018-07-19 16:52:26,827 - DEBUG - data_preprocessing.py:802 - app_site_id Format Converting begin in time:...
+2018-07-19 16:52:26,827 - DEBUG - data_preprocessing.py:803 - 1531990346.8278754
+2018-07-19 16:52:30,483 - DEBUG - data_preprocessing.py:808 - app_site_id finish convert,the cost time is 
+2018-07-19 16:52:30,483 - DEBUG - data_preprocessing.py:809 - 3.6560676097869873
+2018-07-19 16:52:30,510 - DEBUG - data_preprocessing.py:800 - app_site_model:cnt:352268
+2018-07-19 16:52:30,510 - DEBUG - data_preprocessing.py:802 - app_site_model Format Converting begin in time:...
+2018-07-19 16:52:30,510 - DEBUG - data_preprocessing.py:803 - 1531990350.5109327
+2018-07-19 16:52:34,182 - DEBUG - data_preprocessing.py:808 - app_site_model finish convert,the cost time is 
+2018-07-19 16:52:34,182 - DEBUG - data_preprocessing.py:809 - 3.671802520751953
+2018-07-19 16:52:34,208 - DEBUG - data_preprocessing.py:800 - app_site_model_aw:cnt:352268
+2018-07-19 16:52:34,209 - DEBUG - data_preprocessing.py:802 - app_site_model_aw Format Converting begin in time:...
+2018-07-19 16:52:34,209 - DEBUG - data_preprocessing.py:803 - 1531990354.2090487
+2018-07-19 16:52:37,854 - DEBUG - data_preprocessing.py:808 - app_site_model_aw finish convert,the cost time is 
+2018-07-19 16:52:37,854 - DEBUG - data_preprocessing.py:809 - 3.645333766937256
+2018-07-19 16:52:37,900 - DEBUG - data_preprocessing.py:800 - dev_ip_app_site:cnt:4321642
+2018-07-19 16:52:37,900 - DEBUG - data_preprocessing.py:802 - dev_ip_app_site Format Converting begin in time:...
+2018-07-19 16:52:37,900 - DEBUG - data_preprocessing.py:803 - 1531990357.9006655
+2018-07-19 16:52:41,512 - DEBUG - data_preprocessing.py:808 - dev_ip_app_site finish convert,the cost time is 
+2018-07-19 16:52:41,512 - DEBUG - data_preprocessing.py:809 - 3.612151622772217
+2018-07-19 16:52:41,538 - DEBUG - data_preprocessing.py:800 - xgb_basis0:cnt:63
+2018-07-19 16:52:41,539 - DEBUG - data_preprocessing.py:802 - xgb_basis0 Format Converting begin in time:...
+2018-07-19 16:52:41,539 - DEBUG - data_preprocessing.py:803 - 1531990361.5390987
+2018-07-19 16:52:44,958 - DEBUG - data_preprocessing.py:808 - xgb_basis0 finish convert,the cost time is 
+2018-07-19 16:52:44,959 - DEBUG - data_preprocessing.py:809 - 3.4199373722076416
+2018-07-19 16:52:44,986 - DEBUG - data_preprocessing.py:800 - xgb_basis1:cnt:127
+2018-07-19 16:52:44,986 - DEBUG - data_preprocessing.py:802 - xgb_basis1 Format Converting begin in time:...
+2018-07-19 16:52:44,986 - DEBUG - data_preprocessing.py:803 - 1531990364.986106
+2018-07-19 16:52:48,362 - DEBUG - data_preprocessing.py:808 - xgb_basis1 finish convert,the cost time is 
+2018-07-19 16:52:48,362 - DEBUG - data_preprocessing.py:809 - 3.376035451889038
+2018-07-19 16:52:48,387 - DEBUG - data_preprocessing.py:800 - xgb_basis2:cnt:191
+2018-07-19 16:52:48,387 - DEBUG - data_preprocessing.py:802 - xgb_basis2 Format Converting begin in time:...
+2018-07-19 16:52:48,387 - DEBUG - data_preprocessing.py:803 - 1531990368.3878534
+2018-07-19 16:52:51,744 - DEBUG - data_preprocessing.py:808 - xgb_basis2 finish convert,the cost time is 
+2018-07-19 16:52:51,744 - DEBUG - data_preprocessing.py:809 - 3.356595039367676
+2018-07-19 16:52:51,770 - DEBUG - data_preprocessing.py:800 - xgb_basis3:cnt:255
+2018-07-19 16:52:51,770 - DEBUG - data_preprocessing.py:802 - xgb_basis3 Format Converting begin in time:...
+2018-07-19 16:52:51,770 - DEBUG - data_preprocessing.py:803 - 1531990371.7709668
+2018-07-19 16:52:55,110 - DEBUG - data_preprocessing.py:808 - xgb_basis3 finish convert,the cost time is 
+2018-07-19 16:52:55,110 - DEBUG - data_preprocessing.py:809 - 3.3397305011749268
+2018-07-19 16:52:55,137 - DEBUG - data_preprocessing.py:800 - xgb_basis4:cnt:319
+2018-07-19 16:52:55,137 - DEBUG - data_preprocessing.py:802 - xgb_basis4 Format Converting begin in time:...
+2018-07-19 16:52:55,137 - DEBUG - data_preprocessing.py:803 - 1531990375.1371138
+2018-07-19 16:52:58,432 - DEBUG - data_preprocessing.py:808 - xgb_basis4 finish convert,the cost time is 
+2018-07-19 16:52:58,432 - DEBUG - data_preprocessing.py:809 - 3.2957403659820557
+2018-07-19 16:52:58,459 - DEBUG - data_preprocessing.py:800 - xgb_basis5:cnt:383
+2018-07-19 16:52:58,459 - DEBUG - data_preprocessing.py:802 - xgb_basis5 Format Converting begin in time:...
+2018-07-19 16:52:58,459 - DEBUG - data_preprocessing.py:803 - 1531990378.4594033
+2018-07-19 16:53:01,719 - DEBUG - data_preprocessing.py:808 - xgb_basis5 finish convert,the cost time is 
+2018-07-19 16:53:01,719 - DEBUG - data_preprocessing.py:809 - 3.2597603797912598
+2018-07-19 16:53:01,745 - DEBUG - data_preprocessing.py:800 - xgb_basis6:cnt:447
+2018-07-19 16:53:01,745 - DEBUG - data_preprocessing.py:802 - xgb_basis6 Format Converting begin in time:...
+2018-07-19 16:53:01,745 - DEBUG - data_preprocessing.py:803 - 1531990381.7452004
+2018-07-19 16:53:04,977 - DEBUG - data_preprocessing.py:808 - xgb_basis6 finish convert,the cost time is 
+2018-07-19 16:53:04,977 - DEBUG - data_preprocessing.py:809 - 3.232085704803467
+2018-07-19 16:53:05,003 - DEBUG - data_preprocessing.py:800 - xgb_basis7:cnt:511
+2018-07-19 16:53:05,003 - DEBUG - data_preprocessing.py:802 - xgb_basis7 Format Converting begin in time:...
+2018-07-19 16:53:05,003 - DEBUG - data_preprocessing.py:803 - 1531990385.0034482
+2018-07-19 16:53:08,215 - DEBUG - data_preprocessing.py:808 - xgb_basis7 finish convert,the cost time is 
+2018-07-19 16:53:08,215 - DEBUG - data_preprocessing.py:809 - 3.2122859954833984
+2018-07-19 16:53:08,241 - DEBUG - data_preprocessing.py:800 - xgb_basis8:cnt:575
+2018-07-19 16:53:08,241 - DEBUG - data_preprocessing.py:802 - xgb_basis8 Format Converting begin in time:...
+2018-07-19 16:53:08,241 - DEBUG - data_preprocessing.py:803 - 1531990388.2418396
+2018-07-19 16:53:11,436 - DEBUG - data_preprocessing.py:808 - xgb_basis8 finish convert,the cost time is 
+2018-07-19 16:53:11,436 - DEBUG - data_preprocessing.py:809 - 3.194512367248535
+2018-07-19 16:53:11,463 - DEBUG - data_preprocessing.py:800 - xgb_basis9:cnt:639
+2018-07-19 16:53:11,463 - DEBUG - data_preprocessing.py:802 - xgb_basis9 Format Converting begin in time:...
+2018-07-19 16:53:11,463 - DEBUG - data_preprocessing.py:803 - 1531990391.4634883
+2018-07-19 16:53:14,632 - DEBUG - data_preprocessing.py:808 - xgb_basis9 finish convert,the cost time is 
+2018-07-19 16:53:14,632 - DEBUG - data_preprocessing.py:809 - 3.169086217880249
+2018-07-19 16:53:14,658 - DEBUG - data_preprocessing.py:800 - xgb_basis10:cnt:703
+2018-07-19 16:53:14,658 - DEBUG - data_preprocessing.py:802 - xgb_basis10 Format Converting begin in time:...
+2018-07-19 16:53:14,658 - DEBUG - data_preprocessing.py:803 - 1531990394.6583467
+2018-07-19 16:53:17,795 - DEBUG - data_preprocessing.py:808 - xgb_basis10 finish convert,the cost time is 
+2018-07-19 16:53:17,795 - DEBUG - data_preprocessing.py:809 - 3.137362480163574
+2018-07-19 16:53:17,822 - DEBUG - data_preprocessing.py:800 - xgb_basis11:cnt:767
+2018-07-19 16:53:17,822 - DEBUG - data_preprocessing.py:802 - xgb_basis11 Format Converting begin in time:...
+2018-07-19 16:53:17,822 - DEBUG - data_preprocessing.py:803 - 1531990397.8222733
+2018-07-19 16:53:20,947 - DEBUG - data_preprocessing.py:808 - xgb_basis11 finish convert,the cost time is 
+2018-07-19 16:53:20,947 - DEBUG - data_preprocessing.py:809 - 3.1253302097320557
+2018-07-19 16:53:20,973 - DEBUG - data_preprocessing.py:800 - xgb_basis12:cnt:831
+2018-07-19 16:53:20,973 - DEBUG - data_preprocessing.py:802 - xgb_basis12 Format Converting begin in time:...
+2018-07-19 16:53:20,973 - DEBUG - data_preprocessing.py:803 - 1531990400.973792
+2018-07-19 16:53:24,068 - DEBUG - data_preprocessing.py:808 - xgb_basis12 finish convert,the cost time is 
+2018-07-19 16:53:24,069 - DEBUG - data_preprocessing.py:809 - 3.0953071117401123
+2018-07-19 16:53:24,096 - DEBUG - data_preprocessing.py:800 - xgb_basis13:cnt:895
+2018-07-19 16:53:24,096 - DEBUG - data_preprocessing.py:802 - xgb_basis13 Format Converting begin in time:...
+2018-07-19 16:53:24,096 - DEBUG - data_preprocessing.py:803 - 1531990404.096257
+2018-07-19 16:53:27,189 - DEBUG - data_preprocessing.py:808 - xgb_basis13 finish convert,the cost time is 
+2018-07-19 16:53:27,189 - DEBUG - data_preprocessing.py:809 - 3.0936503410339355
+2018-07-19 16:53:27,215 - DEBUG - data_preprocessing.py:800 - xgb_basis14:cnt:959
+2018-07-19 16:53:27,215 - DEBUG - data_preprocessing.py:802 - xgb_basis14 Format Converting begin in time:...
+2018-07-19 16:53:27,215 - DEBUG - data_preprocessing.py:803 - 1531990407.21571
+2018-07-19 16:53:30,274 - DEBUG - data_preprocessing.py:808 - xgb_basis14 finish convert,the cost time is 
+2018-07-19 16:53:30,274 - DEBUG - data_preprocessing.py:809 - 3.0589091777801514
+2018-07-19 16:53:30,300 - DEBUG - data_preprocessing.py:800 - xgb_basis15:cnt:1023
+2018-07-19 16:53:30,300 - DEBUG - data_preprocessing.py:802 - xgb_basis15 Format Converting begin in time:...
+2018-07-19 16:53:30,300 - DEBUG - data_preprocessing.py:803 - 1531990410.3009248
+2018-07-19 16:53:33,349 - DEBUG - data_preprocessing.py:808 - xgb_basis15 finish convert,the cost time is 
+2018-07-19 16:53:33,349 - DEBUG - data_preprocessing.py:809 - 3.0488393306732178
+2018-07-19 16:53:33,375 - DEBUG - data_preprocessing.py:800 - xgb_basis16:cnt:1087
+2018-07-19 16:53:33,376 - DEBUG - data_preprocessing.py:802 - xgb_basis16 Format Converting begin in time:...
+2018-07-19 16:53:33,376 - DEBUG - data_preprocessing.py:803 - 1531990413.3760905
+2018-07-19 16:53:36,378 - DEBUG - data_preprocessing.py:808 - xgb_basis16 finish convert,the cost time is 
+2018-07-19 16:53:36,378 - DEBUG - data_preprocessing.py:809 - 3.0022785663604736
+2018-07-19 16:53:36,404 - DEBUG - data_preprocessing.py:800 - xgb_basis17:cnt:1151
+2018-07-19 16:53:36,405 - DEBUG - data_preprocessing.py:802 - xgb_basis17 Format Converting begin in time:...
+2018-07-19 16:53:36,405 - DEBUG - data_preprocessing.py:803 - 1531990416.4050715
+2018-07-19 16:53:39,373 - DEBUG - data_preprocessing.py:808 - xgb_basis17 finish convert,the cost time is 
+2018-07-19 16:53:39,373 - DEBUG - data_preprocessing.py:809 - 2.9682812690734863
+2018-07-19 16:53:39,399 - DEBUG - data_preprocessing.py:800 - xgb_basis18:cnt:1215
+2018-07-19 16:53:39,399 - DEBUG - data_preprocessing.py:802 - xgb_basis18 Format Converting begin in time:...
+2018-07-19 16:53:39,399 - DEBUG - data_preprocessing.py:803 - 1531990419.3994281
+2018-07-19 16:53:42,336 - DEBUG - data_preprocessing.py:808 - xgb_basis18 finish convert,the cost time is 
+2018-07-19 16:53:42,336 - DEBUG - data_preprocessing.py:809 - 2.937051773071289
+2018-07-19 16:53:42,362 - DEBUG - data_preprocessing.py:800 - xgb_basis19:cnt:1279
+2018-07-19 16:53:42,362 - DEBUG - data_preprocessing.py:802 - xgb_basis19 Format Converting begin in time:...
+2018-07-19 16:53:42,362 - DEBUG - data_preprocessing.py:803 - 1531990422.36289
+2018-07-19 16:53:45,300 - DEBUG - data_preprocessing.py:808 - xgb_basis19 finish convert,the cost time is 
+2018-07-19 16:53:45,300 - DEBUG - data_preprocessing.py:809 - 2.938053607940674
+2018-07-19 16:53:45,327 - DEBUG - data_preprocessing.py:800 - xgb_basis20:cnt:1343
+2018-07-19 16:53:45,327 - DEBUG - data_preprocessing.py:802 - xgb_basis20 Format Converting begin in time:...
+2018-07-19 16:53:45,327 - DEBUG - data_preprocessing.py:803 - 1531990425.327277
+2018-07-19 16:53:48,221 - DEBUG - data_preprocessing.py:808 - xgb_basis20 finish convert,the cost time is 
+2018-07-19 16:53:48,222 - DEBUG - data_preprocessing.py:809 - 2.8948004245758057
+2018-07-19 16:53:48,248 - DEBUG - data_preprocessing.py:800 - xgb_basis21:cnt:1407
+2018-07-19 16:53:48,248 - DEBUG - data_preprocessing.py:802 - xgb_basis21 Format Converting begin in time:...
+2018-07-19 16:53:48,248 - DEBUG - data_preprocessing.py:803 - 1531990428.248697
+2018-07-19 16:53:51,104 - DEBUG - data_preprocessing.py:808 - xgb_basis21 finish convert,the cost time is 
+2018-07-19 16:53:51,104 - DEBUG - data_preprocessing.py:809 - 2.856113910675049
+2018-07-19 16:53:51,130 - DEBUG - data_preprocessing.py:800 - xgb_basis22:cnt:1471
+2018-07-19 16:53:51,130 - DEBUG - data_preprocessing.py:802 - xgb_basis22 Format Converting begin in time:...
+2018-07-19 16:53:51,130 - DEBUG - data_preprocessing.py:803 - 1531990431.1308293
+2018-07-19 16:53:53,972 - DEBUG - data_preprocessing.py:808 - xgb_basis22 finish convert,the cost time is 
+2018-07-19 16:53:53,972 - DEBUG - data_preprocessing.py:809 - 2.842061758041382
+2018-07-19 16:53:53,998 - DEBUG - data_preprocessing.py:800 - xgb_basis23:cnt:1535
+2018-07-19 16:53:53,999 - DEBUG - data_preprocessing.py:802 - xgb_basis23 Format Converting begin in time:...
+2018-07-19 16:53:53,999 - DEBUG - data_preprocessing.py:803 - 1531990433.999049
+2018-07-19 16:53:56,838 - DEBUG - data_preprocessing.py:808 - xgb_basis23 finish convert,the cost time is 
+2018-07-19 16:53:56,838 - DEBUG - data_preprocessing.py:809 - 2.839223623275757
+2018-07-19 16:53:56,865 - DEBUG - data_preprocessing.py:800 - xgb_basis24:cnt:1599
+2018-07-19 16:53:56,865 - DEBUG - data_preprocessing.py:802 - xgb_basis24 Format Converting begin in time:...
+2018-07-19 16:53:56,865 - DEBUG - data_preprocessing.py:803 - 1531990436.8652081
+2018-07-19 16:53:59,688 - DEBUG - data_preprocessing.py:808 - xgb_basis24 finish convert,the cost time is 
+2018-07-19 16:53:59,693 - DEBUG - data_preprocessing.py:809 - 2.828310012817383
+2018-07-19 16:53:59,721 - DEBUG - data_preprocessing.py:800 - xgb_basis25:cnt:1663
+2018-07-19 16:53:59,721 - DEBUG - data_preprocessing.py:802 - xgb_basis25 Format Converting begin in time:...
+2018-07-19 16:53:59,721 - DEBUG - data_preprocessing.py:803 - 1531990439.7219226
+2018-07-19 16:54:02,504 - DEBUG - data_preprocessing.py:808 - xgb_basis25 finish convert,the cost time is 
+2018-07-19 16:54:02,504 - DEBUG - data_preprocessing.py:809 - 2.78261399269104
+2018-07-19 16:54:02,530 - DEBUG - data_preprocessing.py:800 - xgb_basis26:cnt:1727
+2018-07-19 16:54:02,530 - DEBUG - data_preprocessing.py:802 - xgb_basis26 Format Converting begin in time:...
+2018-07-19 16:54:02,530 - DEBUG - data_preprocessing.py:803 - 1531990442.5304687
+2018-07-19 16:54:05,254 - DEBUG - data_preprocessing.py:808 - xgb_basis26 finish convert,the cost time is 
+2018-07-19 16:54:05,254 - DEBUG - data_preprocessing.py:809 - 2.7237513065338135
+2018-07-19 16:54:05,280 - DEBUG - data_preprocessing.py:800 - xgb_basis27:cnt:1791
+2018-07-19 16:54:05,281 - DEBUG - data_preprocessing.py:802 - xgb_basis27 Format Converting begin in time:...
+2018-07-19 16:54:05,281 - DEBUG - data_preprocessing.py:803 - 1531990445.2810113
+2018-07-19 16:54:07,979 - DEBUG - data_preprocessing.py:808 - xgb_basis27 finish convert,the cost time is 
+2018-07-19 16:54:07,979 - DEBUG - data_preprocessing.py:809 - 2.698974370956421
+2018-07-19 16:54:08,006 - DEBUG - data_preprocessing.py:800 - xgb_basis28:cnt:1855
+2018-07-19 16:54:08,006 - DEBUG - data_preprocessing.py:802 - xgb_basis28 Format Converting begin in time:...
+2018-07-19 16:54:08,006 - DEBUG - data_preprocessing.py:803 - 1531990448.0064003
+2018-07-19 16:54:10,670 - DEBUG - data_preprocessing.py:808 - xgb_basis28 finish convert,the cost time is 
+2018-07-19 16:54:10,671 - DEBUG - data_preprocessing.py:809 - 2.6646361351013184
+2018-07-19 16:54:10,697 - DEBUG - data_preprocessing.py:800 - xgb_basis29:cnt:1919
+2018-07-19 16:54:10,697 - DEBUG - data_preprocessing.py:802 - xgb_basis29 Format Converting begin in time:...
+2018-07-19 16:54:10,697 - DEBUG - data_preprocessing.py:803 - 1531990450.6976116
+2018-07-19 16:54:13,359 - DEBUG - data_preprocessing.py:808 - xgb_basis29 finish convert,the cost time is 
+2018-07-19 16:54:13,359 - DEBUG - data_preprocessing.py:809 - 2.6623785495758057
+2018-07-19 16:54:13,385 - DEBUG - data_preprocessing.py:800 - xgb_basis30:cnt:1983
+2018-07-19 16:54:13,385 - DEBUG - data_preprocessing.py:802 - xgb_basis30 Format Converting begin in time:...
+2018-07-19 16:54:13,385 - DEBUG - data_preprocessing.py:803 - 1531990453.3859105
+2018-07-19 16:54:15,992 - DEBUG - data_preprocessing.py:808 - xgb_basis30 finish convert,the cost time is 
+2018-07-19 16:54:15,992 - DEBUG - data_preprocessing.py:809 - 2.606926202774048
+2018-07-19 16:54:16,019 - DEBUG - data_preprocessing.py:800 - xgb_basis31:cnt:2047
+2018-07-19 16:54:16,019 - DEBUG - data_preprocessing.py:802 - xgb_basis31 Format Converting begin in time:...
+2018-07-19 16:54:16,019 - DEBUG - data_preprocessing.py:803 - 1531990456.019487
+2018-07-19 16:54:18,676 - DEBUG - data_preprocessing.py:808 - xgb_basis31 finish convert,the cost time is 
+2018-07-19 16:54:18,676 - DEBUG - data_preprocessing.py:809 - 2.6570279598236084
+2018-07-19 16:54:18,722 - DEBUG - data_preprocessing.py:800 - xgb_basis32:cnt:2109
+2018-07-19 16:54:18,722 - DEBUG - data_preprocessing.py:802 - xgb_basis32 Format Converting begin in time:...
+2018-07-19 16:54:18,722 - DEBUG - data_preprocessing.py:803 - 1531990458.7228441
+2018-07-19 16:54:21,385 - DEBUG - data_preprocessing.py:808 - xgb_basis32 finish convert,the cost time is 
+2018-07-19 16:54:21,385 - DEBUG - data_preprocessing.py:809 - 2.662393569946289
+2018-07-19 16:54:21,431 - DEBUG - data_preprocessing.py:800 - xgb_basis33:cnt:2172
+2018-07-19 16:54:21,431 - DEBUG - data_preprocessing.py:802 - xgb_basis33 Format Converting begin in time:...
+2018-07-19 16:54:21,431 - DEBUG - data_preprocessing.py:803 - 1531990461.4316692
+2018-07-19 16:54:24,090 - DEBUG - data_preprocessing.py:808 - xgb_basis33 finish convert,the cost time is 
+2018-07-19 16:54:24,090 - DEBUG - data_preprocessing.py:809 - 2.6591544151306152
+2018-07-19 16:54:24,137 - DEBUG - data_preprocessing.py:800 - xgb_basis34:cnt:2236
+2018-07-19 16:54:24,137 - DEBUG - data_preprocessing.py:802 - xgb_basis34 Format Converting begin in time:...
+2018-07-19 16:54:24,137 - DEBUG - data_preprocessing.py:803 - 1531990464.1374
+2018-07-19 16:54:26,748 - DEBUG - data_preprocessing.py:808 - xgb_basis34 finish convert,the cost time is 
+2018-07-19 16:54:26,748 - DEBUG - data_preprocessing.py:809 - 2.6110219955444336
+2018-07-19 16:54:26,794 - DEBUG - data_preprocessing.py:800 - xgb_basis35:cnt:2297
+2018-07-19 16:54:26,794 - DEBUG - data_preprocessing.py:802 - xgb_basis35 Format Converting begin in time:...
+2018-07-19 16:54:26,794 - DEBUG - data_preprocessing.py:803 - 1531990466.7944252
+2018-07-19 16:54:29,401 - DEBUG - data_preprocessing.py:808 - xgb_basis35 finish convert,the cost time is 
+2018-07-19 16:54:29,402 - DEBUG - data_preprocessing.py:809 - 2.6077027320861816
+2018-07-19 16:54:29,448 - DEBUG - data_preprocessing.py:800 - xgb_basis36:cnt:2361
+2018-07-19 16:54:29,449 - DEBUG - data_preprocessing.py:802 - xgb_basis36 Format Converting begin in time:...
+2018-07-19 16:54:29,449 - DEBUG - data_preprocessing.py:803 - 1531990469.449087
+2018-07-19 16:54:32,003 - DEBUG - data_preprocessing.py:808 - xgb_basis36 finish convert,the cost time is 
+2018-07-19 16:54:32,003 - DEBUG - data_preprocessing.py:809 - 2.5547027587890625
+2018-07-19 16:54:32,049 - DEBUG - data_preprocessing.py:800 - xgb_basis37:cnt:2425
+2018-07-19 16:54:32,050 - DEBUG - data_preprocessing.py:802 - xgb_basis37 Format Converting begin in time:...
+2018-07-19 16:54:32,050 - DEBUG - data_preprocessing.py:803 - 1531990472.050021
+2018-07-19 16:54:34,575 - DEBUG - data_preprocessing.py:808 - xgb_basis37 finish convert,the cost time is 
+2018-07-19 16:54:34,575 - DEBUG - data_preprocessing.py:809 - 2.5257019996643066
+2018-07-19 16:54:34,621 - DEBUG - data_preprocessing.py:800 - xgb_basis38:cnt:2489
+2018-07-19 16:54:34,622 - DEBUG - data_preprocessing.py:802 - xgb_basis38 Format Converting begin in time:...
+2018-07-19 16:54:34,622 - DEBUG - data_preprocessing.py:803 - 1531990474.6219954
+2018-07-19 16:54:37,120 - DEBUG - data_preprocessing.py:808 - xgb_basis38 finish convert,the cost time is 
+2018-07-19 16:54:37,120 - DEBUG - data_preprocessing.py:809 - 2.4984564781188965
+2018-07-19 16:54:37,166 - DEBUG - data_preprocessing.py:800 - xgb_basis39:cnt:2553
+2018-07-19 16:54:37,166 - DEBUG - data_preprocessing.py:802 - xgb_basis39 Format Converting begin in time:...
+2018-07-19 16:54:37,166 - DEBUG - data_preprocessing.py:803 - 1531990477.1664445
+2018-07-19 16:54:39,694 - DEBUG - data_preprocessing.py:808 - xgb_basis39 finish convert,the cost time is 
+2018-07-19 16:54:39,694 - DEBUG - data_preprocessing.py:809 - 2.527968168258667
+2018-07-19 16:54:39,739 - DEBUG - data_preprocessing.py:800 - xgb_basis40:cnt:2617
+2018-07-19 16:54:39,739 - DEBUG - data_preprocessing.py:802 - xgb_basis40 Format Converting begin in time:...
+2018-07-19 16:54:39,739 - DEBUG - data_preprocessing.py:803 - 1531990479.7395751
+2018-07-19 16:54:42,182 - DEBUG - data_preprocessing.py:808 - xgb_basis40 finish convert,the cost time is 
+2018-07-19 16:54:42,182 - DEBUG - data_preprocessing.py:809 - 2.442707061767578
+2018-07-19 16:54:42,244 - DEBUG - data_preprocessing.py:800 - xgb_basis41:cnt:2681
+2018-07-19 16:54:42,244 - DEBUG - data_preprocessing.py:802 - xgb_basis41 Format Converting begin in time:...
+2018-07-19 16:54:42,244 - DEBUG - data_preprocessing.py:803 - 1531990482.2447994
+2018-07-19 16:54:44,690 - DEBUG - data_preprocessing.py:808 - xgb_basis41 finish convert,the cost time is 
+2018-07-19 16:54:44,690 - DEBUG - data_preprocessing.py:809 - 2.4455058574676514
+2018-07-19 16:54:44,737 - DEBUG - data_preprocessing.py:800 - xgb_basis42:cnt:2745
+2018-07-19 16:54:44,737 - DEBUG - data_preprocessing.py:802 - xgb_basis42 Format Converting begin in time:...
+2018-07-19 16:54:44,737 - DEBUG - data_preprocessing.py:803 - 1531990484.7371688
+2018-07-19 16:54:47,122 - DEBUG - data_preprocessing.py:808 - xgb_basis42 finish convert,the cost time is 
+2018-07-19 16:54:47,122 - DEBUG - data_preprocessing.py:809 - 2.385200262069702
+2018-07-19 16:54:47,168 - DEBUG - data_preprocessing.py:800 - xgb_basis43:cnt:2809
+2018-07-19 16:54:47,168 - DEBUG - data_preprocessing.py:802 - xgb_basis43 Format Converting begin in time:...
+2018-07-19 16:54:47,168 - DEBUG - data_preprocessing.py:803 - 1531990487.1687338
+2018-07-19 16:54:49,519 - DEBUG - data_preprocessing.py:808 - xgb_basis43 finish convert,the cost time is 
+2018-07-19 16:54:49,519 - DEBUG - data_preprocessing.py:809 - 2.3510186672210693
+2018-07-19 16:54:49,566 - DEBUG - data_preprocessing.py:800 - xgb_basis44:cnt:2872
+2018-07-19 16:54:49,566 - DEBUG - data_preprocessing.py:802 - xgb_basis44 Format Converting begin in time:...
+2018-07-19 16:54:49,566 - DEBUG - data_preprocessing.py:803 - 1531990489.566199
+2018-07-19 16:54:51,894 - DEBUG - data_preprocessing.py:808 - xgb_basis44 finish convert,the cost time is 
+2018-07-19 16:54:51,894 - DEBUG - data_preprocessing.py:809 - 2.3281872272491455
+2018-07-19 16:54:51,940 - DEBUG - data_preprocessing.py:800 - xgb_basis45:cnt:2935
+2018-07-19 16:54:51,940 - DEBUG - data_preprocessing.py:802 - xgb_basis45 Format Converting begin in time:...
+2018-07-19 16:54:51,940 - DEBUG - data_preprocessing.py:803 - 1531990491.9409034
+2018-07-19 16:54:54,242 - DEBUG - data_preprocessing.py:808 - xgb_basis45 finish convert,the cost time is 
+2018-07-19 16:54:54,242 - DEBUG - data_preprocessing.py:809 - 2.3017120361328125
+2018-07-19 16:54:54,289 - DEBUG - data_preprocessing.py:800 - xgb_basis46:cnt:2995
+2018-07-19 16:54:54,289 - DEBUG - data_preprocessing.py:802 - xgb_basis46 Format Converting begin in time:...
+2018-07-19 16:54:54,290 - DEBUG - data_preprocessing.py:803 - 1531990494.2899745
+2018-07-19 16:54:56,565 - DEBUG - data_preprocessing.py:808 - xgb_basis46 finish convert,the cost time is 
+2018-07-19 16:54:56,566 - DEBUG - data_preprocessing.py:809 - 2.276127338409424
+2018-07-19 16:54:56,612 - DEBUG - data_preprocessing.py:800 - xgb_basis47:cnt:3059
+2018-07-19 16:54:56,613 - DEBUG - data_preprocessing.py:802 - xgb_basis47 Format Converting begin in time:...
+2018-07-19 16:54:56,613 - DEBUG - data_preprocessing.py:803 - 1531990496.6130846
+2018-07-19 16:54:58,867 - DEBUG - data_preprocessing.py:808 - xgb_basis47 finish convert,the cost time is 
+2018-07-19 16:54:58,868 - DEBUG - data_preprocessing.py:809 - 2.255006790161133
+2018-07-19 16:54:58,914 - DEBUG - data_preprocessing.py:800 - xgb_basis48:cnt:3123
+2018-07-19 16:54:58,914 - DEBUG - data_preprocessing.py:802 - xgb_basis48 Format Converting begin in time:...
+2018-07-19 16:54:58,914 - DEBUG - data_preprocessing.py:803 - 1531990498.9144154
+2018-07-19 16:55:01,142 - DEBUG - data_preprocessing.py:808 - xgb_basis48 finish convert,the cost time is 
+2018-07-19 16:55:01,142 - DEBUG - data_preprocessing.py:809 - 2.2285454273223877
+2018-07-19 16:55:01,208 - DEBUG - data_preprocessing.py:800 - xgb_basis49:cnt:3187
+2018-07-19 16:55:01,208 - DEBUG - data_preprocessing.py:802 - xgb_basis49 Format Converting begin in time:...
+2018-07-19 16:55:01,208 - DEBUG - data_preprocessing.py:803 - 1531990501.208654
+2018-07-19 16:55:03,402 - DEBUG - data_preprocessing.py:808 - xgb_basis49 finish convert,the cost time is 
+2018-07-19 16:55:03,402 - DEBUG - data_preprocessing.py:809 - 2.194051504135132
+2018-07-19 16:55:03,448 - DEBUG - data_preprocessing.py:800 - xgb_basis50:cnt:3251
+2018-07-19 16:55:03,449 - DEBUG - data_preprocessing.py:802 - xgb_basis50 Format Converting begin in time:...
+2018-07-19 16:55:03,449 - DEBUG - data_preprocessing.py:803 - 1531990503.4489946
+2018-07-19 16:55:05,615 - DEBUG - data_preprocessing.py:808 - xgb_basis50 finish convert,the cost time is 
+2018-07-19 16:55:05,615 - DEBUG - data_preprocessing.py:809 - 2.1669955253601074
+2018-07-19 16:55:05,662 - DEBUG - data_preprocessing.py:800 - xgb_basis51:cnt:3313
+2018-07-19 16:55:05,662 - DEBUG - data_preprocessing.py:802 - xgb_basis51 Format Converting begin in time:...
+2018-07-19 16:55:05,662 - DEBUG - data_preprocessing.py:803 - 1531990505.6629536
+2018-07-19 16:55:07,816 - DEBUG - data_preprocessing.py:808 - xgb_basis51 finish convert,the cost time is 
+2018-07-19 16:55:07,816 - DEBUG - data_preprocessing.py:809 - 2.1536812782287598
+2018-07-19 16:55:07,864 - DEBUG - data_preprocessing.py:800 - xgb_basis52:cnt:3377
+2018-07-19 16:55:07,864 - DEBUG - data_preprocessing.py:802 - xgb_basis52 Format Converting begin in time:...
+2018-07-19 16:55:07,864 - DEBUG - data_preprocessing.py:803 - 1531990507.864287
+2018-07-19 16:55:09,979 - DEBUG - data_preprocessing.py:808 - xgb_basis52 finish convert,the cost time is 
+2018-07-19 16:55:09,979 - DEBUG - data_preprocessing.py:809 - 2.115109443664551
+2018-07-19 16:55:10,025 - DEBUG - data_preprocessing.py:800 - xgb_basis53:cnt:3435
+2018-07-19 16:55:10,025 - DEBUG - data_preprocessing.py:802 - xgb_basis53 Format Converting begin in time:...
+2018-07-19 16:55:10,025 - DEBUG - data_preprocessing.py:803 - 1531990510.0256524
+2018-07-19 16:55:12,114 - DEBUG - data_preprocessing.py:808 - xgb_basis53 finish convert,the cost time is 
+2018-07-19 16:55:12,114 - DEBUG - data_preprocessing.py:809 - 2.0889484882354736
+2018-07-19 16:55:12,160 - DEBUG - data_preprocessing.py:800 - xgb_basis54:cnt:3499
+2018-07-19 16:55:12,161 - DEBUG - data_preprocessing.py:802 - xgb_basis54 Format Converting begin in time:...
+2018-07-19 16:55:12,161 - DEBUG - data_preprocessing.py:803 - 1531990512.1609995
+2018-07-19 16:55:14,223 - DEBUG - data_preprocessing.py:808 - xgb_basis54 finish convert,the cost time is 
+2018-07-19 16:55:14,223 - DEBUG - data_preprocessing.py:809 - 2.062180757522583
+2018-07-19 16:55:14,269 - DEBUG - data_preprocessing.py:800 - xgb_basis55:cnt:3561
+2018-07-19 16:55:14,269 - DEBUG - data_preprocessing.py:802 - xgb_basis55 Format Converting begin in time:...
+2018-07-19 16:55:14,269 - DEBUG - data_preprocessing.py:803 - 1531990514.2693975
+2018-07-19 16:55:16,301 - DEBUG - data_preprocessing.py:808 - xgb_basis55 finish convert,the cost time is 
+2018-07-19 16:55:16,301 - DEBUG - data_preprocessing.py:809 - 2.0320188999176025
+2018-07-19 16:55:16,347 - DEBUG - data_preprocessing.py:800 - xgb_basis56:cnt:3622
+2018-07-19 16:55:16,347 - DEBUG - data_preprocessing.py:802 - xgb_basis56 Format Converting begin in time:...
+2018-07-19 16:55:16,347 - DEBUG - data_preprocessing.py:803 - 1531990516.3477483
+2018-07-19 16:55:18,355 - DEBUG - data_preprocessing.py:808 - xgb_basis56 finish convert,the cost time is 
+2018-07-19 16:55:18,355 - DEBUG - data_preprocessing.py:809 - 2.0078461170196533
+2018-07-19 16:55:18,401 - DEBUG - data_preprocessing.py:800 - xgb_basis57:cnt:3681
+2018-07-19 16:55:18,401 - DEBUG - data_preprocessing.py:802 - xgb_basis57 Format Converting begin in time:...
+2018-07-19 16:55:18,401 - DEBUG - data_preprocessing.py:803 - 1531990518.401661
+2018-07-19 16:55:20,390 - DEBUG - data_preprocessing.py:808 - xgb_basis57 finish convert,the cost time is 
+2018-07-19 16:55:20,390 - DEBUG - data_preprocessing.py:809 - 1.9885663986206055
+2018-07-19 16:55:20,435 - DEBUG - data_preprocessing.py:800 - xgb_basis58:cnt:3744
+2018-07-19 16:55:20,435 - DEBUG - data_preprocessing.py:802 - xgb_basis58 Format Converting begin in time:...
+2018-07-19 16:55:20,436 - DEBUG - data_preprocessing.py:803 - 1531990520.4359725
+2018-07-19 16:55:22,385 - DEBUG - data_preprocessing.py:808 - xgb_basis58 finish convert,the cost time is 
+2018-07-19 16:55:22,386 - DEBUG - data_preprocessing.py:809 - 1.950153112411499
+2018-07-19 16:55:22,431 - DEBUG - data_preprocessing.py:800 - xgb_basis59:cnt:3808
+2018-07-19 16:55:22,431 - DEBUG - data_preprocessing.py:802 - xgb_basis59 Format Converting begin in time:...
+2018-07-19 16:55:22,431 - DEBUG - data_preprocessing.py:803 - 1531990522.431965
+2018-07-19 16:55:24,360 - DEBUG - data_preprocessing.py:808 - xgb_basis59 finish convert,the cost time is 
+2018-07-19 16:55:24,360 - DEBUG - data_preprocessing.py:809 - 1.9287946224212646
+2018-07-19 16:55:44,590 - DEBUG - data_preprocessing.py:817 - 20.229368448257446
+2018-07-19 16:57:10,754 - DEBUG - data_preprocessing.py:825 - finish convert,the cost time is 
+2018-07-19 16:57:10,754 - DEBUG - data_preprocessing.py:826 - 106.39339137077332
+2018-07-19 16:57:10,754 - DEBUG - data_preprocessing.py:827 - [Done]
+2018-07-19 16:57:10,759 - DEBUG - data_preprocessing.py:829 -    click      C1        C14       C17      C21 device_conn_type    device_ip  \
+0      0   0:7:1   1:7015:1   2:824:1  3:239:1            4:5:1  5:1350846:1   
+1      0  0:10:1  1:18756:1  2:2279:1  3:232:1            4:5:1  5:2376539:1   
+
+  device_model device_type app_or_web     ...     xgb_basis50 xgb_basis51  \
+0     6:6655:1       7:4:1      8:0:1     ...         63:56:1     64:31:1   
+1     6:6532:1       7:5:1      8:0:1     ...         63:56:1     64:37:1   
+
+  xgb_basis52 xgb_basis53 xgb_basis54 xgb_basis55 xgb_basis56 xgb_basis57  \
+0     65:56:1     66:24:1     67:53:1     68:56:1     69:30:1      70:0:1   
+1     65:23:1      66:0:1     67:49:1     68:16:1     69:28:1      70:0:1   
+
+  xgb_basis58 xgb_basis59  
+0     71:37:1     72:62:1  
+1     71:30:1     72:33:1  
+
+[2 rows x 74 columns]
+2018-07-19 16:57:10,767 - DEBUG - data_preprocessing.py:830 - (6064345, 74)
+2018-07-19 16:57:16,104 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 1)
+2018-07-19 16:57:16,104 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 5)
+2018-07-19 16:57:16,168 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 6)
+2018-07-19 16:57:16,169 - DEBUG - data_preprocessing.py:239 - 耗时0.05969643592834473
+2018-07-19 16:57:20,130 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 6)
+2018-07-19 16:57:20,130 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 13)
+2018-07-19 16:57:20,403 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 19)
+2018-07-19 16:57:20,403 - DEBUG - data_preprocessing.py:239 - 耗时0.2725558280944824
+2018-07-19 16:57:48,339 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 19)
+2018-07-19 16:57:48,339 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 60)
+2018-07-19 16:57:50,765 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 79)
+2018-07-19 16:57:50,765 - DEBUG - data_preprocessing.py:239 - 耗时2.426227569580078
+2018-07-19 16:57:50,865 - DEBUG - data_preprocessing.py:841 - Index(['click', 'one_day', 'one_day_hour', 'day_hour_prev', 'day_hour_next',
+       'is_work_day', 'C1', 'C14', 'C17', 'C21', 'device_conn_type',
+       'device_ip', 'device_model', 'device_type', 'app_or_web', 'app_site_id',
+       'app_site_model', 'app_site_model_aw', 'dev_ip_app_site', 'xgb_basis0',
+       'xgb_basis1', 'xgb_basis2', 'xgb_basis3', 'xgb_basis4', 'xgb_basis5',
+       'xgb_basis6', 'xgb_basis7', 'xgb_basis8', 'xgb_basis9', 'xgb_basis10',
+       'xgb_basis11', 'xgb_basis12', 'xgb_basis13', 'xgb_basis14',
+       'xgb_basis15', 'xgb_basis16', 'xgb_basis17', 'xgb_basis18',
+       'xgb_basis19', 'xgb_basis20', 'xgb_basis21', 'xgb_basis22',
+       'xgb_basis23', 'xgb_basis24', 'xgb_basis25', 'xgb_basis26',
+       'xgb_basis27', 'xgb_basis28', 'xgb_basis29', 'xgb_basis30',
+       'xgb_basis31', 'xgb_basis32', 'xgb_basis33', 'xgb_basis34',
+       'xgb_basis35', 'xgb_basis36', 'xgb_basis37', 'xgb_basis38',
+       'xgb_basis39', 'xgb_basis40', 'xgb_basis41', 'xgb_basis42',
+       'xgb_basis43', 'xgb_basis44', 'xgb_basis45', 'xgb_basis46',
+       'xgb_basis47', 'xgb_basis48', 'xgb_basis49', 'xgb_basis50',
+       'xgb_basis51', 'xgb_basis52', 'xgb_basis53', 'xgb_basis54',
+       'xgb_basis55', 'xgb_basis56', 'xgb_basis57', 'xgb_basis58',
+       'xgb_basis59'],
+      dtype='object')
+2018-07-19 16:57:50,865 - DEBUG - data_preprocessing.py:845 - (6064345, 79)
+2018-07-19 16:57:50,866 - DEBUG - data_preprocessing.py:852 - (6064345, 79)
+2018-07-19 16:57:59,357 - DEBUG - data_preprocessing.py:865 - one_day Format Converting begin in time:...
+2018-07-19 16:57:59,357 - DEBUG - data_preprocessing.py:866 - 1531990679.3573432
+2018-07-19 16:58:03,296 - DEBUG - data_preprocessing.py:871 - one_day finish convert,the cost time is 
+2018-07-19 16:58:03,296 - DEBUG - data_preprocessing.py:872 - 3.9395737648010254
+2018-07-19 16:58:03,296 - DEBUG - data_preprocessing.py:865 - one_day_hour Format Converting begin in time:...
+2018-07-19 16:58:03,296 - DEBUG - data_preprocessing.py:866 - 1531990683.2969522
+2018-07-19 16:58:07,227 - DEBUG - data_preprocessing.py:871 - one_day_hour finish convert,the cost time is 
+2018-07-19 16:58:07,227 - DEBUG - data_preprocessing.py:872 - 3.9305226802825928
+2018-07-19 16:58:07,227 - DEBUG - data_preprocessing.py:865 - day_hour_prev Format Converting begin in time:...
+2018-07-19 16:58:07,227 - DEBUG - data_preprocessing.py:866 - 1531990687.2275095
+2018-07-19 16:58:11,097 - DEBUG - data_preprocessing.py:871 - day_hour_prev finish convert,the cost time is 
+2018-07-19 16:58:11,097 - DEBUG - data_preprocessing.py:872 - 3.870133399963379
+2018-07-19 16:58:11,097 - DEBUG - data_preprocessing.py:865 - day_hour_next Format Converting begin in time:...
+2018-07-19 16:58:11,097 - DEBUG - data_preprocessing.py:866 - 1531990691.0976794
+2018-07-19 16:58:14,974 - DEBUG - data_preprocessing.py:871 - day_hour_next finish convert,the cost time is 
+2018-07-19 16:58:14,974 - DEBUG - data_preprocessing.py:872 - 3.876620054244995
+2018-07-19 16:58:14,974 - DEBUG - data_preprocessing.py:865 - is_work_day Format Converting begin in time:...
+2018-07-19 16:58:14,974 - DEBUG - data_preprocessing.py:866 - 1531990694.9743354
+2018-07-19 16:58:18,816 - DEBUG - data_preprocessing.py:871 - is_work_day finish convert,the cost time is 
+2018-07-19 16:58:18,816 - DEBUG - data_preprocessing.py:872 - 3.842607259750366
+2018-07-19 16:58:18,816 - DEBUG - data_preprocessing.py:865 - C1 Format Converting begin in time:...
+2018-07-19 16:58:18,817 - DEBUG - data_preprocessing.py:866 - 1531990698.8169765
+2018-07-19 16:58:22,661 - DEBUG - data_preprocessing.py:871 - C1 finish convert,the cost time is 
+2018-07-19 16:58:22,661 - DEBUG - data_preprocessing.py:872 - 3.8449642658233643
+2018-07-19 16:58:22,661 - DEBUG - data_preprocessing.py:865 - C14 Format Converting begin in time:...
+2018-07-19 16:58:22,662 - DEBUG - data_preprocessing.py:866 - 1531990702.6619737
+2018-07-19 16:58:26,535 - DEBUG - data_preprocessing.py:871 - C14 finish convert,the cost time is 
+2018-07-19 16:58:26,535 - DEBUG - data_preprocessing.py:872 - 3.873687744140625
+2018-07-19 16:58:26,535 - DEBUG - data_preprocessing.py:865 - C17 Format Converting begin in time:...
+2018-07-19 16:58:26,535 - DEBUG - data_preprocessing.py:866 - 1531990706.5356975
+2018-07-19 16:58:30,374 - DEBUG - data_preprocessing.py:871 - C17 finish convert,the cost time is 
+2018-07-19 16:58:30,374 - DEBUG - data_preprocessing.py:872 - 3.839031219482422
+2018-07-19 16:58:30,374 - DEBUG - data_preprocessing.py:865 - C21 Format Converting begin in time:...
+2018-07-19 16:58:30,374 - DEBUG - data_preprocessing.py:866 - 1531990710.3747637
+2018-07-19 16:58:34,054 - DEBUG - data_preprocessing.py:871 - C21 finish convert,the cost time is 
+2018-07-19 16:58:34,054 - DEBUG - data_preprocessing.py:872 - 3.6793835163116455
+2018-07-19 16:58:34,054 - DEBUG - data_preprocessing.py:865 - device_conn_type Format Converting begin in time:...
+2018-07-19 16:58:34,054 - DEBUG - data_preprocessing.py:866 - 1531990714.0541832
+2018-07-19 16:58:37,678 - DEBUG - data_preprocessing.py:871 - device_conn_type finish convert,the cost time is 
+2018-07-19 16:58:37,678 - DEBUG - data_preprocessing.py:872 - 3.624392032623291
+2018-07-19 16:58:37,678 - DEBUG - data_preprocessing.py:865 - device_ip Format Converting begin in time:...
+2018-07-19 16:58:37,678 - DEBUG - data_preprocessing.py:866 - 1531990717.6786108
+2018-07-19 16:58:41,487 - DEBUG - data_preprocessing.py:871 - device_ip finish convert,the cost time is 
+2018-07-19 16:58:41,487 - DEBUG - data_preprocessing.py:872 - 3.808631181716919
+2018-07-19 16:58:41,487 - DEBUG - data_preprocessing.py:865 - device_model Format Converting begin in time:...
+2018-07-19 16:58:41,487 - DEBUG - data_preprocessing.py:866 - 1531990721.4872763
+2018-07-19 16:58:45,242 - DEBUG - data_preprocessing.py:871 - device_model finish convert,the cost time is 
+2018-07-19 16:58:45,242 - DEBUG - data_preprocessing.py:872 - 3.7553961277008057
+2018-07-19 16:58:45,242 - DEBUG - data_preprocessing.py:865 - device_type Format Converting begin in time:...
+2018-07-19 16:58:45,242 - DEBUG - data_preprocessing.py:866 - 1531990725.2427073
+2018-07-19 16:58:48,807 - DEBUG - data_preprocessing.py:871 - device_type finish convert,the cost time is 
+2018-07-19 16:58:48,808 - DEBUG - data_preprocessing.py:872 - 3.565352439880371
+2018-07-19 16:58:48,808 - DEBUG - data_preprocessing.py:865 - app_or_web Format Converting begin in time:...
+2018-07-19 16:58:48,808 - DEBUG - data_preprocessing.py:866 - 1531990728.8080945
+2018-07-19 16:58:52,352 - DEBUG - data_preprocessing.py:871 - app_or_web finish convert,the cost time is 
+2018-07-19 16:58:52,352 - DEBUG - data_preprocessing.py:872 - 3.5448362827301025
+2018-07-19 16:58:52,352 - DEBUG - data_preprocessing.py:865 - app_site_id Format Converting begin in time:...
+2018-07-19 16:58:52,352 - DEBUG - data_preprocessing.py:866 - 1531990732.3529677
+2018-07-19 16:58:56,032 - DEBUG - data_preprocessing.py:871 - app_site_id finish convert,the cost time is 
+2018-07-19 16:58:56,033 - DEBUG - data_preprocessing.py:872 - 3.6800880432128906
+2018-07-19 16:58:56,033 - DEBUG - data_preprocessing.py:865 - app_site_model Format Converting begin in time:...
+2018-07-19 16:58:56,033 - DEBUG - data_preprocessing.py:866 - 1531990736.0330906
+2018-07-19 16:58:59,694 - DEBUG - data_preprocessing.py:871 - app_site_model finish convert,the cost time is 
+2018-07-19 16:58:59,694 - DEBUG - data_preprocessing.py:872 - 3.6615545749664307
+2018-07-19 16:58:59,694 - DEBUG - data_preprocessing.py:865 - app_site_model_aw Format Converting begin in time:...
+2018-07-19 16:58:59,694 - DEBUG - data_preprocessing.py:866 - 1531990739.694681
+2018-07-19 16:59:03,331 - DEBUG - data_preprocessing.py:871 - app_site_model_aw finish convert,the cost time is 
+2018-07-19 16:59:03,331 - DEBUG - data_preprocessing.py:872 - 3.636660575866699
+2018-07-19 16:59:03,331 - DEBUG - data_preprocessing.py:865 - dev_ip_app_site Format Converting begin in time:...
+2018-07-19 16:59:03,331 - DEBUG - data_preprocessing.py:866 - 1531990743.3313782
+2018-07-19 16:59:06,948 - DEBUG - data_preprocessing.py:871 - dev_ip_app_site finish convert,the cost time is 
+2018-07-19 16:59:06,949 - DEBUG - data_preprocessing.py:872 - 3.6176528930664062
+2018-07-19 16:59:06,949 - DEBUG - data_preprocessing.py:865 - xgb_basis0 Format Converting begin in time:...
+2018-07-19 16:59:06,949 - DEBUG - data_preprocessing.py:866 - 1531990746.9490662
+2018-07-19 16:59:10,378 - DEBUG - data_preprocessing.py:871 - xgb_basis0 finish convert,the cost time is 
+2018-07-19 16:59:10,378 - DEBUG - data_preprocessing.py:872 - 3.4290990829467773
+2018-07-19 16:59:10,378 - DEBUG - data_preprocessing.py:865 - xgb_basis1 Format Converting begin in time:...
+2018-07-19 16:59:10,378 - DEBUG - data_preprocessing.py:866 - 1531990750.3782008
+2018-07-19 16:59:13,770 - DEBUG - data_preprocessing.py:871 - xgb_basis1 finish convert,the cost time is 
+2018-07-19 16:59:13,770 - DEBUG - data_preprocessing.py:872 - 3.392575979232788
+2018-07-19 16:59:13,770 - DEBUG - data_preprocessing.py:865 - xgb_basis2 Format Converting begin in time:...
+2018-07-19 16:59:13,770 - DEBUG - data_preprocessing.py:866 - 1531990753.7708125
+2018-07-19 16:59:17,122 - DEBUG - data_preprocessing.py:871 - xgb_basis2 finish convert,the cost time is 
+2018-07-19 16:59:17,122 - DEBUG - data_preprocessing.py:872 - 3.351966381072998
+2018-07-19 16:59:17,122 - DEBUG - data_preprocessing.py:865 - xgb_basis3 Format Converting begin in time:...
+2018-07-19 16:59:17,122 - DEBUG - data_preprocessing.py:866 - 1531990757.1228158
+2018-07-19 16:59:20,452 - DEBUG - data_preprocessing.py:871 - xgb_basis3 finish convert,the cost time is 
+2018-07-19 16:59:20,453 - DEBUG - data_preprocessing.py:872 - 3.3302111625671387
+2018-07-19 16:59:20,453 - DEBUG - data_preprocessing.py:865 - xgb_basis4 Format Converting begin in time:...
+2018-07-19 16:59:20,453 - DEBUG - data_preprocessing.py:866 - 1531990760.4530635
+2018-07-19 16:59:23,753 - DEBUG - data_preprocessing.py:871 - xgb_basis4 finish convert,the cost time is 
+2018-07-19 16:59:23,753 - DEBUG - data_preprocessing.py:872 - 3.3005623817443848
+2018-07-19 16:59:23,753 - DEBUG - data_preprocessing.py:865 - xgb_basis5 Format Converting begin in time:...
+2018-07-19 16:59:23,753 - DEBUG - data_preprocessing.py:866 - 1531990763.7536607
+2018-07-19 16:59:27,030 - DEBUG - data_preprocessing.py:871 - xgb_basis5 finish convert,the cost time is 
+2018-07-19 16:59:27,031 - DEBUG - data_preprocessing.py:872 - 3.277371644973755
+2018-07-19 16:59:27,031 - DEBUG - data_preprocessing.py:865 - xgb_basis6 Format Converting begin in time:...
+2018-07-19 16:59:27,031 - DEBUG - data_preprocessing.py:866 - 1531990767.031069
+2018-07-19 16:59:30,277 - DEBUG - data_preprocessing.py:871 - xgb_basis6 finish convert,the cost time is 
+2018-07-19 16:59:30,277 - DEBUG - data_preprocessing.py:872 - 3.246696949005127
+2018-07-19 16:59:30,277 - DEBUG - data_preprocessing.py:865 - xgb_basis7 Format Converting begin in time:...
+2018-07-19 16:59:30,277 - DEBUG - data_preprocessing.py:866 - 1531990770.2777998
+2018-07-19 16:59:33,502 - DEBUG - data_preprocessing.py:871 - xgb_basis7 finish convert,the cost time is 
+2018-07-19 16:59:33,502 - DEBUG - data_preprocessing.py:872 - 3.2250001430511475
+2018-07-19 16:59:33,502 - DEBUG - data_preprocessing.py:865 - xgb_basis8 Format Converting begin in time:...
+2018-07-19 16:59:33,502 - DEBUG - data_preprocessing.py:866 - 1531990773.5028365
+2018-07-19 16:59:36,697 - DEBUG - data_preprocessing.py:871 - xgb_basis8 finish convert,the cost time is 
+2018-07-19 16:59:36,697 - DEBUG - data_preprocessing.py:872 - 3.194411039352417
+2018-07-19 16:59:36,697 - DEBUG - data_preprocessing.py:865 - xgb_basis9 Format Converting begin in time:...
+2018-07-19 16:59:36,697 - DEBUG - data_preprocessing.py:866 - 1531990776.6972828
+2018-07-19 16:59:39,866 - DEBUG - data_preprocessing.py:871 - xgb_basis9 finish convert,the cost time is 
+2018-07-19 16:59:39,867 - DEBUG - data_preprocessing.py:872 - 3.1697235107421875
+2018-07-19 16:59:39,867 - DEBUG - data_preprocessing.py:865 - xgb_basis10 Format Converting begin in time:...
+2018-07-19 16:59:39,867 - DEBUG - data_preprocessing.py:866 - 1531990779.8670413
+2018-07-19 16:59:43,008 - DEBUG - data_preprocessing.py:871 - xgb_basis10 finish convert,the cost time is 
+2018-07-19 16:59:43,008 - DEBUG - data_preprocessing.py:872 - 3.141697883605957
+2018-07-19 16:59:43,008 - DEBUG - data_preprocessing.py:865 - xgb_basis11 Format Converting begin in time:...
+2018-07-19 16:59:43,008 - DEBUG - data_preprocessing.py:866 - 1531990783.008774
+2018-07-19 16:59:46,122 - DEBUG - data_preprocessing.py:871 - xgb_basis11 finish convert,the cost time is 
+2018-07-19 16:59:46,123 - DEBUG - data_preprocessing.py:872 - 3.114288806915283
+2018-07-19 16:59:46,123 - DEBUG - data_preprocessing.py:865 - xgb_basis12 Format Converting begin in time:...
+2018-07-19 16:59:46,123 - DEBUG - data_preprocessing.py:866 - 1531990786.123098
+2018-07-19 16:59:49,200 - DEBUG - data_preprocessing.py:871 - xgb_basis12 finish convert,the cost time is 
+2018-07-19 16:59:49,200 - DEBUG - data_preprocessing.py:872 - 3.077049970626831
+2018-07-19 16:59:49,200 - DEBUG - data_preprocessing.py:865 - xgb_basis13 Format Converting begin in time:...
+2018-07-19 16:59:49,200 - DEBUG - data_preprocessing.py:866 - 1531990789.2001817
+2018-07-19 16:59:52,281 - DEBUG - data_preprocessing.py:871 - xgb_basis13 finish convert,the cost time is 
+2018-07-19 16:59:52,282 - DEBUG - data_preprocessing.py:872 - 3.081822395324707
+2018-07-19 16:59:52,282 - DEBUG - data_preprocessing.py:865 - xgb_basis14 Format Converting begin in time:...
+2018-07-19 16:59:52,282 - DEBUG - data_preprocessing.py:866 - 1531990792.282039
+2018-07-19 16:59:55,320 - DEBUG - data_preprocessing.py:871 - xgb_basis14 finish convert,the cost time is 
+2018-07-19 16:59:55,320 - DEBUG - data_preprocessing.py:872 - 3.038358211517334
+2018-07-19 16:59:55,320 - DEBUG - data_preprocessing.py:865 - xgb_basis15 Format Converting begin in time:...
+2018-07-19 16:59:55,320 - DEBUG - data_preprocessing.py:866 - 1531990795.3204324
+2018-07-19 16:59:58,332 - DEBUG - data_preprocessing.py:871 - xgb_basis15 finish convert,the cost time is 
+2018-07-19 16:59:58,332 - DEBUG - data_preprocessing.py:872 - 3.0118770599365234
+2018-07-19 16:59:58,332 - DEBUG - data_preprocessing.py:865 - xgb_basis16 Format Converting begin in time:...
+2018-07-19 16:59:58,332 - DEBUG - data_preprocessing.py:866 - 1531990798.3323443
+2018-07-19 17:00:01,316 - DEBUG - data_preprocessing.py:871 - xgb_basis16 finish convert,the cost time is 
+2018-07-19 17:00:01,317 - DEBUG - data_preprocessing.py:872 - 2.9847075939178467
+2018-07-19 17:00:01,317 - DEBUG - data_preprocessing.py:865 - xgb_basis17 Format Converting begin in time:...
+2018-07-19 17:00:01,317 - DEBUG - data_preprocessing.py:866 - 1531990801.3170874
+2018-07-19 17:00:04,276 - DEBUG - data_preprocessing.py:871 - xgb_basis17 finish convert,the cost time is 
+2018-07-19 17:00:04,276 - DEBUG - data_preprocessing.py:872 - 2.9594063758850098
+2018-07-19 17:00:04,276 - DEBUG - data_preprocessing.py:865 - xgb_basis18 Format Converting begin in time:...
+2018-07-19 17:00:04,276 - DEBUG - data_preprocessing.py:866 - 1531990804.276529
+2018-07-19 17:00:07,307 - DEBUG - data_preprocessing.py:871 - xgb_basis18 finish convert,the cost time is 
+2018-07-19 17:00:07,307 - DEBUG - data_preprocessing.py:872 - 3.0312812328338623
+2018-07-19 17:00:07,307 - DEBUG - data_preprocessing.py:865 - xgb_basis19 Format Converting begin in time:...
+2018-07-19 17:00:07,307 - DEBUG - data_preprocessing.py:866 - 1531990807.3078516
+2018-07-19 17:00:10,216 - DEBUG - data_preprocessing.py:871 - xgb_basis19 finish convert,the cost time is 
+2018-07-19 17:00:10,216 - DEBUG - data_preprocessing.py:872 - 2.908403158187866
+2018-07-19 17:00:10,216 - DEBUG - data_preprocessing.py:865 - xgb_basis20 Format Converting begin in time:...
+2018-07-19 17:00:10,216 - DEBUG - data_preprocessing.py:866 - 1531990810.2162912
+2018-07-19 17:00:13,121 - DEBUG - data_preprocessing.py:871 - xgb_basis20 finish convert,the cost time is 
+2018-07-19 17:00:13,122 - DEBUG - data_preprocessing.py:872 - 2.9057369232177734
+2018-07-19 17:00:13,122 - DEBUG - data_preprocessing.py:865 - xgb_basis21 Format Converting begin in time:...
+2018-07-19 17:00:13,122 - DEBUG - data_preprocessing.py:866 - 1531990813.1220675
+2018-07-19 17:00:16,087 - DEBUG - data_preprocessing.py:871 - xgb_basis21 finish convert,the cost time is 
+2018-07-19 17:00:16,087 - DEBUG - data_preprocessing.py:872 - 2.965254306793213
+2018-07-19 17:00:16,087 - DEBUG - data_preprocessing.py:865 - xgb_basis22 Format Converting begin in time:...
+2018-07-19 17:00:16,087 - DEBUG - data_preprocessing.py:866 - 1531990816.0873566
+2018-07-19 17:00:18,948 - DEBUG - data_preprocessing.py:871 - xgb_basis22 finish convert,the cost time is 
+2018-07-19 17:00:18,949 - DEBUG - data_preprocessing.py:872 - 2.861715078353882
+2018-07-19 17:00:18,949 - DEBUG - data_preprocessing.py:865 - xgb_basis23 Format Converting begin in time:...
+2018-07-19 17:00:18,949 - DEBUG - data_preprocessing.py:866 - 1531990818.9491074
+2018-07-19 17:00:21,901 - DEBUG - data_preprocessing.py:871 - xgb_basis23 finish convert,the cost time is 
+2018-07-19 17:00:21,901 - DEBUG - data_preprocessing.py:872 - 2.9528446197509766
+2018-07-19 17:00:21,901 - DEBUG - data_preprocessing.py:865 - xgb_basis24 Format Converting begin in time:...
+2018-07-19 17:00:21,902 - DEBUG - data_preprocessing.py:866 - 1531990821.9019878
+2018-07-19 17:00:24,713 - DEBUG - data_preprocessing.py:871 - xgb_basis24 finish convert,the cost time is 
+2018-07-19 17:00:24,713 - DEBUG - data_preprocessing.py:872 - 2.8118858337402344
+2018-07-19 17:00:24,713 - DEBUG - data_preprocessing.py:865 - xgb_basis25 Format Converting begin in time:...
+2018-07-19 17:00:24,713 - DEBUG - data_preprocessing.py:866 - 1531990824.7139103
+2018-07-19 17:00:27,486 - DEBUG - data_preprocessing.py:871 - xgb_basis25 finish convert,the cost time is 
+2018-07-19 17:00:27,487 - DEBUG - data_preprocessing.py:872 - 2.773106813430786
+2018-07-19 17:00:27,487 - DEBUG - data_preprocessing.py:865 - xgb_basis26 Format Converting begin in time:...
+2018-07-19 17:00:27,487 - DEBUG - data_preprocessing.py:866 - 1531990827.4870522
+2018-07-19 17:00:30,231 - DEBUG - data_preprocessing.py:871 - xgb_basis26 finish convert,the cost time is 
+2018-07-19 17:00:30,231 - DEBUG - data_preprocessing.py:872 - 2.7445201873779297
+2018-07-19 17:00:30,231 - DEBUG - data_preprocessing.py:865 - xgb_basis27 Format Converting begin in time:...
+2018-07-19 17:00:30,231 - DEBUG - data_preprocessing.py:866 - 1531990830.2316387
+2018-07-19 17:00:32,936 - DEBUG - data_preprocessing.py:871 - xgb_basis27 finish convert,the cost time is 
+2018-07-19 17:00:32,936 - DEBUG - data_preprocessing.py:872 - 2.704939603805542
+2018-07-19 17:00:32,936 - DEBUG - data_preprocessing.py:865 - xgb_basis28 Format Converting begin in time:...
+2018-07-19 17:00:32,936 - DEBUG - data_preprocessing.py:866 - 1531990832.936614
+2018-07-19 17:00:35,620 - DEBUG - data_preprocessing.py:871 - xgb_basis28 finish convert,the cost time is 
+2018-07-19 17:00:35,621 - DEBUG - data_preprocessing.py:872 - 2.6844406127929688
+2018-07-19 17:00:35,621 - DEBUG - data_preprocessing.py:865 - xgb_basis29 Format Converting begin in time:...
+2018-07-19 17:00:35,621 - DEBUG - data_preprocessing.py:866 - 1531990835.621091
+2018-07-19 17:00:38,281 - DEBUG - data_preprocessing.py:871 - xgb_basis29 finish convert,the cost time is 
+2018-07-19 17:00:38,281 - DEBUG - data_preprocessing.py:872 - 2.660775899887085
+2018-07-19 17:00:38,281 - DEBUG - data_preprocessing.py:865 - xgb_basis30 Format Converting begin in time:...
+2018-07-19 17:00:38,281 - DEBUG - data_preprocessing.py:866 - 1531990838.2819011
+2018-07-19 17:00:40,916 - DEBUG - data_preprocessing.py:871 - xgb_basis30 finish convert,the cost time is 
+2018-07-19 17:00:40,916 - DEBUG - data_preprocessing.py:872 - 2.6342532634735107
+2018-07-19 17:00:40,916 - DEBUG - data_preprocessing.py:865 - xgb_basis31 Format Converting begin in time:...
+2018-07-19 17:00:40,916 - DEBUG - data_preprocessing.py:866 - 1531990840.9161885
+2018-07-19 17:00:43,517 - DEBUG - data_preprocessing.py:871 - xgb_basis31 finish convert,the cost time is 
+2018-07-19 17:00:43,517 - DEBUG - data_preprocessing.py:872 - 2.601710796356201
+2018-07-19 17:00:43,517 - DEBUG - data_preprocessing.py:865 - xgb_basis32 Format Converting begin in time:...
+2018-07-19 17:00:43,517 - DEBUG - data_preprocessing.py:866 - 1531990843.5179348
+2018-07-19 17:00:46,094 - DEBUG - data_preprocessing.py:871 - xgb_basis32 finish convert,the cost time is 
+2018-07-19 17:00:46,094 - DEBUG - data_preprocessing.py:872 - 2.5769801139831543
+2018-07-19 17:00:46,094 - DEBUG - data_preprocessing.py:865 - xgb_basis33 Format Converting begin in time:...
+2018-07-19 17:00:46,099 - DEBUG - data_preprocessing.py:866 - 1531990846.0949512
+2018-07-19 17:00:48,666 - DEBUG - data_preprocessing.py:871 - xgb_basis33 finish convert,the cost time is 
+2018-07-19 17:00:48,667 - DEBUG - data_preprocessing.py:872 - 2.5720791816711426
+2018-07-19 17:00:48,667 - DEBUG - data_preprocessing.py:865 - xgb_basis34 Format Converting begin in time:...
+2018-07-19 17:00:48,667 - DEBUG - data_preprocessing.py:866 - 1531990848.667066
+2018-07-19 17:00:51,188 - DEBUG - data_preprocessing.py:871 - xgb_basis34 finish convert,the cost time is 
+2018-07-19 17:00:51,188 - DEBUG - data_preprocessing.py:872 - 2.521185874938965
+2018-07-19 17:00:51,188 - DEBUG - data_preprocessing.py:865 - xgb_basis35 Format Converting begin in time:...
+2018-07-19 17:00:51,192 - DEBUG - data_preprocessing.py:866 - 1531990851.1882882
+2018-07-19 17:00:53,714 - DEBUG - data_preprocessing.py:871 - xgb_basis35 finish convert,the cost time is 
+2018-07-19 17:00:53,714 - DEBUG - data_preprocessing.py:872 - 2.5258491039276123
+2018-07-19 17:00:53,714 - DEBUG - data_preprocessing.py:865 - xgb_basis36 Format Converting begin in time:...
+2018-07-19 17:00:53,714 - DEBUG - data_preprocessing.py:866 - 1531990853.7141728
+2018-07-19 17:00:56,177 - DEBUG - data_preprocessing.py:871 - xgb_basis36 finish convert,the cost time is 
+2018-07-19 17:00:56,177 - DEBUG - data_preprocessing.py:872 - 2.463500738143921
+2018-07-19 17:00:56,177 - DEBUG - data_preprocessing.py:865 - xgb_basis37 Format Converting begin in time:...
+2018-07-19 17:00:56,177 - DEBUG - data_preprocessing.py:866 - 1531990856.1777081
+2018-07-19 17:00:58,611 - DEBUG - data_preprocessing.py:871 - xgb_basis37 finish convert,the cost time is 
+2018-07-19 17:00:58,611 - DEBUG - data_preprocessing.py:872 - 2.433666706085205
+2018-07-19 17:00:58,611 - DEBUG - data_preprocessing.py:865 - xgb_basis38 Format Converting begin in time:...
+2018-07-19 17:00:58,611 - DEBUG - data_preprocessing.py:866 - 1531990858.6114109
+2018-07-19 17:01:01,020 - DEBUG - data_preprocessing.py:871 - xgb_basis38 finish convert,the cost time is 
+2018-07-19 17:01:01,020 - DEBUG - data_preprocessing.py:872 - 2.408984899520874
+2018-07-19 17:01:01,020 - DEBUG - data_preprocessing.py:865 - xgb_basis39 Format Converting begin in time:...
+2018-07-19 17:01:01,020 - DEBUG - data_preprocessing.py:866 - 1531990861.0204427
+2018-07-19 17:01:03,419 - DEBUG - data_preprocessing.py:871 - xgb_basis39 finish convert,the cost time is 
+2018-07-19 17:01:03,419 - DEBUG - data_preprocessing.py:872 - 2.398730993270874
+2018-07-19 17:01:03,419 - DEBUG - data_preprocessing.py:865 - xgb_basis40 Format Converting begin in time:...
+2018-07-19 17:01:03,419 - DEBUG - data_preprocessing.py:866 - 1531990863.419209
+2018-07-19 17:01:05,790 - DEBUG - data_preprocessing.py:871 - xgb_basis40 finish convert,the cost time is 
+2018-07-19 17:01:05,791 - DEBUG - data_preprocessing.py:872 - 2.371913194656372
+2018-07-19 17:01:05,791 - DEBUG - data_preprocessing.py:865 - xgb_basis41 Format Converting begin in time:...
+2018-07-19 17:01:05,791 - DEBUG - data_preprocessing.py:866 - 1531990865.7911582
+2018-07-19 17:01:08,217 - DEBUG - data_preprocessing.py:871 - xgb_basis41 finish convert,the cost time is 
+2018-07-19 17:01:08,217 - DEBUG - data_preprocessing.py:872 - 2.426065683364868
+2018-07-19 17:01:08,217 - DEBUG - data_preprocessing.py:865 - xgb_basis42 Format Converting begin in time:...
+2018-07-19 17:01:08,217 - DEBUG - data_preprocessing.py:866 - 1531990868.217262
+2018-07-19 17:01:10,608 - DEBUG - data_preprocessing.py:871 - xgb_basis42 finish convert,the cost time is 
+2018-07-19 17:01:10,608 - DEBUG - data_preprocessing.py:872 - 2.3911452293395996
+2018-07-19 17:01:10,608 - DEBUG - data_preprocessing.py:865 - xgb_basis43 Format Converting begin in time:...
+2018-07-19 17:01:10,608 - DEBUG - data_preprocessing.py:866 - 1531990870.6084442
+2018-07-19 17:01:12,960 - DEBUG - data_preprocessing.py:871 - xgb_basis43 finish convert,the cost time is 
+2018-07-19 17:01:12,960 - DEBUG - data_preprocessing.py:872 - 2.3521580696105957
+2018-07-19 17:01:12,960 - DEBUG - data_preprocessing.py:865 - xgb_basis44 Format Converting begin in time:...
+2018-07-19 17:01:12,960 - DEBUG - data_preprocessing.py:866 - 1531990872.9606404
+2018-07-19 17:01:15,286 - DEBUG - data_preprocessing.py:871 - xgb_basis44 finish convert,the cost time is 
+2018-07-19 17:01:15,286 - DEBUG - data_preprocessing.py:872 - 2.3260338306427
+2018-07-19 17:01:15,286 - DEBUG - data_preprocessing.py:865 - xgb_basis45 Format Converting begin in time:...
+2018-07-19 17:01:15,286 - DEBUG - data_preprocessing.py:866 - 1531990875.286713
+2018-07-19 17:01:17,584 - DEBUG - data_preprocessing.py:871 - xgb_basis45 finish convert,the cost time is 
+2018-07-19 17:01:17,584 - DEBUG - data_preprocessing.py:872 - 2.297466278076172
+2018-07-19 17:01:17,584 - DEBUG - data_preprocessing.py:865 - xgb_basis46 Format Converting begin in time:...
+2018-07-19 17:01:17,584 - DEBUG - data_preprocessing.py:866 - 1531990877.584215
+2018-07-19 17:01:19,857 - DEBUG - data_preprocessing.py:871 - xgb_basis46 finish convert,the cost time is 
+2018-07-19 17:01:19,858 - DEBUG - data_preprocessing.py:872 - 2.2738776206970215
+2018-07-19 17:01:19,858 - DEBUG - data_preprocessing.py:865 - xgb_basis47 Format Converting begin in time:...
+2018-07-19 17:01:19,858 - DEBUG - data_preprocessing.py:866 - 1531990879.858132
+2018-07-19 17:01:22,110 - DEBUG - data_preprocessing.py:871 - xgb_basis47 finish convert,the cost time is 
+2018-07-19 17:01:22,110 - DEBUG - data_preprocessing.py:872 - 2.2520668506622314
+2018-07-19 17:01:22,110 - DEBUG - data_preprocessing.py:865 - xgb_basis48 Format Converting begin in time:...
+2018-07-19 17:01:22,110 - DEBUG - data_preprocessing.py:866 - 1531990882.1102376
+2018-07-19 17:01:24,336 - DEBUG - data_preprocessing.py:871 - xgb_basis48 finish convert,the cost time is 
+2018-07-19 17:01:24,336 - DEBUG - data_preprocessing.py:872 - 2.226189613342285
+2018-07-19 17:01:24,336 - DEBUG - data_preprocessing.py:865 - xgb_basis49 Format Converting begin in time:...
+2018-07-19 17:01:24,336 - DEBUG - data_preprocessing.py:866 - 1531990884.3364632
+2018-07-19 17:01:26,529 - DEBUG - data_preprocessing.py:871 - xgb_basis49 finish convert,the cost time is 
+2018-07-19 17:01:26,530 - DEBUG - data_preprocessing.py:872 - 2.1936609745025635
+2018-07-19 17:01:26,530 - DEBUG - data_preprocessing.py:865 - xgb_basis50 Format Converting begin in time:...
+2018-07-19 17:01:26,530 - DEBUG - data_preprocessing.py:866 - 1531990886.530162
+2018-07-19 17:01:28,699 - DEBUG - data_preprocessing.py:871 - xgb_basis50 finish convert,the cost time is 
+2018-07-19 17:01:28,699 - DEBUG - data_preprocessing.py:872 - 2.169769525527954
+2018-07-19 17:01:28,699 - DEBUG - data_preprocessing.py:865 - xgb_basis51 Format Converting begin in time:...
+2018-07-19 17:01:28,699 - DEBUG - data_preprocessing.py:866 - 1531990888.6999698
+2018-07-19 17:01:30,837 - DEBUG - data_preprocessing.py:871 - xgb_basis51 finish convert,the cost time is 
+2018-07-19 17:01:30,837 - DEBUG - data_preprocessing.py:872 - 2.1378960609436035
+2018-07-19 17:01:30,837 - DEBUG - data_preprocessing.py:865 - xgb_basis52 Format Converting begin in time:...
+2018-07-19 17:01:30,837 - DEBUG - data_preprocessing.py:866 - 1531990890.8379018
+2018-07-19 17:01:32,946 - DEBUG - data_preprocessing.py:871 - xgb_basis52 finish convert,the cost time is 
+2018-07-19 17:01:32,946 - DEBUG - data_preprocessing.py:872 - 2.1084470748901367
+2018-07-19 17:01:32,946 - DEBUG - data_preprocessing.py:865 - xgb_basis53 Format Converting begin in time:...
+2018-07-19 17:01:32,946 - DEBUG - data_preprocessing.py:866 - 1531990892.9463875
+2018-07-19 17:01:35,035 - DEBUG - data_preprocessing.py:871 - xgb_basis53 finish convert,the cost time is 
+2018-07-19 17:01:35,035 - DEBUG - data_preprocessing.py:872 - 2.0893173217773438
+2018-07-19 17:01:35,035 - DEBUG - data_preprocessing.py:865 - xgb_basis54 Format Converting begin in time:...
+2018-07-19 17:01:35,035 - DEBUG - data_preprocessing.py:866 - 1531990895.0357428
+2018-07-19 17:01:37,092 - DEBUG - data_preprocessing.py:871 - xgb_basis54 finish convert,the cost time is 
+2018-07-19 17:01:37,092 - DEBUG - data_preprocessing.py:872 - 2.057147264480591
+2018-07-19 17:01:37,092 - DEBUG - data_preprocessing.py:865 - xgb_basis55 Format Converting begin in time:...
+2018-07-19 17:01:37,092 - DEBUG - data_preprocessing.py:866 - 1531990897.0929272
+2018-07-19 17:01:39,123 - DEBUG - data_preprocessing.py:871 - xgb_basis55 finish convert,the cost time is 
+2018-07-19 17:01:39,123 - DEBUG - data_preprocessing.py:872 - 2.0305776596069336
+2018-07-19 17:01:39,123 - DEBUG - data_preprocessing.py:865 - xgb_basis56 Format Converting begin in time:...
+2018-07-19 17:01:39,123 - DEBUG - data_preprocessing.py:866 - 1531990899.123542
+2018-07-19 17:01:41,131 - DEBUG - data_preprocessing.py:871 - xgb_basis56 finish convert,the cost time is 
+2018-07-19 17:01:41,131 - DEBUG - data_preprocessing.py:872 - 2.0084214210510254
+2018-07-19 17:01:41,132 - DEBUG - data_preprocessing.py:865 - xgb_basis57 Format Converting begin in time:...
+2018-07-19 17:01:41,132 - DEBUG - data_preprocessing.py:866 - 1531990901.1319985
+2018-07-19 17:01:43,120 - DEBUG - data_preprocessing.py:871 - xgb_basis57 finish convert,the cost time is 
+2018-07-19 17:01:43,120 - DEBUG - data_preprocessing.py:872 - 1.9887726306915283
+2018-07-19 17:01:43,120 - DEBUG - data_preprocessing.py:865 - xgb_basis58 Format Converting begin in time:...
+2018-07-19 17:01:43,120 - DEBUG - data_preprocessing.py:866 - 1531990903.1208098
+2018-07-19 17:01:45,077 - DEBUG - data_preprocessing.py:871 - xgb_basis58 finish convert,the cost time is 
+2018-07-19 17:01:45,078 - DEBUG - data_preprocessing.py:872 - 1.957317590713501
+2018-07-19 17:01:45,078 - DEBUG - data_preprocessing.py:865 - xgb_basis59 Format Converting begin in time:...
+2018-07-19 17:01:45,078 - DEBUG - data_preprocessing.py:866 - 1531990905.0781662
+2018-07-19 17:01:47,007 - DEBUG - data_preprocessing.py:871 - xgb_basis59 finish convert,the cost time is 
+2018-07-19 17:01:47,007 - DEBUG - data_preprocessing.py:872 - 1.9294252395629883
+2018-07-19 17:03:41,408 - DEBUG - data_preprocessing.py:886 - finish convert,the cost time is 
+2018-07-19 17:03:41,413 - DEBUG - data_preprocessing.py:887 - 116.33522009849548
+2018-07-19 17:03:41,413 - DEBUG - data_preprocessing.py:888 - [Done]
+2018-07-19 17:03:41,414 - DEBUG - data_preprocessing.py:890 -    click one_day one_day_hour day_hour_prev day_hour_next is_work_day      C1  \
+0      0   0:3:1        1:0:1         2:0:1         3:0:1       4:0:1   5:7:1   
+1      0   0:6:1        1:0:1         2:0:1         3:0:1       4:0:1  5:10:1   
+
+         C14       C17      C21     ...     xgb_basis50 xgb_basis51  \
+0   6:7015:1   7:824:1  8:239:1     ...         68:56:1     69:31:1   
+1  6:18756:1  7:2279:1  8:232:1     ...         68:56:1     69:37:1   
+
+  xgb_basis52 xgb_basis53 xgb_basis54 xgb_basis55 xgb_basis56 xgb_basis57  \
+0     70:56:1     71:24:1     72:53:1     73:56:1     74:30:1      75:0:1   
+1     70:23:1      71:0:1     72:49:1     73:16:1     74:28:1      75:0:1   
+
+  xgb_basis58 xgb_basis59  
+0     76:37:1     77:62:1  
+1     76:30:1     77:33:1  
+
+[2 rows x 79 columns]
+2018-07-19 17:03:41,440 - DEBUG - data_preprocessing.py:891 - (6064345, 79)
+2018-07-19 17:03:46,537 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 1)
+2018-07-19 17:03:46,537 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 5)
+2018-07-19 17:03:46,578 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 6)
+2018-07-19 17:03:46,578 - DEBUG - data_preprocessing.py:239 - 耗时0.04058027267456055
+2018-07-19 17:03:49,554 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 6)
+2018-07-19 17:03:49,554 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 13)
+2018-07-19 17:03:49,773 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 19)
+2018-07-19 17:03:49,773 - DEBUG - data_preprocessing.py:239 - 耗时0.21893644332885742
+2018-07-19 17:04:04,194 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 19)
+2018-07-19 17:04:04,194 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 60)
+2018-07-19 17:04:06,050 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 79)
+2018-07-19 17:04:06,050 - DEBUG - data_preprocessing.py:239 - 耗时1.8557121753692627
+2018-07-19 17:04:06,143 - DEBUG - data_preprocessing.py:902 - (4577464, 79)
+2018-07-19 17:04:06,143 - DEBUG - data_preprocessing.py:908 - Index(['click', 'one_day', 'one_day_hour', 'day_hour_prev', 'day_hour_next',
+       'is_work_day', 'C1', 'C14', 'C17', 'C21', 'device_conn_type',
+       'device_ip', 'device_model', 'device_type', 'app_or_web', 'app_site_id',
+       'app_site_model', 'app_site_model_aw', 'dev_ip_app_site', 'xgb_basis0',
+       'xgb_basis1', 'xgb_basis2', 'xgb_basis3', 'xgb_basis4', 'xgb_basis5',
+       'xgb_basis6', 'xgb_basis7', 'xgb_basis8', 'xgb_basis9', 'xgb_basis10',
+       'xgb_basis11', 'xgb_basis12', 'xgb_basis13', 'xgb_basis14',
+       'xgb_basis15', 'xgb_basis16', 'xgb_basis17', 'xgb_basis18',
+       'xgb_basis19', 'xgb_basis20', 'xgb_basis21', 'xgb_basis22',
+       'xgb_basis23', 'xgb_basis24', 'xgb_basis25', 'xgb_basis26',
+       'xgb_basis27', 'xgb_basis28', 'xgb_basis29', 'xgb_basis30',
+       'xgb_basis31', 'xgb_basis32', 'xgb_basis33', 'xgb_basis34',
+       'xgb_basis35', 'xgb_basis36', 'xgb_basis37', 'xgb_basis38',
+       'xgb_basis39', 'xgb_basis40', 'xgb_basis41', 'xgb_basis42',
+       'xgb_basis43', 'xgb_basis44', 'xgb_basis45', 'xgb_basis46',
+       'xgb_basis47', 'xgb_basis48', 'xgb_basis49', 'xgb_basis50',
+       'xgb_basis51', 'xgb_basis52', 'xgb_basis53', 'xgb_basis54',
+       'xgb_basis55', 'xgb_basis56', 'xgb_basis57', 'xgb_basis58',
+       'xgb_basis59'],
+      dtype='object')
+2018-07-19 17:04:06,144 - DEBUG - data_preprocessing.py:911 - (4577464, 79)
+2018-07-19 17:04:12,688 - DEBUG - data_preprocessing.py:924 - one_day Format Converting begin in time:...
+2018-07-19 17:04:12,688 - DEBUG - data_preprocessing.py:925 - 1531991052.688212
+2018-07-19 17:04:15,672 - DEBUG - data_preprocessing.py:930 - one_day finish convert,the cost time is 
+2018-07-19 17:04:15,672 - DEBUG - data_preprocessing.py:931 - 2.98435640335083
+2018-07-19 17:04:15,672 - DEBUG - data_preprocessing.py:924 - one_day_hour Format Converting begin in time:...
+2018-07-19 17:04:15,672 - DEBUG - data_preprocessing.py:925 - 1531991055.6726031
+2018-07-19 17:04:18,592 - DEBUG - data_preprocessing.py:930 - one_day_hour finish convert,the cost time is 
+2018-07-19 17:04:18,592 - DEBUG - data_preprocessing.py:931 - 2.9200055599212646
+2018-07-19 17:04:18,592 - DEBUG - data_preprocessing.py:924 - day_hour_prev Format Converting begin in time:...
+2018-07-19 17:04:18,592 - DEBUG - data_preprocessing.py:925 - 1531991058.5926452
+2018-07-19 17:04:21,501 - DEBUG - data_preprocessing.py:930 - day_hour_prev finish convert,the cost time is 
+2018-07-19 17:04:21,501 - DEBUG - data_preprocessing.py:931 - 2.9092442989349365
+2018-07-19 17:04:21,501 - DEBUG - data_preprocessing.py:924 - day_hour_next Format Converting begin in time:...
+2018-07-19 17:04:21,501 - DEBUG - data_preprocessing.py:925 - 1531991061.5019264
+2018-07-19 17:04:24,386 - DEBUG - data_preprocessing.py:930 - day_hour_next finish convert,the cost time is 
+2018-07-19 17:04:24,386 - DEBUG - data_preprocessing.py:931 - 2.8847150802612305
+2018-07-19 17:04:24,386 - DEBUG - data_preprocessing.py:924 - is_work_day Format Converting begin in time:...
+2018-07-19 17:04:24,386 - DEBUG - data_preprocessing.py:925 - 1531991064.3866763
+2018-07-19 17:04:27,246 - DEBUG - data_preprocessing.py:930 - is_work_day finish convert,the cost time is 
+2018-07-19 17:04:27,246 - DEBUG - data_preprocessing.py:931 - 2.860250473022461
+2018-07-19 17:04:27,246 - DEBUG - data_preprocessing.py:924 - C1 Format Converting begin in time:...
+2018-07-19 17:04:27,246 - DEBUG - data_preprocessing.py:925 - 1531991067.2469628
+2018-07-19 17:04:30,096 - DEBUG - data_preprocessing.py:930 - C1 finish convert,the cost time is 
+2018-07-19 17:04:30,096 - DEBUG - data_preprocessing.py:931 - 2.8496410846710205
+2018-07-19 17:04:30,101 - DEBUG - data_preprocessing.py:924 - C14 Format Converting begin in time:...
+2018-07-19 17:04:30,101 - DEBUG - data_preprocessing.py:925 - 1531991070.101263
+2018-07-19 17:04:33,088 - DEBUG - data_preprocessing.py:930 - C14 finish convert,the cost time is 
+2018-07-19 17:04:33,088 - DEBUG - data_preprocessing.py:931 - 2.9875333309173584
+2018-07-19 17:04:33,088 - DEBUG - data_preprocessing.py:924 - C17 Format Converting begin in time:...
+2018-07-19 17:04:33,088 - DEBUG - data_preprocessing.py:925 - 1531991073.0888314
+2018-07-19 17:04:35,981 - DEBUG - data_preprocessing.py:930 - C17 finish convert,the cost time is 
+2018-07-19 17:04:35,981 - DEBUG - data_preprocessing.py:931 - 2.892754554748535
+2018-07-19 17:04:35,981 - DEBUG - data_preprocessing.py:924 - C21 Format Converting begin in time:...
+2018-07-19 17:04:35,981 - DEBUG - data_preprocessing.py:925 - 1531991075.9816203
+2018-07-19 17:04:38,809 - DEBUG - data_preprocessing.py:930 - C21 finish convert,the cost time is 
+2018-07-19 17:04:38,809 - DEBUG - data_preprocessing.py:931 - 2.8281354904174805
+2018-07-19 17:04:38,809 - DEBUG - data_preprocessing.py:924 - device_conn_type Format Converting begin in time:...
+2018-07-19 17:04:38,809 - DEBUG - data_preprocessing.py:925 - 1531991078.8097935
+2018-07-19 17:04:41,587 - DEBUG - data_preprocessing.py:930 - device_conn_type finish convert,the cost time is 
+2018-07-19 17:04:41,588 - DEBUG - data_preprocessing.py:931 - 2.778634786605835
+2018-07-19 17:04:41,588 - DEBUG - data_preprocessing.py:924 - device_ip Format Converting begin in time:...
+2018-07-19 17:04:41,588 - DEBUG - data_preprocessing.py:925 - 1531991081.5885954
+2018-07-19 17:04:44,521 - DEBUG - data_preprocessing.py:930 - device_ip finish convert,the cost time is 
+2018-07-19 17:04:44,521 - DEBUG - data_preprocessing.py:931 - 2.933379888534546
+2018-07-19 17:04:44,522 - DEBUG - data_preprocessing.py:924 - device_model Format Converting begin in time:...
+2018-07-19 17:04:44,522 - DEBUG - data_preprocessing.py:925 - 1531991084.5220096
+2018-07-19 17:04:47,394 - DEBUG - data_preprocessing.py:930 - device_model finish convert,the cost time is 
+2018-07-19 17:04:47,394 - DEBUG - data_preprocessing.py:931 - 2.872434616088867
+2018-07-19 17:04:47,394 - DEBUG - data_preprocessing.py:924 - device_type Format Converting begin in time:...
+2018-07-19 17:04:47,394 - DEBUG - data_preprocessing.py:925 - 1531991087.3944795
+2018-07-19 17:04:50,105 - DEBUG - data_preprocessing.py:930 - device_type finish convert,the cost time is 
+2018-07-19 17:04:50,106 - DEBUG - data_preprocessing.py:931 - 2.7116212844848633
+2018-07-19 17:04:50,106 - DEBUG - data_preprocessing.py:924 - app_or_web Format Converting begin in time:...
+2018-07-19 17:04:50,106 - DEBUG - data_preprocessing.py:925 - 1531991090.106136
+2018-07-19 17:04:52,807 - DEBUG - data_preprocessing.py:930 - app_or_web finish convert,the cost time is 
+2018-07-19 17:04:52,807 - DEBUG - data_preprocessing.py:931 - 2.7010421752929688
+2018-07-19 17:04:52,807 - DEBUG - data_preprocessing.py:924 - app_site_id Format Converting begin in time:...
+2018-07-19 17:04:52,807 - DEBUG - data_preprocessing.py:925 - 1531991092.8072152
+2018-07-19 17:04:55,612 - DEBUG - data_preprocessing.py:930 - app_site_id finish convert,the cost time is 
+2018-07-19 17:04:55,612 - DEBUG - data_preprocessing.py:931 - 2.8057689666748047
+2018-07-19 17:04:55,613 - DEBUG - data_preprocessing.py:924 - app_site_model Format Converting begin in time:...
+2018-07-19 17:04:55,613 - DEBUG - data_preprocessing.py:925 - 1531991095.613019
+2018-07-19 17:04:58,416 - DEBUG - data_preprocessing.py:930 - app_site_model finish convert,the cost time is 
+2018-07-19 17:04:58,416 - DEBUG - data_preprocessing.py:931 - 2.8038997650146484
+2018-07-19 17:04:58,416 - DEBUG - data_preprocessing.py:924 - app_site_model_aw Format Converting begin in time:...
+2018-07-19 17:04:58,416 - DEBUG - data_preprocessing.py:925 - 1531991098.4169579
+2018-07-19 17:05:01,205 - DEBUG - data_preprocessing.py:930 - app_site_model_aw finish convert,the cost time is 
+2018-07-19 17:05:01,205 - DEBUG - data_preprocessing.py:931 - 2.7889034748077393
+2018-07-19 17:05:01,205 - DEBUG - data_preprocessing.py:924 - dev_ip_app_site Format Converting begin in time:...
+2018-07-19 17:05:01,205 - DEBUG - data_preprocessing.py:925 - 1531991101.2058973
+2018-07-19 17:05:03,978 - DEBUG - data_preprocessing.py:930 - dev_ip_app_site finish convert,the cost time is 
+2018-07-19 17:05:03,978 - DEBUG - data_preprocessing.py:931 - 2.7730205059051514
+2018-07-19 17:05:03,978 - DEBUG - data_preprocessing.py:924 - xgb_basis0 Format Converting begin in time:...
+2018-07-19 17:05:03,983 - DEBUG - data_preprocessing.py:925 - 1531991103.9789534
+2018-07-19 17:05:06,615 - DEBUG - data_preprocessing.py:930 - xgb_basis0 finish convert,the cost time is 
+2018-07-19 17:05:06,615 - DEBUG - data_preprocessing.py:931 - 2.6367149353027344
+2018-07-19 17:05:06,615 - DEBUG - data_preprocessing.py:924 - xgb_basis1 Format Converting begin in time:...
+2018-07-19 17:05:06,615 - DEBUG - data_preprocessing.py:925 - 1531991106.615703
+2018-07-19 17:05:09,221 - DEBUG - data_preprocessing.py:930 - xgb_basis1 finish convert,the cost time is 
+2018-07-19 17:05:09,221 - DEBUG - data_preprocessing.py:931 - 2.606198310852051
+2018-07-19 17:05:09,221 - DEBUG - data_preprocessing.py:924 - xgb_basis2 Format Converting begin in time:...
+2018-07-19 17:05:09,221 - DEBUG - data_preprocessing.py:925 - 1531991109.2219372
+2018-07-19 17:05:11,792 - DEBUG - data_preprocessing.py:930 - xgb_basis2 finish convert,the cost time is 
+2018-07-19 17:05:11,792 - DEBUG - data_preprocessing.py:931 - 2.570737361907959
+2018-07-19 17:05:11,792 - DEBUG - data_preprocessing.py:924 - xgb_basis3 Format Converting begin in time:...
+2018-07-19 17:05:11,792 - DEBUG - data_preprocessing.py:925 - 1531991111.792709
+2018-07-19 17:05:14,347 - DEBUG - data_preprocessing.py:930 - xgb_basis3 finish convert,the cost time is 
+2018-07-19 17:05:14,347 - DEBUG - data_preprocessing.py:931 - 2.554738998413086
+2018-07-19 17:05:14,347 - DEBUG - data_preprocessing.py:924 - xgb_basis4 Format Converting begin in time:...
+2018-07-19 17:05:14,352 - DEBUG - data_preprocessing.py:925 - 1531991114.3474834
+2018-07-19 17:05:16,872 - DEBUG - data_preprocessing.py:930 - xgb_basis4 finish convert,the cost time is 
+2018-07-19 17:05:16,872 - DEBUG - data_preprocessing.py:931 - 2.524855375289917
+2018-07-19 17:05:16,872 - DEBUG - data_preprocessing.py:924 - xgb_basis5 Format Converting begin in time:...
+2018-07-19 17:05:16,872 - DEBUG - data_preprocessing.py:925 - 1531991116.8723738
+2018-07-19 17:05:19,377 - DEBUG - data_preprocessing.py:930 - xgb_basis5 finish convert,the cost time is 
+2018-07-19 17:05:19,377 - DEBUG - data_preprocessing.py:931 - 2.505410671234131
+2018-07-19 17:05:19,377 - DEBUG - data_preprocessing.py:924 - xgb_basis6 Format Converting begin in time:...
+2018-07-19 17:05:19,382 - DEBUG - data_preprocessing.py:925 - 1531991119.37782
+2018-07-19 17:05:21,879 - DEBUG - data_preprocessing.py:930 - xgb_basis6 finish convert,the cost time is 
+2018-07-19 17:05:21,879 - DEBUG - data_preprocessing.py:931 - 2.501938581466675
+2018-07-19 17:05:21,879 - DEBUG - data_preprocessing.py:924 - xgb_basis7 Format Converting begin in time:...
+2018-07-19 17:05:21,879 - DEBUG - data_preprocessing.py:925 - 1531991121.8797991
+2018-07-19 17:05:24,342 - DEBUG - data_preprocessing.py:930 - xgb_basis7 finish convert,the cost time is 
+2018-07-19 17:05:24,342 - DEBUG - data_preprocessing.py:931 - 2.4629931449890137
+2018-07-19 17:05:24,342 - DEBUG - data_preprocessing.py:924 - xgb_basis8 Format Converting begin in time:...
+2018-07-19 17:05:24,342 - DEBUG - data_preprocessing.py:925 - 1531991124.342827
+2018-07-19 17:05:26,785 - DEBUG - data_preprocessing.py:930 - xgb_basis8 finish convert,the cost time is 
+2018-07-19 17:05:26,785 - DEBUG - data_preprocessing.py:931 - 2.4428977966308594
+2018-07-19 17:05:26,785 - DEBUG - data_preprocessing.py:924 - xgb_basis9 Format Converting begin in time:...
+2018-07-19 17:05:26,785 - DEBUG - data_preprocessing.py:925 - 1531991126.7857597
+2018-07-19 17:05:29,210 - DEBUG - data_preprocessing.py:930 - xgb_basis9 finish convert,the cost time is 
+2018-07-19 17:05:29,210 - DEBUG - data_preprocessing.py:931 - 2.4245519638061523
+2018-07-19 17:05:29,210 - DEBUG - data_preprocessing.py:924 - xgb_basis10 Format Converting begin in time:...
+2018-07-19 17:05:29,210 - DEBUG - data_preprocessing.py:925 - 1531991129.2103453
+2018-07-19 17:05:31,614 - DEBUG - data_preprocessing.py:930 - xgb_basis10 finish convert,the cost time is 
+2018-07-19 17:05:31,615 - DEBUG - data_preprocessing.py:931 - 2.4047770500183105
+2018-07-19 17:05:31,615 - DEBUG - data_preprocessing.py:924 - xgb_basis11 Format Converting begin in time:...
+2018-07-19 17:05:31,615 - DEBUG - data_preprocessing.py:925 - 1531991131.6151586
+2018-07-19 17:05:34,019 - DEBUG - data_preprocessing.py:930 - xgb_basis11 finish convert,the cost time is 
+2018-07-19 17:05:34,020 - DEBUG - data_preprocessing.py:931 - 2.4049489498138428
+2018-07-19 17:05:34,020 - DEBUG - data_preprocessing.py:924 - xgb_basis12 Format Converting begin in time:...
+2018-07-19 17:05:34,020 - DEBUG - data_preprocessing.py:925 - 1531991134.0201435
+2018-07-19 17:05:35,751 - DEBUG - data_preprocessing.py:930 - xgb_basis12 finish convert,the cost time is 
+2018-07-19 17:05:35,751 - DEBUG - data_preprocessing.py:931 - 1.7317566871643066
+2018-07-19 17:05:35,751 - DEBUG - data_preprocessing.py:924 - xgb_basis13 Format Converting begin in time:...
+2018-07-19 17:05:35,751 - DEBUG - data_preprocessing.py:925 - 1531991135.751935
+2018-07-19 17:05:38,052 - DEBUG - data_preprocessing.py:930 - xgb_basis13 finish convert,the cost time is 
+2018-07-19 17:05:38,053 - DEBUG - data_preprocessing.py:931 - 2.301090717315674
+2018-07-19 17:05:38,053 - DEBUG - data_preprocessing.py:924 - xgb_basis14 Format Converting begin in time:...
+2018-07-19 17:05:38,053 - DEBUG - data_preprocessing.py:925 - 1531991138.0530617
+2018-07-19 17:05:39,811 - DEBUG - data_preprocessing.py:930 - xgb_basis14 finish convert,the cost time is 
+2018-07-19 17:05:39,811 - DEBUG - data_preprocessing.py:931 - 1.7582125663757324
+2018-07-19 17:05:39,811 - DEBUG - data_preprocessing.py:924 - xgb_basis15 Format Converting begin in time:...
+2018-07-19 17:05:39,811 - DEBUG - data_preprocessing.py:925 - 1531991139.81131
+2018-07-19 17:05:42,059 - DEBUG - data_preprocessing.py:930 - xgb_basis15 finish convert,the cost time is 
+2018-07-19 17:05:42,059 - DEBUG - data_preprocessing.py:931 - 2.2479300498962402
+2018-07-19 17:05:42,059 - DEBUG - data_preprocessing.py:924 - xgb_basis16 Format Converting begin in time:...
+2018-07-19 17:05:42,059 - DEBUG - data_preprocessing.py:925 - 1531991142.059276
+2018-07-19 17:05:43,755 - DEBUG - data_preprocessing.py:930 - xgb_basis16 finish convert,the cost time is 
+2018-07-19 17:05:43,755 - DEBUG - data_preprocessing.py:931 - 1.696235179901123
+2018-07-19 17:05:43,755 - DEBUG - data_preprocessing.py:924 - xgb_basis17 Format Converting begin in time:...
+2018-07-19 17:05:43,755 - DEBUG - data_preprocessing.py:925 - 1531991143.7555463
+2018-07-19 17:05:46,028 - DEBUG - data_preprocessing.py:930 - xgb_basis17 finish convert,the cost time is 
+2018-07-19 17:05:46,029 - DEBUG - data_preprocessing.py:931 - 2.27353835105896
+2018-07-19 17:05:46,029 - DEBUG - data_preprocessing.py:924 - xgb_basis18 Format Converting begin in time:...
+2018-07-19 17:05:46,029 - DEBUG - data_preprocessing.py:925 - 1531991146.0291214
+2018-07-19 17:05:47,715 - DEBUG - data_preprocessing.py:930 - xgb_basis18 finish convert,the cost time is 
+2018-07-19 17:05:47,715 - DEBUG - data_preprocessing.py:931 - 1.6865050792694092
+2018-07-19 17:05:47,715 - DEBUG - data_preprocessing.py:924 - xgb_basis19 Format Converting begin in time:...
+2018-07-19 17:05:47,715 - DEBUG - data_preprocessing.py:925 - 1531991147.7156622
+2018-07-19 17:05:49,894 - DEBUG - data_preprocessing.py:930 - xgb_basis19 finish convert,the cost time is 
+2018-07-19 17:05:49,894 - DEBUG - data_preprocessing.py:931 - 2.178577423095703
+2018-07-19 17:05:49,894 - DEBUG - data_preprocessing.py:924 - xgb_basis20 Format Converting begin in time:...
+2018-07-19 17:05:49,894 - DEBUG - data_preprocessing.py:925 - 1531991149.8942745
+2018-07-19 17:05:51,572 - DEBUG - data_preprocessing.py:930 - xgb_basis20 finish convert,the cost time is 
+2018-07-19 17:05:51,572 - DEBUG - data_preprocessing.py:931 - 1.6779558658599854
+2018-07-19 17:05:51,572 - DEBUG - data_preprocessing.py:924 - xgb_basis21 Format Converting begin in time:...
+2018-07-19 17:05:51,572 - DEBUG - data_preprocessing.py:925 - 1531991151.5722663
+2018-07-19 17:05:53,726 - DEBUG - data_preprocessing.py:930 - xgb_basis21 finish convert,the cost time is 
+2018-07-19 17:05:53,726 - DEBUG - data_preprocessing.py:931 - 2.1540706157684326
+2018-07-19 17:05:53,726 - DEBUG - data_preprocessing.py:924 - xgb_basis22 Format Converting begin in time:...
+2018-07-19 17:05:53,726 - DEBUG - data_preprocessing.py:925 - 1531991153.726372
+2018-07-19 17:05:55,381 - DEBUG - data_preprocessing.py:930 - xgb_basis22 finish convert,the cost time is 
+2018-07-19 17:05:55,381 - DEBUG - data_preprocessing.py:931 - 1.6550729274749756
+2018-07-19 17:05:55,381 - DEBUG - data_preprocessing.py:924 - xgb_basis23 Format Converting begin in time:...
+2018-07-19 17:05:55,381 - DEBUG - data_preprocessing.py:925 - 1531991155.3814807
+2018-07-19 17:05:57,459 - DEBUG - data_preprocessing.py:930 - xgb_basis23 finish convert,the cost time is 
+2018-07-19 17:05:57,459 - DEBUG - data_preprocessing.py:931 - 2.0782642364501953
+2018-07-19 17:05:57,459 - DEBUG - data_preprocessing.py:924 - xgb_basis24 Format Converting begin in time:...
+2018-07-19 17:05:57,459 - DEBUG - data_preprocessing.py:925 - 1531991157.4597805
+2018-07-19 17:05:59,115 - DEBUG - data_preprocessing.py:930 - xgb_basis24 finish convert,the cost time is 
+2018-07-19 17:05:59,115 - DEBUG - data_preprocessing.py:931 - 1.6556167602539062
+2018-07-19 17:05:59,115 - DEBUG - data_preprocessing.py:924 - xgb_basis25 Format Converting begin in time:...
+2018-07-19 17:05:59,115 - DEBUG - data_preprocessing.py:925 - 1531991159.1154325
+2018-07-19 17:06:01,161 - DEBUG - data_preprocessing.py:930 - xgb_basis25 finish convert,the cost time is 
+2018-07-19 17:06:01,161 - DEBUG - data_preprocessing.py:931 - 2.0457773208618164
+2018-07-19 17:06:01,161 - DEBUG - data_preprocessing.py:924 - xgb_basis26 Format Converting begin in time:...
+2018-07-19 17:06:01,161 - DEBUG - data_preprocessing.py:925 - 1531991161.161247
+2018-07-19 17:06:02,785 - DEBUG - data_preprocessing.py:930 - xgb_basis26 finish convert,the cost time is 
+2018-07-19 17:06:02,785 - DEBUG - data_preprocessing.py:931 - 1.6243572235107422
+2018-07-19 17:06:02,785 - DEBUG - data_preprocessing.py:924 - xgb_basis27 Format Converting begin in time:...
+2018-07-19 17:06:02,785 - DEBUG - data_preprocessing.py:925 - 1531991162.7856557
+2018-07-19 17:06:04,802 - DEBUG - data_preprocessing.py:930 - xgb_basis27 finish convert,the cost time is 
+2018-07-19 17:06:04,802 - DEBUG - data_preprocessing.py:931 - 2.0172555446624756
+2018-07-19 17:06:04,802 - DEBUG - data_preprocessing.py:924 - xgb_basis28 Format Converting begin in time:...
+2018-07-19 17:06:04,802 - DEBUG - data_preprocessing.py:925 - 1531991164.8029468
+2018-07-19 17:06:06,427 - DEBUG - data_preprocessing.py:930 - xgb_basis28 finish convert,the cost time is 
+2018-07-19 17:06:06,427 - DEBUG - data_preprocessing.py:931 - 1.6246545314788818
+2018-07-19 17:06:06,427 - DEBUG - data_preprocessing.py:924 - xgb_basis29 Format Converting begin in time:...
+2018-07-19 17:06:06,427 - DEBUG - data_preprocessing.py:925 - 1531991166.427636
+2018-07-19 17:06:08,391 - DEBUG - data_preprocessing.py:930 - xgb_basis29 finish convert,the cost time is 
+2018-07-19 17:06:08,391 - DEBUG - data_preprocessing.py:931 - 1.9635827541351318
+2018-07-19 17:06:08,391 - DEBUG - data_preprocessing.py:924 - xgb_basis30 Format Converting begin in time:...
+2018-07-19 17:06:08,391 - DEBUG - data_preprocessing.py:925 - 1531991168.3912554
+2018-07-19 17:06:09,994 - DEBUG - data_preprocessing.py:930 - xgb_basis30 finish convert,the cost time is 
+2018-07-19 17:06:09,994 - DEBUG - data_preprocessing.py:931 - 1.6034221649169922
+2018-07-19 17:06:09,994 - DEBUG - data_preprocessing.py:924 - xgb_basis31 Format Converting begin in time:...
+2018-07-19 17:06:09,994 - DEBUG - data_preprocessing.py:925 - 1531991169.994715
+2018-07-19 17:06:11,933 - DEBUG - data_preprocessing.py:930 - xgb_basis31 finish convert,the cost time is 
+2018-07-19 17:06:11,933 - DEBUG - data_preprocessing.py:931 - 1.9390976428985596
+2018-07-19 17:06:11,933 - DEBUG - data_preprocessing.py:924 - xgb_basis32 Format Converting begin in time:...
+2018-07-19 17:06:11,933 - DEBUG - data_preprocessing.py:925 - 1531991171.9338489
+2018-07-19 17:06:13,538 - DEBUG - data_preprocessing.py:930 - xgb_basis32 finish convert,the cost time is 
+2018-07-19 17:06:13,538 - DEBUG - data_preprocessing.py:931 - 1.6045386791229248
+2018-07-19 17:06:13,538 - DEBUG - data_preprocessing.py:924 - xgb_basis33 Format Converting begin in time:...
+2018-07-19 17:06:13,538 - DEBUG - data_preprocessing.py:925 - 1531991173.5384226
+2018-07-19 17:06:15,464 - DEBUG - data_preprocessing.py:930 - xgb_basis33 finish convert,the cost time is 
+2018-07-19 17:06:15,464 - DEBUG - data_preprocessing.py:931 - 1.925832986831665
+2018-07-19 17:06:15,464 - DEBUG - data_preprocessing.py:924 - xgb_basis34 Format Converting begin in time:...
+2018-07-19 17:06:15,464 - DEBUG - data_preprocessing.py:925 - 1531991175.4642901
+2018-07-19 17:06:17,026 - DEBUG - data_preprocessing.py:930 - xgb_basis34 finish convert,the cost time is 
+2018-07-19 17:06:17,026 - DEBUG - data_preprocessing.py:931 - 1.5621066093444824
+2018-07-19 17:06:17,026 - DEBUG - data_preprocessing.py:924 - xgb_basis35 Format Converting begin in time:...
+2018-07-19 17:06:17,026 - DEBUG - data_preprocessing.py:925 - 1531991177.0264318
+2018-07-19 17:06:18,896 - DEBUG - data_preprocessing.py:930 - xgb_basis35 finish convert,the cost time is 
+2018-07-19 17:06:18,896 - DEBUG - data_preprocessing.py:931 - 1.8701667785644531
+2018-07-19 17:06:18,896 - DEBUG - data_preprocessing.py:924 - xgb_basis36 Format Converting begin in time:...
+2018-07-19 17:06:18,896 - DEBUG - data_preprocessing.py:925 - 1531991178.8966339
+2018-07-19 17:06:20,455 - DEBUG - data_preprocessing.py:930 - xgb_basis36 finish convert,the cost time is 
+2018-07-19 17:06:20,455 - DEBUG - data_preprocessing.py:931 - 1.5588264465332031
+2018-07-19 17:06:20,455 - DEBUG - data_preprocessing.py:924 - xgb_basis37 Format Converting begin in time:...
+2018-07-19 17:06:20,455 - DEBUG - data_preprocessing.py:925 - 1531991180.4554949
+2018-07-19 17:06:22,269 - DEBUG - data_preprocessing.py:930 - xgb_basis37 finish convert,the cost time is 
+2018-07-19 17:06:22,270 - DEBUG - data_preprocessing.py:931 - 1.8145029544830322
+2018-07-19 17:06:22,270 - DEBUG - data_preprocessing.py:924 - xgb_basis38 Format Converting begin in time:...
+2018-07-19 17:06:22,270 - DEBUG - data_preprocessing.py:925 - 1531991182.2700388
+2018-07-19 17:06:23,794 - DEBUG - data_preprocessing.py:930 - xgb_basis38 finish convert,the cost time is 
+2018-07-19 17:06:23,794 - DEBUG - data_preprocessing.py:931 - 1.5245671272277832
+2018-07-19 17:06:23,794 - DEBUG - data_preprocessing.py:924 - xgb_basis39 Format Converting begin in time:...
+2018-07-19 17:06:23,794 - DEBUG - data_preprocessing.py:925 - 1531991183.794642
+2018-07-19 17:06:25,559 - DEBUG - data_preprocessing.py:930 - xgb_basis39 finish convert,the cost time is 
+2018-07-19 17:06:25,559 - DEBUG - data_preprocessing.py:931 - 1.7649900913238525
+2018-07-19 17:06:25,559 - DEBUG - data_preprocessing.py:924 - xgb_basis40 Format Converting begin in time:...
+2018-07-19 17:06:25,559 - DEBUG - data_preprocessing.py:925 - 1531991185.559667
+2018-07-19 17:06:27,071 - DEBUG - data_preprocessing.py:930 - xgb_basis40 finish convert,the cost time is 
+2018-07-19 17:06:27,071 - DEBUG - data_preprocessing.py:931 - 1.5117080211639404
+2018-07-19 17:06:27,071 - DEBUG - data_preprocessing.py:924 - xgb_basis41 Format Converting begin in time:...
+2018-07-19 17:06:27,071 - DEBUG - data_preprocessing.py:925 - 1531991187.0714092
+2018-07-19 17:06:28,801 - DEBUG - data_preprocessing.py:930 - xgb_basis41 finish convert,the cost time is 
+2018-07-19 17:06:28,801 - DEBUG - data_preprocessing.py:931 - 1.7297682762145996
+2018-07-19 17:06:28,801 - DEBUG - data_preprocessing.py:924 - xgb_basis42 Format Converting begin in time:...
+2018-07-19 17:06:28,801 - DEBUG - data_preprocessing.py:925 - 1531991188.801213
+2018-07-19 17:06:30,294 - DEBUG - data_preprocessing.py:930 - xgb_basis42 finish convert,the cost time is 
+2018-07-19 17:06:30,294 - DEBUG - data_preprocessing.py:931 - 1.4935836791992188
+2018-07-19 17:06:30,294 - DEBUG - data_preprocessing.py:924 - xgb_basis43 Format Converting begin in time:...
+2018-07-19 17:06:30,294 - DEBUG - data_preprocessing.py:925 - 1531991190.2948325
+2018-07-19 17:06:31,994 - DEBUG - data_preprocessing.py:930 - xgb_basis43 finish convert,the cost time is 
+2018-07-19 17:06:31,994 - DEBUG - data_preprocessing.py:931 - 1.700010061264038
+2018-07-19 17:06:31,994 - DEBUG - data_preprocessing.py:924 - xgb_basis44 Format Converting begin in time:...
+2018-07-19 17:06:31,994 - DEBUG - data_preprocessing.py:925 - 1531991191.9948773
+2018-07-19 17:06:33,474 - DEBUG - data_preprocessing.py:930 - xgb_basis44 finish convert,the cost time is 
+2018-07-19 17:06:33,474 - DEBUG - data_preprocessing.py:931 - 1.4798634052276611
+2018-07-19 17:06:33,474 - DEBUG - data_preprocessing.py:924 - xgb_basis45 Format Converting begin in time:...
+2018-07-19 17:06:33,474 - DEBUG - data_preprocessing.py:925 - 1531991193.4747753
+2018-07-19 17:06:35,117 - DEBUG - data_preprocessing.py:930 - xgb_basis45 finish convert,the cost time is 
+2018-07-19 17:06:35,117 - DEBUG - data_preprocessing.py:931 - 1.642735242843628
+2018-07-19 17:06:35,117 - DEBUG - data_preprocessing.py:924 - xgb_basis46 Format Converting begin in time:...
+2018-07-19 17:06:35,117 - DEBUG - data_preprocessing.py:925 - 1531991195.1175466
+2018-07-19 17:06:36,591 - DEBUG - data_preprocessing.py:930 - xgb_basis46 finish convert,the cost time is 
+2018-07-19 17:06:36,591 - DEBUG - data_preprocessing.py:931 - 1.4737496376037598
+2018-07-19 17:06:36,591 - DEBUG - data_preprocessing.py:924 - xgb_basis47 Format Converting begin in time:...
+2018-07-19 17:06:36,591 - DEBUG - data_preprocessing.py:925 - 1531991196.591332
+2018-07-19 17:06:38,204 - DEBUG - data_preprocessing.py:930 - xgb_basis47 finish convert,the cost time is 
+2018-07-19 17:06:38,204 - DEBUG - data_preprocessing.py:931 - 1.6135735511779785
+2018-07-19 17:06:38,204 - DEBUG - data_preprocessing.py:924 - xgb_basis48 Format Converting begin in time:...
+2018-07-19 17:06:38,204 - DEBUG - data_preprocessing.py:925 - 1531991198.2049408
+2018-07-19 17:06:39,658 - DEBUG - data_preprocessing.py:930 - xgb_basis48 finish convert,the cost time is 
+2018-07-19 17:06:39,658 - DEBUG - data_preprocessing.py:931 - 1.4534149169921875
+2018-07-19 17:06:39,658 - DEBUG - data_preprocessing.py:924 - xgb_basis49 Format Converting begin in time:...
+2018-07-19 17:06:39,658 - DEBUG - data_preprocessing.py:925 - 1531991199.658393
+2018-07-19 17:06:41,230 - DEBUG - data_preprocessing.py:930 - xgb_basis49 finish convert,the cost time is 
+2018-07-19 17:06:41,230 - DEBUG - data_preprocessing.py:931 - 1.5721733570098877
+2018-07-19 17:06:41,230 - DEBUG - data_preprocessing.py:924 - xgb_basis50 Format Converting begin in time:...
+2018-07-19 17:06:41,230 - DEBUG - data_preprocessing.py:925 - 1531991201.2306037
+2018-07-19 17:06:42,660 - DEBUG - data_preprocessing.py:930 - xgb_basis50 finish convert,the cost time is 
+2018-07-19 17:06:42,661 - DEBUG - data_preprocessing.py:931 - 1.4304838180541992
+2018-07-19 17:06:42,661 - DEBUG - data_preprocessing.py:924 - xgb_basis51 Format Converting begin in time:...
+2018-07-19 17:06:42,661 - DEBUG - data_preprocessing.py:925 - 1531991202.661122
+2018-07-19 17:06:44,185 - DEBUG - data_preprocessing.py:930 - xgb_basis51 finish convert,the cost time is 
+2018-07-19 17:06:44,185 - DEBUG - data_preprocessing.py:931 - 1.5246596336364746
+2018-07-19 17:06:44,185 - DEBUG - data_preprocessing.py:924 - xgb_basis52 Format Converting begin in time:...
+2018-07-19 17:06:44,185 - DEBUG - data_preprocessing.py:925 - 1531991204.1858172
+2018-07-19 17:06:45,616 - DEBUG - data_preprocessing.py:930 - xgb_basis52 finish convert,the cost time is 
+2018-07-19 17:06:45,616 - DEBUG - data_preprocessing.py:931 - 1.4306700229644775
+2018-07-19 17:06:45,616 - DEBUG - data_preprocessing.py:924 - xgb_basis53 Format Converting begin in time:...
+2018-07-19 17:06:45,616 - DEBUG - data_preprocessing.py:925 - 1531991205.6165223
+2018-07-19 17:06:47,112 - DEBUG - data_preprocessing.py:930 - xgb_basis53 finish convert,the cost time is 
+2018-07-19 17:06:47,112 - DEBUG - data_preprocessing.py:931 - 1.496443510055542
+2018-07-19 17:06:47,113 - DEBUG - data_preprocessing.py:924 - xgb_basis54 Format Converting begin in time:...
+2018-07-19 17:06:47,113 - DEBUG - data_preprocessing.py:925 - 1531991207.1130016
+2018-07-19 17:06:48,530 - DEBUG - data_preprocessing.py:930 - xgb_basis54 finish convert,the cost time is 
+2018-07-19 17:06:48,531 - DEBUG - data_preprocessing.py:931 - 1.4179956912994385
+2018-07-19 17:06:48,531 - DEBUG - data_preprocessing.py:924 - xgb_basis55 Format Converting begin in time:...
+2018-07-19 17:06:48,531 - DEBUG - data_preprocessing.py:925 - 1531991208.5310342
+2018-07-19 17:06:49,980 - DEBUG - data_preprocessing.py:930 - xgb_basis55 finish convert,the cost time is 
+2018-07-19 17:06:49,980 - DEBUG - data_preprocessing.py:931 - 1.4496326446533203
+2018-07-19 17:06:49,980 - DEBUG - data_preprocessing.py:924 - xgb_basis56 Format Converting begin in time:...
+2018-07-19 17:06:49,980 - DEBUG - data_preprocessing.py:925 - 1531991209.980703
+2018-07-19 17:06:51,374 - DEBUG - data_preprocessing.py:930 - xgb_basis56 finish convert,the cost time is 
+2018-07-19 17:06:51,374 - DEBUG - data_preprocessing.py:931 - 1.3935227394104004
+2018-07-19 17:06:51,374 - DEBUG - data_preprocessing.py:924 - xgb_basis57 Format Converting begin in time:...
+2018-07-19 17:06:51,374 - DEBUG - data_preprocessing.py:925 - 1531991211.374261
+2018-07-19 17:06:52,756 - DEBUG - data_preprocessing.py:930 - xgb_basis57 finish convert,the cost time is 
+2018-07-19 17:06:52,756 - DEBUG - data_preprocessing.py:931 - 1.3827266693115234
+2018-07-19 17:06:52,757 - DEBUG - data_preprocessing.py:924 - xgb_basis58 Format Converting begin in time:...
+2018-07-19 17:06:52,757 - DEBUG - data_preprocessing.py:925 - 1531991212.757024
+2018-07-19 17:06:54,139 - DEBUG - data_preprocessing.py:930 - xgb_basis58 finish convert,the cost time is 
+2018-07-19 17:06:54,139 - DEBUG - data_preprocessing.py:931 - 1.3828709125518799
+2018-07-19 17:06:54,139 - DEBUG - data_preprocessing.py:924 - xgb_basis59 Format Converting begin in time:...
+2018-07-19 17:06:54,139 - DEBUG - data_preprocessing.py:925 - 1531991214.1399322
+2018-07-19 17:06:55,514 - DEBUG - data_preprocessing.py:930 - xgb_basis59 finish convert,the cost time is 
+2018-07-19 17:06:55,514 - DEBUG - data_preprocessing.py:931 - 1.3750510215759277
+2018-07-19 17:08:17,425 - DEBUG - data_preprocessing.py:945 - finish convert,the cost time is 
+2018-07-19 17:08:17,425 - DEBUG - data_preprocessing.py:946 - 83.28533053398132
+2018-07-19 17:08:17,425 - DEBUG - data_preprocessing.py:947 - [Done]
+2018-07-19 17:08:17,426 - DEBUG - data_preprocessing.py:949 -    click one_day one_day_hour day_hour_prev day_hour_next is_work_day     C1  \
+0      0   0:0:1        1:0:1         2:0:1         3:0:1       4:0:1  5:7:1   
+1      0   0:0:1        1:0:1         2:0:1         3:0:1       4:0:1  5:7:1   
+
+         C14       C17      C21     ...     xgb_basis50 xgb_basis51  \
+0  6:16019:1  7:2032:1  8:232:1     ...          68:0:1      69:0:1   
+1   6:1673:1   7:177:1  8:204:1     ...          68:0:1      69:0:1   
+
+  xgb_basis52 xgb_basis53 xgb_basis54 xgb_basis55 xgb_basis56 xgb_basis57  \
+0      70:2:1      71:2:1      72:0:1      73:0:1      74:0:1      75:0:1   
+1      70:0:1      71:0:1      72:0:1      73:0:1      74:0:1      75:0:1   
+
+  xgb_basis58 xgb_basis59  
+0      76:0:1      77:0:1  
+1      76:0:1      77:0:1  
+
+[2 rows x 79 columns]
+2018-07-19 17:08:17,441 - DEBUG - data_preprocessing.py:950 - (4577464, 79)
+2018-07-19 17:14:21,569 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 1)
+2018-07-19 17:14:21,569 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 13)
+2018-07-19 17:14:21,944 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 14)
+2018-07-19 17:14:21,944 - DEBUG - data_preprocessing.py:239 - 耗时0.37486696243286133
+2018-07-19 17:16:07,619 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 1)
+2018-07-19 17:16:07,619 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 60)
+2018-07-19 17:16:09,227 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 61)
+2018-07-19 17:16:09,227 - DEBUG - data_preprocessing.py:239 - 耗时1.6080188751220703
+2018-07-19 17:16:09,299 - DEBUG - data_preprocessing.py:777 - Index(['click', 'xgb_basis0', 'xgb_basis1', 'xgb_basis2', 'xgb_basis3',
+       'xgb_basis4', 'xgb_basis5', 'xgb_basis6', 'xgb_basis7', 'xgb_basis8',
+       'xgb_basis9', 'xgb_basis10', 'xgb_basis11', 'xgb_basis12',
+       'xgb_basis13', 'xgb_basis14', 'xgb_basis15', 'xgb_basis16',
+       'xgb_basis17', 'xgb_basis18', 'xgb_basis19', 'xgb_basis20',
+       'xgb_basis21', 'xgb_basis22', 'xgb_basis23', 'xgb_basis24',
+       'xgb_basis25', 'xgb_basis26', 'xgb_basis27', 'xgb_basis28',
+       'xgb_basis29', 'xgb_basis30', 'xgb_basis31', 'xgb_basis32',
+       'xgb_basis33', 'xgb_basis34', 'xgb_basis35', 'xgb_basis36',
+       'xgb_basis37', 'xgb_basis38', 'xgb_basis39', 'xgb_basis40',
+       'xgb_basis41', 'xgb_basis42', 'xgb_basis43', 'xgb_basis44',
+       'xgb_basis45', 'xgb_basis46', 'xgb_basis47', 'xgb_basis48',
+       'xgb_basis49', 'xgb_basis50', 'xgb_basis51', 'xgb_basis52',
+       'xgb_basis53', 'xgb_basis54', 'xgb_basis55', 'xgb_basis56',
+       'xgb_basis57', 'xgb_basis58', 'xgb_basis59'],
+      dtype='object')
+2018-07-19 17:16:09,299 - DEBUG - data_preprocessing.py:781 - (6064345, 61)
+2018-07-19 17:16:09,300 - DEBUG - data_preprocessing.py:788 - (6064345, 61)
+2018-07-19 17:16:15,877 - DEBUG - data_preprocessing.py:800 - xgb_basis0:cnt:63
+2018-07-19 17:16:15,877 - DEBUG - data_preprocessing.py:802 - xgb_basis0 Format Converting begin in time:...
+2018-07-19 17:16:15,877 - DEBUG - data_preprocessing.py:803 - 1531991775.87718
+2018-07-19 17:16:19,927 - DEBUG - data_preprocessing.py:808 - xgb_basis0 finish convert,the cost time is 
+2018-07-19 17:16:19,927 - DEBUG - data_preprocessing.py:809 - 4.050782680511475
+2018-07-19 17:16:19,954 - DEBUG - data_preprocessing.py:800 - xgb_basis1:cnt:127
+2018-07-19 17:16:19,954 - DEBUG - data_preprocessing.py:802 - xgb_basis1 Format Converting begin in time:...
+2018-07-19 17:16:19,954 - DEBUG - data_preprocessing.py:803 - 1531991779.954797
+2018-07-19 17:16:23,390 - DEBUG - data_preprocessing.py:808 - xgb_basis1 finish convert,the cost time is 
+2018-07-19 17:16:23,391 - DEBUG - data_preprocessing.py:809 - 3.436347723007202
+2018-07-19 17:16:23,417 - DEBUG - data_preprocessing.py:800 - xgb_basis2:cnt:191
+2018-07-19 17:16:23,417 - DEBUG - data_preprocessing.py:802 - xgb_basis2 Format Converting begin in time:...
+2018-07-19 17:16:23,417 - DEBUG - data_preprocessing.py:803 - 1531991783.4177978
+2018-07-19 17:16:26,754 - DEBUG - data_preprocessing.py:808 - xgb_basis2 finish convert,the cost time is 
+2018-07-19 17:16:26,754 - DEBUG - data_preprocessing.py:809 - 3.3365259170532227
+2018-07-19 17:16:26,780 - DEBUG - data_preprocessing.py:800 - xgb_basis3:cnt:255
+2018-07-19 17:16:26,781 - DEBUG - data_preprocessing.py:802 - xgb_basis3 Format Converting begin in time:...
+2018-07-19 17:16:26,781 - DEBUG - data_preprocessing.py:803 - 1531991786.7810729
+2018-07-19 17:16:30,108 - DEBUG - data_preprocessing.py:808 - xgb_basis3 finish convert,the cost time is 
+2018-07-19 17:16:30,109 - DEBUG - data_preprocessing.py:809 - 3.327993392944336
+2018-07-19 17:16:30,135 - DEBUG - data_preprocessing.py:800 - xgb_basis4:cnt:319
+2018-07-19 17:16:30,135 - DEBUG - data_preprocessing.py:802 - xgb_basis4 Format Converting begin in time:...
+2018-07-19 17:16:30,135 - DEBUG - data_preprocessing.py:803 - 1531991790.1359375
+2018-07-19 17:16:33,457 - DEBUG - data_preprocessing.py:808 - xgb_basis4 finish convert,the cost time is 
+2018-07-19 17:16:33,457 - DEBUG - data_preprocessing.py:809 - 3.322023868560791
+2018-07-19 17:16:33,484 - DEBUG - data_preprocessing.py:800 - xgb_basis5:cnt:383
+2018-07-19 17:16:33,484 - DEBUG - data_preprocessing.py:802 - xgb_basis5 Format Converting begin in time:...
+2018-07-19 17:16:33,484 - DEBUG - data_preprocessing.py:803 - 1531991793.484248
+2018-07-19 17:16:36,745 - DEBUG - data_preprocessing.py:808 - xgb_basis5 finish convert,the cost time is 
+2018-07-19 17:16:36,745 - DEBUG - data_preprocessing.py:809 - 3.2610604763031006
+2018-07-19 17:16:36,771 - DEBUG - data_preprocessing.py:800 - xgb_basis6:cnt:447
+2018-07-19 17:16:36,771 - DEBUG - data_preprocessing.py:802 - xgb_basis6 Format Converting begin in time:...
+2018-07-19 17:16:36,771 - DEBUG - data_preprocessing.py:803 - 1531991796.7717307
+2018-07-19 17:16:40,005 - DEBUG - data_preprocessing.py:808 - xgb_basis6 finish convert,the cost time is 
+2018-07-19 17:16:40,006 - DEBUG - data_preprocessing.py:809 - 3.234272003173828
+2018-07-19 17:16:40,032 - DEBUG - data_preprocessing.py:800 - xgb_basis7:cnt:511
+2018-07-19 17:16:40,032 - DEBUG - data_preprocessing.py:802 - xgb_basis7 Format Converting begin in time:...
+2018-07-19 17:16:40,032 - DEBUG - data_preprocessing.py:803 - 1531991800.032761
+2018-07-19 17:16:43,251 - DEBUG - data_preprocessing.py:808 - xgb_basis7 finish convert,the cost time is 
+2018-07-19 17:16:43,251 - DEBUG - data_preprocessing.py:809 - 3.2189879417419434
+2018-07-19 17:16:43,278 - DEBUG - data_preprocessing.py:800 - xgb_basis8:cnt:575
+2018-07-19 17:16:43,278 - DEBUG - data_preprocessing.py:802 - xgb_basis8 Format Converting begin in time:...
+2018-07-19 17:16:43,278 - DEBUG - data_preprocessing.py:803 - 1531991803.2788389
+2018-07-19 17:16:46,468 - DEBUG - data_preprocessing.py:808 - xgb_basis8 finish convert,the cost time is 
+2018-07-19 17:16:46,468 - DEBUG - data_preprocessing.py:809 - 3.189382314682007
+2018-07-19 17:16:46,493 - DEBUG - data_preprocessing.py:800 - xgb_basis9:cnt:639
+2018-07-19 17:16:46,494 - DEBUG - data_preprocessing.py:802 - xgb_basis9 Format Converting begin in time:...
+2018-07-19 17:16:46,494 - DEBUG - data_preprocessing.py:803 - 1531991806.494058
+2018-07-19 17:16:49,658 - DEBUG - data_preprocessing.py:808 - xgb_basis9 finish convert,the cost time is 
+2018-07-19 17:16:49,659 - DEBUG - data_preprocessing.py:809 - 3.165003776550293
+2018-07-19 17:16:49,685 - DEBUG - data_preprocessing.py:800 - xgb_basis10:cnt:703
+2018-07-19 17:16:49,685 - DEBUG - data_preprocessing.py:802 - xgb_basis10 Format Converting begin in time:...
+2018-07-19 17:16:49,685 - DEBUG - data_preprocessing.py:803 - 1531991809.6854842
+2018-07-19 17:16:52,840 - DEBUG - data_preprocessing.py:808 - xgb_basis10 finish convert,the cost time is 
+2018-07-19 17:16:52,840 - DEBUG - data_preprocessing.py:809 - 3.154752016067505
+2018-07-19 17:16:52,866 - DEBUG - data_preprocessing.py:800 - xgb_basis11:cnt:767
+2018-07-19 17:16:52,866 - DEBUG - data_preprocessing.py:802 - xgb_basis11 Format Converting begin in time:...
+2018-07-19 17:16:52,866 - DEBUG - data_preprocessing.py:803 - 1531991812.8666532
+2018-07-19 17:16:55,995 - DEBUG - data_preprocessing.py:808 - xgb_basis11 finish convert,the cost time is 
+2018-07-19 17:16:55,995 - DEBUG - data_preprocessing.py:809 - 3.12888503074646
+2018-07-19 17:16:56,022 - DEBUG - data_preprocessing.py:800 - xgb_basis12:cnt:831
+2018-07-19 17:16:56,022 - DEBUG - data_preprocessing.py:802 - xgb_basis12 Format Converting begin in time:...
+2018-07-19 17:16:56,022 - DEBUG - data_preprocessing.py:803 - 1531991816.0224323
+2018-07-19 17:16:59,118 - DEBUG - data_preprocessing.py:808 - xgb_basis12 finish convert,the cost time is 
+2018-07-19 17:16:59,118 - DEBUG - data_preprocessing.py:809 - 3.0964713096618652
+2018-07-19 17:16:59,145 - DEBUG - data_preprocessing.py:800 - xgb_basis13:cnt:895
+2018-07-19 17:16:59,145 - DEBUG - data_preprocessing.py:802 - xgb_basis13 Format Converting begin in time:...
+2018-07-19 17:16:59,145 - DEBUG - data_preprocessing.py:803 - 1531991819.1454194
+2018-07-19 17:17:02,236 - DEBUG - data_preprocessing.py:808 - xgb_basis13 finish convert,the cost time is 
+2018-07-19 17:17:02,236 - DEBUG - data_preprocessing.py:809 - 3.0914273262023926
+2018-07-19 17:17:02,263 - DEBUG - data_preprocessing.py:800 - xgb_basis14:cnt:959
+2018-07-19 17:17:02,263 - DEBUG - data_preprocessing.py:802 - xgb_basis14 Format Converting begin in time:...
+2018-07-19 17:17:02,263 - DEBUG - data_preprocessing.py:803 - 1531991822.2636483
+2018-07-19 17:17:05,306 - DEBUG - data_preprocessing.py:808 - xgb_basis14 finish convert,the cost time is 
+2018-07-19 17:17:05,306 - DEBUG - data_preprocessing.py:809 - 3.043210983276367
+2018-07-19 17:17:05,333 - DEBUG - data_preprocessing.py:800 - xgb_basis15:cnt:1023
+2018-07-19 17:17:05,333 - DEBUG - data_preprocessing.py:802 - xgb_basis15 Format Converting begin in time:...
+2018-07-19 17:17:05,333 - DEBUG - data_preprocessing.py:803 - 1531991825.33379
+2018-07-19 17:17:08,348 - DEBUG - data_preprocessing.py:808 - xgb_basis15 finish convert,the cost time is 
+2018-07-19 17:17:08,348 - DEBUG - data_preprocessing.py:809 - 3.0145037174224854
+2018-07-19 17:17:08,375 - DEBUG - data_preprocessing.py:800 - xgb_basis16:cnt:1087
+2018-07-19 17:17:08,375 - DEBUG - data_preprocessing.py:802 - xgb_basis16 Format Converting begin in time:...
+2018-07-19 17:17:08,375 - DEBUG - data_preprocessing.py:803 - 1531991828.3752897
+2018-07-19 17:17:11,368 - DEBUG - data_preprocessing.py:808 - xgb_basis16 finish convert,the cost time is 
+2018-07-19 17:17:11,368 - DEBUG - data_preprocessing.py:809 - 2.9931795597076416
+2018-07-19 17:17:11,395 - DEBUG - data_preprocessing.py:800 - xgb_basis17:cnt:1151
+2018-07-19 17:17:11,395 - DEBUG - data_preprocessing.py:802 - xgb_basis17 Format Converting begin in time:...
+2018-07-19 17:17:11,395 - DEBUG - data_preprocessing.py:803 - 1531991831.3951337
+2018-07-19 17:17:14,352 - DEBUG - data_preprocessing.py:808 - xgb_basis17 finish convert,the cost time is 
+2018-07-19 17:17:14,352 - DEBUG - data_preprocessing.py:809 - 2.9571995735168457
+2018-07-19 17:17:14,378 - DEBUG - data_preprocessing.py:800 - xgb_basis18:cnt:1215
+2018-07-19 17:17:14,379 - DEBUG - data_preprocessing.py:802 - xgb_basis18 Format Converting begin in time:...
+2018-07-19 17:17:14,379 - DEBUG - data_preprocessing.py:803 - 1531991834.3789935
+2018-07-19 17:17:17,309 - DEBUG - data_preprocessing.py:808 - xgb_basis18 finish convert,the cost time is 
+2018-07-19 17:17:17,309 - DEBUG - data_preprocessing.py:809 - 2.93051815032959
+2018-07-19 17:17:17,336 - DEBUG - data_preprocessing.py:800 - xgb_basis19:cnt:1279
+2018-07-19 17:17:17,336 - DEBUG - data_preprocessing.py:802 - xgb_basis19 Format Converting begin in time:...
+2018-07-19 17:17:17,336 - DEBUG - data_preprocessing.py:803 - 1531991837.3366961
+2018-07-19 17:17:20,251 - DEBUG - data_preprocessing.py:808 - xgb_basis19 finish convert,the cost time is 
+2018-07-19 17:17:20,251 - DEBUG - data_preprocessing.py:809 - 2.915290355682373
+2018-07-19 17:17:20,279 - DEBUG - data_preprocessing.py:800 - xgb_basis20:cnt:1343
+2018-07-19 17:17:20,279 - DEBUG - data_preprocessing.py:802 - xgb_basis20 Format Converting begin in time:...
+2018-07-19 17:17:20,279 - DEBUG - data_preprocessing.py:803 - 1531991840.2791963
+2018-07-19 17:17:23,172 - DEBUG - data_preprocessing.py:808 - xgb_basis20 finish convert,the cost time is 
+2018-07-19 17:17:23,172 - DEBUG - data_preprocessing.py:809 - 2.893317461013794
+2018-07-19 17:17:23,198 - DEBUG - data_preprocessing.py:800 - xgb_basis21:cnt:1407
+2018-07-19 17:17:23,199 - DEBUG - data_preprocessing.py:802 - xgb_basis21 Format Converting begin in time:...
+2018-07-19 17:17:23,199 - DEBUG - data_preprocessing.py:803 - 1531991843.1990225
+2018-07-19 17:17:26,074 - DEBUG - data_preprocessing.py:808 - xgb_basis21 finish convert,the cost time is 
+2018-07-19 17:17:26,074 - DEBUG - data_preprocessing.py:809 - 2.875885486602783
+2018-07-19 17:17:26,103 - DEBUG - data_preprocessing.py:800 - xgb_basis22:cnt:1471
+2018-07-19 17:17:26,103 - DEBUG - data_preprocessing.py:802 - xgb_basis22 Format Converting begin in time:...
+2018-07-19 17:17:26,103 - DEBUG - data_preprocessing.py:803 - 1531991846.1037986
+2018-07-19 17:17:28,931 - DEBUG - data_preprocessing.py:808 - xgb_basis22 finish convert,the cost time is 
+2018-07-19 17:17:28,931 - DEBUG - data_preprocessing.py:809 - 2.8279666900634766
+2018-07-19 17:17:28,958 - DEBUG - data_preprocessing.py:800 - xgb_basis23:cnt:1535
+2018-07-19 17:17:28,958 - DEBUG - data_preprocessing.py:802 - xgb_basis23 Format Converting begin in time:...
+2018-07-19 17:17:28,958 - DEBUG - data_preprocessing.py:803 - 1531991848.958824
+2018-07-19 17:17:31,775 - DEBUG - data_preprocessing.py:808 - xgb_basis23 finish convert,the cost time is 
+2018-07-19 17:17:31,775 - DEBUG - data_preprocessing.py:809 - 2.816831350326538
+2018-07-19 17:17:31,802 - DEBUG - data_preprocessing.py:800 - xgb_basis24:cnt:1599
+2018-07-19 17:17:31,803 - DEBUG - data_preprocessing.py:802 - xgb_basis24 Format Converting begin in time:...
+2018-07-19 17:17:31,803 - DEBUG - data_preprocessing.py:803 - 1531991851.8030677
+2018-07-19 17:17:34,617 - DEBUG - data_preprocessing.py:808 - xgb_basis24 finish convert,the cost time is 
+2018-07-19 17:17:34,617 - DEBUG - data_preprocessing.py:809 - 2.8147218227386475
+2018-07-19 17:17:34,643 - DEBUG - data_preprocessing.py:800 - xgb_basis25:cnt:1663
+2018-07-19 17:17:34,644 - DEBUG - data_preprocessing.py:802 - xgb_basis25 Format Converting begin in time:...
+2018-07-19 17:17:34,644 - DEBUG - data_preprocessing.py:803 - 1531991854.6440556
+2018-07-19 17:17:37,409 - DEBUG - data_preprocessing.py:808 - xgb_basis25 finish convert,the cost time is 
+2018-07-19 17:17:37,409 - DEBUG - data_preprocessing.py:809 - 2.765674114227295
+2018-07-19 17:17:37,436 - DEBUG - data_preprocessing.py:800 - xgb_basis26:cnt:1727
+2018-07-19 17:17:37,436 - DEBUG - data_preprocessing.py:802 - xgb_basis26 Format Converting begin in time:...
+2018-07-19 17:17:37,436 - DEBUG - data_preprocessing.py:803 - 1531991857.436845
+2018-07-19 17:17:40,180 - DEBUG - data_preprocessing.py:808 - xgb_basis26 finish convert,the cost time is 
+2018-07-19 17:17:40,180 - DEBUG - data_preprocessing.py:809 - 2.7437260150909424
+2018-07-19 17:17:40,207 - DEBUG - data_preprocessing.py:800 - xgb_basis27:cnt:1791
+2018-07-19 17:17:40,207 - DEBUG - data_preprocessing.py:802 - xgb_basis27 Format Converting begin in time:...
+2018-07-19 17:17:40,207 - DEBUG - data_preprocessing.py:803 - 1531991860.2075434
+2018-07-19 17:17:42,916 - DEBUG - data_preprocessing.py:808 - xgb_basis27 finish convert,the cost time is 
+2018-07-19 17:17:42,916 - DEBUG - data_preprocessing.py:809 - 2.709005117416382
+2018-07-19 17:17:42,943 - DEBUG - data_preprocessing.py:800 - xgb_basis28:cnt:1855
+2018-07-19 17:17:42,943 - DEBUG - data_preprocessing.py:802 - xgb_basis28 Format Converting begin in time:...
+2018-07-19 17:17:42,943 - DEBUG - data_preprocessing.py:803 - 1531991862.9438336
+2018-07-19 17:17:45,628 - DEBUG - data_preprocessing.py:808 - xgb_basis28 finish convert,the cost time is 
+2018-07-19 17:17:45,628 - DEBUG - data_preprocessing.py:809 - 2.6844961643218994
+2018-07-19 17:17:45,654 - DEBUG - data_preprocessing.py:800 - xgb_basis29:cnt:1919
+2018-07-19 17:17:45,654 - DEBUG - data_preprocessing.py:802 - xgb_basis29 Format Converting begin in time:...
+2018-07-19 17:17:45,654 - DEBUG - data_preprocessing.py:803 - 1531991865.6548085
+2018-07-19 17:17:48,309 - DEBUG - data_preprocessing.py:808 - xgb_basis29 finish convert,the cost time is 
+2018-07-19 17:17:48,309 - DEBUG - data_preprocessing.py:809 - 2.6551289558410645
+2018-07-19 17:17:48,336 - DEBUG - data_preprocessing.py:800 - xgb_basis30:cnt:1983
+2018-07-19 17:17:48,336 - DEBUG - data_preprocessing.py:802 - xgb_basis30 Format Converting begin in time:...
+2018-07-19 17:17:48,336 - DEBUG - data_preprocessing.py:803 - 1531991868.3368075
+2018-07-19 17:17:50,963 - DEBUG - data_preprocessing.py:808 - xgb_basis30 finish convert,the cost time is 
+2018-07-19 17:17:50,963 - DEBUG - data_preprocessing.py:809 - 2.6270782947540283
+2018-07-19 17:17:50,990 - DEBUG - data_preprocessing.py:800 - xgb_basis31:cnt:2047
+2018-07-19 17:17:50,990 - DEBUG - data_preprocessing.py:802 - xgb_basis31 Format Converting begin in time:...
+2018-07-19 17:17:50,990 - DEBUG - data_preprocessing.py:803 - 1531991870.9907453
+2018-07-19 17:17:53,585 - DEBUG - data_preprocessing.py:808 - xgb_basis31 finish convert,the cost time is 
+2018-07-19 17:17:53,585 - DEBUG - data_preprocessing.py:809 - 2.5947587490081787
+2018-07-19 17:17:53,612 - DEBUG - data_preprocessing.py:800 - xgb_basis32:cnt:2109
+2018-07-19 17:17:53,612 - DEBUG - data_preprocessing.py:802 - xgb_basis32 Format Converting begin in time:...
+2018-07-19 17:17:53,612 - DEBUG - data_preprocessing.py:803 - 1531991873.6127918
+2018-07-19 17:17:56,178 - DEBUG - data_preprocessing.py:808 - xgb_basis32 finish convert,the cost time is 
+2018-07-19 17:17:56,178 - DEBUG - data_preprocessing.py:809 - 2.566013813018799
+2018-07-19 17:17:56,205 - DEBUG - data_preprocessing.py:800 - xgb_basis33:cnt:2172
+2018-07-19 17:17:56,205 - DEBUG - data_preprocessing.py:802 - xgb_basis33 Format Converting begin in time:...
+2018-07-19 17:17:56,205 - DEBUG - data_preprocessing.py:803 - 1531991876.2051902
+2018-07-19 17:17:58,762 - DEBUG - data_preprocessing.py:808 - xgb_basis33 finish convert,the cost time is 
+2018-07-19 17:17:58,762 - DEBUG - data_preprocessing.py:809 - 2.5574827194213867
+2018-07-19 17:17:58,789 - DEBUG - data_preprocessing.py:800 - xgb_basis34:cnt:2236
+2018-07-19 17:17:58,789 - DEBUG - data_preprocessing.py:802 - xgb_basis34 Format Converting begin in time:...
+2018-07-19 17:17:58,789 - DEBUG - data_preprocessing.py:803 - 1531991878.7893827
+2018-07-19 17:18:01,299 - DEBUG - data_preprocessing.py:808 - xgb_basis34 finish convert,the cost time is 
+2018-07-19 17:18:01,300 - DEBUG - data_preprocessing.py:809 - 2.510740041732788
+2018-07-19 17:18:01,327 - DEBUG - data_preprocessing.py:800 - xgb_basis35:cnt:2297
+2018-07-19 17:18:01,327 - DEBUG - data_preprocessing.py:802 - xgb_basis35 Format Converting begin in time:...
+2018-07-19 17:18:01,327 - DEBUG - data_preprocessing.py:803 - 1531991881.327154
+2018-07-19 17:18:03,824 - DEBUG - data_preprocessing.py:808 - xgb_basis35 finish convert,the cost time is 
+2018-07-19 17:18:03,824 - DEBUG - data_preprocessing.py:809 - 2.497330665588379
+2018-07-19 17:18:03,851 - DEBUG - data_preprocessing.py:800 - xgb_basis36:cnt:2361
+2018-07-19 17:18:03,852 - DEBUG - data_preprocessing.py:802 - xgb_basis36 Format Converting begin in time:...
+2018-07-19 17:18:03,852 - DEBUG - data_preprocessing.py:803 - 1531991883.8520577
+2018-07-19 17:18:06,321 - DEBUG - data_preprocessing.py:808 - xgb_basis36 finish convert,the cost time is 
+2018-07-19 17:18:06,321 - DEBUG - data_preprocessing.py:809 - 2.4695818424224854
+2018-07-19 17:18:06,348 - DEBUG - data_preprocessing.py:800 - xgb_basis37:cnt:2425
+2018-07-19 17:18:06,348 - DEBUG - data_preprocessing.py:802 - xgb_basis37 Format Converting begin in time:...
+2018-07-19 17:18:06,348 - DEBUG - data_preprocessing.py:803 - 1531991886.34828
+2018-07-19 17:18:08,786 - DEBUG - data_preprocessing.py:808 - xgb_basis37 finish convert,the cost time is 
+2018-07-19 17:18:08,786 - DEBUG - data_preprocessing.py:809 - 2.4385087490081787
+2018-07-19 17:18:08,814 - DEBUG - data_preprocessing.py:800 - xgb_basis38:cnt:2489
+2018-07-19 17:18:08,814 - DEBUG - data_preprocessing.py:802 - xgb_basis38 Format Converting begin in time:...
+2018-07-19 17:18:08,814 - DEBUG - data_preprocessing.py:803 - 1531991888.8141844
+2018-07-19 17:18:11,222 - DEBUG - data_preprocessing.py:808 - xgb_basis38 finish convert,the cost time is 
+2018-07-19 17:18:11,222 - DEBUG - data_preprocessing.py:809 - 2.408034086227417
+2018-07-19 17:18:11,249 - DEBUG - data_preprocessing.py:800 - xgb_basis39:cnt:2553
+2018-07-19 17:18:11,249 - DEBUG - data_preprocessing.py:802 - xgb_basis39 Format Converting begin in time:...
+2018-07-19 17:18:11,249 - DEBUG - data_preprocessing.py:803 - 1531991891.2492187
+2018-07-19 17:18:13,659 - DEBUG - data_preprocessing.py:808 - xgb_basis39 finish convert,the cost time is 
+2018-07-19 17:18:13,659 - DEBUG - data_preprocessing.py:809 - 2.409909248352051
+2018-07-19 17:18:13,686 - DEBUG - data_preprocessing.py:800 - xgb_basis40:cnt:2617
+2018-07-19 17:18:13,686 - DEBUG - data_preprocessing.py:802 - xgb_basis40 Format Converting begin in time:...
+2018-07-19 17:18:13,686 - DEBUG - data_preprocessing.py:803 - 1531991893.6868095
+2018-07-19 17:18:16,052 - DEBUG - data_preprocessing.py:808 - xgb_basis40 finish convert,the cost time is 
+2018-07-19 17:18:16,052 - DEBUG - data_preprocessing.py:809 - 2.366029977798462
+2018-07-19 17:18:16,079 - DEBUG - data_preprocessing.py:800 - xgb_basis41:cnt:2681
+2018-07-19 17:18:16,079 - DEBUG - data_preprocessing.py:802 - xgb_basis41 Format Converting begin in time:...
+2018-07-19 17:18:16,079 - DEBUG - data_preprocessing.py:803 - 1531991896.079266
+2018-07-19 17:18:18,440 - DEBUG - data_preprocessing.py:808 - xgb_basis41 finish convert,the cost time is 
+2018-07-19 17:18:18,440 - DEBUG - data_preprocessing.py:809 - 2.3616154193878174
+2018-07-19 17:18:18,467 - DEBUG - data_preprocessing.py:800 - xgb_basis42:cnt:2745
+2018-07-19 17:18:18,467 - DEBUG - data_preprocessing.py:802 - xgb_basis42 Format Converting begin in time:...
+2018-07-19 17:18:18,467 - DEBUG - data_preprocessing.py:803 - 1531991898.4675374
+2018-07-19 17:18:20,802 - DEBUG - data_preprocessing.py:808 - xgb_basis42 finish convert,the cost time is 
+2018-07-19 17:18:20,802 - DEBUG - data_preprocessing.py:809 - 2.334739923477173
+2018-07-19 17:18:20,829 - DEBUG - data_preprocessing.py:800 - xgb_basis43:cnt:2809
+2018-07-19 17:18:20,829 - DEBUG - data_preprocessing.py:802 - xgb_basis43 Format Converting begin in time:...
+2018-07-19 17:18:20,829 - DEBUG - data_preprocessing.py:803 - 1531991900.829535
+2018-07-19 17:18:23,131 - DEBUG - data_preprocessing.py:808 - xgb_basis43 finish convert,the cost time is 
+2018-07-19 17:18:23,131 - DEBUG - data_preprocessing.py:809 - 2.302231550216675
+2018-07-19 17:18:23,158 - DEBUG - data_preprocessing.py:800 - xgb_basis44:cnt:2872
+2018-07-19 17:18:23,158 - DEBUG - data_preprocessing.py:802 - xgb_basis44 Format Converting begin in time:...
+2018-07-19 17:18:23,158 - DEBUG - data_preprocessing.py:803 - 1531991903.1589658
+2018-07-19 17:18:25,419 - DEBUG - data_preprocessing.py:808 - xgb_basis44 finish convert,the cost time is 
+2018-07-19 17:18:25,419 - DEBUG - data_preprocessing.py:809 - 2.2609219551086426
+2018-07-19 17:18:25,446 - DEBUG - data_preprocessing.py:800 - xgb_basis45:cnt:2935
+2018-07-19 17:18:25,446 - DEBUG - data_preprocessing.py:802 - xgb_basis45 Format Converting begin in time:...
+2018-07-19 17:18:25,446 - DEBUG - data_preprocessing.py:803 - 1531991905.4464219
+2018-07-19 17:18:27,671 - DEBUG - data_preprocessing.py:808 - xgb_basis45 finish convert,the cost time is 
+2018-07-19 17:18:27,671 - DEBUG - data_preprocessing.py:809 - 2.2252955436706543
+2018-07-19 17:18:27,698 - DEBUG - data_preprocessing.py:800 - xgb_basis46:cnt:2995
+2018-07-19 17:18:27,698 - DEBUG - data_preprocessing.py:802 - xgb_basis46 Format Converting begin in time:...
+2018-07-19 17:18:27,698 - DEBUG - data_preprocessing.py:803 - 1531991907.6984432
+2018-07-19 17:18:29,900 - DEBUG - data_preprocessing.py:808 - xgb_basis46 finish convert,the cost time is 
+2018-07-19 17:18:29,900 - DEBUG - data_preprocessing.py:809 - 2.2021474838256836
+2018-07-19 17:18:29,928 - DEBUG - data_preprocessing.py:800 - xgb_basis47:cnt:3059
+2018-07-19 17:18:29,929 - DEBUG - data_preprocessing.py:802 - xgb_basis47 Format Converting begin in time:...
+2018-07-19 17:18:29,929 - DEBUG - data_preprocessing.py:803 - 1531991909.9290633
+2018-07-19 17:18:32,109 - DEBUG - data_preprocessing.py:808 - xgb_basis47 finish convert,the cost time is 
+2018-07-19 17:18:32,109 - DEBUG - data_preprocessing.py:809 - 2.180542230606079
+2018-07-19 17:18:32,136 - DEBUG - data_preprocessing.py:800 - xgb_basis48:cnt:3123
+2018-07-19 17:18:32,136 - DEBUG - data_preprocessing.py:802 - xgb_basis48 Format Converting begin in time:...
+2018-07-19 17:18:32,137 - DEBUG - data_preprocessing.py:803 - 1531991912.1369705
+2018-07-19 17:18:34,300 - DEBUG - data_preprocessing.py:808 - xgb_basis48 finish convert,the cost time is 
+2018-07-19 17:18:34,300 - DEBUG - data_preprocessing.py:809 - 2.163679361343384
+2018-07-19 17:18:34,326 - DEBUG - data_preprocessing.py:800 - xgb_basis49:cnt:3187
+2018-07-19 17:18:34,327 - DEBUG - data_preprocessing.py:802 - xgb_basis49 Format Converting begin in time:...
+2018-07-19 17:18:34,327 - DEBUG - data_preprocessing.py:803 - 1531991914.3270874
+2018-07-19 17:18:36,461 - DEBUG - data_preprocessing.py:808 - xgb_basis49 finish convert,the cost time is 
+2018-07-19 17:18:36,461 - DEBUG - data_preprocessing.py:809 - 2.134897470474243
+2018-07-19 17:18:36,489 - DEBUG - data_preprocessing.py:800 - xgb_basis50:cnt:3251
+2018-07-19 17:18:36,489 - DEBUG - data_preprocessing.py:802 - xgb_basis50 Format Converting begin in time:...
+2018-07-19 17:18:36,489 - DEBUG - data_preprocessing.py:803 - 1531991916.4892495
+2018-07-19 17:18:38,587 - DEBUG - data_preprocessing.py:808 - xgb_basis50 finish convert,the cost time is 
+2018-07-19 17:18:38,587 - DEBUG - data_preprocessing.py:809 - 2.0982320308685303
+2018-07-19 17:18:38,613 - DEBUG - data_preprocessing.py:800 - xgb_basis51:cnt:3313
+2018-07-19 17:18:38,614 - DEBUG - data_preprocessing.py:802 - xgb_basis51 Format Converting begin in time:...
+2018-07-19 17:18:38,614 - DEBUG - data_preprocessing.py:803 - 1531991918.614091
+2018-07-19 17:18:40,685 - DEBUG - data_preprocessing.py:808 - xgb_basis51 finish convert,the cost time is 
+2018-07-19 17:18:40,685 - DEBUG - data_preprocessing.py:809 - 2.07148814201355
+2018-07-19 17:18:40,713 - DEBUG - data_preprocessing.py:800 - xgb_basis52:cnt:3377
+2018-07-19 17:18:40,713 - DEBUG - data_preprocessing.py:802 - xgb_basis52 Format Converting begin in time:...
+2018-07-19 17:18:40,713 - DEBUG - data_preprocessing.py:803 - 1531991920.7132032
+2018-07-19 17:18:42,751 - DEBUG - data_preprocessing.py:808 - xgb_basis52 finish convert,the cost time is 
+2018-07-19 17:18:42,751 - DEBUG - data_preprocessing.py:809 - 2.038496494293213
+2018-07-19 17:18:42,777 - DEBUG - data_preprocessing.py:800 - xgb_basis53:cnt:3435
+2018-07-19 17:18:42,777 - DEBUG - data_preprocessing.py:802 - xgb_basis53 Format Converting begin in time:...
+2018-07-19 17:18:42,777 - DEBUG - data_preprocessing.py:803 - 1531991922.777802
+2018-07-19 17:18:44,791 - DEBUG - data_preprocessing.py:808 - xgb_basis53 finish convert,the cost time is 
+2018-07-19 17:18:44,791 - DEBUG - data_preprocessing.py:809 - 2.0136961936950684
+2018-07-19 17:18:44,818 - DEBUG - data_preprocessing.py:800 - xgb_basis54:cnt:3499
+2018-07-19 17:18:44,818 - DEBUG - data_preprocessing.py:802 - xgb_basis54 Format Converting begin in time:...
+2018-07-19 17:18:44,818 - DEBUG - data_preprocessing.py:803 - 1531991924.8185048
+2018-07-19 17:18:46,807 - DEBUG - data_preprocessing.py:808 - xgb_basis54 finish convert,the cost time is 
+2018-07-19 17:18:46,807 - DEBUG - data_preprocessing.py:809 - 1.9893567562103271
+2018-07-19 17:18:46,834 - DEBUG - data_preprocessing.py:800 - xgb_basis55:cnt:3561
+2018-07-19 17:18:46,835 - DEBUG - data_preprocessing.py:802 - xgb_basis55 Format Converting begin in time:...
+2018-07-19 17:18:46,835 - DEBUG - data_preprocessing.py:803 - 1531991926.8350365
+2018-07-19 17:18:48,795 - DEBUG - data_preprocessing.py:808 - xgb_basis55 finish convert,the cost time is 
+2018-07-19 17:18:48,795 - DEBUG - data_preprocessing.py:809 - 1.960329532623291
+2018-07-19 17:18:48,822 - DEBUG - data_preprocessing.py:800 - xgb_basis56:cnt:3622
+2018-07-19 17:18:48,822 - DEBUG - data_preprocessing.py:802 - xgb_basis56 Format Converting begin in time:...
+2018-07-19 17:18:48,822 - DEBUG - data_preprocessing.py:803 - 1531991928.8223555
+2018-07-19 17:18:50,762 - DEBUG - data_preprocessing.py:808 - xgb_basis56 finish convert,the cost time is 
+2018-07-19 17:18:50,762 - DEBUG - data_preprocessing.py:809 - 1.940215826034546
+2018-07-19 17:18:50,788 - DEBUG - data_preprocessing.py:800 - xgb_basis57:cnt:3681
+2018-07-19 17:18:50,788 - DEBUG - data_preprocessing.py:802 - xgb_basis57 Format Converting begin in time:...
+2018-07-19 17:18:50,788 - DEBUG - data_preprocessing.py:803 - 1531991930.7887893
+2018-07-19 17:18:52,724 - DEBUG - data_preprocessing.py:808 - xgb_basis57 finish convert,the cost time is 
+2018-07-19 17:18:52,725 - DEBUG - data_preprocessing.py:809 - 1.9363253116607666
+2018-07-19 17:18:52,771 - DEBUG - data_preprocessing.py:800 - xgb_basis58:cnt:3744
+2018-07-19 17:18:52,771 - DEBUG - data_preprocessing.py:802 - xgb_basis58 Format Converting begin in time:...
+2018-07-19 17:18:52,771 - DEBUG - data_preprocessing.py:803 - 1531991932.7715511
+2018-07-19 17:18:54,740 - DEBUG - data_preprocessing.py:808 - xgb_basis58 finish convert,the cost time is 
+2018-07-19 17:18:54,740 - DEBUG - data_preprocessing.py:809 - 1.9686598777770996
+2018-07-19 17:18:54,786 - DEBUG - data_preprocessing.py:800 - xgb_basis59:cnt:3808
+2018-07-19 17:18:54,786 - DEBUG - data_preprocessing.py:802 - xgb_basis59 Format Converting begin in time:...
+2018-07-19 17:18:54,786 - DEBUG - data_preprocessing.py:803 - 1531991934.7862387
+2018-07-19 17:18:56,722 - DEBUG - data_preprocessing.py:808 - xgb_basis59 finish convert,the cost time is 
+2018-07-19 17:18:56,722 - DEBUG - data_preprocessing.py:809 - 1.9367129802703857
+2018-07-19 17:19:13,214 - DEBUG - data_preprocessing.py:817 - 16.4914972782135
+2018-07-19 17:20:24,464 - DEBUG - data_preprocessing.py:825 - finish convert,the cost time is 
+2018-07-19 17:20:24,464 - DEBUG - data_preprocessing.py:826 - 87.74137735366821
+2018-07-19 17:20:24,464 - DEBUG - data_preprocessing.py:827 - [Done]
+2018-07-19 17:20:24,465 - DEBUG - data_preprocessing.py:829 -    click xgb_basis0 xgb_basis1 xgb_basis2 xgb_basis3 xgb_basis4 xgb_basis5  \
+0      0     0:35:1     1:21:1     2:53:1     3:19:1     4:55:1     5:19:1   
+1      0      0:2:1      1:4:1     2:16:1     3:13:1     4:17:1     5:14:1   
+
+  xgb_basis6 xgb_basis7 xgb_basis8     ...     xgb_basis50 xgb_basis51  \
+0     6:17:1     7:26:1     8:54:1     ...         50:56:1     51:31:1   
+1     6:24:1      7:9:1     8:29:1     ...         50:56:1     51:37:1   
+
+  xgb_basis52 xgb_basis53 xgb_basis54 xgb_basis55 xgb_basis56 xgb_basis57  \
+0     52:56:1     53:24:1     54:53:1     55:56:1     56:30:1      57:0:1   
+1     52:23:1      53:0:1     54:49:1     55:16:1     56:28:1      57:0:1   
+
+  xgb_basis58 xgb_basis59  
+0     58:37:1     59:62:1  
+1     58:30:1     59:33:1  
+
+[2 rows x 61 columns]
+2018-07-19 17:20:24,492 - DEBUG - data_preprocessing.py:830 - (6064345, 61)
+2018-07-19 17:20:28,885 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 1)
+2018-07-19 17:20:28,885 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 5)
+2018-07-19 17:20:28,939 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 6)
+2018-07-19 17:20:28,939 - DEBUG - data_preprocessing.py:239 - 耗时0.05430459976196289
+2018-07-19 17:21:02,920 - DEBUG - data_preprocessing.py:234 - data1.shape:(6064345, 6)
+2018-07-19 17:21:02,920 - DEBUG - data_preprocessing.py:235 - data2.shape:(6064345, 60)
+2018-07-19 17:21:04,700 - DEBUG - data_preprocessing.py:238 - 结果.shape:(6064345, 66)
+2018-07-19 17:21:04,701 - DEBUG - data_preprocessing.py:239 - 耗时1.780146837234497
+2018-07-19 17:21:04,793 - DEBUG - data_preprocessing.py:841 - Index(['click', 'one_day', 'one_day_hour', 'day_hour_prev', 'day_hour_next',
+       'is_work_day', 'xgb_basis0', 'xgb_basis1', 'xgb_basis2', 'xgb_basis3',
+       'xgb_basis4', 'xgb_basis5', 'xgb_basis6', 'xgb_basis7', 'xgb_basis8',
+       'xgb_basis9', 'xgb_basis10', 'xgb_basis11', 'xgb_basis12',
+       'xgb_basis13', 'xgb_basis14', 'xgb_basis15', 'xgb_basis16',
+       'xgb_basis17', 'xgb_basis18', 'xgb_basis19', 'xgb_basis20',
+       'xgb_basis21', 'xgb_basis22', 'xgb_basis23', 'xgb_basis24',
+       'xgb_basis25', 'xgb_basis26', 'xgb_basis27', 'xgb_basis28',
+       'xgb_basis29', 'xgb_basis30', 'xgb_basis31', 'xgb_basis32',
+       'xgb_basis33', 'xgb_basis34', 'xgb_basis35', 'xgb_basis36',
+       'xgb_basis37', 'xgb_basis38', 'xgb_basis39', 'xgb_basis40',
+       'xgb_basis41', 'xgb_basis42', 'xgb_basis43', 'xgb_basis44',
+       'xgb_basis45', 'xgb_basis46', 'xgb_basis47', 'xgb_basis48',
+       'xgb_basis49', 'xgb_basis50', 'xgb_basis51', 'xgb_basis52',
+       'xgb_basis53', 'xgb_basis54', 'xgb_basis55', 'xgb_basis56',
+       'xgb_basis57', 'xgb_basis58', 'xgb_basis59'],
+      dtype='object')
+2018-07-19 17:21:04,793 - DEBUG - data_preprocessing.py:845 - (6064345, 66)
+2018-07-19 17:21:04,794 - DEBUG - data_preprocessing.py:852 - (6064345, 66)
+2018-07-19 17:21:11,928 - DEBUG - data_preprocessing.py:865 - one_day Format Converting begin in time:...
+2018-07-19 17:21:11,928 - DEBUG - data_preprocessing.py:866 - 1531992071.9286149
+2018-07-19 17:21:15,494 - DEBUG - data_preprocessing.py:871 - one_day finish convert,the cost time is 
+2018-07-19 17:21:15,494 - DEBUG - data_preprocessing.py:872 - 3.565786123275757
+2018-07-19 17:21:15,494 - DEBUG - data_preprocessing.py:865 - one_day_hour Format Converting begin in time:...
+2018-07-19 17:21:15,494 - DEBUG - data_preprocessing.py:866 - 1531992075.4944355
+2018-07-19 17:21:19,012 - DEBUG - data_preprocessing.py:871 - one_day_hour finish convert,the cost time is 
+2018-07-19 17:21:19,012 - DEBUG - data_preprocessing.py:872 - 3.5181589126586914
+2018-07-19 17:21:19,012 - DEBUG - data_preprocessing.py:865 - day_hour_prev Format Converting begin in time:...
+2018-07-19 17:21:19,012 - DEBUG - data_preprocessing.py:866 - 1531992079.0126288
+2018-07-19 17:21:22,511 - DEBUG - data_preprocessing.py:871 - day_hour_prev finish convert,the cost time is 
+2018-07-19 17:21:22,511 - DEBUG - data_preprocessing.py:872 - 3.4986186027526855
+2018-07-19 17:21:22,511 - DEBUG - data_preprocessing.py:865 - day_hour_next Format Converting begin in time:...
+2018-07-19 17:21:22,511 - DEBUG - data_preprocessing.py:866 - 1531992082.5112827
+2018-07-19 17:21:25,974 - DEBUG - data_preprocessing.py:871 - day_hour_next finish convert,the cost time is 
+2018-07-19 17:21:25,974 - DEBUG - data_preprocessing.py:872 - 3.4631588459014893
+2018-07-19 17:21:25,974 - DEBUG - data_preprocessing.py:865 - is_work_day Format Converting begin in time:...
+2018-07-19 17:21:25,974 - DEBUG - data_preprocessing.py:866 - 1531992085.974476
+2018-07-19 17:21:29,437 - DEBUG - data_preprocessing.py:871 - is_work_day finish convert,the cost time is 
+2018-07-19 17:21:29,437 - DEBUG - data_preprocessing.py:872 - 3.4632601737976074
+2018-07-19 17:21:29,437 - DEBUG - data_preprocessing.py:865 - xgb_basis0 Format Converting begin in time:...
+2018-07-19 17:21:29,437 - DEBUG - data_preprocessing.py:866 - 1531992089.4377706
+2018-07-19 17:21:32,891 - DEBUG - data_preprocessing.py:871 - xgb_basis0 finish convert,the cost time is 
+2018-07-19 17:21:32,891 - DEBUG - data_preprocessing.py:872 - 3.453848361968994
+2018-07-19 17:21:32,891 - DEBUG - data_preprocessing.py:865 - xgb_basis1 Format Converting begin in time:...
+2018-07-19 17:21:32,891 - DEBUG - data_preprocessing.py:866 - 1531992092.8916547
+2018-07-19 17:21:36,322 - DEBUG - data_preprocessing.py:871 - xgb_basis1 finish convert,the cost time is 
+2018-07-19 17:21:36,322 - DEBUG - data_preprocessing.py:872 - 3.4308183193206787
+2018-07-19 17:21:36,322 - DEBUG - data_preprocessing.py:865 - xgb_basis2 Format Converting begin in time:...
+2018-07-19 17:21:36,322 - DEBUG - data_preprocessing.py:866 - 1531992096.32252
+2018-07-19 17:21:39,702 - DEBUG - data_preprocessing.py:871 - xgb_basis2 finish convert,the cost time is 
+2018-07-19 17:21:39,702 - DEBUG - data_preprocessing.py:872 - 3.37986159324646
+2018-07-19 17:21:39,702 - DEBUG - data_preprocessing.py:865 - xgb_basis3 Format Converting begin in time:...
+2018-07-19 17:21:39,702 - DEBUG - data_preprocessing.py:866 - 1531992099.702416
+2018-07-19 17:21:43,070 - DEBUG - data_preprocessing.py:871 - xgb_basis3 finish convert,the cost time is 
+2018-07-19 17:21:43,070 - DEBUG - data_preprocessing.py:872 - 3.368253469467163
+2018-07-19 17:21:43,070 - DEBUG - data_preprocessing.py:865 - xgb_basis4 Format Converting begin in time:...
+2018-07-19 17:21:43,070 - DEBUG - data_preprocessing.py:866 - 1531992103.070703
+2018-07-19 17:21:46,401 - DEBUG - data_preprocessing.py:871 - xgb_basis4 finish convert,the cost time is 
+2018-07-19 17:21:46,402 - DEBUG - data_preprocessing.py:872 - 3.331346035003662
+2018-07-19 17:21:46,402 - DEBUG - data_preprocessing.py:865 - xgb_basis5 Format Converting begin in time:...
+2018-07-19 17:21:46,402 - DEBUG - data_preprocessing.py:866 - 1531992106.402085
+2018-07-19 17:21:49,731 - DEBUG - data_preprocessing.py:871 - xgb_basis5 finish convert,the cost time is 
+2018-07-19 17:21:49,731 - DEBUG - data_preprocessing.py:872 - 3.329374074935913
+2018-07-19 17:21:49,731 - DEBUG - data_preprocessing.py:865 - xgb_basis6 Format Converting begin in time:...
+2018-07-19 17:21:49,731 - DEBUG - data_preprocessing.py:866 - 1531992109.7314935
+2018-07-19 17:21:53,018 - DEBUG - data_preprocessing.py:871 - xgb_basis6 finish convert,the cost time is 
+2018-07-19 17:21:53,018 - DEBUG - data_preprocessing.py:872 - 3.2868635654449463
+2018-07-19 17:21:53,018 - DEBUG - data_preprocessing.py:865 - xgb_basis7 Format Converting begin in time:...
+2018-07-19 17:21:53,018 - DEBUG - data_preprocessing.py:866 - 1531992113.0183904
+2018-07-19 17:21:56,295 - DEBUG - data_preprocessing.py:871 - xgb_basis7 finish convert,the cost time is 
+2018-07-19 17:21:56,295 - DEBUG - data_preprocessing.py:872 - 3.2770235538482666
+2018-07-19 17:21:56,295 - DEBUG - data_preprocessing.py:865 - xgb_basis8 Format Converting begin in time:...
+2018-07-19 17:21:56,295 - DEBUG - data_preprocessing.py:866 - 1531992116.2954493
+2018-07-19 17:21:59,526 - DEBUG - data_preprocessing.py:871 - xgb_basis8 finish convert,the cost time is 
+2018-07-19 17:21:59,526 - DEBUG - data_preprocessing.py:872 - 3.2309484481811523
+2018-07-19 17:21:59,526 - DEBUG - data_preprocessing.py:865 - xgb_basis9 Format Converting begin in time:...
+2018-07-19 17:21:59,526 - DEBUG - data_preprocessing.py:866 - 1531992119.5264328
+2018-07-19 17:22:02,744 - DEBUG - data_preprocessing.py:871 - xgb_basis9 finish convert,the cost time is 
+2018-07-19 17:22:02,744 - DEBUG - data_preprocessing.py:872 - 3.2181241512298584
+2018-07-19 17:22:02,744 - DEBUG - data_preprocessing.py:865 - xgb_basis10 Format Converting begin in time:...
+2018-07-19 17:22:02,744 - DEBUG - data_preprocessing.py:866 - 1531992122.7445917
+2018-07-19 17:22:05,936 - DEBUG - data_preprocessing.py:871 - xgb_basis10 finish convert,the cost time is 
+2018-07-19 17:22:05,936 - DEBUG - data_preprocessing.py:872 - 3.191817045211792
+2018-07-19 17:22:05,936 - DEBUG - data_preprocessing.py:865 - xgb_basis11 Format Converting begin in time:...
+2018-07-19 17:22:05,936 - DEBUG - data_preprocessing.py:866 - 1531992125.9364445
+2018-07-19 17:22:09,097 - DEBUG - data_preprocessing.py:871 - xgb_basis11 finish convert,the cost time is 
+2018-07-19 17:22:09,097 - DEBUG - data_preprocessing.py:872 - 3.1611268520355225
+2018-07-19 17:22:09,097 - DEBUG - data_preprocessing.py:865 - xgb_basis12 Format Converting begin in time:...
+2018-07-19 17:22:09,097 - DEBUG - data_preprocessing.py:866 - 1531992129.0976067
+2018-07-19 17:22:12,240 - DEBUG - data_preprocessing.py:871 - xgb_basis12 finish convert,the cost time is 
+2018-07-19 17:22:12,241 - DEBUG - data_preprocessing.py:872 - 3.1434998512268066
+2018-07-19 17:22:12,241 - DEBUG - data_preprocessing.py:865 - xgb_basis13 Format Converting begin in time:...
+2018-07-19 17:22:12,241 - DEBUG - data_preprocessing.py:866 - 1531992132.2411442
+2018-07-19 17:22:15,399 - DEBUG - data_preprocessing.py:871 - xgb_basis13 finish convert,the cost time is 
+2018-07-19 17:22:15,400 - DEBUG - data_preprocessing.py:872 - 3.1589231491088867
+2018-07-19 17:22:15,400 - DEBUG - data_preprocessing.py:865 - xgb_basis14 Format Converting begin in time:...
+2018-07-19 17:22:15,400 - DEBUG - data_preprocessing.py:866 - 1531992135.4001024
+2018-07-19 17:22:18,496 - DEBUG - data_preprocessing.py:871 - xgb_basis14 finish convert,the cost time is 
+2018-07-19 17:22:18,496 - DEBUG - data_preprocessing.py:872 - 3.096134901046753
+2018-07-19 17:22:18,496 - DEBUG - data_preprocessing.py:865 - xgb_basis15 Format Converting begin in time:...
+2018-07-19 17:22:18,496 - DEBUG - data_preprocessing.py:866 - 1531992138.496271
+2018-07-19 17:22:21,568 - DEBUG - data_preprocessing.py:871 - xgb_basis15 finish convert,the cost time is 
+2018-07-19 17:22:21,568 - DEBUG - data_preprocessing.py:872 - 3.0725231170654297
+2018-07-19 17:22:21,568 - DEBUG - data_preprocessing.py:865 - xgb_basis16 Format Converting begin in time:...
+2018-07-19 17:22:21,568 - DEBUG - data_preprocessing.py:866 - 1531992141.5688283
+2018-07-19 17:22:24,626 - DEBUG - data_preprocessing.py:871 - xgb_basis16 finish convert,the cost time is 
+2018-07-19 17:22:24,626 - DEBUG - data_preprocessing.py:872 - 3.057525634765625
+2018-07-19 17:22:24,626 - DEBUG - data_preprocessing.py:865 - xgb_basis17 Format Converting begin in time:...
+2018-07-19 17:22:24,626 - DEBUG - data_preprocessing.py:866 - 1531992144.6263888
+2018-07-19 17:22:27,646 - DEBUG - data_preprocessing.py:871 - xgb_basis17 finish convert,the cost time is 
+2018-07-19 17:22:27,646 - DEBUG - data_preprocessing.py:872 - 3.020416021347046
+2018-07-19 17:22:27,646 - DEBUG - data_preprocessing.py:865 - xgb_basis18 Format Converting begin in time:...
+2018-07-19 17:22:27,646 - DEBUG - data_preprocessing.py:866 - 1531992147.64684
+2018-07-19 17:22:30,635 - DEBUG - data_preprocessing.py:871 - xgb_basis18 finish convert,the cost time is 
+2018-07-19 17:22:30,635 - DEBUG - data_preprocessing.py:872 - 2.988673448562622
+2018-07-19 17:22:30,635 - DEBUG - data_preprocessing.py:865 - xgb_basis19 Format Converting begin in time:...
+2018-07-19 17:22:30,635 - DEBUG - data_preprocessing.py:866 - 1531992150.6355479
+2018-07-19 17:22:33,607 - DEBUG - data_preprocessing.py:871 - xgb_basis19 finish convert,the cost time is 
+2018-07-19 17:22:33,607 - DEBUG - data_preprocessing.py:872 - 2.9719126224517822
+2018-07-19 17:22:33,607 - DEBUG - data_preprocessing.py:865 - xgb_basis20 Format Converting begin in time:...
+2018-07-19 17:22:33,607 - DEBUG - data_preprocessing.py:866 - 1531992153.6074946
+2018-07-19 17:22:36,546 - DEBUG - data_preprocessing.py:871 - xgb_basis20 finish convert,the cost time is 
+2018-07-19 17:22:36,547 - DEBUG - data_preprocessing.py:872 - 2.9395358562469482
+2018-07-19 17:22:36,547 - DEBUG - data_preprocessing.py:865 - xgb_basis21 Format Converting begin in time:...
+2018-07-19 17:22:36,547 - DEBUG - data_preprocessing.py:866 - 1531992156.547064
+2018-07-19 17:22:39,451 - DEBUG - data_preprocessing.py:871 - xgb_basis21 finish convert,the cost time is 
+2018-07-19 17:22:39,451 - DEBUG - data_preprocessing.py:872 - 2.9048213958740234
+2018-07-19 17:22:39,451 - DEBUG - data_preprocessing.py:865 - xgb_basis22 Format Converting begin in time:...
+2018-07-19 17:22:39,451 - DEBUG - data_preprocessing.py:866 - 1531992159.4519207
+2018-07-19 17:22:42,306 - DEBUG - data_preprocessing.py:871 - xgb_basis22 finish convert,the cost time is 
+2018-07-19 17:22:42,306 - DEBUG - data_preprocessing.py:872 - 2.8549773693084717
+2018-07-19 17:22:42,306 - DEBUG - data_preprocessing.py:865 - xgb_basis23 Format Converting begin in time:...
+2018-07-19 17:22:42,306 - DEBUG - data_preprocessing.py:866 - 1531992162.3069324
+2018-07-19 17:22:45,156 - DEBUG - data_preprocessing.py:871 - xgb_basis23 finish convert,the cost time is 
+2018-07-19 17:22:45,156 - DEBUG - data_preprocessing.py:872 - 2.849332571029663
+2018-07-19 17:22:45,156 - DEBUG - data_preprocessing.py:865 - xgb_basis24 Format Converting begin in time:...
+2018-07-19 17:22:45,156 - DEBUG - data_preprocessing.py:866 - 1531992165.1563008
+2018-07-19 17:22:47,963 - DEBUG - data_preprocessing.py:871 - xgb_basis24 finish convert,the cost time is 
+2018-07-19 17:22:47,964 - DEBUG - data_preprocessing.py:872 - 2.8078036308288574
+2018-07-19 17:22:47,964 - DEBUG - data_preprocessing.py:865 - xgb_basis25 Format Converting begin in time:...
+2018-07-19 17:22:47,964 - DEBUG - data_preprocessing.py:866 - 1531992167.9641376
+2018-07-19 17:22:50,754 - DEBUG - data_preprocessing.py:871 - xgb_basis25 finish convert,the cost time is 
+2018-07-19 17:22:50,754 - DEBUG - data_preprocessing.py:872 - 2.790400981903076
+2018-07-19 17:22:50,754 - DEBUG - data_preprocessing.py:865 - xgb_basis26 Format Converting begin in time:...
+2018-07-19 17:22:50,754 - DEBUG - data_preprocessing.py:866 - 1531992170.7545726
+2018-07-19 17:22:53,510 - DEBUG - data_preprocessing.py:871 - xgb_basis26 finish convert,the cost time is 
+2018-07-19 17:22:53,511 - DEBUG - data_preprocessing.py:872 - 2.756503105163574
+2018-07-19 17:22:53,511 - DEBUG - data_preprocessing.py:865 - xgb_basis27 Format Converting begin in time:...
+2018-07-19 17:22:53,511 - DEBUG - data_preprocessing.py:866 - 1531992173.51111
+2018-07-19 17:22:56,293 - DEBUG - data_preprocessing.py:871 - xgb_basis27 finish convert,the cost time is 
+2018-07-19 17:22:56,293 - DEBUG - data_preprocessing.py:872 - 2.782564878463745
+2018-07-19 17:22:56,293 - DEBUG - data_preprocessing.py:865 - xgb_basis28 Format Converting begin in time:...
+2018-07-19 17:22:56,293 - DEBUG - data_preprocessing.py:866 - 1531992176.2937093
+2018-07-19 17:22:59,000 - DEBUG - data_preprocessing.py:871 - xgb_basis28 finish convert,the cost time is 
+2018-07-19 17:22:59,000 - DEBUG - data_preprocessing.py:872 - 2.7067930698394775
+2018-07-19 17:22:59,000 - DEBUG - data_preprocessing.py:865 - xgb_basis29 Format Converting begin in time:...
+2018-07-19 17:22:59,000 - DEBUG - data_preprocessing.py:866 - 1531992179.0005367
+2018-07-19 17:23:01,675 - DEBUG - data_preprocessing.py:871 - xgb_basis29 finish convert,the cost time is 
+2018-07-19 17:23:01,675 - DEBUG - data_preprocessing.py:872 - 2.675440788269043
+2018-07-19 17:23:01,676 - DEBUG - data_preprocessing.py:865 - xgb_basis30 Format Converting begin in time:...
+2018-07-19 17:23:01,676 - DEBUG - data_preprocessing.py:866 - 1531992181.6760108
+2018-07-19 17:23:04,324 - DEBUG - data_preprocessing.py:871 - xgb_basis30 finish convert,the cost time is 
+2018-07-19 17:23:04,324 - DEBUG - data_preprocessing.py:872 - 2.648615598678589
+2018-07-19 17:23:04,324 - DEBUG - data_preprocessing.py:865 - xgb_basis31 Format Converting begin in time:...
+2018-07-19 17:23:04,324 - DEBUG - data_preprocessing.py:866 - 1531992184.3246624
+2018-07-19 17:23:06,956 - DEBUG - data_preprocessing.py:871 - xgb_basis31 finish convert,the cost time is 
+2018-07-19 17:23:06,956 - DEBUG - data_preprocessing.py:872 - 2.63199782371521
+2018-07-19 17:23:06,956 - DEBUG - data_preprocessing.py:865 - xgb_basis32 Format Converting begin in time:...
+2018-07-19 17:23:06,956 - DEBUG - data_preprocessing.py:866 - 1531992186.9566936
+2018-07-19 17:23:09,530 - DEBUG - data_preprocessing.py:871 - xgb_basis32 finish convert,the cost time is 
+2018-07-19 17:23:09,530 - DEBUG - data_preprocessing.py:872 - 2.573615550994873
+2018-07-19 17:23:09,530 - DEBUG - data_preprocessing.py:865 - xgb_basis33 Format Converting begin in time:...
+2018-07-19 17:23:09,530 - DEBUG - data_preprocessing.py:866 - 1531992189.5303462
+2018-07-19 17:23:12,211 - DEBUG - data_preprocessing.py:871 - xgb_basis33 finish convert,the cost time is 
+2018-07-19 17:23:12,211 - DEBUG - data_preprocessing.py:872 - 2.681159496307373
+2018-07-19 17:23:12,211 - DEBUG - data_preprocessing.py:865 - xgb_basis34 Format Converting begin in time:...
+2018-07-19 17:23:12,211 - DEBUG - data_preprocessing.py:866 - 1531992192.2115395
+2018-07-19 17:23:14,736 - DEBUG - data_preprocessing.py:871 - xgb_basis34 finish convert,the cost time is 
+2018-07-19 17:23:14,736 - DEBUG - data_preprocessing.py:872 - 2.525325059890747
+2018-07-19 17:23:14,736 - DEBUG - data_preprocessing.py:865 - xgb_basis35 Format Converting begin in time:...
+2018-07-19 17:23:14,736 - DEBUG - data_preprocessing.py:866 - 1531992194.736901
+2018-07-19 17:23:17,288 - DEBUG - data_preprocessing.py:871 - xgb_basis35 finish convert,the cost time is 
+2018-07-19 17:23:17,289 - DEBUG - data_preprocessing.py:872 - 2.552206516265869
+2018-07-19 17:23:17,289 - DEBUG - data_preprocessing.py:865 - xgb_basis36 Format Converting begin in time:...
+2018-07-19 17:23:17,289 - DEBUG - data_preprocessing.py:866 - 1531992197.2891426
+2018-07-19 17:23:19,776 - DEBUG - data_preprocessing.py:871 - xgb_basis36 finish convert,the cost time is 
+2018-07-19 17:23:19,777 - DEBUG - data_preprocessing.py:872 - 2.487884521484375
+2018-07-19 17:23:19,777 - DEBUG - data_preprocessing.py:865 - xgb_basis37 Format Converting begin in time:...
+2018-07-19 17:23:19,777 - DEBUG - data_preprocessing.py:866 - 1531992199.7770622
+2018-07-19 17:23:22,241 - DEBUG - data_preprocessing.py:871 - xgb_basis37 finish convert,the cost time is 
+2018-07-19 17:23:22,241 - DEBUG - data_preprocessing.py:872 - 2.464818000793457
+2018-07-19 17:23:22,241 - DEBUG - data_preprocessing.py:865 - xgb_basis38 Format Converting begin in time:...
+2018-07-19 17:23:22,241 - DEBUG - data_preprocessing.py:866 - 1531992202.241914
+2018-07-19 17:23:24,696 - DEBUG - data_preprocessing.py:871 - xgb_basis38 finish convert,the cost time is 
+2018-07-19 17:23:24,697 - DEBUG - data_preprocessing.py:872 - 2.455108642578125
+2018-07-19 17:23:24,697 - DEBUG - data_preprocessing.py:865 - xgb_basis39 Format Converting begin in time:...
+2018-07-19 17:23:24,697 - DEBUG - data_preprocessing.py:866 - 1531992204.6970565
+2018-07-19 17:23:27,094 - DEBUG - data_preprocessing.py:871 - xgb_basis39 finish convert,the cost time is 
+2018-07-19 17:23:27,094 - DEBUG - data_preprocessing.py:872 - 2.39772629737854
+2018-07-19 17:23:27,094 - DEBUG - data_preprocessing.py:865 - xgb_basis40 Format Converting begin in time:...
+2018-07-19 17:23:27,094 - DEBUG - data_preprocessing.py:866 - 1531992207.0948203
+2018-07-19 17:23:29,454 - DEBUG - data_preprocessing.py:871 - xgb_basis40 finish convert,the cost time is 
+2018-07-19 17:23:29,454 - DEBUG - data_preprocessing.py:872 - 2.3595736026763916
+2018-07-19 17:23:29,454 - DEBUG - data_preprocessing.py:865 - xgb_basis41 Format Converting begin in time:...
+2018-07-19 17:23:29,454 - DEBUG - data_preprocessing.py:866 - 1531992209.4544287
+2018-07-19 17:23:31,795 - DEBUG - data_preprocessing.py:871 - xgb_basis41 finish convert,the cost time is 
+2018-07-19 17:23:31,795 - DEBUG - data_preprocessing.py:872 - 2.3411672115325928
+2018-07-19 17:23:31,795 - DEBUG - data_preprocessing.py:865 - xgb_basis42 Format Converting begin in time:...
+2018-07-19 17:23:31,795 - DEBUG - data_preprocessing.py:866 - 1531992211.7956333
+2018-07-19 17:23:34,093 - DEBUG - data_preprocessing.py:871 - xgb_basis42 finish convert,the cost time is 
+2018-07-19 17:23:34,093 - DEBUG - data_preprocessing.py:872 - 2.2980823516845703
+2018-07-19 17:23:34,093 - DEBUG - data_preprocessing.py:865 - xgb_basis43 Format Converting begin in time:...
+2018-07-19 17:23:34,093 - DEBUG - data_preprocessing.py:866 - 1531992214.093752
+2018-07-19 17:23:36,361 - DEBUG - data_preprocessing.py:871 - xgb_basis43 finish convert,the cost time is 
+2018-07-19 17:23:36,361 - DEBUG - data_preprocessing.py:872 - 2.267620086669922
+2018-07-19 17:23:36,361 - DEBUG - data_preprocessing.py:865 - xgb_basis44 Format Converting begin in time:...
+2018-07-19 17:23:36,361 - DEBUG - data_preprocessing.py:866 - 1531992216.3614056
+2018-07-19 17:23:38,601 - DEBUG - data_preprocessing.py:871 - xgb_basis44 finish convert,the cost time is 
+2018-07-19 17:23:38,601 - DEBUG - data_preprocessing.py:872 - 2.240116596221924
+2018-07-19 17:23:38,601 - DEBUG - data_preprocessing.py:865 - xgb_basis45 Format Converting begin in time:...
+2018-07-19 17:23:38,601 - DEBUG - data_preprocessing.py:866 - 1531992218.6016004
+2018-07-19 17:23:40,831 - DEBUG - data_preprocessing.py:871 - xgb_basis45 finish convert,the cost time is 
+2018-07-19 17:23:40,831 - DEBUG - data_preprocessing.py:872 - 2.2298998832702637
+2018-07-19 17:23:40,831 - DEBUG - data_preprocessing.py:865 - xgb_basis46 Format Converting begin in time:...
+2018-07-19 17:23:40,831 - DEBUG - data_preprocessing.py:866 - 1531992220.831536
+2018-07-19 17:23:43,014 - DEBUG - data_preprocessing.py:871 - xgb_basis46 finish convert,the cost time is 
+2018-07-19 17:23:43,014 - DEBUG - data_preprocessing.py:872 - 2.183184862136841
+2018-07-19 17:23:43,014 - DEBUG - data_preprocessing.py:865 - xgb_basis47 Format Converting begin in time:...
+2018-07-19 17:23:43,014 - DEBUG - data_preprocessing.py:866 - 1531992223.0147572
+2018-07-19 17:23:45,212 - DEBUG - data_preprocessing.py:871 - xgb_basis47 finish convert,the cost time is 
+2018-07-19 17:23:45,212 - DEBUG - data_preprocessing.py:872 - 2.1978368759155273
+2018-07-19 17:23:45,212 - DEBUG - data_preprocessing.py:865 - xgb_basis48 Format Converting begin in time:...
+2018-07-19 17:23:45,212 - DEBUG - data_preprocessing.py:866 - 1531992225.2126281
+2018-07-19 17:23:47,347 - DEBUG - data_preprocessing.py:871 - xgb_basis48 finish convert,the cost time is 
+2018-07-19 17:23:47,347 - DEBUG - data_preprocessing.py:872 - 2.1350901126861572
+2018-07-19 17:23:47,347 - DEBUG - data_preprocessing.py:865 - xgb_basis49 Format Converting begin in time:...
+2018-07-19 17:23:47,347 - DEBUG - data_preprocessing.py:866 - 1531992227.3477535
+2018-07-19 17:23:49,452 - DEBUG - data_preprocessing.py:871 - xgb_basis49 finish convert,the cost time is 
+2018-07-19 17:23:49,452 - DEBUG - data_preprocessing.py:872 - 2.105093479156494
+2018-07-19 17:23:49,457 - DEBUG - data_preprocessing.py:865 - xgb_basis50 Format Converting begin in time:...
+2018-07-19 17:23:49,457 - DEBUG - data_preprocessing.py:866 - 1531992229.4574156
+2018-07-19 17:23:51,535 - DEBUG - data_preprocessing.py:871 - xgb_basis50 finish convert,the cost time is 
+2018-07-19 17:23:51,535 - DEBUG - data_preprocessing.py:872 - 2.077892780303955
+2018-07-19 17:23:51,535 - DEBUG - data_preprocessing.py:865 - xgb_basis51 Format Converting begin in time:...
+2018-07-19 17:23:51,535 - DEBUG - data_preprocessing.py:866 - 1531992231.5353434
+2018-07-19 17:23:53,582 - DEBUG - data_preprocessing.py:871 - xgb_basis51 finish convert,the cost time is 
+2018-07-19 17:23:53,583 - DEBUG - data_preprocessing.py:872 - 2.047729015350342
+2018-07-19 17:23:53,583 - DEBUG - data_preprocessing.py:865 - xgb_basis52 Format Converting begin in time:...
+2018-07-19 17:23:53,583 - DEBUG - data_preprocessing.py:866 - 1531992233.5831072
+2018-07-19 17:23:55,600 - DEBUG - data_preprocessing.py:871 - xgb_basis52 finish convert,the cost time is 
+2018-07-19 17:23:55,600 - DEBUG - data_preprocessing.py:872 - 2.017197608947754
+2018-07-19 17:23:55,600 - DEBUG - data_preprocessing.py:865 - xgb_basis53 Format Converting begin in time:...
+2018-07-19 17:23:55,600 - DEBUG - data_preprocessing.py:866 - 1531992235.6003392
+2018-07-19 17:23:57,604 - DEBUG - data_preprocessing.py:871 - xgb_basis53 finish convert,the cost time is 
+2018-07-19 17:23:57,604 - DEBUG - data_preprocessing.py:872 - 2.0038912296295166
+2018-07-19 17:23:57,604 - DEBUG - data_preprocessing.py:865 - xgb_basis54 Format Converting begin in time:...
+2018-07-19 17:23:57,604 - DEBUG - data_preprocessing.py:866 - 1531992237.6042693
+2018-07-19 17:23:59,653 - DEBUG - data_preprocessing.py:871 - xgb_basis54 finish convert,the cost time is 
+2018-07-19 17:23:59,653 - DEBUG - data_preprocessing.py:872 - 2.049060106277466
+2018-07-19 17:23:59,653 - DEBUG - data_preprocessing.py:865 - xgb_basis55 Format Converting begin in time:...
+2018-07-19 17:23:59,653 - DEBUG - data_preprocessing.py:866 - 1531992239.653367
+2018-07-19 17:24:01,677 - DEBUG - data_preprocessing.py:871 - xgb_basis55 finish convert,the cost time is 
+2018-07-19 17:24:01,677 - DEBUG - data_preprocessing.py:872 - 2.0240087509155273
+2018-07-19 17:24:01,677 - DEBUG - data_preprocessing.py:865 - xgb_basis56 Format Converting begin in time:...
+2018-07-19 17:24:01,677 - DEBUG - data_preprocessing.py:866 - 1531992241.677415
+2018-07-19 17:24:03,671 - DEBUG - data_preprocessing.py:871 - xgb_basis56 finish convert,the cost time is 
+2018-07-19 17:24:03,671 - DEBUG - data_preprocessing.py:872 - 1.9944791793823242
+2018-07-19 17:24:03,671 - DEBUG - data_preprocessing.py:865 - xgb_basis57 Format Converting begin in time:...
+2018-07-19 17:24:03,671 - DEBUG - data_preprocessing.py:866 - 1531992243.671933
+2018-07-19 17:24:05,651 - DEBUG - data_preprocessing.py:871 - xgb_basis57 finish convert,the cost time is 
+2018-07-19 17:24:05,651 - DEBUG - data_preprocessing.py:872 - 1.9792742729187012
+2018-07-19 17:24:05,651 - DEBUG - data_preprocessing.py:865 - xgb_basis58 Format Converting begin in time:...
+2018-07-19 17:24:05,651 - DEBUG - data_preprocessing.py:866 - 1531992245.6512468
+2018-07-19 17:24:07,590 - DEBUG - data_preprocessing.py:871 - xgb_basis58 finish convert,the cost time is 
+2018-07-19 17:24:07,590 - DEBUG - data_preprocessing.py:872 - 1.9395112991333008
+2018-07-19 17:24:07,590 - DEBUG - data_preprocessing.py:865 - xgb_basis59 Format Converting begin in time:...
+2018-07-19 17:24:07,595 - DEBUG - data_preprocessing.py:866 - 1531992247.590799
+2018-07-19 17:24:09,523 - DEBUG - data_preprocessing.py:871 - xgb_basis59 finish convert,the cost time is 
+2018-07-19 17:24:09,523 - DEBUG - data_preprocessing.py:872 - 1.9325706958770752
+2018-07-19 17:25:44,694 - DEBUG - data_preprocessing.py:886 - finish convert,the cost time is 
+2018-07-19 17:25:44,695 - DEBUG - data_preprocessing.py:887 - 97.10440945625305
+2018-07-19 17:25:44,695 - DEBUG - data_preprocessing.py:888 - [Done]
+2018-07-19 17:25:44,695 - DEBUG - data_preprocessing.py:890 -    click one_day one_day_hour day_hour_prev day_hour_next is_work_day  \
+0      0   0:3:1        1:0:1         2:0:1         3:0:1       4:0:1   
+1      0   0:6:1        1:0:1         2:0:1         3:0:1       4:0:1   
+
+  xgb_basis0 xgb_basis1 xgb_basis2 xgb_basis3     ...     xgb_basis50  \
+0     5:35:1     6:21:1     7:53:1     8:19:1     ...         55:56:1   
+1      5:2:1      6:4:1     7:16:1     8:13:1     ...         55:56:1   
+
+  xgb_basis51 xgb_basis52 xgb_basis53 xgb_basis54 xgb_basis55 xgb_basis56  \
+0     56:31:1     57:56:1     58:24:1     59:53:1     60:56:1     61:30:1   
+1     56:37:1     57:23:1      58:0:1     59:49:1     60:16:1     61:28:1   
+
+  xgb_basis57 xgb_basis58 xgb_basis59  
+0      62:0:1     63:37:1     64:62:1  
+1      62:0:1     63:30:1     64:33:1  
+
+[2 rows x 66 columns]
+2018-07-19 17:25:44,709 - DEBUG - data_preprocessing.py:891 - (6064345, 66)
+2018-07-19 17:25:49,034 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 1)
+2018-07-19 17:25:49,034 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 5)
+2018-07-19 17:25:49,073 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 6)
+2018-07-19 17:25:49,074 - DEBUG - data_preprocessing.py:239 - 耗时0.03903651237487793
+2018-07-19 17:26:06,162 - DEBUG - data_preprocessing.py:234 - data1.shape:(4577464, 6)
+2018-07-19 17:26:06,162 - DEBUG - data_preprocessing.py:235 - data2.shape:(4577464, 60)
+2018-07-19 17:26:06,678 - DEBUG - data_preprocessing.py:238 - 结果.shape:(4577464, 66)
+2018-07-19 17:26:06,679 - DEBUG - data_preprocessing.py:239 - 耗时0.5165977478027344
+2018-07-19 17:26:06,753 - DEBUG - data_preprocessing.py:902 - (4577464, 66)
+2018-07-19 17:26:06,753 - DEBUG - data_preprocessing.py:908 - Index(['click', 'one_day', 'one_day_hour', 'day_hour_prev', 'day_hour_next',
+       'is_work_day', 'xgb_basis0', 'xgb_basis1', 'xgb_basis2', 'xgb_basis3',
+       'xgb_basis4', 'xgb_basis5', 'xgb_basis6', 'xgb_basis7', 'xgb_basis8',
+       'xgb_basis9', 'xgb_basis10', 'xgb_basis11', 'xgb_basis12',
+       'xgb_basis13', 'xgb_basis14', 'xgb_basis15', 'xgb_basis16',
+       'xgb_basis17', 'xgb_basis18', 'xgb_basis19', 'xgb_basis20',
+       'xgb_basis21', 'xgb_basis22', 'xgb_basis23', 'xgb_basis24',
+       'xgb_basis25', 'xgb_basis26', 'xgb_basis27', 'xgb_basis28',
+       'xgb_basis29', 'xgb_basis30', 'xgb_basis31', 'xgb_basis32',
+       'xgb_basis33', 'xgb_basis34', 'xgb_basis35', 'xgb_basis36',
+       'xgb_basis37', 'xgb_basis38', 'xgb_basis39', 'xgb_basis40',
+       'xgb_basis41', 'xgb_basis42', 'xgb_basis43', 'xgb_basis44',
+       'xgb_basis45', 'xgb_basis46', 'xgb_basis47', 'xgb_basis48',
+       'xgb_basis49', 'xgb_basis50', 'xgb_basis51', 'xgb_basis52',
+       'xgb_basis53', 'xgb_basis54', 'xgb_basis55', 'xgb_basis56',
+       'xgb_basis57', 'xgb_basis58', 'xgb_basis59'],
+      dtype='object')
+2018-07-19 17:26:06,754 - DEBUG - data_preprocessing.py:911 - (4577464, 66)
+2018-07-19 17:26:11,310 - DEBUG - data_preprocessing.py:924 - one_day Format Converting begin in time:...
+2018-07-19 17:26:11,310 - DEBUG - data_preprocessing.py:925 - 1531992371.3101394
+2018-07-19 17:26:14,010 - DEBUG - data_preprocessing.py:930 - one_day finish convert,the cost time is 
+2018-07-19 17:26:14,010 - DEBUG - data_preprocessing.py:931 - 2.7003612518310547
+2018-07-19 17:26:14,010 - DEBUG - data_preprocessing.py:924 - one_day_hour Format Converting begin in time:...
+2018-07-19 17:26:14,010 - DEBUG - data_preprocessing.py:925 - 1531992374.0105474
+2018-07-19 17:26:16,703 - DEBUG - data_preprocessing.py:930 - one_day_hour finish convert,the cost time is 
+2018-07-19 17:26:16,703 - DEBUG - data_preprocessing.py:931 - 2.6933000087738037
+2018-07-19 17:26:16,703 - DEBUG - data_preprocessing.py:924 - day_hour_prev Format Converting begin in time:...
+2018-07-19 17:26:16,703 - DEBUG - data_preprocessing.py:925 - 1531992376.7038944
+2018-07-19 17:26:19,368 - DEBUG - data_preprocessing.py:930 - day_hour_prev finish convert,the cost time is 
+2018-07-19 17:26:19,368 - DEBUG - data_preprocessing.py:931 - 2.664600372314453
+2018-07-19 17:26:19,368 - DEBUG - data_preprocessing.py:924 - day_hour_next Format Converting begin in time:...
+2018-07-19 17:26:19,368 - DEBUG - data_preprocessing.py:925 - 1531992379.3685415
+2018-07-19 17:26:22,015 - DEBUG - data_preprocessing.py:930 - day_hour_next finish convert,the cost time is 
+2018-07-19 17:26:22,015 - DEBUG - data_preprocessing.py:931 - 2.646918535232544
+2018-07-19 17:26:22,015 - DEBUG - data_preprocessing.py:924 - is_work_day Format Converting begin in time:...
+2018-07-19 17:26:22,015 - DEBUG - data_preprocessing.py:925 - 1531992382.0155103
+2018-07-19 17:26:24,640 - DEBUG - data_preprocessing.py:930 - is_work_day finish convert,the cost time is 
+2018-07-19 17:26:24,640 - DEBUG - data_preprocessing.py:931 - 2.624957799911499
+2018-07-19 17:26:24,640 - DEBUG - data_preprocessing.py:924 - xgb_basis0 Format Converting begin in time:...
+2018-07-19 17:26:24,640 - DEBUG - data_preprocessing.py:925 - 1531992384.6405134
+2018-07-19 17:26:27,247 - DEBUG - data_preprocessing.py:930 - xgb_basis0 finish convert,the cost time is 
+2018-07-19 17:26:27,247 - DEBUG - data_preprocessing.py:931 - 2.6069750785827637
+2018-07-19 17:26:27,247 - DEBUG - data_preprocessing.py:924 - xgb_basis1 Format Converting begin in time:...
+2018-07-19 17:26:27,247 - DEBUG - data_preprocessing.py:925 - 1531992387.247539
+2018-07-19 17:26:29,899 - DEBUG - data_preprocessing.py:930 - xgb_basis1 finish convert,the cost time is 
+2018-07-19 17:26:29,899 - DEBUG - data_preprocessing.py:931 - 2.651968479156494
+2018-07-19 17:26:29,899 - DEBUG - data_preprocessing.py:924 - xgb_basis2 Format Converting begin in time:...
+2018-07-19 17:26:29,899 - DEBUG - data_preprocessing.py:925 - 1531992389.8995595
+2018-07-19 17:26:32,513 - DEBUG - data_preprocessing.py:930 - xgb_basis2 finish convert,the cost time is 
+2018-07-19 17:26:32,513 - DEBUG - data_preprocessing.py:931 - 2.6141204833984375
+2018-07-19 17:26:32,513 - DEBUG - data_preprocessing.py:924 - xgb_basis3 Format Converting begin in time:...
+2018-07-19 17:26:32,513 - DEBUG - data_preprocessing.py:925 - 1531992392.5137339
+2018-07-19 17:26:35,116 - DEBUG - data_preprocessing.py:930 - xgb_basis3 finish convert,the cost time is 
+2018-07-19 17:26:35,116 - DEBUG - data_preprocessing.py:931 - 2.6031551361083984
+2018-07-19 17:26:35,116 - DEBUG - data_preprocessing.py:924 - xgb_basis4 Format Converting begin in time:...
+2018-07-19 17:26:35,116 - DEBUG - data_preprocessing.py:925 - 1531992395.1169403
+2018-07-19 17:26:37,694 - DEBUG - data_preprocessing.py:930 - xgb_basis4 finish convert,the cost time is 
+2018-07-19 17:26:37,694 - DEBUG - data_preprocessing.py:931 - 2.577655792236328
+2018-07-19 17:26:37,694 - DEBUG - data_preprocessing.py:924 - xgb_basis5 Format Converting begin in time:...
+2018-07-19 17:26:37,694 - DEBUG - data_preprocessing.py:925 - 1531992397.694647
+2018-07-19 17:26:40,251 - DEBUG - data_preprocessing.py:930 - xgb_basis5 finish convert,the cost time is 
+2018-07-19 17:26:40,251 - DEBUG - data_preprocessing.py:931 - 2.5565500259399414
+2018-07-19 17:26:40,251 - DEBUG - data_preprocessing.py:924 - xgb_basis6 Format Converting begin in time:...
+2018-07-19 17:26:40,251 - DEBUG - data_preprocessing.py:925 - 1531992400.2512503
+2018-07-19 17:26:42,809 - DEBUG - data_preprocessing.py:930 - xgb_basis6 finish convert,the cost time is 
+2018-07-19 17:26:42,809 - DEBUG - data_preprocessing.py:931 - 2.558436632156372
+2018-07-19 17:26:42,809 - DEBUG - data_preprocessing.py:924 - xgb_basis7 Format Converting begin in time:...
+2018-07-19 17:26:42,809 - DEBUG - data_preprocessing.py:925 - 1531992402.8097398
+2018-07-19 17:26:45,330 - DEBUG - data_preprocessing.py:930 - xgb_basis7 finish convert,the cost time is 
+2018-07-19 17:26:45,330 - DEBUG - data_preprocessing.py:931 - 2.521052598953247
+2018-07-19 17:26:45,330 - DEBUG - data_preprocessing.py:924 - xgb_basis8 Format Converting begin in time:...
+2018-07-19 17:26:45,330 - DEBUG - data_preprocessing.py:925 - 1531992405.330843
+2018-07-19 17:26:47,828 - DEBUG - data_preprocessing.py:930 - xgb_basis8 finish convert,the cost time is 
+2018-07-19 17:26:47,828 - DEBUG - data_preprocessing.py:931 - 2.4980952739715576
+2018-07-19 17:26:47,828 - DEBUG - data_preprocessing.py:924 - xgb_basis9 Format Converting begin in time:...
+2018-07-19 17:26:47,829 - DEBUG - data_preprocessing.py:925 - 1531992407.8289917
+2018-07-19 17:26:50,303 - DEBUG - data_preprocessing.py:930 - xgb_basis9 finish convert,the cost time is 
+2018-07-19 17:26:50,303 - DEBUG - data_preprocessing.py:931 - 2.4744980335235596
+2018-07-19 17:26:50,303 - DEBUG - data_preprocessing.py:924 - xgb_basis10 Format Converting begin in time:...
+2018-07-19 17:26:50,303 - DEBUG - data_preprocessing.py:925 - 1531992410.30354
+2018-07-19 17:26:52,758 - DEBUG - data_preprocessing.py:930 - xgb_basis10 finish convert,the cost time is 
+2018-07-19 17:26:52,758 - DEBUG - data_preprocessing.py:931 - 2.4550318717956543
+2018-07-19 17:26:52,758 - DEBUG - data_preprocessing.py:924 - xgb_basis11 Format Converting begin in time:...
+2018-07-19 17:26:52,758 - DEBUG - data_preprocessing.py:925 - 1531992412.7586212
+2018-07-19 17:26:55,208 - DEBUG - data_preprocessing.py:930 - xgb_basis11 finish convert,the cost time is 
+2018-07-19 17:26:55,208 - DEBUG - data_preprocessing.py:931 - 2.4501545429229736
+2018-07-19 17:26:55,208 - DEBUG - data_preprocessing.py:924 - xgb_basis12 Format Converting begin in time:...
+2018-07-19 17:26:55,208 - DEBUG - data_preprocessing.py:925 - 1531992415.2088287
+2018-07-19 17:26:57,616 - DEBUG - data_preprocessing.py:930 - xgb_basis12 finish convert,the cost time is 
+2018-07-19 17:26:57,617 - DEBUG - data_preprocessing.py:931 - 2.4081761837005615
+2018-07-19 17:26:57,617 - DEBUG - data_preprocessing.py:924 - xgb_basis13 Format Converting begin in time:...
+2018-07-19 17:26:57,617 - DEBUG - data_preprocessing.py:925 - 1531992417.617054
+2018-07-19 17:27:00,002 - DEBUG - data_preprocessing.py:930 - xgb_basis13 finish convert,the cost time is 
+2018-07-19 17:27:00,002 - DEBUG - data_preprocessing.py:931 - 2.3852827548980713
+2018-07-19 17:27:00,002 - DEBUG - data_preprocessing.py:924 - xgb_basis14 Format Converting begin in time:...
+2018-07-19 17:27:00,002 - DEBUG - data_preprocessing.py:925 - 1531992420.0023873
+2018-07-19 17:27:02,366 - DEBUG - data_preprocessing.py:930 - xgb_basis14 finish convert,the cost time is 
+2018-07-19 17:27:02,366 - DEBUG - data_preprocessing.py:931 - 2.363797187805176
+2018-07-19 17:27:02,366 - DEBUG - data_preprocessing.py:924 - xgb_basis15 Format Converting begin in time:...
+2018-07-19 17:27:02,366 - DEBUG - data_preprocessing.py:925 - 1531992422.3662367
+2018-07-19 17:27:04,709 - DEBUG - data_preprocessing.py:930 - xgb_basis15 finish convert,the cost time is 
+2018-07-19 17:27:04,710 - DEBUG - data_preprocessing.py:931 - 2.343848943710327
+2018-07-19 17:27:04,710 - DEBUG - data_preprocessing.py:924 - xgb_basis16 Format Converting begin in time:...
+2018-07-19 17:27:04,710 - DEBUG - data_preprocessing.py:925 - 1531992424.7101371
+2018-07-19 17:27:07,034 - DEBUG - data_preprocessing.py:930 - xgb_basis16 finish convert,the cost time is 
+2018-07-19 17:27:07,034 - DEBUG - data_preprocessing.py:931 - 2.324514627456665
+2018-07-19 17:27:07,034 - DEBUG - data_preprocessing.py:924 - xgb_basis17 Format Converting begin in time:...
+2018-07-19 17:27:07,034 - DEBUG - data_preprocessing.py:925 - 1531992427.034701
+2018-07-19 17:27:09,332 - DEBUG - data_preprocessing.py:930 - xgb_basis17 finish convert,the cost time is 
+2018-07-19 17:27:09,332 - DEBUG - data_preprocessing.py:931 - 2.2979564666748047
+2018-07-19 17:27:09,332 - DEBUG - data_preprocessing.py:924 - xgb_basis18 Format Converting begin in time:...
+2018-07-19 17:27:09,332 - DEBUG - data_preprocessing.py:925 - 1531992429.3327072
+2018-07-19 17:27:11,617 - DEBUG - data_preprocessing.py:930 - xgb_basis18 finish convert,the cost time is 
+2018-07-19 17:27:11,617 - DEBUG - data_preprocessing.py:931 - 2.2849035263061523
+2018-07-19 17:27:11,617 - DEBUG - data_preprocessing.py:924 - xgb_basis19 Format Converting begin in time:...
+2018-07-19 17:27:11,617 - DEBUG - data_preprocessing.py:925 - 1531992431.61766
+2018-07-19 17:27:13,873 - DEBUG - data_preprocessing.py:930 - xgb_basis19 finish convert,the cost time is 
+2018-07-19 17:27:13,873 - DEBUG - data_preprocessing.py:931 - 2.2561516761779785
+2018-07-19 17:27:13,873 - DEBUG - data_preprocessing.py:924 - xgb_basis20 Format Converting begin in time:...
+2018-07-19 17:27:13,873 - DEBUG - data_preprocessing.py:925 - 1531992433.8738606
+2018-07-19 17:27:16,108 - DEBUG - data_preprocessing.py:930 - xgb_basis20 finish convert,the cost time is 
+2018-07-19 17:27:16,108 - DEBUG - data_preprocessing.py:931 - 2.234722375869751
+2018-07-19 17:27:16,108 - DEBUG - data_preprocessing.py:924 - xgb_basis21 Format Converting begin in time:...
+2018-07-19 17:27:16,108 - DEBUG - data_preprocessing.py:925 - 1531992436.1086304
+2018-07-19 17:27:18,331 - DEBUG - data_preprocessing.py:930 - xgb_basis21 finish convert,the cost time is 
+2018-07-19 17:27:18,331 - DEBUG - data_preprocessing.py:931 - 2.222822427749634
+2018-07-19 17:27:18,331 - DEBUG - data_preprocessing.py:924 - xgb_basis22 Format Converting begin in time:...
+2018-07-19 17:27:18,331 - DEBUG - data_preprocessing.py:925 - 1531992438.3315032
+2018-07-19 17:27:20,525 - DEBUG - data_preprocessing.py:930 - xgb_basis22 finish convert,the cost time is 
+2018-07-19 17:27:20,525 - DEBUG - data_preprocessing.py:931 - 2.194032669067383
+2018-07-19 17:27:20,525 - DEBUG - data_preprocessing.py:924 - xgb_basis23 Format Converting begin in time:...
+2018-07-19 17:27:20,525 - DEBUG - data_preprocessing.py:925 - 1531992440.525585
+2018-07-19 17:27:22,698 - DEBUG - data_preprocessing.py:930 - xgb_basis23 finish convert,the cost time is 
+2018-07-19 17:27:22,698 - DEBUG - data_preprocessing.py:931 - 2.172712564468384
+2018-07-19 17:27:22,698 - DEBUG - data_preprocessing.py:924 - xgb_basis24 Format Converting begin in time:...
+2018-07-19 17:27:22,698 - DEBUG - data_preprocessing.py:925 - 1531992442.6983452
+2018-07-19 17:27:24,846 - DEBUG - data_preprocessing.py:930 - xgb_basis24 finish convert,the cost time is 
+2018-07-19 17:27:24,846 - DEBUG - data_preprocessing.py:931 - 2.1479008197784424
+2018-07-19 17:27:24,846 - DEBUG - data_preprocessing.py:924 - xgb_basis25 Format Converting begin in time:...
+2018-07-19 17:27:24,846 - DEBUG - data_preprocessing.py:925 - 1531992444.8462946
+2018-07-19 17:27:26,979 - DEBUG - data_preprocessing.py:930 - xgb_basis25 finish convert,the cost time is 
+2018-07-19 17:27:26,979 - DEBUG - data_preprocessing.py:931 - 2.132967233657837
+2018-07-19 17:27:26,979 - DEBUG - data_preprocessing.py:924 - xgb_basis26 Format Converting begin in time:...
+2018-07-19 17:27:26,979 - DEBUG - data_preprocessing.py:925 - 1531992446.9793196
+2018-07-19 17:27:29,082 - DEBUG - data_preprocessing.py:930 - xgb_basis26 finish convert,the cost time is 
+2018-07-19 17:27:29,082 - DEBUG - data_preprocessing.py:931 - 2.1031525135040283
+2018-07-19 17:27:29,082 - DEBUG - data_preprocessing.py:924 - xgb_basis27 Format Converting begin in time:...
+2018-07-19 17:27:29,082 - DEBUG - data_preprocessing.py:925 - 1531992449.08252
+2018-07-19 17:27:31,169 - DEBUG - data_preprocessing.py:930 - xgb_basis27 finish convert,the cost time is 
+2018-07-19 17:27:31,169 - DEBUG - data_preprocessing.py:931 - 2.087075710296631
+2018-07-19 17:27:31,169 - DEBUG - data_preprocessing.py:924 - xgb_basis28 Format Converting begin in time:...
+2018-07-19 17:27:31,169 - DEBUG - data_preprocessing.py:925 - 1531992451.1696453
+2018-07-19 17:27:33,256 - DEBUG - data_preprocessing.py:930 - xgb_basis28 finish convert,the cost time is 
+2018-07-19 17:27:33,256 - DEBUG - data_preprocessing.py:931 - 2.0865423679351807
+2018-07-19 17:27:33,256 - DEBUG - data_preprocessing.py:924 - xgb_basis29 Format Converting begin in time:...
+2018-07-19 17:27:33,256 - DEBUG - data_preprocessing.py:925 - 1531992453.256236
+2018-07-19 17:27:35,306 - DEBUG - data_preprocessing.py:930 - xgb_basis29 finish convert,the cost time is 
+2018-07-19 17:27:35,307 - DEBUG - data_preprocessing.py:931 - 2.0507965087890625
+2018-07-19 17:27:35,307 - DEBUG - data_preprocessing.py:924 - xgb_basis30 Format Converting begin in time:...
+2018-07-19 17:27:35,307 - DEBUG - data_preprocessing.py:925 - 1531992455.3070827
+2018-07-19 17:27:37,366 - DEBUG - data_preprocessing.py:930 - xgb_basis30 finish convert,the cost time is 
+2018-07-19 17:27:37,366 - DEBUG - data_preprocessing.py:931 - 2.059180498123169
+2018-07-19 17:27:37,366 - DEBUG - data_preprocessing.py:924 - xgb_basis31 Format Converting begin in time:...
+2018-07-19 17:27:37,366 - DEBUG - data_preprocessing.py:925 - 1531992457.3663113
+2018-07-19 17:27:39,404 - DEBUG - data_preprocessing.py:930 - xgb_basis31 finish convert,the cost time is 
+2018-07-19 17:27:39,404 - DEBUG - data_preprocessing.py:931 - 2.0381367206573486
+2018-07-19 17:27:39,404 - DEBUG - data_preprocessing.py:924 - xgb_basis32 Format Converting begin in time:...
+2018-07-19 17:27:39,404 - DEBUG - data_preprocessing.py:925 - 1531992459.4044945
+2018-07-19 17:27:41,395 - DEBUG - data_preprocessing.py:930 - xgb_basis32 finish convert,the cost time is 
+2018-07-19 17:27:41,396 - DEBUG - data_preprocessing.py:931 - 1.9916322231292725
+2018-07-19 17:27:41,396 - DEBUG - data_preprocessing.py:924 - xgb_basis33 Format Converting begin in time:...
+2018-07-19 17:27:41,396 - DEBUG - data_preprocessing.py:925 - 1531992461.3961773
+2018-07-19 17:27:42,953 - DEBUG - data_preprocessing.py:930 - xgb_basis33 finish convert,the cost time is 
+2018-07-19 17:27:42,954 - DEBUG - data_preprocessing.py:931 - 1.5579416751861572
+2018-07-19 17:27:42,954 - DEBUG - data_preprocessing.py:924 - xgb_basis34 Format Converting begin in time:...
+2018-07-19 17:27:42,954 - DEBUG - data_preprocessing.py:925 - 1531992462.954164
+2018-07-19 17:27:44,494 - DEBUG - data_preprocessing.py:930 - xgb_basis34 finish convert,the cost time is 
+2018-07-19 17:27:44,495 - DEBUG - data_preprocessing.py:931 - 1.5409431457519531
+2018-07-19 17:27:44,495 - DEBUG - data_preprocessing.py:924 - xgb_basis35 Format Converting begin in time:...
+2018-07-19 17:27:44,495 - DEBUG - data_preprocessing.py:925 - 1531992464.495153
+2018-07-19 17:27:46,039 - DEBUG - data_preprocessing.py:930 - xgb_basis35 finish convert,the cost time is 
+2018-07-19 17:27:46,039 - DEBUG - data_preprocessing.py:931 - 1.5442519187927246
+2018-07-19 17:27:46,039 - DEBUG - data_preprocessing.py:924 - xgb_basis36 Format Converting begin in time:...
+2018-07-19 17:27:46,039 - DEBUG - data_preprocessing.py:925 - 1531992466.0394506
+2018-07-19 17:27:47,581 - DEBUG - data_preprocessing.py:930 - xgb_basis36 finish convert,the cost time is 
+2018-07-19 17:27:47,581 - DEBUG - data_preprocessing.py:931 - 1.5422532558441162
+2018-07-19 17:27:47,581 - DEBUG - data_preprocessing.py:924 - xgb_basis37 Format Converting begin in time:...
+2018-07-19 17:27:47,581 - DEBUG - data_preprocessing.py:925 - 1531992467.5817518
+2018-07-19 17:27:49,117 - DEBUG - data_preprocessing.py:930 - xgb_basis37 finish convert,the cost time is 
+2018-07-19 17:27:49,117 - DEBUG - data_preprocessing.py:931 - 1.5359201431274414
+2018-07-19 17:27:49,117 - DEBUG - data_preprocessing.py:924 - xgb_basis38 Format Converting begin in time:...
+2018-07-19 17:27:49,117 - DEBUG - data_preprocessing.py:925 - 1531992469.1177182
+2018-07-19 17:27:50,605 - DEBUG - data_preprocessing.py:930 - xgb_basis38 finish convert,the cost time is 
+2018-07-19 17:27:50,605 - DEBUG - data_preprocessing.py:931 - 1.4880821704864502
+2018-07-19 17:27:50,605 - DEBUG - data_preprocessing.py:924 - xgb_basis39 Format Converting begin in time:...
+2018-07-19 17:27:50,605 - DEBUG - data_preprocessing.py:925 - 1531992470.605845
+2018-07-19 17:27:52,087 - DEBUG - data_preprocessing.py:930 - xgb_basis39 finish convert,the cost time is 
+2018-07-19 17:27:52,087 - DEBUG - data_preprocessing.py:931 - 1.4820001125335693
+2018-07-19 17:27:52,087 - DEBUG - data_preprocessing.py:924 - xgb_basis40 Format Converting begin in time:...
+2018-07-19 17:27:52,087 - DEBUG - data_preprocessing.py:925 - 1531992472.08789
+2018-07-19 17:27:53,561 - DEBUG - data_preprocessing.py:930 - xgb_basis40 finish convert,the cost time is 
+2018-07-19 17:27:53,561 - DEBUG - data_preprocessing.py:931 - 1.4738876819610596
+2018-07-19 17:27:53,561 - DEBUG - data_preprocessing.py:924 - xgb_basis41 Format Converting begin in time:...
+2018-07-19 17:27:53,561 - DEBUG - data_preprocessing.py:925 - 1531992473.561822
+2018-07-19 17:27:55,034 - DEBUG - data_preprocessing.py:930 - xgb_basis41 finish convert,the cost time is 
+2018-07-19 17:27:55,034 - DEBUG - data_preprocessing.py:931 - 1.4724645614624023
+2018-07-19 17:27:55,034 - DEBUG - data_preprocessing.py:924 - xgb_basis42 Format Converting begin in time:...
+2018-07-19 17:27:55,034 - DEBUG - data_preprocessing.py:925 - 1531992475.0343313
+2018-07-19 17:27:56,502 - DEBUG - data_preprocessing.py:930 - xgb_basis42 finish convert,the cost time is 
+2018-07-19 17:27:56,502 - DEBUG - data_preprocessing.py:931 - 1.4684288501739502
+2018-07-19 17:27:56,502 - DEBUG - data_preprocessing.py:924 - xgb_basis43 Format Converting begin in time:...
+2018-07-19 17:27:56,502 - DEBUG - data_preprocessing.py:925 - 1531992476.5028045
+2018-07-19 17:27:57,977 - DEBUG - data_preprocessing.py:930 - xgb_basis43 finish convert,the cost time is 
+2018-07-19 17:27:57,977 - DEBUG - data_preprocessing.py:931 - 1.4749855995178223
+2018-07-19 17:27:57,977 - DEBUG - data_preprocessing.py:924 - xgb_basis44 Format Converting begin in time:...
+2018-07-19 17:27:57,977 - DEBUG - data_preprocessing.py:925 - 1531992477.9778354
+2018-07-19 17:27:59,429 - DEBUG - data_preprocessing.py:930 - xgb_basis44 finish convert,the cost time is 
+2018-07-19 17:27:59,429 - DEBUG - data_preprocessing.py:931 - 1.4519224166870117
+2018-07-19 17:27:59,429 - DEBUG - data_preprocessing.py:924 - xgb_basis45 Format Converting begin in time:...
+2018-07-19 17:27:59,429 - DEBUG - data_preprocessing.py:925 - 1531992479.4298043
+2018-07-19 17:28:00,875 - DEBUG - data_preprocessing.py:930 - xgb_basis45 finish convert,the cost time is 
+2018-07-19 17:28:00,876 - DEBUG - data_preprocessing.py:931 - 1.4462218284606934
+2018-07-19 17:28:00,876 - DEBUG - data_preprocessing.py:924 - xgb_basis46 Format Converting begin in time:...
+2018-07-19 17:28:00,876 - DEBUG - data_preprocessing.py:925 - 1531992480.8760715
+2018-07-19 17:28:02,326 - DEBUG - data_preprocessing.py:930 - xgb_basis46 finish convert,the cost time is 
+2018-07-19 17:28:02,326 - DEBUG - data_preprocessing.py:931 - 1.4506494998931885
+2018-07-19 17:28:02,326 - DEBUG - data_preprocessing.py:924 - xgb_basis47 Format Converting begin in time:...
+2018-07-19 17:28:02,326 - DEBUG - data_preprocessing.py:925 - 1531992482.3267658
+2018-07-19 17:28:03,772 - DEBUG - data_preprocessing.py:930 - xgb_basis47 finish convert,the cost time is 
+2018-07-19 17:28:03,773 - DEBUG - data_preprocessing.py:931 - 1.4462497234344482
+2018-07-19 17:28:03,773 - DEBUG - data_preprocessing.py:924 - xgb_basis48 Format Converting begin in time:...
+2018-07-19 17:28:03,773 - DEBUG - data_preprocessing.py:925 - 1531992483.7730632
+2018-07-19 17:28:05,200 - DEBUG - data_preprocessing.py:930 - xgb_basis48 finish convert,the cost time is 
+2018-07-19 17:28:05,201 - DEBUG - data_preprocessing.py:931 - 1.4279890060424805
+2018-07-19 17:28:05,201 - DEBUG - data_preprocessing.py:924 - xgb_basis49 Format Converting begin in time:...
+2018-07-19 17:28:05,201 - DEBUG - data_preprocessing.py:925 - 1531992485.201097
+2018-07-19 17:28:06,626 - DEBUG - data_preprocessing.py:930 - xgb_basis49 finish convert,the cost time is 
+2018-07-19 17:28:06,626 - DEBUG - data_preprocessing.py:931 - 1.425208568572998
+2018-07-19 17:28:06,626 - DEBUG - data_preprocessing.py:924 - xgb_basis50 Format Converting begin in time:...
+2018-07-19 17:28:06,626 - DEBUG - data_preprocessing.py:925 - 1531992486.626352
+2018-07-19 17:28:08,044 - DEBUG - data_preprocessing.py:930 - xgb_basis50 finish convert,the cost time is 
+2018-07-19 17:28:08,044 - DEBUG - data_preprocessing.py:931 - 1.4178962707519531
+2018-07-19 17:28:08,044 - DEBUG - data_preprocessing.py:924 - xgb_basis51 Format Converting begin in time:...
+2018-07-19 17:28:08,044 - DEBUG - data_preprocessing.py:925 - 1531992488.0442944
+2018-07-19 17:28:09,456 - DEBUG - data_preprocessing.py:930 - xgb_basis51 finish convert,the cost time is 
+2018-07-19 17:28:09,456 - DEBUG - data_preprocessing.py:931 - 1.4126648902893066
+2018-07-19 17:28:09,457 - DEBUG - data_preprocessing.py:924 - xgb_basis52 Format Converting begin in time:...
+2018-07-19 17:28:09,457 - DEBUG - data_preprocessing.py:925 - 1531992489.4570048
+2018-07-19 17:28:10,874 - DEBUG - data_preprocessing.py:930 - xgb_basis52 finish convert,the cost time is 
+2018-07-19 17:28:10,874 - DEBUG - data_preprocessing.py:931 - 1.4178519248962402
+2018-07-19 17:28:10,874 - DEBUG - data_preprocessing.py:924 - xgb_basis53 Format Converting begin in time:...
+2018-07-19 17:28:10,874 - DEBUG - data_preprocessing.py:925 - 1531992490.8749013
+2018-07-19 17:28:12,285 - DEBUG - data_preprocessing.py:930 - xgb_basis53 finish convert,the cost time is 
+2018-07-19 17:28:12,285 - DEBUG - data_preprocessing.py:931 - 1.410461187362671
+2018-07-19 17:28:12,285 - DEBUG - data_preprocessing.py:924 - xgb_basis54 Format Converting begin in time:...
+2018-07-19 17:28:12,285 - DEBUG - data_preprocessing.py:925 - 1531992492.285407
+2018-07-19 17:28:13,687 - DEBUG - data_preprocessing.py:930 - xgb_basis54 finish convert,the cost time is 
+2018-07-19 17:28:13,687 - DEBUG - data_preprocessing.py:931 - 1.4024028778076172
+2018-07-19 17:28:13,687 - DEBUG - data_preprocessing.py:924 - xgb_basis55 Format Converting begin in time:...
+2018-07-19 17:28:13,687 - DEBUG - data_preprocessing.py:925 - 1531992493.6878574
+2018-07-19 17:28:15,086 - DEBUG - data_preprocessing.py:930 - xgb_basis55 finish convert,the cost time is 
+2018-07-19 17:28:15,086 - DEBUG - data_preprocessing.py:931 - 1.3984489440917969
+2018-07-19 17:28:15,086 - DEBUG - data_preprocessing.py:924 - xgb_basis56 Format Converting begin in time:...
+2018-07-19 17:28:15,086 - DEBUG - data_preprocessing.py:925 - 1531992495.086353
+2018-07-19 17:28:16,472 - DEBUG - data_preprocessing.py:930 - xgb_basis56 finish convert,the cost time is 
+2018-07-19 17:28:16,472 - DEBUG - data_preprocessing.py:931 - 1.3861653804779053
+2018-07-19 17:28:16,472 - DEBUG - data_preprocessing.py:924 - xgb_basis57 Format Converting begin in time:...
+2018-07-19 17:28:16,472 - DEBUG - data_preprocessing.py:925 - 1531992496.4725544
+2018-07-19 17:28:17,848 - DEBUG - data_preprocessing.py:930 - xgb_basis57 finish convert,the cost time is 
+2018-07-19 17:28:17,848 - DEBUG - data_preprocessing.py:931 - 1.375885009765625
+2018-07-19 17:28:17,848 - DEBUG - data_preprocessing.py:924 - xgb_basis58 Format Converting begin in time:...
+2018-07-19 17:28:17,848 - DEBUG - data_preprocessing.py:925 - 1531992497.8484747
+2018-07-19 17:28:19,218 - DEBUG - data_preprocessing.py:930 - xgb_basis58 finish convert,the cost time is 
+2018-07-19 17:28:19,218 - DEBUG - data_preprocessing.py:931 - 1.3696694374084473
+2018-07-19 17:28:19,218 - DEBUG - data_preprocessing.py:924 - xgb_basis59 Format Converting begin in time:...
+2018-07-19 17:28:19,218 - DEBUG - data_preprocessing.py:925 - 1531992499.218178
+2018-07-19 17:28:20,589 - DEBUG - data_preprocessing.py:930 - xgb_basis59 finish convert,the cost time is 
+2018-07-19 17:28:20,589 - DEBUG - data_preprocessing.py:931 - 1.3714849948883057
+2018-07-19 17:29:26,833 - DEBUG - data_preprocessing.py:945 - finish convert,the cost time is 
+2018-07-19 17:29:26,833 - DEBUG - data_preprocessing.py:946 - 67.61554718017578
+2018-07-19 17:29:26,833 - DEBUG - data_preprocessing.py:947 - [Done]
+2018-07-19 17:29:26,834 - DEBUG - data_preprocessing.py:949 -    click one_day one_day_hour day_hour_prev day_hour_next is_work_day  \
+0      0   0:0:1        1:0:1         2:0:1         3:0:1       4:0:1   
+1      0   0:0:1        1:0:1         2:0:1         3:0:1       4:0:1   
+
+  xgb_basis0 xgb_basis1 xgb_basis2 xgb_basis3     ...     xgb_basis50  \
+0      5:0:1      6:1:1      7:0:1      8:0:1     ...          55:0:1   
+1      5:0:1      6:1:1      7:0:1      8:0:1     ...          55:0:1   
+
+  xgb_basis51 xgb_basis52 xgb_basis53 xgb_basis54 xgb_basis55 xgb_basis56  \
+0      56:0:1      57:2:1      58:2:1      59:0:1      60:0:1      61:0:1   
+1      56:0:1      57:0:1      58:0:1      59:0:1      60:0:1      61:0:1   
+
+  xgb_basis57 xgb_basis58 xgb_basis59  
+0      62:0:1      63:0:1      64:0:1  
+1      62:0:1      63:0:1      64:0:1  
+
+[2 rows x 66 columns]
+2018-07-19 17:29:26,852 - DEBUG - data_preprocessing.py:950 - (4577464, 66)
