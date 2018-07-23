@@ -24,7 +24,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s', level=logging.DEBUG)
 
 
-n_trees=60
+n_trees=100
 def build_data(seed=100,is_type='train'):
     if 'train'==is_type:
         dtrain = xgb.DMatrix(FLAGS.tmp_data_path+'train'+str(seed)+'/xgboost.new_features.dtrain.joblib_dat')
