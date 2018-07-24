@@ -162,7 +162,7 @@ def two_features_data_preprocessing(data1,data2,data3, is_train=True):
 def new_features_w( is_train=True):
     
     data=pd.read_csv(FLAGS.tmp_data_path+'num_features.csv')
-    new_expvn= ['C1', 'C15', 'C16', 'C18', 'C19', 'C20', ]
+    new_expvn= ['C15', 'C16', 'C18', 'C19', 'C20', ]
     src_data=data[new_expvn]
     src_data['click']=data['click'].values
     del data
