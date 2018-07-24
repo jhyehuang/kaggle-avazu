@@ -767,9 +767,9 @@ def features_index():
     pass
 
 def train_data_ont_hot(seed=25):
-    train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/click.csv',)
+    train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/num_features.csv',)
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/cat_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join_cnt.csv')
@@ -831,9 +831,9 @@ def train_data_ont_hot(seed=25):
     del train_save
 
 def vali_data_ont_hot(seed=799):
-    train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/click.csv',)
+    train_save = pd.read_csv(FLAGS.tmp_data_path + 'train'+str(seed)+'/num_features.csv',)
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/date_list.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/num_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/cat_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path + 'train'+str(seed) +'/two_col_join_cnt.csv')
@@ -892,9 +892,9 @@ def vali_data_ont_hot(seed=799):
     del train_save
 
 def test_data_ont_hot():
-    test_save = pd.read_csv(FLAGS.tmp_data_path +'test/click.csv',)
+    test_save = pd.read_csv(FLAGS.tmp_data_path +'test/num_features.csv',)
 #    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/date_list.csv')
-    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/num_features.csv')
+#    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/num_features.csv')
 #    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/cat_features.csv')
 #    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join.csv')
 #    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join_cnt.csv')
