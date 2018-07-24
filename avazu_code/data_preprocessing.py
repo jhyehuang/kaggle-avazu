@@ -256,7 +256,7 @@ def concat_train_test(src_path, test_path,):
     
     #训练集 乱序，下采样
     train = shuffle(train)
-    train=train.sample(frac=0.15).reset_index(drop=True)
+    train=train.sample(frac=0.05).reset_index(drop=True)
     
     
     test = pd.read_csv(test_path,dtype ={'id': object,})
