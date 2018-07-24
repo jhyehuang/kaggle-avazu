@@ -87,14 +87,14 @@ gdbt_DM_get_test()
 
 
 # 训练集 one hot
-train_data_ont_hot()
-gc.collect()
+#train_data_ont_hot()
+#gc.collect()
 
 # 验证集one hot
-vali_data_ont_hot(25)
-gc.collect()
+#vali_data_ont_hot(25)
+#gc.collect()
 
 # 测试集one hot
-test_data_ont_hot()
-gc.collect()
+#test_data_ont_hot()
+#gc.collect()
 
