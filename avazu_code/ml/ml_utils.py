@@ -505,7 +505,8 @@ def calc_exptv(data1,data2,data3,vn_list,add_count=False):
                 
                 day_exps[day_v][vn] = calcTVTransform(t3, vn, 'click', cred_k, filter_t1)
             new_list.append(vn)
-    t3.ix[t3.values ==31,[x for x in new_list if 'click' in x]]=0
+    click_col=[x for x in new_list if 'click' in x]
+    t3.ix[np.logical_and(t3.one_day.values ==31,True),click_col]=0
     t3.drop(['one_day'], axis=1,inplace = True)
     t3.drop(['click'], axis=1,inplace = True)
     t3.to_csv(FLAGS.tmp_data_path+'two_col_join.csv',index=False)
