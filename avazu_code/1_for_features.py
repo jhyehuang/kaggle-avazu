@@ -47,10 +47,10 @@ output = FLAGS.output_dir
 #click_to_csv()
 #gc.collect()
 
-#file1,file2,file3='cat_features.csv','date_list.csv','num_features.csv'
+file1,file2,file3='cat_features.csv','date_list.csv','num_features.csv'
 # a5
 # 类别特征之间每俩个特征进行拼接 组成新特征
-#new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path+file1,FLAGS.tmp_data_path+file2,FLAGS.tmp_data_path+file3)
+new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path+file1,FLAGS.tmp_data_path+file2,FLAGS.tmp_data_path+file3)
 #gc.collect()
 
 
@@ -67,8 +67,8 @@ output = FLAGS.output_dir
 
 #a6
 #新特征 参随机选择5个特征，计算先验概率
-new_features_w()
-gc.collect()
+#new_features_w()
+#gc.collect()
 
 
 # 随机切割4个 500w的小数据集  调参
