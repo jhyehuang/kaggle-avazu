@@ -174,7 +174,7 @@ def done(istrain=True):
 #        n_estimators = [i for i in range(200,1000,1)]
         xgb1 = XGBClassifier(learning_rate =0.1,
 #        n_estimators=666,
-        n_estimators=100,
+        n_estimators=40,
         max_depth=6,
         min_child_weight=1,
 #        gamma=0.1,
@@ -186,8 +186,8 @@ def done(istrain=True):
         nthread=-1,
         verbose=1,
 #        scale_pos_weight=1,
-#        reg_alpha=1.5,
-#        reg_lambda=0.5,
+        reg_alpha=1.5,
+        reg_lambda=0.5,
         seed=27,
         silent=0,**gpu_dict)
         for i,oper in enumerate(op):
