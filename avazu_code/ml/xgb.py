@@ -45,7 +45,7 @@ gpu_dict={'tree_method':'gpu_hist',}
 
 
 def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv_type='n_estimators',random_state=0):
-    X_train_part, X_val, y_train_part, y_val = train_test_split(X_train, y_train, train_size = 0.9,random_state = random_state)
+    X_train_part, X_val, y_train_part, y_val = train_test_split(X_train, y_train, train_size = 0.6,random_state = random_state)
     if cv_type=='n_estimators':
         xgb_param = alg.get_xgb_params()
 #        xgb_param['num_class'] = 2
@@ -173,7 +173,8 @@ def done(istrain=True):
 #        dtrain = xgb.DMatrix(X_train, label=y_train)
 #        n_estimators = [i for i in range(200,1000,1)]
         xgb1 = XGBClassifier(learning_rate =0.1,
-        n_estimators=666,
+#        n_estimators=666,
+        n_estimators=300,
         max_depth=6,
         min_child_weight=1,
 #        gamma=0.1,
