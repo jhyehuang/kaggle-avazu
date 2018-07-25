@@ -173,21 +173,21 @@ def done(istrain=True):
 #        dtrain = xgb.DMatrix(X_train, label=y_train)
 #        n_estimators = [i for i in range(200,1000,1)]
         xgb1 = XGBClassifier(learning_rate =0.1,
-#        n_estimators=666,
-        n_estimators=1,
+        n_estimators=666,
+#        n_estimators=1,
         max_depth=6,
         min_child_weight=1,
-        gamma=0.1,
-        subsample=0.8,
-        colsample_bytree=0.8,
+#        gamma=0.1,
+#        subsample=0.8,
+#        colsample_bytree=0.8,
         scoring='roc_auc',
         objective='binary:logistic',
         eval_metric=['logloss','auc'],
         nthread=-1,
         verbose=2,
 #        scale_pos_weight=1,
-        reg_alpha=1.5,
-        reg_lambda=0.5,
+#        reg_alpha=1.5,
+#        reg_lambda=0.5,
         seed=27,
         silent=0,**gpu_dict)
         for i,oper in enumerate(op):
