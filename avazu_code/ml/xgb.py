@@ -135,7 +135,7 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
 #            alg.set_params(key=value)
 
     #Fit the algorithm on the data
-    alg.set_params(cvresult.best_params_)
+#    alg.set_params(cvresult.best_params_)
     alg.fit(X_train, y_train, eval_set=[(X_train, y_train), (X_val, y_val)],eval_metric='logloss',)
         
     #Predict training set:
