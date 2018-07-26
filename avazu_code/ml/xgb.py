@@ -56,8 +56,9 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
                          metrics='logloss', early_stopping_rounds=early_stopping_rounds)
         
         n_estimators = cvresult.shape[0]
-        alg.set_params(n_estimators = n_estimators)
-        
+#        alg.set_params(n_estimators = n_estimators)
+        for key,value in cvresult.best_params_.items():
+            alg.set_params(**{key:value})
         print (cvresult)
 
         cvresult.to_csv( FLAGS.tmp_data_path+'n_estimators.csv', index_label = 'n_estimators')
@@ -89,8 +90,8 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
     #  
         #最佳参数n_estimators
         logging.debug(cvresult.best_params_)
-#        param_cv.update(cvresult.best_params_)
-#        alg.set_params(cvresult.best_params_)
+        for key,value in cvresult.best_params_.items():
+            alg.set_params(**{key:value})
     elif cv_type=='min_child_weight':
 #        xgb_param = alg.get_xgb_params()
         min_child_weight = range(1,6,1)
@@ -102,7 +103,8 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
     #  
         #最佳参数n_estimators
         logging.debug(cvresult.best_params_)
-#        param_cv.update(cvresult.best_params_)
+        for key,value in cvresult.best_params_.items():
+            alg.set_params(**{key:value})
         
 
     elif cv_type=='subsample':
@@ -116,8 +118,8 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
     #  
         #最佳参数n_estimators
         logging.debug(cvresult.best_params_)
-#        for key,value in cvresult.best_params_.items():
-#            alg.set_params(key=value)
+        for key,value in cvresult.best_params_.items():
+            alg.set_params(**{key:value})
         
     elif cv_type=='reg_alpha':
         reg_alpha = [ 1.5, 2]    #default = 0, 测试0.1,1，1.5，2
@@ -131,8 +133,8 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
     #  
         #最佳参数n_estimators
         logging.debug(cvresult.best_params_)
-#        for key,value in cvresult.best_params_.items():
-#            alg.set_params(key=value)
+        for key,value in cvresult.best_params_.items():
+            alg.set_params(**{key:value})
 
     #Fit the algorithm on the data
 #    alg.set_params(cvresult.best_params_)
@@ -162,13 +164,13 @@ kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)
 def done(istrain=True):
 #    test_save.drop('click',axis=1,inplace=True)
 #    op=['n_estimators','max_depth','min_child_weight','subsample','reg_alpha','fin']
-    op=['fin']
+    op=['n_estimators']
     if istrain:
         train_save = gdbt_data_get_train(25)
         
         np.random.seed(999)
         r1 = np.random.uniform(0, 1, train_save.shape[0])  #产生0～40M的随机数
-        train_save = train_save.ix[r1 < 0.2, :]
+#        train_save = train_save.ix[r1 < 0.2, :]
         print(train_save.shape)
         y_train = train_save['click']
         train_save.drop('click',axis=1,inplace=True)
