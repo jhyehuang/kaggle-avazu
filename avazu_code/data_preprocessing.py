@@ -970,7 +970,7 @@ def gdbt_DM_get_train(seed=25):
     
     y_train = train_save['click']
     train_save.drop('click',axis=1,inplace=True)
-    pca = PCA(n_components=0.85)
+    pca = PCA(n_components=1)
       
     
     X_train_part, X_val, y_train_part, y_val = train_test_split(train_save, y_train, train_size = 0.6,random_state = 7)
