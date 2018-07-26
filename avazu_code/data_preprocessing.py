@@ -993,6 +993,8 @@ def gdbt_DM_get_train(seed=25):
     del dtv,train_save
     gc.collect()
 
+    dump(pca, FLAGS.tmp_data_path+'pca'+'.model.joblib_dat') 
+
     return 0
 
 def gdbt_DM_get_test():
@@ -1004,6 +1006,8 @@ def gdbt_DM_get_test():
     test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join_cnt.csv')
     logging.debug(test_save.shape)
 
+    pca=load(FLAGS.tmp_data_path+'pca'+'.model.joblib_dat') 
+    
     try:
         test_save.drop('id', axis=1,inplace = True)
     except:
@@ -1011,6 +1015,7 @@ def gdbt_DM_get_test():
     
     
     test_save.drop('click',axis=1,inplace=True)
+    test_save=pca.transform(test_save)
     dtv = xgb.DMatrix(test_save)
     dtv.save_binary(FLAGS.tmp_data_path+'test/xgboost.new_features.test.joblib_dat')
     del dtv,test_save

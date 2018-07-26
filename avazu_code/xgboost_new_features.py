@@ -33,7 +33,7 @@ def build_data(seed=100,is_type='train'):
     #    del y_train  
     
         watchlist = [(dtrain, 'train'), (dvalid, 'valid')]
-    #    print (X_train_part.shape, y_train_part.shape)
+    #    logging.debug (X_train_part.shape, y_train_part.shape)
     
         param = {'max_depth':7, 'eta':.1, 'objective':'binary:logistic', 'verbose':2,'booster':'gbtree',
                  'subsample':1.0, 'min_child_weight':1, 'gamma':0,'early_stopping_rounds':10,
@@ -55,7 +55,7 @@ def build_data(seed=100,is_type='train'):
         logging.debug(xgb_leaves.shape)
         for i in range(n_trees):
             pred2 = xgb_leaves[:, i]
-            print(i, np.unique(pred2).size)
+            logging.debug(i, np.unique(pred2).size)
             new_pd['xgb_basis'+str(i)] = pred2
     
     #    train_save = gdbt_data_get_train(799)
@@ -64,7 +64,7 @@ def build_data(seed=100,is_type='train'):
         for vn in ['xgb_basis' + str(i) for i in range(n_trees)]:
             _cat = np.asarray(new_pd[vn].astype('category').values.codes, dtype='int32')
             _cat1 = _cat + idx_base
-            print(vn, idx_base, _cat1.min(), _cat1.max(), np.unique(_cat).size)
+            logging.debug(vn, idx_base, _cat1.min(), _cat1.max(), np.unique(_cat).size)
             new_pd[vn] = _cat1
             idx_base += _cat.max() + 1
         logging.debug(new_pd.shape)
@@ -86,7 +86,7 @@ def build_data(seed=100,is_type='train'):
         logging.debug(xgb_leaves.shape)
         for i in range(n_trees):
             pred2 = xgb_leaves[:, i]
-            print(i, np.unique(pred2).size)
+            logging.debug(i, np.unique(pred2).size)
             new_pd['xgb_basis'+str(i)] = pred2
     
     #    train_save = gdbt_data_get_train(799)
@@ -95,7 +95,7 @@ def build_data(seed=100,is_type='train'):
         for vn in ['xgb_basis' + str(i) for i in range(n_trees)]:
             _cat = np.asarray(new_pd[vn].astype('category').values.codes, dtype='int32')
             _cat1 = _cat + idx_base
-            print(vn, idx_base, _cat1.min(), _cat1.max(), np.unique(_cat).size)
+            logging.debug(vn, idx_base, _cat1.min(), _cat1.max(), np.unique(_cat).size)
             new_pd[vn] = _cat1
             idx_base += _cat.max() + 1
         logging.debug(new_pd.shape)
