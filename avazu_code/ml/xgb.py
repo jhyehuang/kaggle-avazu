@@ -159,7 +159,7 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
         pass
 
 
-kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)
+kfold = StratifiedKFold(n_splits=3, shuffle=True, random_state=3)
 
 def done(istrain=True):
 #    test_save.drop('click',axis=1,inplace=True)
