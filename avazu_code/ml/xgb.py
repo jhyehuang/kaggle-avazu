@@ -56,9 +56,9 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
                          metrics='logloss', early_stopping_rounds=early_stopping_rounds)
         
         n_estimators = cvresult.shape[0]
-#        alg.set_params(n_estimators = n_estimators)
-        for key,value in cvresult.best_params_.items():
-            alg.set_params(**{key:value})
+        alg.set_params(n_estimators = n_estimators)
+#        for key,value in cvresult.best_params_.items():
+#            alg.set_params(**{key:value})
         print (cvresult)
 
         cvresult.to_csv( FLAGS.tmp_data_path+'n_estimators.csv', index_label = 'n_estimators')
