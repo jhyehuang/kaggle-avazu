@@ -80,7 +80,7 @@ output = FLAGS.output_dir
 #get_train_test_split()
 
 # 将训练数据集切分为  训练、验证、 转化为 Dmtrix
-#gdbt_DM_get_train(25)
+gdbt_DM_get_train(25)
 
 # 将测试集转化为 Dmtrix
 gdbt_DM_get_test()
