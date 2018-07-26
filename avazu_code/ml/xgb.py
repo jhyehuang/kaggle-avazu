@@ -162,7 +162,7 @@ kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)
 def done(istrain=True):
 #    test_save.drop('click',axis=1,inplace=True)
 #    op=['n_estimators','max_depth','min_child_weight','subsample','reg_alpha','fin']
-    op=['reg_alpha']
+    op=['fin']
     if istrain:
         train_save = gdbt_data_get_train(25)
         
@@ -190,8 +190,8 @@ def done(istrain=True):
         nthread=-1,
         verbose=2,
 #        scale_pos_weight=1,
-#        reg_alpha=1.5,
-#        reg_lambda=0.5,
+        reg_alpha=2,
+        reg_lambda=0.5,
         seed=27,
         silent=True,**gpu_dict)
         for i,oper in enumerate(op):
