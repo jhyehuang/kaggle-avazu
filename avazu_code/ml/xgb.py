@@ -170,7 +170,7 @@ def done(istrain=True):
         
         np.random.seed(999)
         r1 = np.random.uniform(0, 1, train_save.shape[0])  #产生0～40M的随机数
-#        train_save = train_save.ix[r1 < 0.2, :]
+        train_save = train_save.ix[r1 < 0.4, :]
         print(train_save.shape)
         y_train = train_save['click']
         train_save.drop('click',axis=1,inplace=True)
