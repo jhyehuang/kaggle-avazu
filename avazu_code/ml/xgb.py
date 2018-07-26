@@ -172,7 +172,7 @@ def done(istrain=True):
         X_train = train_save
 #        dtrain = xgb.DMatrix(X_train, label=y_train)
 #        n_estimators = [i for i in range(200,1000,1)]
-        xgb1 = XGBClassifier(learning_rate =0.1,
+        xgb1 = XGBClassifier(learning_rate =0.01,
         n_estimators=1000,
         booster='gbtree',
 #        n_estimators=1,
