@@ -957,7 +957,7 @@ def gdbt_DM_get_train(seed=25):
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/num_features.csv')
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train100/click.csv')
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join_cnt.csv')
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join_cnt.csv')
     logging.debug(train_save.columns)
 
     logging.debug(train_save.shape)
@@ -1003,7 +1003,7 @@ def gdbt_DM_get_test():
     test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/num_features.csv')
 #    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/click.csv')
     test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join.csv')
-    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join_cnt.csv')
+#    test_save=data_concat(test_save,FLAGS.tmp_data_path +'test/two_col_join_cnt.csv')
     logging.debug(test_save.shape)
 
     pca=load(FLAGS.tmp_data_path+'pca'+'.model.joblib_dat') 
@@ -1028,7 +1028,7 @@ def get_PCA_train_data(seed=25):
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/num_features.csv',nrows=200000)
 #    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train100/click.csv',nrows=200000)
     train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join.csv',nrows=200000)
-    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join_cnt.csv',nrows=200000)
+#    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(seed)+'/two_col_join_cnt.csv',nrows=200000)
     logging.debug(train_save.columns)
 
     logging.debug(train_save.shape)
