@@ -137,7 +137,7 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
             alg.set_params(key=value)
 
     #Fit the algorithm on the data
-    alg.fit(X_train, y_train, eval_metric='logloss')
+    alg.fit(X_train, y_train, eval_set=[(X_train, y_train), (X_val, y_val)],eval_metric='logloss')
         
     #Predict training set:
     
@@ -174,6 +174,7 @@ def done(istrain=True):
 #        n_estimators = [i for i in range(200,1000,1)]
         xgb1 = XGBClassifier(learning_rate =0.1,
         n_estimators=666,
+        booster='gbtree',
 #        n_estimators=1,
         max_depth=6,
         min_child_weight=1,
@@ -189,7 +190,7 @@ def done(istrain=True):
         reg_alpha=1.5,
         reg_lambda=0.5,
         seed=27,
-        silent=0,**gpu_dict)
+        silent=True,**gpu_dict)
         for i,oper in enumerate(op):
             modelfit_cv(xgb1, X_train,y_train, cv_folds = kfold,cv_type=oper,random_state=i)        
             logging.debug(oper+":to save validation predictions ...")

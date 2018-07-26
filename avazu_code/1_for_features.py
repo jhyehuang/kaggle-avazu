@@ -47,10 +47,10 @@ output = FLAGS.output_dir
 #click_to_csv()
 #gc.collect()
 
-file1,file2,file3='cat_features.csv','date_list.csv','num_features.csv'
+#file1,file2,file3='cat_features.csv','date_list.csv','num_features.csv'
 # a5
 # 类别特征之间每俩个特征进行拼接 组成新特征
-new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path+file1,FLAGS.tmp_data_path+file2,FLAGS.tmp_data_path+file3)
+#new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path+file1,FLAGS.tmp_data_path+file2,FLAGS.tmp_data_path+file3)
 #gc.collect()
 
 
@@ -77,13 +77,13 @@ new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path+file1,FLAGS.tmp_da
 
 
 #切分训练集到25 中，测试集到test中
-get_train_test_split()
+#get_train_test_split()
 
 # 将训练数据集切分为  训练、验证、 转化为 Dmtrix
-gdbt_DM_get_train(25)
+#gdbt_DM_get_train(25)
 
 # 将测试集转化为 Dmtrix
-gdbt_DM_get_test()
+#gdbt_DM_get_test()
 
 
 # 训练集 one hot
