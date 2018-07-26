@@ -35,7 +35,7 @@ def build_data(seed=100,is_type='train'):
         watchlist = [(dtrain, 'train'), (dvalid, 'valid')]
     #    print (X_train_part.shape, y_train_part.shape)
     
-        param = {'max_depth':6, 'eta':.1, 'objective':'binary:logistic', 'verbose':2,
+        param = {'max_depth':7, 'eta':.1, 'objective':'binary:logistic', 'verbose':2,'booster':'gbtree',
                  'subsample':1.0, 'min_child_weight':1, 'gamma':0,'early_stopping_rounds':10,
                  'nthread': -1, 'colsample_bytree':.8, 'base_score':0.16, 'seed': 27,'silent':0}
         param.update(gpu_dict)
