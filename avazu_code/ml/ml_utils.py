@@ -472,6 +472,8 @@ def calc_exptv(data1,data2,data3,vn_list,add_count=False):
     one_day=day[['one_day']]
     one_day.one_day=one_day.one_day.map(int).map(str)
     days_list=list(set(one_day.one_day.values))
+    print(days_list)
+    days_list.remove('31')
 
 
     for day_v in days_list:
@@ -502,11 +504,10 @@ def calc_exptv(data1,data2,data3,vn_list,add_count=False):
                 print (day_v)
                 filter_t1 = (one_day.one_day.values ==day_v )
                 logging.debug(filter_t1.shape)
-                
                 day_exps[day_v][vn] = calcTVTransform(t3, vn, 'click', cred_k, filter_t1)
             new_list.append(vn)
-    click_col=[x for x in new_list if 'click' in x]
-    t3.ix[np.logical_and(t3.one_day.values ==31,True),click_col]=0
+#    click_col=[x for x in new_list if 'click' in x]
+    t3.ix[np.logical_and(t3.one_day.values ==31,True),new_list]=0
     t3.drop(['one_day'], axis=1,inplace = True)
     t3.drop(['click'], axis=1,inplace = True)
     t3.to_csv(FLAGS.tmp_data_path+'two_col_join.csv',index=False)
