@@ -159,7 +159,7 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
         pass
 
 
-kfold = StratifiedKFold(n_splits=3, shuffle=True, random_state=3)
+kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)
 
 def done(istrain=True):
 #    test_save.drop('click',axis=1,inplace=True)
@@ -170,7 +170,7 @@ def done(istrain=True):
         
         np.random.seed(999)
         r1 = np.random.uniform(0, 1, train_save.shape[0])  #产生0～40M的随机数
-        train_save = train_save.ix[r1 < 0.4, :]
+        train_save = train_save.ix[r1 < 0.3, :]
         print(train_save.shape)
         y_train = train_save['click']
         train_save.drop('click',axis=1,inplace=True)
