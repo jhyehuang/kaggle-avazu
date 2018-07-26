@@ -166,6 +166,10 @@ def done(istrain=True):
     op=['min_child_weight']
     if istrain:
         train_save = gdbt_data_get_train(25)
+        
+        np.random.seed(999)
+        r1 = np.random.uniform(0, 1, train_save.shape[0])  #产生0～40M的随机数
+        train_save = train_save.ix[r1 < 0.4, :]
         print(train_save.shape)
         y_train = train_save['click']
         train_save.drop('click',axis=1,inplace=True)
