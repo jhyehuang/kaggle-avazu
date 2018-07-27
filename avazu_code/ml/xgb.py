@@ -155,7 +155,7 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
         
         param_cv = dict(scale_pos_weight=scale_pos_weight)
 
-        cvresult = GridSearchCV(alg,param_grid=param_cv, scoring='neg_log_loss',n_jobs=6,pre_dispatch='n_jobs',cv=cv_folds,verbose=2)
+        cvresult = GridSearchCV(alg,param_grid=param_cv, scoring='neg_log_loss',n_jobs=3,pre_dispatch='n_jobs',cv=cv_folds,verbose=2)
         cvresult.fit(X_train,y_train)
         pd.DataFrame(cvresult.cv_results_).to_csv('scale_pos_weight.csv')
     #  
