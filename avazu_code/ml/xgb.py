@@ -165,9 +165,10 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
             alg.set_params(**{key:value})
             
     elif cv_type=='rate_drop':
-        rate_drop = [i/10 for i in range(1,5)]    #default = 0, 测试0.1,1，1.5，2
+        rate_drop = [i/10 for i in range(1,7)]    #default = 0, 测试0.1,1，1.5，2
+        skip_drop = [i/10 for i in range(1,7)]
         
-        param_cv = dict(rate_drop=rate_drop)
+        param_cv = dict(rate_drop=rate_drop,skip_drop=skip_drop)
 
         cvresult = GridSearchCV(alg,param_grid=param_cv, scoring='neg_log_loss',n_jobs=3,pre_dispatch='n_jobs',cv=cv_folds,verbose=2)
         cvresult.fit(X_train,y_train)
@@ -209,7 +210,7 @@ dart_param = {'booster': 'dart',
 
 gbtree_param =dict(learning_rate =0.1,
         booster='gbtree',
-        n_estimators=1000,
+        n_estimators=618,
 #        n_estimators=1,
         max_depth=7,
         min_child_weight=1,
@@ -230,7 +231,7 @@ def done(istrain=True):
 #    test_save.drop('click',axis=1,inplace=True)
 #    op=['n_estimators','max_depth','min_child_weight','subsample','reg_alpha','gamma','fin']
     #  scale_pos_weight   rate_drop
-    op=['n_estimators']
+    op=['rate_drop']
     if istrain:
         train_save = gdbt_data_get_train(25)
         
