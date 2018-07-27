@@ -136,6 +136,19 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
         for key,value in cvresult.best_params_.items():
             alg.set_params(**{key:value})
 
+    elif cv_type=='gamma':
+        gamma = [i/10.0 for i in range(1,9)]    #default = 0, 测试0.1,1，1.5，2
+        
+        param_cv = dict(gamma=gamma)
+
+        cvresult = GridSearchCV(alg,param_grid=param_cv, scoring='neg_log_loss',n_jobs=3,pre_dispatch='n_jobs',cv=cv_folds,verbose=2)
+        cvresult.fit(X_train,y_train)
+        pd.DataFrame(cvresult.cv_results_).to_csv('gamma.csv')
+    #  
+        #最佳参数n_estimators
+        logging.debug(cvresult.best_params_)
+        for key,value in cvresult.best_params_.items():
+            alg.set_params(**{key:value})
     #Fit the algorithm on the data
 #    alg.set_params(cvresult.best_params_)
     alg.fit(X_train, y_train, eval_set=[(X_train, y_train), (X_val, y_val)],eval_metric='logloss',)
@@ -168,7 +181,7 @@ dart_param = {'booster': 'dart',
 
 gbtree_param =dict(learning_rate =0.1,
         booster='gbtree',
-        n_estimators=1000,
+        n_estimators=317,
 #        n_estimators=1,
         max_depth=7,
         min_child_weight=1,
@@ -177,18 +190,18 @@ gbtree_param =dict(learning_rate =0.1,
         colsample_bytree=0.7,
 #        scoring='roc_auc',
 #        scale_pos_weight=1,
-#        reg_alpha=2,
-#        reg_lambda=0.5,
-        rate_drop= 0.2,
-        skip_drop= 0.4,)
+        reg_alpha=2,
+        reg_lambda=0.5,
+        rate_drop= 0.1,
+        skip_drop= 0.5,)
 
-gbtree_param.update(dart_param)
+#gbtree_param.update(dart_param)
 kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)
 
 def done(istrain=True):
 #    test_save.drop('click',axis=1,inplace=True)
-#    op=['n_estimators','max_depth','min_child_weight','subsample','reg_alpha','fin']
-    op=['n_estimators']
+#    op=['n_estimators','max_depth','min_child_weight','subsample','reg_alpha','gamma','fin']
+    op=['gamma']
     if istrain:
         train_save = gdbt_data_get_train(25)
         
