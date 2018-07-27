@@ -81,8 +81,8 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
     elif cv_type=='max_depth':
 #        xgb_param = alg.get_xgb_params()
         max_depth = range(6,9,1)
-        min_child_weight = range(1,6,1)
-        param_cv = dict(max_depth=max_depth, min_child_weight=min_child_weight)
+#        min_child_weight = range(1,6,1)
+        param_cv = dict(max_depth=max_depth)
 
         cvresult = GridSearchCV(alg,param_grid=param_cv, scoring='neg_log_loss',n_jobs=8,pre_dispatch='n_jobs',cv=cv_folds,verbose=2)
         cvresult.fit(X_train,y_train)
@@ -158,28 +158,16 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
     except:
         pass
 
+dart_param = {'booster': 'dart',
+         'sample_type': 'uniform',
+         'normalize_type': 'tree',
+#         'rate_drop': 0.1,
+#         'skip_drop': 0.5,
+         'num_round' : 50}
 
-kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)
-
-def done(istrain=True):
-#    test_save.drop('click',axis=1,inplace=True)
-#    op=['n_estimators','max_depth','min_child_weight','subsample','reg_alpha','fin']
-    op=['max_depth']
-    if istrain:
-        train_save = gdbt_data_get_train(25)
-        
-        np.random.seed(999)
-        r1 = np.random.uniform(0, 1, train_save.shape[0])  #产生0～40M的随机数
-        train_save = train_save.ix[r1 < 0.2, :]
-        print(train_save.shape)
-        y_train = train_save['click']
-        train_save.drop('click',axis=1,inplace=True)
-        X_train = train_save
-#        dtrain = xgb.DMatrix(X_train, label=y_train)
-#        n_estimators = [i for i in range(200,1000,1)]
-        xgb1 = XGBClassifier(learning_rate =0.1,
-        n_estimators=704,
+gbtree_param =dict(learning_rate =0.1,
         booster='gbtree',
+        n_estimators=1000,
 #        n_estimators=1,
         max_depth=7,
         min_child_weight=1,
@@ -187,13 +175,37 @@ def done(istrain=True):
         subsample=0.8,
         colsample_bytree=0.7,
 #        scoring='roc_auc',
+#        scale_pos_weight=1,
+        reg_alpha=2,
+        reg_lambda=0.5,
+        rate_drop= 0.1,
+        skip_drop= 0.5,)
+
+#gbtree_param.update(dart_param)
+kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)
+
+def done(istrain=True):
+#    test_save.drop('click',axis=1,inplace=True)
+#    op=['n_estimators','max_depth','min_child_weight','subsample','reg_alpha','fin']
+    op=['n_estimators']
+    if istrain:
+        train_save = gdbt_data_get_train(25)
+        
+        np.random.seed(999)
+        r1 = np.random.uniform(0, 1, train_save.shape[0])  #产生0～40M的随机数
+#        train_save = train_save.ix[r1 < 0.2, :]
+        print(train_save.shape)
+        y_train = train_save['click']
+        train_save.drop('click',axis=1,inplace=True)
+        X_train = train_save
+#        dtrain = xgb.DMatrix(X_train, label=y_train)
+#        n_estimators = [i for i in range(200,1000,1)]
+        xgb1 = XGBClassifier(**gbtree_param,
+        
         objective='binary:logistic',
         eval_metric=['logloss'],
         nthread=-1,
         verbose=2,
-#        scale_pos_weight=1,
-        reg_alpha=2,
-        reg_lambda=0.5,
         seed=27,
         silent=True,**gpu_dict)
         for i,oper in enumerate(op):
