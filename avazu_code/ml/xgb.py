@@ -167,7 +167,7 @@ dart_param = {'booster': 'dart',
 
 gbtree_param =dict(learning_rate =0.1,
         booster='gbtree',
-        n_estimators=1000,
+        n_estimators=669,
 #        n_estimators=1,
         max_depth=7,
         min_child_weight=1,
@@ -178,8 +178,8 @@ gbtree_param =dict(learning_rate =0.1,
 #        scale_pos_weight=1,
         reg_alpha=2,
         reg_lambda=0.5,
-        rate_drop= 0.1,
-        skip_drop= 0.5,)
+        rate_drop= 0.2,
+        skip_drop= 0.4,)
 
 #gbtree_param.update(dart_param)
 kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)
@@ -187,7 +187,7 @@ kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=3)
 def done(istrain=True):
 #    test_save.drop('click',axis=1,inplace=True)
 #    op=['n_estimators','max_depth','min_child_weight','subsample','reg_alpha','fin']
-    op=['n_estimators']
+    op=['fin']
     if istrain:
         train_save = gdbt_data_get_train(25)
         
