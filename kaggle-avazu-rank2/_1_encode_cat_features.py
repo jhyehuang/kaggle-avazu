@@ -199,7 +199,7 @@ feature_list_dict[feature_list_name] = list_param + \
 
 filter_tv = np.logical_and(t0.day.values >= _start_day, t0.day.values < 31)
 filter_t1 = np.logical_and(t0.day.values < 30, filter_tv)
-filter_v1 = np.logical_and(~filter_t1, filter_tv)    
+filter_v1 = np.logical_and(~filter_t1, filter_tv)    #30
     
 print filter_tv.sum()
 
