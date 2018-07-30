@@ -122,8 +122,8 @@ def modelfit_cv(alg, X_train, y_train,cv_folds=None, early_stopping_rounds=10,cv
             alg.set_params(**{key:value})
         
     elif cv_type=='reg_alpha':
-        reg_alpha = [ 1.5, 2]    #default = 0, 测试0.1,1，1.5，2
-        reg_lambda = [0.5, 1, 2]      #default = 1，测试0.1， 0.5， 1，2
+        reg_alpha = [i/10.0 for i in range(60,80)]    #default = 0, 测试0.1,1，1.5，2
+        reg_lambda =[i/10 for i in range(4,9)]      #default = 1，测试0.1， 0.5， 1，2
         
         param_cv = dict(reg_alpha=reg_alpha, reg_lambda=reg_lambda)
 
@@ -210,7 +210,7 @@ dart_param = {'booster': 'dart',
 
 gbtree_param =dict(learning_rate =0.1,
         booster='gbtree',
-        n_estimators=618,
+        n_estimators=199,
 #        n_estimators=1,
         max_depth=7,
         min_child_weight=1,
@@ -219,9 +219,9 @@ gbtree_param =dict(learning_rate =0.1,
         colsample_bytree=0.7,
 #        scoring='roc_auc',
 #        scale_pos_weight=1,
-        reg_alpha=2,
-        reg_lambda=0.5,
-        rate_drop= 0.1,
+        reg_alpha=8,
+        reg_lambda=0.7,
+        rate_drop= 0.3,
         skip_drop= 0.5,)
 
 #gbtree_param.update(dart_param)
@@ -231,7 +231,7 @@ def done(istrain=True):
 #    test_save.drop('click',axis=1,inplace=True)
 #    op=['n_estimators','max_depth','min_child_weight','subsample','reg_alpha','gamma','fin']
     #  scale_pos_weight   rate_drop
-    op=['rate_drop']
+    op=['reg_alpha']
     if istrain:
         train_save = gdbt_data_get_train(25)
         
@@ -268,7 +268,7 @@ def done(istrain=True):
         for oper in op:
             xgb1 = load(FLAGS.tmp_data_path+'xgboost.cv_'+oper+'.model.joblib_dat')
             logging.debug(xgb1.get_params()['n_estimators'])
-            dtrain_predprob = xgb1.predict_proba(X_test)[:,0]
+            dtrain_predprob = xgb1.predict_proba(X_test)[:,1]
             logging.debug(dtrain_predprob)
             y_pred = [round(value,4) for value in dtrain_predprob]
             logging.debug('-'*30)
