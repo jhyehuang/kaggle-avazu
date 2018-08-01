@@ -36,11 +36,17 @@ output = FLAGS.output_dir
 #gc.collect()
 
 
+# 随机切割4个 500w的小数据集  调参
+#get_train_split()
+#gc.collect()
+
 # a2
 #计算 特征中 1、不同用户出现的次数 2、不同设备id出现的次数 3、不同ip出现的次数 4、不同用户不同时间出现的次数
 #将训练集写入硬盘
-#file1,file2,file3=one_line_data_preprocessing()  
-#gc.collect()
+for x in [100,299,799,1537]:
+#    file1,file2,file3=one_line_data_preprocessing(x) 
+#    click_to_csv() 
+    gc.collect()
 
 #a4
 #将点击数据按列写入硬盘
@@ -71,19 +77,15 @@ output = FLAGS.output_dir
 #gc.collect()
 
 
-# 随机切割4个 500w的小数据集  调参
-#get_train_split()
-#gc.collect()
-
 
 #切分训练集到25 中，测试集到test中
 #get_train_test_split()
 
 # 将训练数据集切分为  训练、验证、 转化为 Dmtrix
-gdbt_DM_get_train(25)
+#gdbt_DM_get_train(25)
 
 # 将测试集转化为 Dmtrix
-gdbt_DM_get_test()
+#gdbt_DM_get_test()
 
 
 # 训练集 one hot

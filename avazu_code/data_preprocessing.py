@@ -114,8 +114,8 @@ def add_col_cnt(src_data,col_name,cnt):
     logging.debug(src_data[vn].head())
 
 # 可以在单条记录情况下 加工的类别特征
-def one_line_data_preprocessing(is_train=True):
-    src_data=pd.read_csv(FLAGS.tmp_data_path+'train_test.csv')
+def one_line_data_preprocessing(x=25,is_train=True):
+    src_data=pd.read_csv(FLAGS.tmp_data_path+'train'+str(x)+'/'+'train_test.csv')
     anly_hour(src_data)
     logging.debug(src_data.shape)
     id_cnt,ip_cnt,user_cnt,user_hour_cnt=cat_features_cnt(src_data) 
@@ -141,9 +141,9 @@ def one_line_data_preprocessing(is_train=True):
 #            date_list.append(col)
         else:
             num_writeheader_list.append(col)
-    src_data[cat_writeheader_list].to_csv(FLAGS.tmp_data_path+'cat_features.csv',index=False)
+    src_data[cat_writeheader_list].to_csv(FLAGS.tmp_data_path+'train'+str(x)+'/'+'cat_features.csv',index=False)
 #    src_data[date_list].to_csv(FLAGS.tmp_data_path+'date_list.csv',index=False)
-    src_data[num_writeheader_list].to_csv(FLAGS.tmp_data_path+'num_features.csv',index=False)
+    src_data[num_writeheader_list].to_csv(FLAGS.tmp_data_path+'train'+str(x)+'/'+'num_features.csv',index=False)
     del src_data
     return 'cat_features.csv','date_list.csv','num_features.csv'
  
@@ -255,8 +255,8 @@ def concat_train_test(src_path, test_path,):
     del t5
     
     #训练集 乱序，下采样
-    train = shuffle(train)
-    train=train.sample(frac=0.05).reset_index(drop=True)
+#    train = shuffle(train)
+#    train=train.sample(frac=0.05).reset_index(drop=True)
     
     
     test = pd.read_csv(test_path,dtype ={'id': object,})
@@ -448,14 +448,15 @@ def click_to_csv():
     return True
 
 def get_train_split():
-    click=pd.read_csv(FLAGS.tmp_data_path+'click.csv')
+#    click=pd.read_csv(FLAGS.tmp_data_path+'click.csv')
     test_index = load(FLAGS.tmp_data_path+'test_index.joblib_dat')
     test_id=test_index['test']
     train_id=test_index['train']
-    train_click=click[:train_id]
-    filter_1 = np.logical_and(train_click.click.values > 0, True)
-    filter_0 = np.logical_and(train_click.click.values == 0,True)
-    files_name=['click.csv','cat_features.csv','date_list.csv','num_features.csv','two_col_join_cnt.csv','two_col_join.csv']
+#    train_click=click[:train_id]
+#    filter_1 = np.logical_and(train_click.click.values > 0, True)
+#    filter_0 = np.logical_and(train_click.click.values == 0,True)
+#    files_name=['click.csv','cat_features.csv','date_list.csv','num_features.csv','two_col_join_cnt.csv','two_col_join.csv']
+    files_name=['train_test.csv']
     
     
     logging.debug(files_name)
@@ -466,24 +467,28 @@ def get_train_split():
         logging.debug(test_save.shape)
         train_save=save[:train_id]
         for x in [100,299,799,1537]:
-            train_0=train_save.ix[filter_0, :]
-            train_1=train_save.ix[filter_1, :]
-            prc=train_1.shape[0]/train_0.shape[0]
-            train_1=train_1.sample(frac=0.5).reset_index(drop=True)
-            logging.debug(train_1.shape)
+            np.random.seed(x)
+            r1 = np.random.uniform(0, 1, train_save.shape[0])  #产生0～40M的随机数
+            train_ = train_save.ix[r1 < 0.13, :]
+            logging.debug( "testing with small sample of training data, {}".format(train_.shape))
+#            train_0=train_.ix[filter_0, :]
+#            train_1=train_.ix[filter_1, :]
+#            prc=train_1.shape[0]/train_0.shape[0]
+#            train_1=train_1.sample(frac=0.5).reset_index(drop=True)
+#            logging.debug(train_1.shape)
             logging.debug(file)
             logging.debug(x )
-            sampler = np.random.randint(0,train_0.shape[0],size=int(int(train_1.shape[0])/prc))
-            train_0=train_0.take(sampler)
-            train = pd.concat([train_0, train_1])
+#            sampler = np.random.randint(0,train_0.shape[0],size=int(int(train_1.shape[0])/prc))
+#            train_0=train_0.take(sampler)
+            train = pd.concat([train_, test_save])
 #            train = shuffle(train)
             train=train.sample(frac=1).reset_index(drop=True)
             logging.debug(train.shape)
             train.to_csv(FLAGS.tmp_data_path+'train'+str(x)+'/'+file,index=False)
             del train
-            del train_0
-            del train_1
-            del sampler
+            del train_
+#            del train_1
+#            del sampler
 
 def get_train_test_split():
     test_index = load(FLAGS.tmp_data_path+'test_index.joblib_dat')
