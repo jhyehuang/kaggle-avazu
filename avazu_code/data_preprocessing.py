@@ -137,12 +137,12 @@ def one_line_data_preprocessing(x=25,is_train=True):
         if col in category_list :
             cat_writeheader_list.append(col)
         elif 'day' in col:
-            pass
-#            date_list.append(col)
+#            pass
+            date_list.append(col)
         else:
             num_writeheader_list.append(col)
     src_data[cat_writeheader_list].to_csv(FLAGS.tmp_data_path+'train'+str(x)+'/'+'cat_features.csv',index=False)
-    src_data[date_list].to_csv(FLAGS.tmp_data_path+'date_list.csv',index=False)
+    src_data[date_list].to_csv(FLAGS.tmp_data_path++'train'+str(x)+'/date_list.csv',index=False)
     src_data[num_writeheader_list].to_csv(FLAGS.tmp_data_path+'train'+str(x)+'/'+'num_features.csv',index=False)
     del src_data
     return 'cat_features.csv','date_list.csv','num_features.csv'
