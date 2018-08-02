@@ -142,7 +142,7 @@ def one_line_data_preprocessing(x=25,is_train=True):
         else:
             num_writeheader_list.append(col)
     src_data[cat_writeheader_list].to_csv(FLAGS.tmp_data_path+'train'+str(x)+'/'+'cat_features.csv',index=False)
-#    src_data[date_list].to_csv(FLAGS.tmp_data_path+'date_list.csv',index=False)
+    src_data[date_list].to_csv(FLAGS.tmp_data_path+'date_list.csv',index=False)
     src_data[num_writeheader_list].to_csv(FLAGS.tmp_data_path+'train'+str(x)+'/'+'num_features.csv',index=False)
     del src_data
     return 'cat_features.csv','date_list.csv','num_features.csv'
