@@ -149,7 +149,7 @@ def one_line_data_preprocessing(x=25,is_train=True):
  
 
 
-def two_features_data_preprocessing(x=25, is_train=True):
+def two_features_data_preprocessing(x, is_train=True):
     
     logging.debug("to add some basic features ...")
     
