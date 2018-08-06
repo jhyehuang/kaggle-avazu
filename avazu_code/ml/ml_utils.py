@@ -463,7 +463,7 @@ def calc_exptv(x,vn_list,add_count=False):
     day_exps = {}
     cred_k=10
     day=pd.read_csv(FLAGS.tmp_data_path+'train'+str(x)+'/date_list.csv')
-    train=pd.read_csv(FLAGS.tmp_data_path+'train'+str(x)+'/train_test.csv')
+    train=pd.read_csv(FLAGS.tmp_data_path+'train'+str(x)+'/cat_features.csv')
     num=pd.read_csv(FLAGS.tmp_data_path+'train'+str(x)+'/num_features.csv')
 #    train=train.join(day, on='key')
 #    del day
