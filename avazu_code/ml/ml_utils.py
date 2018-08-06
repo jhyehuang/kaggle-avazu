@@ -459,7 +459,7 @@ def get_set_diff(df, vn, f1, f2):
     return len(set2_1) * 1.0 / len(set2)
 
 
-def calc_exptv(x=25,vn_list,add_count=False):
+def calc_exptv(x,vn_list,add_count=False):
     day_exps = {}
     cred_k=10
     day=pd.read_csv(FLAGS.tmp_data_path+'train'+str(x)+'/cat_features.csv')
