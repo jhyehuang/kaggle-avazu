@@ -459,12 +459,12 @@ def get_set_diff(df, vn, f1, f2):
     return len(set2_1) * 1.0 / len(set2)
 
 
-def calc_exptv(data1,data2,data3,vn_list,add_count=False):
+def calc_exptv(x=25,vn_list,add_count=False):
     day_exps = {}
     cred_k=10
-    day=pd.read_csv(data2)
-    train=pd.read_csv(data1)
-    num=pd.read_csv(data3)
+    day=pd.read_csv(FLAGS.tmp_data_path+'train'+str(x)+'/cat_features.csv')
+    train=pd.read_csv(FLAGS.tmp_data_path+'train'+str(x)+'/date_list.csv')
+    num=pd.read_csv(FLAGS.tmp_data_path+'train'+str(x)+'/num_features.csv')
 #    train=train.join(day, on='key')
 #    del day
 
@@ -510,22 +510,22 @@ def calc_exptv(data1,data2,data3,vn_list,add_count=False):
     t3.ix[np.logical_and(t3.one_day.values ==31,True),new_list]=0
     t3.drop(['one_day'], axis=1,inplace = True)
     t3.drop(['click'], axis=1,inplace = True)
-    t3.to_csv(FLAGS.tmp_data_path+'two_col_join.csv',index=False)
-    ret=dump(day_exps, FLAGS.tmp_data_path+'day_exps.joblib_dat') 
-    ret=dump(new_list, FLAGS.tmp_data_path+'new_list.joblib_dat') 
-    ret=dump(days_list, FLAGS.tmp_data_path+'days_list.joblib_dat') 
-    ret=dump(one_day, FLAGS.tmp_data_path+'one_day.joblib_dat')
+    t3.to_csv(FLAGS.tmp_data_path+'train'+str(x)+'/two_col_join.csv',index=False)
+    ret=dump(day_exps, FLAGS.tmp_data_path+'train'+str(x)+'/day_exps.joblib_dat') 
+    ret=dump(new_list, FLAGS.tmp_data_path+'train'+str(x)+'/new_list.joblib_dat') 
+    ret=dump(days_list, FLAGS.tmp_data_path+'train'+str(x)+'/days_list.joblib_dat') 
+    ret=dump(one_day, FLAGS.tmp_data_path+'train'+str(x)+'/one_day.joblib_dat')
     logging.debug(ret)
     del t3,day_exps
     
-def calc_exptv_cnt():
-    t3=pd.read_csv(FLAGS.tmp_data_path+'two_col_join.csv')
+def calc_exptv_cnt(x):
+    t3=pd.read_csv(FLAGS.tmp_data_path+'train'+str(x)+'/two_col_join.csv')
     drop_col_list=t3.columns
 #    drop_col_list.remove('id')
-    day_exps=load(FLAGS.tmp_data_path+'day_exps.joblib_dat')
-    new_list=load(FLAGS.tmp_data_path+'new_list.joblib_dat')
-    days_list=load(FLAGS.tmp_data_path+'days_list.joblib_dat')
-    one_day=load(FLAGS.tmp_data_path+'one_day.joblib_dat')
+    day_exps=load(FLAGS.tmp_data_path+'train'+str(x)+'/day_exps.joblib_dat')
+    new_list=load(FLAGS.tmp_data_path+'train'+str(x)+'/new_list.joblib_dat')
+    days_list=load(FLAGS.tmp_data_path+'train'+str(x)+'/days_list.joblib_dat')
+    one_day=load(FLAGS.tmp_data_path+'train'+str(x)+'/one_day.joblib_dat')
     t4= t3   
     two_new_list=[]
     for vn_key in new_list:
@@ -544,7 +544,7 @@ def calc_exptv_cnt():
             t4.loc[m, vn_exp]=day_exps[day_v][vn_key]['exp']
             t4.loc[m, vn_cnt]=day_exps[day_v][vn_key]['cnt']
     t4.drop(drop_col_list, axis=1,inplace = True)
-    t4.to_csv(FLAGS.tmp_data_path+'two_col_join_cnt.csv',index=False)
+    t4.to_csv(FLAGS.tmp_data_path+'train'+str(x)+'/two_col_join_cnt.csv',index=False)
     del t3,t4
     return two_new_list
 
