@@ -56,9 +56,7 @@ for x in [100,299,799,1537]:
 #    file1,file2,file3='cat_features.csv','date_list.csv','num_features.csv'
 # a5
 # 类别特征之间每俩个特征进行拼接 组成新特征
-    new_expvn=two_features_data_preprocessing(FLAGS.tmp_data_path+'train'+str(x)+'/'+file1,
-                                              FLAGS.tmp_data_path+'train'+str(x)+'/'+file2,
-                                              FLAGS.tmp_data_path+'train'+str(x)+'/'+file3)
+    new_expvn=two_features_data_preprocessing(x)
 #gc.collect()
 
 
