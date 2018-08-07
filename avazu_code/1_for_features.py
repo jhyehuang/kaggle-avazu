@@ -44,7 +44,7 @@ output = FLAGS.output_dir
 #计算 特征中 1、不同用户出现的次数 2、不同设备id出现的次数 3、不同ip出现的次数 4、不同用户不同时间出现的次数
 #将训练集写入硬盘
 for x in [100,299,799,1537]:
-    file1,file2,file3=one_line_data_preprocessing(x) 
+#    file1,file2,file3=one_line_data_preprocessing(x) 
 #    click_to_csv() 
     gc.collect()
 
@@ -56,13 +56,13 @@ for x in [100,299,799,1537]:
 #    file1,file2,file3='cat_features.csv','date_list.csv','num_features.csv'
 # a5
 # 类别特征之间每俩个特征进行拼接 组成新特征
-    new_expvn=two_features_data_preprocessing(x)
+#    new_expvn=two_features_data_preprocessing(x)
 #gc.collect()
 
 
 # a6
 # 按照时间维度对 特征进行概率计算
-#features_by_chick()
+    features_by_chick(x)
 #gc.collect()
 
 

@@ -299,12 +299,12 @@ def concat_train_test(src_path, test_path,):
     return 0
 
 
-def features_by_chick():
+def features_by_chick(x):
     
-    train_save = pd.read_csv(FLAGS.tmp_data_path +'cat_features.csv',)
-    train_save=data_concat(train_save,FLAGS.tmp_data_path +'date_list.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path +'click.csv')
-    train_save=data_concat(train_save,FLAGS.tmp_data_path +'two_col_join.csv')
+    train_save = pd.read_csv(FLAGS.tmp_data_path +'train'+str(x)+'/'+'cat_features.csv',)
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(x)+'/'+'date_list.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(x)+'/'+'click.csv')
+    train_save=data_concat(train_save,FLAGS.tmp_data_path +'train'+str(x)+'/'+'two_col_join.csv')
     
     logging.debug(train_save['one_day'].unique())
 
@@ -388,7 +388,7 @@ def features_by_chick():
     for vn in vns:
         train_save['exp2_'+vn] = exp2_dict[vn]
         exp_list.append('exp2_'+vn)
-    train_save[exp_list].to_csv(FLAGS.tmp_data_path+'exp_features.csv',index=False)
+    train_save[exp_list].to_csv(FLAGS.tmp_data_path+'train'+str(x)+'/'+'exp_features.csv',index=False)
     del train_save
     
 def ouwenzhang():
