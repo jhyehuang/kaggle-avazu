@@ -182,7 +182,8 @@ def mergeLeaveOneOut2(df, dfv, vn):
 
     grp1 = df[vn_yexp].groupby(_key_codes)
     _mean1 = grp1.aggregate(np.mean)
-    
+    logging.debug(_mean1.head(5))
+    logging.debug(dfv[vn].head(5))
     _mean = _mean1[dfv[vn].values].values
     
     _mean[np.isnan(_mean)] = _mean1.mean()
